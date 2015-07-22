@@ -52,6 +52,11 @@ span.exception {
 span.exceptionRow {
 	display: inline-block;
 	width: 100%;
+	cursor: pointer;
+}
+
+span.exceptionRow * {
+	cursor: inherit;
 }
 
 span.exceptionRow.retracted::after, span.exceptionRow.expanded::after {
