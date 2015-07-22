@@ -16,9 +16,9 @@ export class Exception extends Component {
 		var trace = this.props.Trace.split('\n');
 		var traceElements;
 		if (this.state.expanded) {
-			traceElements = trace.map(line => {
+			traceElements = trace.map((line, i) => {
 				return (
-					<TraceLine line={line}/>
+					<TraceLine key={i} line={line}/>
 				);
 			});
 			traceElements = (
@@ -30,10 +30,11 @@ export class Exception extends Component {
 			traceElements = [];
 		}
 		return (
-			<span className="exceptionRow" onClick={this.clickHandler}>
+			<span
+				className={"exceptionRow " + (this.state.expanded ? 'expanded':'retracted')}
+				onClick={this.clickHandler}>
 				<span className="exception">{this.props.Exception}</span>:&nbsp;
 				<span className="message">{this.props.Message}</span>
-				&nbsp;{this.state.expanded ? '▲' : '▼'}
 				{traceElements}
 			</span>
 		);

@@ -10,9 +10,20 @@ table.logs td, table.logs th {
 	padding: .8em;
 	text-align: left;
 	font-weight: normal;
+	position: relative;
 }
 
-/*levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];*/
+table.logs .time {
+	width: 100px;
+}
+
+table.logs .app {
+	width: 150px;
+}
+
+table.logs .level {
+	width: 100px;
+}
 
 /*info*/
 table.logs tr.level_1 {
@@ -41,6 +52,21 @@ span.exception {
 span.exceptionRow {
 	display: inline-block;
 	width: 100%;
+}
+
+span.exceptionRow.retracted::after, span.exceptionRow.expanded::after {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 10px;
+}
+
+span.exceptionRow.retracted::after {
+	content: '▼';
+}
+
+span.exceptionRow.expanded::after {
+	content: '▲';
 }
 
 ol.trace {
