@@ -1,0 +1,56 @@
+table.logs {
+	width: 100%;
+	white-space: normal;
+	margin-bottom: 14px;
+}
+
+table.logs td, table.logs th {
+	vertical-align: top;
+	border-bottom: 1px solid #ddd;
+	padding: .8em;
+	text-align: left;
+	font-weight: normal;
+}
+
+/*levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];*/
+
+/*info*/
+table.logs tr.level_1 {
+	background-color: #BDE5F8;
+}
+
+/* warning*/
+table.logs tr.level_2 {
+	background-color: #FEEFB3;
+}
+
+/*error*/
+table.logs tr.level_3 {
+	background-color: #FFBABA;
+}
+
+/*fatal*/
+table.logs tr.level_4 {
+	background-color: #ff8080;
+}
+
+span.exception {
+	font-weight: bold;
+}
+
+span.exceptionRow {
+	display: inline-block;
+	width: 100%;
+}
+
+ol.trace {
+	padding-top: 0.5em;
+}
+
+ol.trace > li {
+	padding: 0.3em;
+}
+
+ol.trace .file, ol.trace .line {
+	font-style: italic;
+}

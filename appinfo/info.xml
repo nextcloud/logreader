@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>logreader</id>
+	<name>Log Reader</name>
+	<description>Easier reading of logs</description>
+	<licence>AGPL</licence>
+	<author>Robin Appelman</author>
+
+	<dependencies>
+		<owncloud min-version="8.1"/>
+	</dependencies>
+</info>
