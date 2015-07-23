@@ -28,17 +28,28 @@ class SearchFilter extends \FilterIterator {
 	private $query;
 
 	/**
+	 * @var string[]
+	 */
+	private $levels;
+
+	/**
 	 * @param LogIterator $iterator
 	 * @param string $query
 	 */
 	public function __construct(LogIterator $iterator, $query) {
 		parent::__construct($iterator);
 		$this->query = strtolower($query);
+		$this->levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
+	}
+
+	private function formatLevel($level) {
+		return $this->levels[$level];
 	}
 
 	public function accept() {
 		$value = $this->getInnerIterator()->current();
-		$value = strtolower($value->message);
-		return strpos($value, $this->query) !== false;
+		return stripos($value->message, $this->query) !== false
+		|| stripos($value->app, $this->query) !== false
+		|| stripos($this->formatLevel($value->level), $this->query) !== false;
 	}
 }
