@@ -5,16 +5,35 @@ export class LogProvider extends EventEmitter {
 
 	cachedEntries = [];
 
-	_limit = 0;
-
 	constructor (limit = 50) {
 		super();
+		this.baseLimit = limit;
 		this.loading = false;
 		this.limit = limit;
+		this.searchQuery = '';
+	}
+
+	reset () {
+		this.limit = this.baseLimit;
+		this.cachedEntries = [];
+		this.loading = false;
 	}
 
 	get entries () {
 		return cachedEntries;
+	}
+
+	set query (newQuery) {
+		console.log(newQuery);
+		if (newQuery !== this.searchQuery) {
+			this.searchQuery = newQuery;
+			this.reset();
+			this.load();
+		}
+	}
+
+	get query () {
+		return this.searchQuery;
 	}
 
 	async load () {
@@ -30,9 +49,17 @@ export class LogProvider extends EventEmitter {
 	}
 
 	loadEntries (offset, count = 50) {
-		return $.get(OC.generateUrl('/settings/admin/log/entries'), {
-			offset,
-			count
-		});
+		if (this.searchQuery) {
+			return $.get(OC.generateUrl('/apps/logreader/search'), {
+				offset,
+				count,
+				query: this.query
+			});
+		} else {
+			return $.get(OC.generateUrl('/apps/logreader/get'), {
+				offset,
+				count
+			});
+		}
 	}
 }

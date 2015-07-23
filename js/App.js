@@ -6,6 +6,8 @@ import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
 import {SideBar} from './Components/SideBar.js';
 
+import {LogSearch} from './Search.js';
+
 export class App extends Component {
 	state = {
 		'entries': [],
@@ -18,6 +20,7 @@ export class App extends Component {
 		this.logProvider.on('entries', entries => {
 			this.setState({entries});
 		});
+		OCA.Search.logreader = new LogSearch(this.logProvider);
 		this.logProvider.load();
 	}
 

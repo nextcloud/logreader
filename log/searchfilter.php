@@ -19,32 +19,26 @@
  *
  */
 
-namespace OCA\LogReader\Controller;
+namespace OCA\LogReader\Log;
 
-use OCP\AppFramework\Controller;
-use OCP\AppFramework\Http\TemplateResponse;
-
-/**
- * Class PageController
- *
- * @package OCA\LogReader\Controller
- */
-class PageController extends Controller {
+class SearchFilter extends \FilterIterator {
 	/**
-	 * @NoCSRFRequired
-	 *
-	 * @return TemplateResponse
+	 * @var string
 	 */
-	public function index() {
+	private $query;
 
-		$response = new TemplateResponse(
-			$this->appName,
-			'index',
-			[]
-		);
-
-		return $response;
+	/**
+	 * @param LogIterator $iterator
+	 * @param string $query
+	 */
+	public function __construct(LogIterator $iterator, $query) {
+		parent::__construct($iterator);
+		$this->query = strtolower($query);
 	}
 
-
+	public function accept() {
+		$value = $this->getInnerIterator()->current();
+		$value = strtolower($value->message);
+		return strpos($value, $this->query) !== false;
+	}
 }

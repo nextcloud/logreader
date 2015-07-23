@@ -11,4 +11,6 @@
 return ['routes' => [
 	// page
 	['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
+	['name' => 'log#get', 'url' => '/get', 'verb' => 'GET'],
+	['name' => 'log#search', 'url' => '/search', 'verb' => 'GET'],
 ]];
