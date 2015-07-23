@@ -16,7 +16,7 @@ export class App extends Component {
 
 	constructor () {
 		super();
-		this.logProvider = new LogProvider(25);
+		this.logProvider = new LogProvider(50);
 		this.logProvider.on('entries', entries => {
 			this.setState({entries});
 		});
