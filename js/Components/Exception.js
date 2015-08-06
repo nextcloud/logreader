@@ -13,12 +13,11 @@ export class Exception extends Component {
 	};
 
 	render () {
-		var trace = this.props.Trace.split('\n');
 		var traceElements;
 		if (this.state.expanded) {
-			traceElements = trace.map((line, i) => {
+			traceElements = this.props.Trace.map((trace, i) => {
 				return (
-					<TraceLine key={i} line={line}/>
+					<TraceLine key={i} {...trace}/>
 				);
 			});
 			traceElements = (
