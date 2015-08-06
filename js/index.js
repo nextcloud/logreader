@@ -10,5 +10,5 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 $(document).ready(() => {
-	React.render(<App appId="logreader" />, document.getElementById('content'));
+	React.render(<App />, document.getElementById('content'));
 });

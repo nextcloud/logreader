@@ -4,14 +4,17 @@ import ReactScrolla from 'react-scrolla';
 
 import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
-import {SideBar} from './Components/SideBar.js';
+import {SideBar, Entry, Separator} from './Components/SideBar.js';
+import {ToggleEntry} from './Components/ToggleEntry.js';
+import {App as OCApp} from './Components/App.js';
 
 import {LogSearch} from './Search.js';
 
 export class App extends Component {
 	state = {
 		'entries': [],
-		'loading': false
+		'loading': false,
+		'levels': [true, true, true, true, true]
 	};
 
 	constructor () {
@@ -31,13 +34,30 @@ export class App extends Component {
 		this.setState({loading: false});
 	};
 
-	render () {
-		return (
-			<div id="content" role="main" className={"app-" + this.props.appId}>
-				<SideBar>
-					<p>Dummy 1</p>
+	setLevel (level, newState) {
+		let levels = this.state.levels;
+		levels[level] = newState;
+		this.setState({levels});
+	}
 
-					<p>Dummy 2</p>
+	render () {
+		let entries = this.state.entries.filter(entry=> {
+			return this.state.levels[entry.level];
+		});
+
+		let filters = this.state.levels.map((status, level)=> {
+			return (
+				<ToggleEntry active={status}
+							 onChange={this.setLevel.bind(this, level)}>
+					{LogProvider.levels[level]}
+				</ToggleEntry>
+			);
+		});
+
+		return (
+			<OCApp appId="logreader">
+				<SideBar>
+					{filters}
 				</SideBar>
 
 				<ReactScrolla
@@ -45,9 +65,9 @@ export class App extends Component {
 					percentage={85}
 					onPercentage={this.fetchNextPage}
 					isLoading={this.state.loading}>
-					<LogTable entries={this.state.entries}/>
+					<LogTable entries={entries}/>
 				</ReactScrolla>
-			</div>
+			</OCApp>
 		);
 	}
 }

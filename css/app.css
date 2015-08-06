@@ -85,3 +85,15 @@ ol.trace > li {
 ol.trace .file, ol.trace .line {
 	font-style: italic;
 }
+
+a.checkbox-holder {
+	line-height: 30px;
+}
+
+input[type="checkbox"] {
+	margin: 5px;
+}
+
+label {
+	margin: 5px;
+}
