@@ -46,7 +46,7 @@ export class App extends Component {
 
 		let filters = this.state.levels.map((status, level)=> {
 			return (
-				<ToggleEntry active={status}
+				<ToggleEntry key={level} active={status}
 							 onChange={this.setLevel.bind(this, level)}>
 					{LogProvider.levels[level]}
 				</ToggleEntry>
