@@ -4,9 +4,8 @@ import ReactScrolla from 'react-scrolla';
 
 import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
-import {SideBar, Entry, Separator} from './Components/SideBar.js';
 import {ToggleEntry} from './Components/ToggleEntry.js';
-import {App as OCApp} from './Components/App.js';
+import {App as AppContainer, SideBar} from 'oc-react-components';
 
 import {LogSearch} from './Search.js';
 
@@ -55,7 +54,7 @@ export class App extends Component {
 		});
 
 		return (
-			<OCApp appId="logreader">
+			<AppContainer appId="logreader">
 				<SideBar>
 					{filters}
 				</SideBar>
@@ -67,7 +66,7 @@ export class App extends Component {
 					isLoading={this.state.loading}>
 					<LogTable entries={entries}/>
 				</ReactScrolla>
-			</OCApp>
+			</AppContainer>
 		);
 	}
 }

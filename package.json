@@ -21,6 +21,7 @@
   "dependencies": {
     "babel-runtime": "^5.8.3",
     "envify": "^3.4.0",
+    "oc-react-components": "^0.1.1",
     "react": "^0.13.3",
     "react-mixin": "^1.6.0",
     "react-scrolla": "^0.1.0",
