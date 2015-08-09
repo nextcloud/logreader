@@ -68,8 +68,8 @@ class LogIterator implements \Iterator {
 		while ($this->position >= 0) {
 			fseek($this->handle, $this->position);
 			$ch = fgetc($this->handle);
-			if ($ch == "\n" || $this->position === 0) {
-				if ($line != '') {
+			if ($ch === "\n" || $this->position === 0) {
+				if ($line !== '') {
 					// Add the first character if at the start of the file,
 					// because it doesn't hit the else in the loop
 					if ($this->position === 0) {
