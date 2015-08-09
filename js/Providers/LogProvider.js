@@ -24,7 +24,6 @@ export class LogProvider extends EventEmitter {
 	}
 
 	set query (newQuery) {
-		console.log(newQuery);
 		if (newQuery !== this.searchQuery) {
 			this.searchQuery = newQuery;
 			this.reset();
@@ -39,7 +38,6 @@ export class LogProvider extends EventEmitter {
 	async load () {
 		this.loading = true;
 		if (this.cachedEntries.length >= this.limit) {
-			console.log('got ' + this.cachedEntries.length + 'entries');
 			return;
 		}
 		var newData = await this.loadEntries(this.cachedEntries.length, this.limit - this.cachedEntries.length);
