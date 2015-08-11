@@ -21,4 +21,4 @@ The latest stable release can be found on the [app store](https://apps.owncloud.
  - clone the repo in the apps folder
  - make sure gulp is installed
  - `npm install`
- - `gulp prod` (or `gulp dev` to automatically rebuild while developing)
+ - `npm run build` (or `npm run dev` to automatically rebuild while developing)

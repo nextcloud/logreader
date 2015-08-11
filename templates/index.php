@@ -1,3 +1,2 @@
-<?php script('logreader', ['../build/js/main']); ?>
-<?php style('logreader', ['app']); ?>
-
+<?php script($_['appId'], ['../build/main']); ?>
+<?php style($_['appId'], ['../build/main']); ?>

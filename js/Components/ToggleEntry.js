@@ -13,15 +13,11 @@ export class ToggleEntry extends Component {
 		this.state.active = props.active || false;
 	}
 
-	get id () {
+	getCheckBoxId = ()=> {
 		if (!this._id) {
 			this._id = this.props.id || '__checkbox_' + (++ToggleEntry.idCounter);
 		}
 		return this._id;
-	}
-
-	onChange = (event)=> {
-
 	};
 
 	onClick = () => {
@@ -36,10 +32,11 @@ export class ToggleEntry extends Component {
 		return (
 			<li>
 				<a className="checkbox-holder" onClick={this.onClick}>
-					<input id={this.id} type="checkbox"
+					<input id={this.getCheckBoxId()} type="checkbox"
 						   checked={this.state.active}
 						   readOnly/>
-					<label htmlFor={this.id}>{this.props.children}</label>
+					<label
+						htmlFor={this.getCheckBoxId()}>{this.props.children}</label>
 				</a>
 			</li>
 		);

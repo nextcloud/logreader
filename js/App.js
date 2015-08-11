@@ -1,5 +1,4 @@
 import React, {Component} from 'react/addons';
-import {decorate} from 'react-mixin';
 import ReactScrolla from 'react-scrolla';
 
 import {LogProvider} from './Providers/LogProvider.js';
@@ -8,6 +7,8 @@ import {ToggleEntry} from './Components/ToggleEntry.js';
 import {App as AppContainer, SideBar} from 'oc-react-components';
 
 import {LogSearch} from './Search.js';
+
+require('../css/app.css');
 
 export class App extends Component {
 	state = {
