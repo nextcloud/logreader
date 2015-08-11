@@ -36,7 +36,11 @@ module.exports = {
 			{test: /\.json$/, loader: 'json-loader'},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style', 'css?sourceMap!autoprefixer?browsers=last 2 version!')
+				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version')
+			},
+			{
+				test: /\.less$/,
+				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!less')
 			}
 		]
 	},
