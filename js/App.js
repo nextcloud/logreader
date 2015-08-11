@@ -37,6 +37,12 @@ export class App extends Component {
 	setLevel (level, newState) {
 		let levels = this.state.levels;
 		levels[level] = newState;
+		const entries = this.state.entries.filter(entry=> {
+			return this.state.levels[entry.level];
+		});
+		if (entries.length < 50) {
+			this.fetchNextPage();
+		}
 		this.setState({levels});
 	}
 
