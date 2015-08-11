@@ -1,6 +1,8 @@
 import {Component} from 'react/addons';
 import {TraceLine} from './TraceLine.js';
 
+import style from './Exception.less';
+
 export class Exception extends Component {
 	state = {
 		expanded: false
@@ -21,7 +23,7 @@ export class Exception extends Component {
 				);
 			});
 			traceElements = (
-				<ol className="trace" start="0">
+				<ol className={style.trace} start="0">
 					{traceElements}
 				</ol>
 			)
@@ -30,10 +32,10 @@ export class Exception extends Component {
 		}
 		return (
 			<span
-				className={"exceptionRow " + (this.state.expanded ? 'expanded':'retracted')}
+				className={style.exceptionRow + ' ' + (this.state.expanded ? style.expanded:style.retracted)}
 				onClick={this.clickHandler}>
-				<span className="exception">{this.props.Exception}</span>:&nbsp;
-				<span className="message">{this.props.Message}</span>
+				<span className={style.exception}>{this.props.Exception}</span>:&nbsp;
+				<span className={style.messsage}>{this.props.Message}</span>
 				{traceElements}
 			</span>
 		);

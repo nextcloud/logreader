@@ -1,14 +1,16 @@
 import {Component} from 'react/addons';
 
+import style from './TraceLine.less';
+
 export class TraceLine extends Component {
 	render () {
 		return (
-			<li>
-				<span className="file">{this.props.file}</span>
+			<li className={style.line}>
+				<span className={style.file}>{this.props.file}</span>
 				<span
-					className="line">{this.props.lineNumber ? ' - line ' + this.props.lineNumber + ': ' : ''}
+					className={style.line}>{this.props.lineNumber ? ' - line ' + this.props.lineNumber + ': ' : ''}
 				</span>
-				<span className="call">{this.props.call}</span>
+				<span className={style.call}>{this.props.call}</span>
 			</li>
 		);
 	}

@@ -1,5 +1,7 @@
 import {Component} from 'react/addons';
 
+import style from './ToggleEntry.less';
+
 export class ToggleEntry extends Component {
 	static idCounter = 0;
 	_id = null;
@@ -30,8 +32,8 @@ export class ToggleEntry extends Component {
 
 	render () {
 		return (
-			<li>
-				<a className="checkbox-holder" onClick={this.onClick}>
+			<li className={style.toggleEntry}>
+				<a className={style['checkbox-holder']} onClick={this.onClick}>
 					<input id={this.getCheckBoxId()} type="checkbox"
 						   checked={this.state.active}
 						   readOnly/>

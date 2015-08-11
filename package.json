@@ -56,6 +56,8 @@
   "dependencies": {
     "babel": "5.8.3",
     "babel-plugin-typecheck": "0.0.3",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
     "oc-react-components": "^0.1.5",
     "react": "^0.13.3",
     "react-scrolla": "^0.1.0",
