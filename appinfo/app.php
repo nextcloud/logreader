@@ -3,7 +3,7 @@
 $c = \OC::$server;
 
 $user = \OC::$server->getUserSession()->getUser();
-if (\OC::$server->getGroupManager()->isAdmin($user->getUID())) {
+if ($user and \OC::$server->getGroupManager()->isAdmin($user->getUID())) {
 	\OC::$server->getNavigationManager()->add(function () {
 		return [
 			'id' => 'logreader',
