@@ -8,5 +8,5 @@ var React = require('react/addons');
 window.React = React;
 
 $(document).ready(() => {
-	React.render(<App />, document.getElementById('content'));
+	React.render(<App />, document.getElementById('content-wrapper'));
 });

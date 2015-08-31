@@ -2,6 +2,7 @@
   width: 100%;
   white-space: normal;
   margin-bottom: 14px;
+  table-layout: fixed;
 
   td, th {
     vertical-align: top;
@@ -25,22 +26,49 @@
   }
 
   /*info*/
-  tr.level_1 {
+  .level_1 {
     background-color: #BDE5F8;
   }
 
   /* warning*/
-  tr.level_2 {
+  .level_2 {
     background-color: #FEEFB3;
   }
 
   /*error*/
-  tr.level_3 {
+  .level_3 {
     background-color: #FFBABA;
   }
 
   /*fatal*/
-  tr.level_4 {
+  .level_4 {
     background-color: #ff8080;
+  }
+
+  div.column {
+    box-sizing: border-box;
+    padding: 7px;
+  }
+  
+  div.level {
+    font-weight: bold;
+  }
+
+  div.level, div.app, div.time {
+    display: inline-block;
+    width: 33%;
+  }
+
+  div.time {
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  div.row {
+    position: relative;
+  }
+
+  div.message {
+    border-bottom: 1px solid #888;
   }
 }
