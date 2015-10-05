@@ -60,7 +60,7 @@ class LogController extends Controller {
 			$iterator->next();
 		}
 		$data = [];
-		for ($i = 0; $i < $count; $i++) {
+		for ($i = 0; $i < $count && $iterator->valid(); $i++) {
 			$line = $iterator->current();
 			if (!is_null($line)) {
 				$data[] = $line;
