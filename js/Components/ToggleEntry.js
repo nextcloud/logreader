@@ -30,6 +30,12 @@ export class ToggleEntry extends Component {
 		}
 	};
 
+	componentWillReceiveProps = (props) => {
+		if(props.active != this.state.active) {
+			this.setState({active: props.active});
+		}
+	};
+
 	render () {
 		return (
 			<li className={style.toggleEntry}>

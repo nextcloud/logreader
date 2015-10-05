@@ -26,6 +26,8 @@ use OCA\LogReader\Log\SearchFilter;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\IConfig;
+use OCP\IRequest;
 
 /**
  * Class LogController
@@ -33,6 +35,18 @@ use OCP\AppFramework\Http\TemplateResponse;
  * @package OCA\LogReader\Controller
  */
 class LogController extends Controller {
+	/**
+	 * @var IConfig
+	 */
+	private $config;
+
+	public function __construct($appName,
+								IRequest $request,
+								IConfig $config) {
+		parent::__construct($appName, $request);
+		$this->config = $config;
+	}
+
 	/**
 	 * @param int $count
 	 * @param int $offset
@@ -53,6 +67,14 @@ class LogController extends Controller {
 		$iterator = new LogIterator(fopen(\OC_Log_Owncloud::getLogFilePath(), 'rb'));
 		$iterator = new SearchFilter($iterator, $query);
 		return $this->responseFromIterator($iterator, $count, $offset);
+	}
+
+	public function getLevels() {
+		return new JSONResponse($this->config->getAppValue('logreader', 'levels', '11111'));
+	}
+
+	public function setLevels($levels) {
+		$this->config->setAppValue('logreader', 'levels', $levels);
 	}
 
 	protected function responseFromIterator(\Iterator $iterator, $count, $offset) {

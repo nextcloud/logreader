@@ -14,7 +14,7 @@ export class App extends Component {
 	state = {
 		'entries': [],
 		'loading': false,
-		'levels': [true, true, true, true, true]
+		'levels': [false, false, false, false, false]
 	};
 
 	constructor () {
@@ -24,6 +24,12 @@ export class App extends Component {
 			this.setState({entries});
 		});
 		OCA.Search.logreader = new LogSearch(this.logProvider);
+		this.saveLevels = _.debounce(this.logProvider.setLevels, 100);
+	}
+
+	async componentDidMount() {
+		const levels = await this.logProvider.getLevels();
+		this.setState({levels});
 		this.logProvider.load();
 	}
 
@@ -44,6 +50,7 @@ export class App extends Component {
 			this.fetchNextPage();
 		}
 		this.setState({levels});
+		this.saveLevels(levels);
 	}
 
 	render () {

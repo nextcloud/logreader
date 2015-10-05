@@ -60,4 +60,18 @@ export class LogProvider extends EventEmitter {
 			});
 		}
 	}
+
+	async getLevels() {
+		const levels = await $.get(OC.generateUrl('/apps/logreader/levels'));
+		return levels.split('').map(level => level > 0);
+	}
+
+	setLevels(levels) {
+		const levelsString = levels.map(level => level ? 1 : 0).join('');
+		return $.ajax({
+			type: 'PUT',
+			url: OC.generateUrl('/apps/logreader/levels'),
+			data: {levels: levelsString}
+		});
+	}
 }
