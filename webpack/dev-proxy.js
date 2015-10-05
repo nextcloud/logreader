@@ -24,8 +24,9 @@ proxy.on('proxyRes', function (proxyRes, req, res, options) {
 		// allow the webpack sockets and javascript
 		var post = 'localhost:' + config.webPackPort + ' ';
 		proxyRes.headers['content-security-policy'] = proxyRes.headers['content-security-policy']
-			.replace('connect-src ', 'connect-src * ')
-			.replace('script-src ', 'script-src ' + post);
+			.replace('style-src ', 'style-src blob: ')
+			.replace('connect-src ', 'connect-src * blob: ')
+			.replace('script-src ', 'script-src blob: ' + post);
 	}
 });
 
