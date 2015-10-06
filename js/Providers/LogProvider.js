@@ -3,7 +3,9 @@ import {EventEmitter} from 'events';
 export class LogProvider extends EventEmitter {
 	static levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 
+	fromFile = false;
 	cachedEntries = [];
+	hasMore = true;
 
 	constructor (limit = 50) {
 		super();
@@ -37,10 +39,13 @@ export class LogProvider extends EventEmitter {
 
 	async load () {
 		this.loading = true;
-		if (this.cachedEntries.length >= this.limit) {
+		if (this.cachedEntries.length >= this.limit || this.fromFile || !this.hasMore) {
 			return;
 		}
 		var newData = await this.loadEntries(this.cachedEntries.length, this.limit - this.cachedEntries.length);
+		if(newData.data.length === 0) {
+			this.hasMore = false;
+		}
 		this.cachedEntries = this.cachedEntries.concat(newData.data);
 		this.loading = false;
 		this.emit('entries', this.cachedEntries);

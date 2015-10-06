@@ -4,9 +4,11 @@ import ReactScrolla from 'react-scrolla';
 import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
 import {ToggleEntry} from './Components/ToggleEntry.js';
-import {App as AppContainer, SideBar, Content} from 'oc-react-components';
+import {LogUploader} from './Components/LogUploader.js';
+import {App as AppContainer, Entry, SideBar, Content, Separator} from 'oc-react-components';
 
 import {LogSearch} from './Search.js';
+import {LogFile} from './Providers/LogFile.js'
 
 import styles from '../css/app.css';
 
@@ -14,31 +16,36 @@ export class App extends Component {
 	state = {
 		'entries': [],
 		'loading': false,
-		'levels': [false, false, false, false, false]
+		'levels': [false, false, false, false, false],
+		provider: null
 	};
 
 	constructor () {
 		super();
 		this.logProvider = new LogProvider(50);
 		this.logProvider.on('entries', entries => {
-			this.setState({entries});
+			if (this.state.provider === this.logProvider) {
+				this.setState({entries});
+			}
 		});
 		OCA.Search.logreader = new LogSearch(this.logProvider);
 		this.saveLevels = _.debounce(this.logProvider.setLevels, 100);
 	}
 
-	async componentDidMount() {
+	async componentDidMount () {
 		const levels = await this.logProvider.getLevels();
-		this.setState({levels});
+		this.setState({levels, provider: this.logProvider});
 		this.logProvider.load();
 	}
 
-	fetchNextPage = async() => {
-		this.setState({loading: true});
-		this.logProvider.limit += 25;
-		await this.logProvider.load();
-		this.setState({loading: false});
-	};
+	fetchNextPage = _.throttle(async() => {
+		if (this.state.provider.hasMore) {
+			this.setState({loading: true});
+			this.state.provider.limit += 25;
+			await this.state.provider.load();
+			this.setState({loading: false});
+		}
+	}, 100);
 
 	setLevel (level, newState) {
 		let levels = this.state.levels;
@@ -52,6 +59,17 @@ export class App extends Component {
 		this.setState({levels});
 		this.saveLevels(levels);
 	}
+
+	onLogFile = (content) => {
+		const logFile = new LogFile(content);
+		logFile.on('entries', entries => {
+			if (this.state.provider === logFile) {
+				this.setState({entries});
+			}
+		});
+		this.setState({provider: logFile, entries: []});
+		logFile.load();
+	};
 
 	render () {
 		let entries = this.state.entries.filter(entry=> {
@@ -70,6 +88,8 @@ export class App extends Component {
 		return (
 			<AppContainer appId="logreader">
 				<SideBar>
+					<Entry><LogUploader onLogFile={this.onLogFile}/></Entry>
+					<Separator/>
 					{filters}
 				</SideBar>
 

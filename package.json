@@ -60,6 +60,7 @@
     "less-loader": "^2.2.0",
     "oc-react-components": "^0.1.5",
     "react": "^0.13.3",
+    "react-dropzone": "^2.1.0",
     "react-responsive": "0.0.8",
     "react-scrolla": "^0.1.0",
     "react-time": "^3.0.0"
