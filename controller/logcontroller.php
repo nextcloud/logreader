@@ -47,13 +47,19 @@ class LogController extends Controller {
 		$this->config = $config;
 	}
 
+	private function getLogIterator() {
+		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ISO8601);
+		$handle = fopen(\OC_Log_Owncloud::getLogFilePath(), 'rb');
+		return new LogIterator($handle, $dateFormat);
+	}
+
 	/**
 	 * @param int $count
 	 * @param int $offset
 	 * @return TemplateResponse
 	 */
 	public function get($count = 50, $offset = 0) {
-		$iterator = new LogIterator(fopen(\OC_Log_Owncloud::getLogFilePath(), 'rb'));
+		$iterator = $this->getLogIterator();
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
 
@@ -64,7 +70,7 @@ class LogController extends Controller {
 	 * @return TemplateResponse
 	 */
 	public function search($query = '', $count = 50, $offset = 0) {
-		$iterator = new LogIterator(fopen(\OC_Log_Owncloud::getLogFilePath(), 'rb'));
+		$iterator = $this->getLogIterator();
 		$iterator = new SearchFilter($iterator, $query);
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
