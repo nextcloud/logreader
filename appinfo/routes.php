@@ -13,6 +13,8 @@ return ['routes' => [
 	['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
 	['name' => 'log#get', 'url' => '/get', 'verb' => 'GET'],
 	['name' => 'log#search', 'url' => '/search', 'verb' => 'GET'],
+	['name' => 'log#getSettings', 'url' => '/settings', 'verb' => 'GET'],
 	['name' => 'log#getLevels', 'url' => '/levels', 'verb' => 'GET'],
 	['name' => 'log#setLevels', 'url' => '/levels', 'verb' => 'PUT'],
+	['name' => 'log#setRelative', 'url' => '/relative', 'verb' => 'PUT'],
 ]];
