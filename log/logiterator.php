@@ -40,10 +40,17 @@ class LogIterator implements \Iterator {
 	private $currentKey = -1;
 
 	/**
-	 * @param resource $handle
+	 * @var string
 	 */
-	public function __construct($handle) {
+	private $dateFormat;
+
+	/**
+	 * @param resource $handle
+	 * @param string $dateFormat
+	 */
+	public function __construct($handle, $dateFormat) {
 		$this->handle = $handle;
+		$this->dateFormat = $dateFormat;
 		$this->rewind();
 		$this->next();
 	}
@@ -55,7 +62,12 @@ class LogIterator implements \Iterator {
 	}
 
 	function current() {
-		return json_decode($this->lastLine);
+		$entry = json_decode($this->lastLine, true);
+		if ($this->dateFormat !== \DateTime::ISO8601) {
+			$time = \DateTime::createFromFormat($this->dateFormat, $entry['time']);
+			$entry['time'] = $time->format(\DateTime::ISO8601);
+		}
+		return $entry;
 	}
 
 	function key() {
