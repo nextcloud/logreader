@@ -13,7 +13,7 @@ The latest stable release can be found on the [app store](https://apps.owncloud.
 
 ### Install the latest sable release manually
 
- - Download the last pre-build [release](https://github.com/icewind1991/logreader/releases/download/v1.0.0/logreader.tar.gz)
+ - Download the last pre-build [release](https://github.com/icewind1991/logreader/releases/download/v1.1.2/logreader.tar.gz)
  - Extract the `tar.gz` into the apps folder
  
 ### Install from source
