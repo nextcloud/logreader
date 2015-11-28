@@ -17,7 +17,7 @@ module.exports = {
 	},
 	output: {
 		path: assetsPath,
-		filename: '[name].js',
+		filename: '[name].min.js',
 		chunkFilename: '[name]-[chunkhash].js',
 		publicPath: '/dist/'
 	},
@@ -54,7 +54,7 @@ module.exports = {
 	},
 	plugins: [
 		new CleanPlugin([relativeAssetsPath]),
-		new ExtractTextPlugin("[name].css"),
+		new ExtractTextPlugin("[name].min.css"),
 		new webpack.DefinePlugin({
 			__CLIENT__: true,
 			__SERVER__: false,
