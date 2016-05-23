@@ -49,7 +49,8 @@ class LogController extends Controller {
 
 	private function getLogIterator() {
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ISO8601);
-		$handle = fopen(\OC_Log_Owncloud::getLogFilePath(), 'rb');
+		$logClass = class_exists('\OC\Log\Owncloud') ? '\OC\Log\Owncloud' : '\OC_Log_Owncloud';
+		$handle = fopen($logClass::getLogFilePath(), 'rb');
 		return new LogIterator($handle, $dateFormat);
 	}
 
