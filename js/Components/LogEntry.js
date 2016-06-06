@@ -1,7 +1,8 @@
 import {Component} from 'react';
 
-import {ExceptionParser} from '../ExceptionParser.js';
-import {Exception} from './Exception.js';
+import {ExceptionParser} from '../ExceptionParser';
+import {Exception} from './Exception';
+import {BackgroundException} from './BackgroundException';
 
 export class LogEntry extends Component {
 	constructor () {
@@ -10,7 +11,9 @@ export class LogEntry extends Component {
 	}
 
 	render () {
-		if (this.isException()) {
+		if (this.isBackgroundJobException()) {
+			return this.renderBackgroundException();
+		}else if (this.isException()) {
 			return this.renderException();
 		} else {
 			return this.renderBasic();
@@ -28,6 +31,17 @@ export class LogEntry extends Component {
 		return (
 			<Exception {...exceptionData}/>
 		);
+	}
+
+	renderBackgroundException () {
+		var exceptionData = this.exceptionParser.parse(this.props.message);
+		return (
+			<BackgroundException {...exceptionData}/>
+		);
+	}
+
+	isBackgroundJobException () {
+		return this.exceptionParser.isBackgroundJobException(this.props.message);
 	}
 
 	isException () {
