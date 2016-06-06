@@ -5,7 +5,13 @@ import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
 import {ToggleEntry} from './Components/ToggleEntry.js';
 import {LogUploader} from './Components/LogUploader.js';
-import {App as AppContainer, Entry, SideBar, Content, Separator} from 'oc-react-components';
+import {
+	App as AppContainer,
+	Entry,
+	SideBar,
+	Content,
+	Separator
+} from 'oc-react-components';
 
 import {LogSearch} from './Search.js';
 import {LogFile} from './Providers/LogFile.js'
@@ -38,7 +44,7 @@ export class App extends Component {
 		this.logProvider.load();
 	}
 
-	fetchNextPage = _.throttle(async() => {
+	fetchNextPage = _.throttle(async () => {
 		if (this.state.provider.hasMore) {
 			this.setState({loading: true});
 			this.state.provider.limit += 25;
@@ -87,8 +93,8 @@ export class App extends Component {
 
 		return (
 			<AppContainer appId="logreader">
-				<SideBar>
-					<Entry><LogUploader onLogFile={this.onLogFile}/></Entry>
+				<SideBar><LogUploader
+						onLogFile={this.onLogFile}/>
 					<Separator/>
 					{filters}
 				</SideBar>

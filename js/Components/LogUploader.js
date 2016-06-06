@@ -28,11 +28,13 @@ export class LogUploader extends Component {
 
 	render () {
 		const dropStyle = {
-			margin: '0 -12px',
-			padding: '0 12px'
+			padding: '10px 15px',
+			cursor: 'pointer',
+			opacity: .57
 		};
 		return (
-			<Dropzone style={dropStyle} onDrop={this.onDrop}>
+			<Dropzone multiple={false} accept="text/*" style={dropStyle}
+					  onDrop={this.onDrop}>
 				{this.state.message}
 			</Dropzone>
 		);
