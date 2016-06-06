@@ -1,4 +1,4 @@
-import {Component} from 'react/addons';
+import {Component} from 'react';
 import {TraceLine} from './TraceLine.js';
 
 import style from './Exception.less';

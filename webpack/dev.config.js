@@ -13,6 +13,7 @@ module.exports = {
 	context: path.resolve(__dirname, '..'),
 	entry: {
 		'main': [
+			'babel-polyfill',
 			'webpack-dev-server/client?http://' + host + ':' + port,
 			'webpack/hot/only-dev-server',
 			'./js/index.js'
@@ -34,7 +35,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: ['react-hot', 'babel?stage=0&optional=runtime&plugins=typecheck']
+				loaders: ['react-hot', 'babel-loader']
 			},
 			{test: /\.json$/, loader: 'json-loader'},
 			{

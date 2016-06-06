@@ -1,4 +1,4 @@
-import {Component} from 'react/addons';
+import {Component} from 'react';
 import Dropzone from 'react-dropzone';
 
 import style from './LogUploader.less';

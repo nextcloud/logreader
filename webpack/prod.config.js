@@ -13,11 +13,11 @@ module.exports = {
 	devtool: 'source-map',
 	context: path.resolve(__dirname, '..'),
 	entry: {
-		'main': './js/index.js'
+		'main': ['babel-polyfill', './js/index.js']
 	},
 	output: {
 		path: assetsPath,
-		filename: '[name].min.js',
+		filename: '[name].js',
 		chunkFilename: '[name]-[chunkhash].js',
 		publicPath: '/dist/'
 	},
@@ -31,7 +31,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: [strip.loader('debug'), 'babel?stage=0&optional=runtime&plugins=typecheck']
+				loaders: [strip.loader('debug'), 'babel-loader']
 			},
 			{test: /\.json$/, loader: 'json-loader'},
 			{
@@ -54,7 +54,7 @@ module.exports = {
 	},
 	plugins: [
 		new CleanPlugin([relativeAssetsPath]),
-		new ExtractTextPlugin("[name].min.css"),
+		new ExtractTextPlugin("[name].css"),
 		new webpack.DefinePlugin({
 			__CLIENT__: true,
 			__SERVER__: false,

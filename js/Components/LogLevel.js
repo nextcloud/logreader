@@ -1,4 +1,4 @@
-import {Component} from 'react/addons';
+import {Component} from 'react';
 
 export class LogLevel extends Component {
 	static levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];

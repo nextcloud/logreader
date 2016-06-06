@@ -1,4 +1,4 @@
-import {Component} from 'react/addons';
+import {Component} from 'react';
 
 import style from './ToggleEntry.less';
 
@@ -22,7 +22,8 @@ export class ToggleEntry extends Component {
 		return this._id;
 	};
 
-	onClick = () => {
+	onClick = (e) => {
+		e.preventDefault();
 		let active = !this.state.active;
 		this.setState({active});
 		if (this.props.onChange) {

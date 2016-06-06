@@ -1,4 +1,4 @@
-import {Component} from 'react/addons';
+import {Component} from 'react';
 import {LogEntry} from './LogEntry.js';
 import {LogLevel} from './LogLevel.js';
 import Timestamp from 'react-time';

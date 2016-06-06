@@ -1,4 +1,4 @@
-import React, {Component} from 'react/addons';
+import React, {Component} from 'react';
 import ReactScrolla from 'react-scrolla';
 
 import {LogProvider} from './Providers/LogProvider.js';

@@ -1,4 +1,4 @@
-import {Component} from 'react/addons';
+import {Component} from 'react';
 
 import {ExceptionParser} from '../ExceptionParser.js';
 import {Exception} from './Exception.js';

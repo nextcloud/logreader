@@ -1,12 +1,12 @@
 'use strict';
 
 import {App} from './App.js';
-
-var React = require('react/addons');
+import React from 'react';
+import ReactDom from 'react-dom';
 
 // Enable React devtools
 window.React = React;
 
 $(document).ready(() => {
-	React.render(<App />, document.getElementById('content-wrapper'));
+	ReactDom.render(<App />, document.getElementById('content-wrapper'));
 });
