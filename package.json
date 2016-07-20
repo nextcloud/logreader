@@ -68,6 +68,7 @@
     "bluebird": "^3.4.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "moment": "^2.14.1",
     "oc-react-components": "^0.2.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
