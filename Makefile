@@ -12,20 +12,18 @@ clean:
 	rm -rf $(build_dir)
 	rm -rf node_modules
 
-install-deps: install-npm-deps
-
-install-npm-deps:
+install-deps:
 	npm install --production
 
-install-npm-deps-dev:
+install-deps-dev:
 	npm install --deps
 
-optimize-js: install-npm-deps install-bower-deps
+javascript:
 	npm run build
 
-dev-setup: install-npm-deps-dev
+dev-setup: install-deps-dev
 
-appstore: clean install-deps optimize-js package
+appstore: clean install-deps-dev javascript package
 
 package:
 	mkdir -p $(appstore_dir)
@@ -37,7 +35,7 @@ package:
 	--exclude=$(project_dir)/.gitignore \
 	--exclude=$(project_dir)/.travis.yml \
 	--exclude=$(project_dir)/.scrutinizer.yml \
-        --exclude=$(project_dir)/CONTRIBUTING.md \
+	--exclude=$(project_dir)/CONTRIBUTING.md \
 	--exclude=$(project_dir)/package.json \
 	--exclude=$(project_dir)/Makefile \
 	-cvzf $(appstore_dir)/$(package_name).tar.gz $(project_dir) \
