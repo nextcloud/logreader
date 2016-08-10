@@ -79,7 +79,7 @@ export class App extends Component {
 
 	render () {
 		let entries = this.state.entries.filter(entry=> {
-			if (!entry.level) {
+			if (!entry.level && entry.level !== 0) {
 				return true;
 			}
 			return this.state.levels[entry.level];

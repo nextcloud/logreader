@@ -3,7 +3,7 @@
 	<id>logreader</id>
 	<name>Log Reader</name>
 	<description>Easier reading of logs</description>
-	<version>1.1.4</version>
+	<version>1.1.5</version>
 	<licence>AGPL</licence>
 	<author>Robin Appelman</author>
 	<namespace>LogReader</namespace>
