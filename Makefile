@@ -6,7 +6,8 @@ build_dir=$(project_dir)/build
 appstore_dir=$(build_dir)/appstore
 package_name=$(app_name)
 
-sources=$(wildcard js/*) $(wildcard js/*/*)
+jssources=$(wildcard js/*) $(wildcard js/*/*)
+othersources=$(wildcard appinfo/*) $(wildcard css/*/*) $(wildcard controller/*/*) $(wildcard templates/*/*) $(wildcard log/*/*)
 
 all: build/main.js
 
@@ -17,13 +18,13 @@ clean:
 node_modules: package.json
 	npm install --deps
 
-build/main.js: node_modules $(sources)
+build/main.js: node_modules $(jssources)
 	npm run build
 
 appstore: clean build/main.js package
 
 package: build/appstore/$(package_name).tar.gz
-build/appstore/$(package_name).tar.gz: build/main.js
+build/appstore/$(package_name).tar.gz: build/main.js $(othersources)
 	mkdir -p $(appstore_dir)
 	tar --exclude-vcs \
 	--exclude=$(appstore_dir) \
