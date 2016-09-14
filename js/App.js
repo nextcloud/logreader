@@ -5,13 +5,7 @@ import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
 import {ToggleEntry} from './Components/ToggleEntry.js';
 import {LogUploader} from './Components/LogUploader.js';
-import {
-	App as AppContainer,
-	Entry,
-	SideBar,
-	Content,
-	Separator
-} from 'oc-react-components';
+import {App as AppContainer, Entry, SideBar, Content, Separator, Settings} from 'oc-react-components';
 
 import {LogSearch} from './Search.js';
 import {LogFile} from './Providers/LogFile.js'
@@ -20,10 +14,12 @@ import styles from '../css/app.css';
 
 export class App extends Component {
 	state = {
-		'entries': [],
-		'loading': false,
-		'levels': [false, false, false, false, false],
-		provider: null
+		entries: [],
+		loading: false,
+		levels: [false, false, false, false, false],
+		provider: null,
+		relative: true,
+		dateFormat: 'Y-m-d\TH:i:sO'
 	};
 
 	constructor () {
@@ -36,11 +32,19 @@ export class App extends Component {
 		});
 		OCA.Search.logreader = new LogSearch(this.logProvider);
 		this.saveLevels = _.debounce(this.logProvider.setLevels, 100);
+		this.saveRelative = _.debounce(this.logProvider.setRelative, 100);
 	}
 
 	async componentDidMount () {
 		const levels = await this.logProvider.getLevels();
-		this.setState({levels, provider: this.logProvider});
+		const relative = await this.logProvider.getRelative();
+		const dateFormat = await this.logProvider.getDateFormat();
+		this.setState({
+			levels,
+			relative,
+			dateFormat,
+			provider: this.logProvider
+		});
 		this.logProvider.load();
 	}
 
@@ -77,6 +81,11 @@ export class App extends Component {
 		logFile.load();
 	};
 
+	setRelative = (relative) => {
+		this.setState({relative});
+		this.saveRelative(relative);
+	};
+
 	render () {
 		let entries = this.state.entries.filter(entry=> {
 			if (!entry.level && entry.level !== 0) {
@@ -95,11 +104,18 @@ export class App extends Component {
 		});
 
 		return (
+
 			<AppContainer appId="logreader">
 				<SideBar><LogUploader
 						onLogFile={this.onLogFile}/>
 					<Separator/>
 					{filters}
+					<Settings>
+						<ToggleEntry key='relative' active={this.state.relative}
+									 onChange={this.setRelative}>
+							Relative Dates
+						</ToggleEntry>
+					</Settings>
 				</SideBar>
 
 				<ReactScrolla
@@ -108,7 +124,9 @@ export class App extends Component {
 					onPercentage={this.fetchNextPage}
 					isLoading={this.state.loading}>
 					<div className={styles.content}>
-						<LogTable entries={entries}/>
+						<LogTable entries={entries}
+								  relative={this.state.relative}
+								  dateFormat={this.state.dateFormat}/>
 					</div>
 				</ReactScrolla>
 			</AppContainer>

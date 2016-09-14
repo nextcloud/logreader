@@ -3,6 +3,7 @@ import {EventEmitter} from 'events';
 export class LogProvider extends EventEmitter {
 	static levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 
+	cachedSettings = null;
 	fromFile = false;
 	cachedEntries = [];
 	hasMore = true;
@@ -43,7 +44,7 @@ export class LogProvider extends EventEmitter {
 			return;
 		}
 		var newData = await this.loadEntries(this.cachedEntries.length, this.limit - this.cachedEntries.length);
-		if(newData.data.length === 0) {
+		if (newData.data.length === 0) {
 			this.hasMore = false;
 		}
 		this.cachedEntries = this.cachedEntries.concat(newData.data);
@@ -66,17 +67,43 @@ export class LogProvider extends EventEmitter {
 		}
 	}
 
-	async getLevels() {
-		const levels = await $.get(OC.generateUrl('/apps/logreader/levels'));
+	async getSettings () {
+		if (this.cachedSettings) {
+			return this.cachedSettings;
+		}
+		this.cachedSettings = await $.get(OC.generateUrl('/apps/logreader/settings'));
+		return this.cachedSettings;
+	}
+
+	async getLevels () {
+		const {levels} = await this.getSettings();
 		return levels.split('').map(level => level > 0);
 	}
 
-	setLevels(levels) {
+	setLevels (levels) {
 		const levelsString = levels.map(level => level ? 1 : 0).join('');
 		return $.ajax({
 			type: 'PUT',
 			url: OC.generateUrl('/apps/logreader/levels'),
 			data: {levels: levelsString}
+		});
+	}
+
+	async getRelative () {
+		const {relativedates} = await this.getSettings();
+		return relativedates;
+	}
+
+	async getDateFormat(){
+		const {dateformat} = await this.getSettings();
+		return dateformat;
+	}
+
+	setRelative (relative) {
+		return $.ajax({
+			type: 'PUT',
+			url: OC.generateUrl('/apps/logreader/relative'),
+			data: {relative}
 		});
 	}
 }

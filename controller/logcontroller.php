@@ -85,6 +85,22 @@ class LogController extends Controller {
 		return new JSONResponse($this->config->getAppValue('logreader', 'levels', '11111'));
 	}
 
+	public function getSettings() {
+		return new JSONResponse([
+			'levels' => $this->config->getAppValue('logreader', 'levels', '11111'),
+			'dateformat' => $this->config->getSystemValue('logdateformat', \DateTime::ISO8601),
+			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
+			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', true),
+		]);
+	}
+
+	/**
+	 * @param bool $relative
+	 */
+	public function setRelative($relative) {
+		$this->config->setAppValue('logreader', 'relativedates', $relative);
+	}
+
 	public function setLevels($levels) {
 		$this->config->setAppValue('logreader', 'levels', $levels);
 	}
