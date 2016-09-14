@@ -6,24 +6,19 @@ build_dir=$(project_dir)/build
 appstore_dir=$(build_dir)/appstore
 package_name=$(app_name)
 
-all: appstore
+all: javascript
 
 clean:
 	rm -rf $(build_dir)
 	rm -rf node_modules
 
-install-deps:
-	npm install --production
-
-install-deps-dev:
+node_modules: package.json
 	npm install --deps
 
-javascript:
+javascript: node_modules
 	npm run build
 
-dev-setup: install-deps-dev
-
-appstore: clean install-deps-dev javascript package
+appstore: clean javascript package
 
 package:
 	mkdir -p $(appstore_dir)
