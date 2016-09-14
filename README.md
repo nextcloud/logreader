@@ -1,6 +1,6 @@
 # Log Reader
 
-![screenshot](https://i.imgur.com/0oMjjpV.png)
+![screenshot](https://i.imgur.com/M3kgKl3.png)
 
 Log reader for ownCloud with cleaner exception display and infinite scrolling.
 

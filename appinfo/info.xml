@@ -4,7 +4,7 @@
 	<id>logreader</id>
 	<name>Log Reader</name>
 	<description>Easier reading of logs</description>
-	<version>1.1.5</version>
+	<version>1.2.0</version>
 	<licence>AGPL</licence>
 	<author>Robin Appelman</author>
 	<namespace>LogReader</namespace>
@@ -13,7 +13,7 @@
 	<bugs>https://github.com/icewind1991/logreader/issues</bugs>
 	<repository type="git">https://github.com/icewind1991/logreader</repository>
 	<screenshot>
-		https://camo.githubusercontent.com/b418a76cbfa04730b5690ab1530a23e15680c06e/68747470733a2f2f692e696d6775722e636f6d2f306f4d6a6a70562e706e67
+		https://i.imgur.com/M3kgKl3.png
 	</screenshot>
 	<category>tools</category>
 	<dependencies>
