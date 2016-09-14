@@ -6,7 +6,9 @@ build_dir=$(project_dir)/build
 appstore_dir=$(build_dir)/appstore
 package_name=$(app_name)
 
-all: javascript
+sources=$(wildcard js/*) $(wildcard js/*/*)
+
+all: build/main.js
 
 clean:
 	rm -rf $(build_dir)
@@ -15,12 +17,13 @@ clean:
 node_modules: package.json
 	npm install --deps
 
-javascript: node_modules
+build/main.js: node_modules $(sources)
 	npm run build
 
-appstore: clean javascript package
+appstore: clean build/main.js package
 
-package:
+package: build/appstore/$(package_name).tar.gz
+build/appstore/$(package_name).tar.gz: build/main.js
 	mkdir -p $(appstore_dir)
 	tar --exclude-vcs \
 	--exclude=$(appstore_dir) \
