@@ -6,7 +6,7 @@ build_dir=$(project_dir)/build
 appstore_dir=$(build_dir)/appstore
 package_name=$(app_name)
 
-jssources=$(wildcard js/*) $(wildcard js/*/*)
+jssources=$(wildcard js/*) $(wildcard js/*/*) $(wildcard css/*/*)  $(wildcard css/*)
 othersources=$(wildcard appinfo/*) $(wildcard css/*/*) $(wildcard controller/*/*) $(wildcard templates/*/*) $(wildcard log/*/*)
 
 all: build/main.js

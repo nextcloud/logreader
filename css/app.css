@@ -1,3 +1,8 @@
 .content {
 	width: 100%;
 }
+
+#logreader-root {
+	height: 100%;
+	width: 100%;
+}
