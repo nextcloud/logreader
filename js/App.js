@@ -5,7 +5,14 @@ import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
 import {ToggleEntry} from './Components/ToggleEntry.js';
 import {LogUploader} from './Components/LogUploader.js';
-import {App as AppContainer, Entry, SideBar, Content, Separator, Settings} from 'oc-react-components';
+import {
+	App as AppContainer,
+	Entry,
+	SideBar,
+	Content,
+	Separator,
+	Settings
+} from 'oc-react-components';
 
 import {LogSearch} from './Search.js';
 import {LogFile} from './Providers/LogFile.js'
@@ -106,17 +113,20 @@ export class App extends Component {
 		return (
 
 			<AppContainer appId="logreader">
-				<SideBar><LogUploader
+				{!this.props.inlineSettings ?
+					<SideBar><LogUploader
 						onLogFile={this.onLogFile}/>
-					<Separator/>
-					{filters}
-					<Settings>
-						<ToggleEntry key='relative' active={this.state.relative}
-									 onChange={this.setRelative}>
-							Relative Dates
-						</ToggleEntry>
-					</Settings>
-				</SideBar>
+						<Separator/>
+						{filters}
+						<Settings>
+							<ToggleEntry key='relative'
+										 active={this.state.relative}
+										 onChange={this.setRelative}>
+								Relative Dates
+							</ToggleEntry>
+						</Settings>
+					</SideBar>
+					: <div/>}
 
 				<ReactScrolla
 					id="app-content"
@@ -124,9 +134,13 @@ export class App extends Component {
 					onPercentage={this.fetchNextPage}
 					isLoading={this.state.loading}>
 					<div className={styles.content}>
-						<LogTable entries={entries}
-								  relative={this.state.relative}
-								  dateFormat={this.state.dateFormat}/>
+						<LogTable
+							inlineSettings={this.props.inlineSettings}
+							levels={this.state.levels}
+							setLevel={this.setLevel.bind(this)}
+							entries={entries}
+							relative={this.state.relative}
+							dateFormat={this.state.dateFormat}/>
 					</div>
 				</ReactScrolla>
 			</AppContainer>

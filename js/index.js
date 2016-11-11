@@ -7,6 +7,8 @@ import ReactDom from 'react-dom';
 // Enable React devtools
 window.React = React;
 
+
 $(document).ready(() => {
-	ReactDom.render(<App />, document.getElementById('logreader-root'));
+	const rootElement = document.getElementById('logreader-root');
+	ReactDom.render(<App inlineSettings={rootElement.dataset.inlineSettings === 'true'}/>, rootElement);
 });

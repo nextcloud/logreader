@@ -42,6 +42,7 @@ class PageController extends Controller {
 			'index',
 			[
 				'appId' => $this->appName
+				, 'inline-settings' => 'false'
 			]
 		);
 

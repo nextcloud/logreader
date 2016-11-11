@@ -3,7 +3,7 @@
 $c = \OC::$server;
 
 $user = \OC::$server->getUserSession()->getUser();
-if ($user and \OC::$server->getGroupManager()->isAdmin($user->getUID())) {
+if ($user and \OC::$server->getGroupManager()->isAdmin($user->getUID()) and !interface_exists('\OCP\Settings\ISettings')) {
 	\OC::$server->getNavigationManager()->add(function () {
 		return [
 			'id' => 'logreader',

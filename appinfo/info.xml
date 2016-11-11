@@ -9,6 +9,11 @@
 	<author>Robin Appelman</author>
 	<namespace>LogReader</namespace>
 
+	<settings>
+		<admin>OCA\LogReader\Settings\Admin</admin>
+		<admin-section>OCA\LogReader\Settings\Section</admin-section>
+	</settings>
+
 	<website>https://github.com/icewind1991/logreader</website>
 	<bugs>https://github.com/icewind1991/logreader/issues</bugs>
 	<repository type="git">https://github.com/icewind1991/logreader</repository>

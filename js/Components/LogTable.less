@@ -14,6 +14,33 @@
     word-wrap: break-word;
   }
 
+  th.level {
+    overflow: visible;
+
+    > span {
+      margin: -0.8em;
+      padding: .8em;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    > span > span {
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      margin: 2px;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+  }
+
+  th.level.active > span > span,
+  th.level:hover > span > span {
+    opacity: 1;
+  }
+
   .time {
     width: 180px;
   }

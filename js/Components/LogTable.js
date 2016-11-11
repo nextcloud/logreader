@@ -4,10 +4,19 @@ import {LogLevel} from './LogLevel.js';
 import Timestamp from 'react-time';
 import MediaQuery from 'react-responsive';
 import {convertDateFormat} from '../DateFormatConverter.js'
+import {LevelSettings} from './LevelSettings';
 
 import style from './LogTable.less';
 
 export class LogTable extends Component {
+	state = {
+		showLevelSettings: false
+	};
+
+	toggleLevelSettings = () => {
+		this.setState({showLevelSettings: !this.state.showLevelSettings});
+	};
+
 	render () {
 		const timeClass = style.time + ((this.props.relative) ? (' ' + style.relative) : '');
 
@@ -52,13 +61,33 @@ export class LogTable extends Component {
 			)
 		});
 
+		const levelSettingsHeader = (
+			<span onClick={this.toggleLevelSettings}>
+				Level
+				<span className="icon-settings"/>
+			</span>
+		);
+		const levelHeader = this.props.inlineSettings ? (
+			levelSettingsHeader
+		) : "Level";
+
 		return (
 			<div>
 				<MediaQuery minWidth={750}>
 					<table className={style.logs}>
 						<thead>
 						<tr>
-							<th className={style.level}>Level</th>
+							<th className={style.level + ' ' + (this.state.showLevelSettings ? style.active : '')}>
+								{levelHeader}
+								{
+									this.state.showLevelSettings ?
+										<LevelSettings
+											setLevel={this.props.setLevel}
+											levels={this.props.levels}
+										/> :
+										<div className="hidden"/>
+								}
+							</th>
 							<th className={style.app}>App</th>
 							<th className={style.message}>Message</th>
 							<th className={timeClass}>Time</th>
