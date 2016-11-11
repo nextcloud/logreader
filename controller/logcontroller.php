@@ -50,7 +50,7 @@ class LogController extends Controller {
 	private function getLogIterator() {
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ISO8601);
 		$logClasses = ['\OC\Log\Owncloud', '\OC_Log_Owncloud', '\OC\Log\File'];
-		foreach($logClasses as $logClass) {
+		foreach ($logClasses as $logClass) {
 			if (class_exists($logClass)) {
 				$handle = fopen($logClass::getLogFilePath(), 'rb');
 				return new LogIterator($handle, $dateFormat);
@@ -102,7 +102,17 @@ class LogController extends Controller {
 	}
 
 	public function setLevels($levels) {
+		$intLevels = array_map('intval', str_split($levels));
+		$minLevel = 4;
+		foreach ($intLevels as $level => $log) {
+			if ($log) {
+				$minLevel = $level;
+				break;
+			}
+		}
+		$this->config->setSystemValue('loglevel', $minLevel);
 		$this->config->setAppValue('logreader', 'levels', $levels);
+		return $minLevel;
 	}
 
 	protected function responseFromIterator(\Iterator $iterator, $count, $offset) {
