@@ -6,3 +6,7 @@
 	height: 100%;
 	width: 100%;
 }
+
+#log-section {
+	display: none; /** we overwrite this */
+}

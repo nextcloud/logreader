@@ -11,7 +11,6 @@
 
 	<settings>
 		<admin>OCA\LogReader\Settings\Admin</admin>
-		<admin-section>OCA\LogReader\Settings\Section</admin-section>
 	</settings>
 
 	<website>https://github.com/icewind1991/logreader</website>
