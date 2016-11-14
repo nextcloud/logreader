@@ -14,6 +14,7 @@ export class LevelSettings extends Component {
 						{name}
 					</ToggleEntry>
 				})}
+				<a href={OC.generateUrl('settings/admin/log/download')} className="button">{t('settings', 'Download logs')}</a>
 			</div>
 		);
 	}
