@@ -5,6 +5,7 @@ import Timestamp from 'react-time';
 import MediaQuery from 'react-responsive';
 import {convertDateFormat} from '../DateFormatConverter.js'
 import {LevelSettings} from './LevelSettings';
+import Moment from 'moment'
 
 import style from './LogTable.less';
 
@@ -29,6 +30,14 @@ export class LogTable extends Component {
 								  format={convertDateFormat(this.props.dateFormat)}/>
 			}
 		};
+		const getTimeTitle = (entry) => {
+			const time = new Date(entry.time);
+			if (this.props.relative) {
+				return Moment(time).format(convertDateFormat(this.props.dateFormat));
+			} else {
+				return Moment(time).fromNow();
+			}
+		};
 		const rows = this.props.entries.map((entry, i) => {
 			return (
 				<tr className={style['level_' + entry.level]} key={i}>
@@ -37,7 +46,7 @@ export class LogTable extends Component {
 					<td className={style.app}>{entry.app}</td>
 					<td className={style.message}><LogEntry
 						message={entry.message}/></td>
-					<td className={timeClass}>{getTimeStamp(entry)}</td>
+					<td className={timeClass} title={getTimeTitle(entry)}>{getTimeStamp(entry)}</td>
 				</tr>
 			)
 		});
