@@ -26,9 +26,9 @@
       cursor: pointer;
     }
 
-    > span > span {
+    .log-settings-toggle {
       cursor: pointer;
-      display: inline-block;
+      display: block;
       float: right;
       margin: 2px;
       opacity: 0.5;
@@ -36,8 +36,8 @@
     }
   }
 
-  th.level.active > span > span,
-  th.level:hover > span > span {
+  th.level.active .log-settings-toggle,
+  th.level:hover .log-settings-toggle {
     opacity: 1;
   }
 
