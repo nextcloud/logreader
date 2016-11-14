@@ -90,7 +90,7 @@ class LogController extends Controller {
 			'levels' => $this->config->getAppValue('logreader', 'levels', '11111'),
 			'dateformat' => $this->config->getSystemValue('logdateformat', \DateTime::ISO8601),
 			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
-			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', true),
+			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', false),
 		]);
 	}
 
