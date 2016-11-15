@@ -1,6 +1,6 @@
 # Log Reader
 
-![screenshot](https://i.imgur.com/M3kgKl3.png)
+![screenshot](https://i.imgur.com/0Y9G8lS.png)
 
 Log reader for Nextcloud with cleaner exception display and infinite scrolling.
 
