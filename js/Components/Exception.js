@@ -32,7 +32,7 @@ export class Exception extends Component {
 		}
 		return (
 			<span
-				className={style.exceptionRow + ' ' + (this.state.expanded ? style.expanded:style.retracted)}
+				className={style.exceptionRow + ' icon-caret-dark'}
 				onClick={this.clickHandler}>
 				<span className={style.exception}>{this.props.Exception}</span>:&nbsp;
 				<span className={style.messsage}>{this.props.Message}</span>

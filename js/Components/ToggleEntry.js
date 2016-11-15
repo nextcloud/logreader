@@ -43,6 +43,7 @@ export class ToggleEntry extends Component {
 				<a className={style['checkbox-holder']} onClick={this.onClick}>
 					<input id={this.getCheckBoxId()} type="checkbox"
 						   checked={this.state.active}
+						   className="checkbox"
 						   readOnly/>
 					<label
 						htmlFor={this.getCheckBoxId()}>{this.props.children}</label>

@@ -7,7 +7,7 @@ import style from './LevelSettings.less';
 export class LevelSettings extends Component {
 	render () {
 		return (
-			<div className={style.settings}>
+			<div className={style.settings + ' popovermenu bubble open menu'}>
 				{LogProvider.levels.map((name, level) => {
 					return <ToggleEntry key={level} active={this.props.levels[level]}
 								 onChange={this.props.setLevel.bind(this, level)}>

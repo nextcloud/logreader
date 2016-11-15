@@ -4,14 +4,18 @@
   margin-bottom: 14px;
   table-layout: fixed;
 
+  th {
+    color: #888;
+  }
+
   td, th {
     vertical-align: top;
-    border-bottom: 1px solid #ddd;
     padding: .8em;
     text-align: left;
     font-weight: normal;
     position: relative;
     word-wrap: break-word;
+    border-bottom: 1px solid #eee;
   }
 
   th.level {
@@ -63,27 +67,26 @@
   }
 
   .level {
+    border-left: 0 solid white;
     width: 100px;
   }
 
-  /*info*/
-  .level_1 {
-    background-color: #BDE5F8;
-  }
-
   /* warning*/
-  .level_2 {
-    background-color: #FEEFB3;
+  .level_2 .level {
+    border-left-width: 5px;
+    border-left-color: #FEEFB3;
   }
 
   /*error*/
-  .level_3 {
-    background-color: #FFBABA;
+  .level_3 .level {
+    border-left-width: 5px;
+    border-left-color: #FFBABA;
   }
 
   /*fatal*/
-  .level_4 {
-    background-color: #ff8080;
+  .level_4 .level {
+    border-left-width: 5px;
+    border-left-color: #ff8080;
   }
 
   div.column {

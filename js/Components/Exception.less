@@ -2,6 +2,7 @@
   display: inline-block;
   width: 100%;
   cursor: pointer;
+  background-position: 100% 4px;
 
   * {
     cursor: inherit;
@@ -14,19 +15,4 @@
   ol.trace {
     padding-top: 0.5em;
   }
-}
-
-.retracted::after, .expanded::after {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  margin: 10px;
-}
-
-.retracted::after {
-  content: '▼';
-}
-
-.expanded::after {
-  content: '▲';
 }

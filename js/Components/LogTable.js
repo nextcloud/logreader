@@ -73,7 +73,7 @@ export class LogTable extends Component {
 		const levelSettingsHeader = (
 			<span onClick={this.toggleLevelSettings}>
 				Level
-				<span className={style['log-settings-toggle'] + ' icon-caret-dark'}/>
+				<span className={style['log-settings-toggle'] + ' icon-more'}/>
 			</span>
 		);
 		const levelHeader = this.props.inlineSettings ? (
