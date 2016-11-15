@@ -67,26 +67,22 @@
   }
 
   .level {
-    border-left: 0 solid white;
     width: 100px;
   }
 
   /* warning*/
-  .level_2 .level {
-    border-left-width: 5px;
-    border-left-color: #FEEFB3;
+  .level_2 td.level {
+    border-left: 5px solid #FEEFB3;
   }
 
   /*error*/
-  .level_3 .level {
-    border-left-width: 5px;
-    border-left-color: #FFBABA;
+  .level_3 td.level {
+    border-left: 5px solid #FFBABA;
   }
 
   /*fatal*/
-  .level_4 .level {
-    border-left-width: 5px;
-    border-left-color: #ff8080;
+  .level_4 td.level {
+    border-left: 5px solid #ff8080;
   }
 
   div.column {
@@ -113,5 +109,17 @@
 
   div.message {
     border-bottom: 1px solid #888;
+  }
+
+  div.level_2 {
+    border-left: 5px solid #FEEFB3;
+  }
+
+  div.level_3 {
+    border-left: 5px solid #FFBABA;
+  }
+
+  div.level_4 {
+    border-left: 5px solid #ff8080;
   }
 }
