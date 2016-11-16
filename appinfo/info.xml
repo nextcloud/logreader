@@ -8,14 +8,15 @@
 	<licence>AGPL</licence>
 	<author>Robin Appelman</author>
 	<namespace>LogReader</namespace>
+	<default_enable/>
 
 	<settings>
 		<admin>OCA\LogReader\Settings\Admin</admin>
 	</settings>
 
-	<website>https://github.com/icewind1991/logreader</website>
-	<bugs>https://github.com/icewind1991/logreader/issues</bugs>
-	<repository type="git">https://github.com/icewind1991/logreader</repository>
+	<website>https://github.com/nextcloud/logreader</website>
+	<bugs>https://github.com/nextcloud/logreader/issues</bugs>
+	<repository type="git">https://github.com/nextcloud/logreader</repository>
 	<screenshot>
 		https://i.imgur.com/0Y9G8lS.png
 	</screenshot>
