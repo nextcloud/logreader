@@ -18,15 +18,19 @@ export class LogTable extends Component {
 		this.setState({showLevelSettings: !this.state.showLevelSettings});
 	};
 
+	toggleRelativeTime = () => {
+		this.props.setRelative(!this.props.relative);
+	};
+
 	render () {
 		const timeClass = style.time + ((this.props.relative) ? (' ' + style.relative) : '');
 
 		const getTimeStamp = (entry) => {
 			const time = new Date(entry.time);
 			if (this.props.relative) {
-				return <Timestamp value={time} relative/>
+				return <Timestamp value={time} relative onClick={this.toggleRelativeTime}/>
 			} else {
-				return <Timestamp value={time}
+				return <Timestamp value={time} onClick={this.toggleRelativeTime}
 								  format={convertDateFormat(this.props.dateFormat)}/>
 			}
 		};
@@ -99,7 +103,7 @@ export class LogTable extends Component {
 							</th>
 							<th className={style.app}>App</th>
 							<th className={style.message}>Message</th>
-							<th className={timeClass}>Time</th>
+							<th className={timeClass} onClick={this.toggleRelativeTime}>Time</th>
 						</tr>
 						</thead>
 						<tbody>

@@ -137,6 +137,7 @@ export class App extends Component {
 						<LogTable
 							inlineSettings={this.props.inlineSettings}
 							levels={this.state.levels}
+							setRelative={this.setRelative}
 							setLevel={this.setLevel.bind(this)}
 							entries={entries}
 							relative={this.state.relative}
