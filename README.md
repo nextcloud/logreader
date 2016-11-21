@@ -2,7 +2,7 @@
 
 ![screenshot](https://i.imgur.com/0Y9G8lS.png)
 
-Log reader for Nextcloud with cleaner exception display and infinite scrolling.
+Log reader for Nextcloud with clean exception display, infinite scrolling and more.
 
 ## Install instructions
 
@@ -13,7 +13,7 @@ The latest stable release can be found on the [app store](https://apps.owncloud.
 
 ### Install the latest sable release manually
 
- - Download the last pre-build [release](https://github.com/icewind1991/logreader/releases)
+ - Download the last pre-build [release](https://github.com/nextcloud/logreader/releases)
  - Extract the `tar.gz` into the apps folder
  
 ### Install from source
