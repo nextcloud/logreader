@@ -5,6 +5,7 @@ project_dir=$(CURDIR)/../$(app_name)
 build_dir=$(project_dir)/build
 appstore_dir=$(build_dir)/appstore
 package_name=$(app_name)
+cert_dir=$(HOME)/.nextcloud/certificates
 
 jssources=$(wildcard js/*) $(wildcard js/*/*) $(wildcard css/*/*)  $(wildcard css/*)
 othersources=$(wildcard appinfo/*) $(wildcard css/*/*) $(wildcard controller/*/*) $(wildcard templates/*/*) $(wildcard log/*/*)
@@ -37,5 +38,6 @@ build/appstore/$(package_name).tar.gz: build/main.js $(othersources)
 	--exclude=$(project_dir)/CONTRIBUTING.md \
 	--exclude=$(project_dir)/package.json \
 	--exclude=$(project_dir)/Makefile \
-	-cvzf $(appstore_dir)/$(package_name).tar.gz $(project_dir) \
+	-cvzf $(appstore_dir)/$(package_name).tar.gz $(project_dir)
+	openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(appstore_dir)/$(app_name).tar.gz | openssl base64
 
