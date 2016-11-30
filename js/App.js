@@ -67,7 +67,7 @@ export class App extends Component {
 	setLevel (level, newState) {
 		let levels = this.state.levels;
 		levels[level] = newState;
-		const entries = this.state.entries.filter(entry=> {
+		const entries = this.state.entries.filter(entry => {
 			return this.state.levels[entry.level];
 		});
 		if (entries.length < 50) {
@@ -94,14 +94,14 @@ export class App extends Component {
 	};
 
 	render () {
-		let entries = this.state.entries.filter(entry=> {
+		let entries = this.state.entries.filter(entry => {
 			if (!entry.level && entry.level !== 0) {
 				return true;
 			}
 			return this.state.levels[entry.level];
 		});
 
-		let filters = this.state.levels.map((status, level)=> {
+		let filters = this.state.levels.map((status, level) => {
 			return (
 				<ToggleEntry key={level} active={status}
 							 onChange={this.setLevel.bind(this, level)}>
@@ -109,6 +109,33 @@ export class App extends Component {
 				</ToggleEntry>
 			);
 		});
+
+		let content;
+
+		if (entries.length > 0) {
+			content = <ReactScrolla
+				id="app-content"
+				percentage={85}
+				onPercentage={this.fetchNextPage}
+				isLoading={this.state.loading}>
+				<div className={styles.content}>
+					<LogTable
+						inlineSettings={this.props.inlineSettings}
+						levels={this.state.levels}
+						setRelative={this.setRelative}
+						setLevel={this.setLevel.bind(this)}
+						entries={entries}
+						relative={this.state.relative}
+						dateFormat={this.state.dateFormat}/>
+				</div>
+			</ReactScrolla>
+		} else {
+			content = <div className="emptycontent">
+				<div className="icon-filetype-text"/>
+				<h2>{t('logreader', 'No server logs')}</h2>
+				<p>{t('logreader', 'Everything is working fine')}</p>
+			</div>
+		}
 
 		return (
 
@@ -128,22 +155,7 @@ export class App extends Component {
 					</SideBar>
 					: <div/>}
 
-				<ReactScrolla
-					id="app-content"
-					percentage={85}
-					onPercentage={this.fetchNextPage}
-					isLoading={this.state.loading}>
-					<div className={styles.content}>
-						<LogTable
-							inlineSettings={this.props.inlineSettings}
-							levels={this.state.levels}
-							setRelative={this.setRelative}
-							setLevel={this.setLevel.bind(this)}
-							entries={entries}
-							relative={this.state.relative}
-							dateFormat={this.state.dateFormat}/>
-					</div>
-				</ReactScrolla>
+				{content}
 			</AppContainer>
 		);
 	}
