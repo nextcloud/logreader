@@ -22,7 +22,7 @@ import styles from '../css/app.css';
 export class App extends Component {
 	state = {
 		entries: [],
-		loading: false,
+		loading: true,
 		levels: [false, false, false, false, false],
 		provider: null,
 		relative: true,
@@ -52,7 +52,8 @@ export class App extends Component {
 			dateFormat,
 			provider: this.logProvider
 		});
-		this.logProvider.load();
+		await this.logProvider.load();
+		this.setState({loading: false});
 	}
 
 	fetchNextPage = _.throttle(async () => {
@@ -129,6 +130,8 @@ export class App extends Component {
 						dateFormat={this.state.dateFormat}/>
 				</div>
 			</ReactScrolla>
+		} else if (this.state.loading) {
+			content = <div className="loading log-loading"/>
 		} else {
 			content = <div className="emptycontent">
 				<div className="icon-filetype-text"/>
