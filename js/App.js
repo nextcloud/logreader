@@ -54,6 +54,7 @@ export class App extends Component {
 		});
 		await this.logProvider.load();
 		this.setState({loading: false});
+		document.addEventListener('paste', this.handlePaste)
 	}
 
 	fetchNextPage = _.throttle(async () => {
@@ -78,20 +79,34 @@ export class App extends Component {
 		this.saveLevels(levels);
 	}
 
-	onLogFile = (content) => {
+	onLogFile = async (content) => {
 		const logFile = new LogFile(content);
 		logFile.on('entries', entries => {
 			if (this.state.provider === logFile) {
 				this.setState({entries});
 			}
 		});
-		this.setState({provider: logFile, entries: []});
-		logFile.load();
+		try {
+			await logFile.loadEntries(0);
+			this.setState({provider: logFile, entries: []});
+			logFile.load();
+		} catch (e) {
+			OC.Notification.show(t('logreader', 'Error parsing log'));
+		}
 	};
 
 	setRelative = (relative) => {
 		this.setState({relative});
 		this.saveRelative(relative);
+	};
+
+	handlePaste = (event) => {
+		let data = event.clipboardData.getData('Text');
+		if (!data) {
+			data = event.clipboardData.getData('text/plain');
+		}
+		data = data.trim();
+		this.onLogFile(data);
 	};
 
 	render () {
