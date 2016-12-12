@@ -37,7 +37,6 @@ build/appstore/$(package_name).tar.gz: build/main.js $(othersources)
 	--exclude=$(project_dir)/.scrutinizer.yml \
 	--exclude=$(project_dir)/CONTRIBUTING.md \
 	--exclude=$(project_dir)/package.json \
-	--exclude=$(project_dir)/js \
 	--exclude=$(project_dir)/screenshots \
 	--exclude=$(project_dir)/Makefile \
 	-cvzf $(appstore_dir)/$(package_name).tar.gz $(project_dir)
