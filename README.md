@@ -20,3 +20,62 @@ The latest stable release can be found on the [app store](https://apps.owncloud.
 
  - clone the repo in the apps folder
  - Run `make` in the `logreader` folder
+
+## Developing
+
+For building the app `node` and `npm` are required
+
+### Building
+
+Building the app can be done using the `Makefile`
+
+```
+make
+```
+
+### Automatic rebuilding during development
+
+During development the webpack dev server can be used to automatically build the code
+for every change.
+
+Since the compiled source from the webpack dev server need to be injected in the regular Nextcloud
+sources a proxy setup is needed to combine things.
+
+If your local Nextcloud setup runs at http://localcloud an nginx configuration for the proxy
+would look like the following:
+
+```
+server {
+    listen 81;
+    server_name localcloud;
+
+    location /apps/logreader/build/main.js {
+        proxy_pass http://localhost:3000/build/main.js;
+    }
+    location /apps/logreader/build/main.css {
+        return 404;
+    }
+    location /sockjs-node {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location / {
+        proxy_set_header Host $host;
+        proxy_hide_header Content-Security-Policy;
+        proxy_pass http://localcloud/;
+    }
+}
+
+```
+
+This will run the proxy at http://localcloud:81/
+
+With the proxy configured you can start the webpack dev server and specify where the
+Nextcloud proxy is.
+ 
+```
+PROXY_URL="http://localcloud:81/ make watch
+```

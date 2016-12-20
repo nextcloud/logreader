@@ -1,20 +1,21 @@
 var path = require('path');
 var webpack = require('webpack');
 var assetsPath = path.resolve(__dirname, '../build');
-var host = 'localhost';
-var port = parseInt(process.env.PORT) + 1 || 3001;
+var host = process.env.HOST || 'localhost';
+var port = parseInt(process.env.PORT) || 3000;
+var targetUrl = process.env.PROXY_URL || 'http://localhost:' + port + '/';
 
 module.exports = {
-	ocRoot: 'http://localhost/owncloud/',
+	ocRoot: 'https://' + host + '/',
 	appId: 'logreader',
 
-	webPackPort: port,
+	webPackPort: 3000,
 	devtool: 'inline-source-map',
 	context: path.resolve(__dirname, '..'),
 	entry: {
 		'main': [
 			'babel-polyfill',
-			'webpack-dev-server/client?http://' + host + ':' + port,
+			'webpack-dev-server/client?' + targetUrl,
 			'webpack/hot/only-dev-server',
 			'./js/index.js'
 		]
