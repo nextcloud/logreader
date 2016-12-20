@@ -128,7 +128,9 @@ export class App extends Component {
 
 		let content;
 
-		if (entries.length > 0) {
+		if (this.state.loading) {
+			content = <div className="loading log-loading"/>
+		} else {
 			content = <ReactScrolla
 				id="app-content"
 				percentage={85}
@@ -142,17 +144,11 @@ export class App extends Component {
 						setLevel={this.setLevel.bind(this)}
 						entries={entries}
 						relative={this.state.relative}
-						dateFormat={this.state.dateFormat}/>
+						dateFormat={this.state.dateFormat}
+						hidden={this.state.entries.length - entries.length}
+					/>
 				</div>
 			</ReactScrolla>
-		} else if (this.state.loading) {
-			content = <div className="loading log-loading"/>
-		} else {
-			content = <div className="emptycontent">
-				<div className="icon-filetype-text"/>
-				<h2>{t('logreader', 'No server logs')}</h2>
-				<p>{t('logreader', 'Everything is working fine')}</p>
-			</div>
 		}
 
 		return (
