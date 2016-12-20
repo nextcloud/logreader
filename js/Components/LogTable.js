@@ -42,7 +42,7 @@ export class LogTable extends Component {
 				return Moment(time).fromNow();
 			}
 		};
-		const rows = this.props.entries.map((entry, i) => {
+		let rows = this.props.entries.map((entry, i) => {
 			return (
 				<tr className={style['level_' + entry.level]} key={i}>
 					<td className={style.level}><LogLevel level={entry.level}/>
@@ -73,6 +73,18 @@ export class LogTable extends Component {
 				</div>
 			)
 		});
+
+		if (rows.length === 0) {
+			rows = <tr className={style.empty}>
+				<td colSpan="4">
+					<div className="emptycontent">
+						<div className="icon-filetype-text"/>
+						<h2>{t('logreader', 'No server logs')}</h2>
+						<p>{(this.props.hidden > 0)? t('logreader', 'One or more entries are hidden by the log level filter'): t('logreader', 'Everything is working fine')}</p>
+					</div>
+				</td>
+			</tr>
+		}
 
 		const levelSettingsHeader = (
 			<span onClick={this.toggleLevelSettings}>
