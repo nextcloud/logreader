@@ -55,11 +55,18 @@ server {
     location /apps/logreader/build/main.css {
         return 404;
     }
-    location /sockjs-node {
+    
+    location /build {
         proxy_pass http://localhost:3000;
+    }
+    location /__webpack_hmr {
+        proxy_set_header Host $host;
+        proxy_pass http://localhost:3000;
+        proxy_set_header Connection '';
         proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
+        chunked_transfer_encoding off;
+        proxy_buffering off;
+        proxy_cache off;
     }
 
     location / {

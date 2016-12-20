@@ -11,6 +11,7 @@
         "module": "bluebird",
         "method": "coroutine"
       }
-    ]
+    ],
+    "react-hot-loader/babel"
   ]
 }

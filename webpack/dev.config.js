@@ -9,14 +9,15 @@ module.exports = {
 	ocRoot: 'https://' + host + '/',
 	appId: 'logreader',
 
-	webPackPort: 3000,
-	devtool: 'inline-source-map',
+	webPackPort: 444,
+	devtool: 'cheap-module-source-map',
 	context: path.resolve(__dirname, '..'),
 	entry: {
 		'main': [
+			// 'webpack-dev-server/client?' + targetUrl,
+			'react-hot-loader/patch',
+			'webpack-hot-middleware/client',
 			'babel-polyfill',
-			'webpack-dev-server/client?' + targetUrl,
-			'webpack/hot/only-dev-server',
 			'./js/index.js'
 		]
 	},
@@ -24,7 +25,7 @@ module.exports = {
 		path: assetsPath,
 		filename: '[name].js',
 		chunkFilename: '[name]-[chunkhash].js',
-		publicPath: 'http://' + host + ':' + port + '/build/'
+		publicPath: '/build/'
 	},
 	module: {
 		loaders: [
@@ -36,7 +37,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: ['react-hot-loader/webpack', 'babel-loader']
+				loaders: ['babel-loader']
 			},
 			{test: /\.json$/, loader: 'json-loader'},
 			{
