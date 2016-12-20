@@ -1,8 +1,11 @@
+var config = require('./dev.config');
+var port = parseInt(process.env.PORT) || 3000;
+var url = require('url');
+var host = process.env.HOST || 'localhost';
+var targetUrl = process.env.PROXY_URL || 'http://localhost:' + port + '/';
+
 var WebpackDevServer = require('webpack-dev-server'),
 	webpack = require('webpack'),
-	config = require('./dev.config'),
-	host = process.env.HOST || 'localhost',
-	port = parseInt(process.env.PORT) + 1 || 3001,
 	serverOptions = {
 		contentBase: config.ocRoot + '/' + config.appId + '/',
 		quiet: true,
@@ -23,4 +26,7 @@ var WebpackDevServer = require('webpack-dev-server'),
 
 webpackDevServer.listen(port, host, function () {
 	console.info('==> 🚧  Webpack development server listening on %s:%s', host, port);
+	console.info('----------');
+	console.info('== > 💻  Open ' + targetUrl + ' in a browser')
 });
+

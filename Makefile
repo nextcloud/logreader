@@ -6,6 +6,7 @@ build_dir=$(project_dir)/build
 appstore_dir=$(build_dir)/appstore
 package_name=$(app_name)
 cert_dir=$(HOME)/.nextcloud/certificates
+webpack=node_modules/.bin/webpack
 
 jssources=$(wildcard js/*) $(wildcard js/*/*) $(wildcard css/*/*)  $(wildcard css/*)
 othersources=$(wildcard appinfo/*) $(wildcard css/*/*) $(wildcard controller/*/*) $(wildcard templates/*/*) $(wildcard log/*/*)
@@ -20,7 +21,11 @@ node_modules: package.json
 	npm install --deps
 
 build/main.js: node_modules $(jssources)
-	npm run build
+	NODE_ENV=production $(webpack) --verbose --colors --display-error-details --config webpack/prod.config.js
+
+.PHONY: watch
+watch: node_modules
+	node webpack/webpack-dev-server.js
 
 appstore: clean build/main.js package
 
