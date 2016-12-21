@@ -28,7 +28,8 @@ export class LogTable extends Component {
 		const getTimeStamp = (entry) => {
 			const time = new Date(entry.time);
 			if (this.props.relative) {
-				return <Timestamp value={time} relative onClick={this.toggleRelativeTime}/>
+				return <Timestamp value={time} relative
+								  onClick={this.toggleRelativeTime}/>
 			} else {
 				return <Timestamp value={time} onClick={this.toggleRelativeTime}
 								  format={convertDateFormat(this.props.dateFormat)}/>
@@ -50,7 +51,8 @@ export class LogTable extends Component {
 					<td className={style.app}>{entry.app}</td>
 					<td className={style.message}><LogEntry
 						message={entry.message}/></td>
-					<td className={timeClass} title={getTimeTitle(entry)}>{getTimeStamp(entry)}</td>
+					<td className={timeClass}
+						title={getTimeTitle(entry)}>{getTimeStamp(entry)}</td>
 				</tr>
 			)
 		});
@@ -80,7 +82,7 @@ export class LogTable extends Component {
 					<div className="emptycontent">
 						<div className="icon-filetype-text"/>
 						<h2>{t('logreader', 'No server logs')}</h2>
-						<p>{(this.props.hidden > 0)? t('logreader', 'One or more entries are hidden by the log level filter'): t('logreader', 'Everything is working fine')}</p>
+						<p>{(this.props.hidden > 0) ? t('logreader', 'One or more entries are hidden by the log level filter') : t('logreader', 'Everything is working fine')}</p>
 					</div>
 				</td>
 			</tr>
@@ -92,9 +94,7 @@ export class LogTable extends Component {
 				<span className={style['log-settings-toggle'] + ' icon-more'}/>
 			</span>
 		);
-		const levelHeader = this.props.inlineSettings ? (
-			levelSettingsHeader
-		) : "Level";
+		const levelHeader = this.props.inlineSettings ? (levelSettingsHeader): "Level";
 
 		return (
 			<div>
@@ -115,7 +115,9 @@ export class LogTable extends Component {
 							</th>
 							<th className={style.app}>App</th>
 							<th className={style.message}>Message</th>
-							<th className={timeClass} onClick={this.toggleRelativeTime}>Time</th>
+							<th className={timeClass}
+								onClick={this.toggleRelativeTime}>Time
+							</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -123,7 +125,18 @@ export class LogTable extends Component {
 						</tbody>
 					</table>
 				</MediaQuery>
-				<MediaQuery maxWidth={750}>
+				<MediaQuery maxWidth={768}>
+					<div className={style.smallHeader}>
+						{levelHeader}
+						{
+							this.state.showLevelSettings ?
+								<LevelSettings
+									setLevel={this.props.setLevel}
+									levels={this.props.levels}
+								/> :
+								<div className="hidden"/>
+						}
+					</div>
 					<div className={style.logs}>
 						{smallRows}
 					</div>

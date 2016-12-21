@@ -132,7 +132,6 @@ export class App extends Component {
 			content = <div className="loading log-loading"/>
 		} else {
 			content = <ReactScrolla
-				id="app-content"
 				percentage={85}
 				onPercentage={this.fetchNextPage}
 				isLoading={this.state.loading}>
