@@ -102,6 +102,6 @@ class LogIterator implements \Iterator {
 	}
 
 	function valid() {
-		return $this->position >= 0;
+		return $this->position >= 0 && is_resource($this->handle);
 	}
 }
