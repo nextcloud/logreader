@@ -33,11 +33,12 @@ class SearchFilter extends \FilterIterator {
 	private $levels;
 
 	/**
-	 * @param LogIterator $iterator
+	 * @param \Iterator $iterator
 	 * @param string $query
 	 */
-	public function __construct(LogIterator $iterator, $query) {
+	public function __construct(\Iterator $iterator, $query) {
 		parent::__construct($iterator);
+		$this->rewind();
 		$this->query = strtolower($query);
 		$this->levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 	}
@@ -47,9 +48,12 @@ class SearchFilter extends \FilterIterator {
 	}
 
 	public function accept() {
-		$value = $this->getInnerIterator()->current();
-		return stripos($value->message, $this->query) !== false
-		|| stripos($value->app, $this->query) !== false
-		|| stripos($this->formatLevel($value->level), $this->query) !== false;
+		if (!$this->query) {
+			return true;
+		}
+		$value = $this->current();
+		return stripos($value['message'], $this->query) !== false
+		|| stripos($value['app'], $this->query) !== false
+		|| stripos($this->formatLevel($value['level']), $this->query) !== false;
 	}
 }

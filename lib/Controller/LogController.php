@@ -77,7 +77,10 @@ class LogController extends Controller {
 	 */
 	public function search($query = '', $count = 50, $offset = 0) {
 		$iterator = $this->getLogIterator();
+		$iterator = new \LimitIterator($iterator, 0, 10000); // limit the number of message we search to avoid huge search times
+		$iterator->rewind();
 		$iterator = new SearchFilter($iterator, $query);
+		$iterator->rewind();
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
 
