@@ -152,7 +152,7 @@ export class App extends Component {
 
 		return (
 
-			<AppContainer appId="logreader">
+			<div>
 				{!this.props.inlineSettings ?
 					<SideBar><LogUploader
 						onLogFile={this.onLogFile}/>
@@ -169,7 +169,7 @@ export class App extends Component {
 					: <div/>}
 
 				{content}
-			</AppContainer>
+			</div>
 		);
 	}
 }
