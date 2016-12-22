@@ -37,12 +37,19 @@ class LogIterator implements \Iterator {
 	 */
 	private $lastLine;
 
+	/**
+	 * @var string
+	 */
+	private $currentLine = '';
+
 	private $currentKey = -1;
 
 	/**
 	 * @var string
 	 */
 	private $dateFormat;
+
+	const CHUNK_SIZE = 100; // how many chars do we try at once to find a new line
 
 	/**
 	 * @param resource $handle
@@ -57,7 +64,7 @@ class LogIterator implements \Iterator {
 
 	function rewind() {
 		fseek($this->handle, 0, SEEK_END);
-		$this->position = ftell($this->handle);
+		$this->position = ftell($this->handle) - self::CHUNK_SIZE;
 		$this->currentKey = 0;
 	}
 
@@ -75,26 +82,22 @@ class LogIterator implements \Iterator {
 	}
 
 	function next() {
-		$line = '';
 		// Loop through each character of the file looking for new lines
 		while ($this->position >= 0) {
 			fseek($this->handle, $this->position);
-			$ch = fgetc($this->handle);
-			if ($ch === "\n" || $this->position === 0) {
-				if ($line !== '') {
-					// Add the first character if at the start of the file,
-					// because it doesn't hit the else in the loop
-					if ($this->position === 0) {
-						$line = $ch . $line;
-					}
-					$this->lastLine = $line;
-					$this->currentKey++;
-					return;
-				}
+			$chars = fread($this->handle, self::CHUNK_SIZE);
+			$newlinePos = strpos($chars, "\n");
+			if ($newlinePos !== false) {
+				$this->currentLine = substr($chars, $newlinePos + 1) . $this->currentLine;
+				$this->lastLine = $this->currentLine;
+				$this->currentKey++;
+				$this->currentLine = '';
+				$this->position -= (self::CHUNK_SIZE - $newlinePos);
+				return;
 			} else {
-				$line = $ch . $line;
+				$this->currentLine = $chars . $this->currentLine;
+				$this->position -= self::CHUNK_SIZE;
 			}
-			$this->position--;
 		}
 	}
 

@@ -74,6 +74,8 @@ class LogController extends Controller {
 	 * @param int $count
 	 * @param int $offset
 	 * @return TemplateResponse
+	 *
+	 * @NoCSRFRequired
 	 */
 	public function search($query = '', $count = 50, $offset = 0) {
 		$iterator = $this->getLogIterator();
