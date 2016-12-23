@@ -86,7 +86,7 @@ class LogIterator implements \Iterator {
 		while ($this->position >= 0) {
 			fseek($this->handle, $this->position);
 			$chars = fread($this->handle, self::CHUNK_SIZE);
-			$newlinePos = strpos($chars, "\n");
+			$newlinePos = strrpos($chars, "\n");
 			if ($newlinePos !== false) {
 				$this->currentLine = substr($chars, $newlinePos + 1) . $this->currentLine;
 				$this->lastLine = $this->currentLine;
