@@ -70,9 +70,9 @@ class LogIterator implements \Iterator {
 
 	function current() {
 		$entry = json_decode($this->lastLine, true);
-		if ($this->dateFormat !== \DateTime::ISO8601) {
+		if ($this->dateFormat !== \DateTime::ATOM) {
 			$time = \DateTime::createFromFormat($this->dateFormat, $entry['time']);
-			$entry['time'] = $time->format(\DateTime::ISO8601);
+			$entry['time'] = $time->format(\DateTime::ATOM);
 		}
 		return $entry;
 	}
