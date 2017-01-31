@@ -53,7 +53,11 @@ class LogController extends Controller {
 		foreach ($logClasses as $logClass) {
 			if (class_exists($logClass)) {
 				$handle = fopen($logClass::getLogFilePath(), 'rb');
-				return new LogIterator($handle, $dateFormat);
+				if ($handle) {
+					return new LogIterator($handle, $dateFormat);
+				else {
+					throw new \Exception("Error while opening ".$logClass::getLogFilePath());
+				}
 			}
 		}
 		throw new \Exception('Can\'t find log class');
