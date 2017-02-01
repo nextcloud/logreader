@@ -55,7 +55,7 @@ class LogController extends Controller {
 				$handle = fopen($logClass::getLogFilePath(), 'rb');
 				if ($handle) {
 					return new LogIterator($handle, $dateFormat);
-				else {
+				} else {
 					throw new \Exception("Error while opening ".$logClass::getLogFilePath());
 				}
 			}
