@@ -51,7 +51,7 @@ export class ExceptionParser {
 			return JSON.parse(json);
 		} catch (e) {
 			// fix unescaped newlines
-			json = json.replace(/\n/g, '');
+			json = json.replace(/\n/g, '\\n');
 			// fix unescaped namespace delimiters
 			json = json.replace(/([^\\])\\([A-Z{])/g, '$1\\\\$2');
 			try {
