@@ -18,9 +18,15 @@ export class ExceptionParser {
 	parse (logMessage) {
 		let data;
 		if (this.isRegularException(logMessage)) {
-			data = JSON.parse(logMessage.substr(10));
+			try {
+				data = this.tryParseJSON(logMessage.substr(10));
+			} catch (e) {
+				console.log('Error while parsing exception:');
+				console.log(logMessage.substr(10));
+				console.error(e);
+			}
 		} else {
-			data = JSON.parse(logMessage.substr(logMessage.indexOf('{"Exception":')));
+			data = this.tryParseJSON(logMessage.substr(logMessage.indexOf('{"Exception":')));
 			const messageHead = logMessage.substr(0, logMessage.indexOf('{"Exception":'));
 			const jobDataString = messageHead.split('(', 2)[1];
 			const jobDataParts = jobDataString.split(',', 2).map(part=>part.trim());
@@ -38,6 +44,24 @@ export class ExceptionParser {
 		let traceLines = data.Trace.split('\n');
 		data.Trace = traceLines.map(this.parseTraceLine);
 		return data;
+	}
+
+	tryParseJSON(json) {
+		try {
+			return JSON.parse(json);
+		} catch (e) {
+			// fix unescaped newlines
+			json = json.replace(/\n/g, '');
+			// fix unescaped namespace delimiters
+			json = json.replace(/([^\\])\\([A-Z{])/g, '$1\\\\$2');
+			try {
+				return JSON.parse(json);
+			} catch (e) {
+				console.log('Error while parsing exception:');
+				console.log(json);
+				console.error(e);
+			}
+		}
 	}
 
 	parseCommandJob (data) {
