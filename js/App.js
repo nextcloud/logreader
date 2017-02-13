@@ -106,7 +106,9 @@ export class App extends Component {
 			data = event.clipboardData.getData('text/plain');
 		}
 		data = data.trim();
-		this.onLogFile(data);
+		if (data.indexOf('{') !== -1 && data.indexOf('}')) {
+			this.onLogFile(data);
+		}
 	};
 
 	render () {
