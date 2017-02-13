@@ -44,7 +44,7 @@ class SearchFilter extends \FilterIterator {
 	}
 
 	private function formatLevel($level) {
-		return $this->levels[$level];
+		return isset($this->levels[$level]) ? $this->levels[$level] : 'Unknown';
 	}
 
 	public function accept() {
@@ -53,7 +53,9 @@ class SearchFilter extends \FilterIterator {
 		}
 		$value = $this->current();
 		return stripos($value['message'], $this->query) !== false
-		|| stripos($value['app'], $this->query) !== false
-		|| stripos($this->formatLevel($value['level']), $this->query) !== false;
+			|| stripos($value['app'], $this->query) !== false
+			|| stripos($value['reqId'], $this->query) !== false
+			|| stripos($value['user'], $this->query) !== false
+			|| stripos($this->formatLevel($value['level']), $this->query) !== false;
 	}
 }
