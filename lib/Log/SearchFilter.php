@@ -56,6 +56,7 @@ class SearchFilter extends \FilterIterator {
 			|| stripos($value['app'], $this->query) !== false
 			|| stripos($value['reqId'], $this->query) !== false
 			|| stripos($value['user'], $this->query) !== false
+			|| stripos($value['url'], $this->query) !== false
 			|| stripos($this->formatLevel($value['level']), $this->query) !== false;
 	}
 }
