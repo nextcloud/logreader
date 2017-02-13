@@ -17,6 +17,7 @@ export class LogProvider extends EventEmitter {
 	}
 
 	reset () {
+		this.hasMore = true;
 		this.limit = this.baseLimit;
 		this.cachedEntries = [];
 		this.loading = false;
@@ -29,6 +30,7 @@ export class LogProvider extends EventEmitter {
 	set query (newQuery) {
 		if (newQuery !== this.searchQuery) {
 			this.searchQuery = newQuery;
+			console.log(newQuery);
 			this.reset();
 			this.load();
 		}
