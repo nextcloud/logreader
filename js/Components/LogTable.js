@@ -11,7 +11,8 @@ import style from './LogTable.less';
 
 export class LogTable extends Component {
 	state = {
-		showLevelSettings: false
+		showLevelSettings: false,
+		highlightedRequest: null
 	};
 
 	toggleLevelSettings = () => {
@@ -21,6 +22,10 @@ export class LogTable extends Component {
 	toggleRelativeTime = () => {
 		this.props.setRelative(!this.props.relative);
 	};
+
+	highlightRequest (highlightedRequest) {
+		this.setState({highlightedRequest});
+	}
 
 	render () {
 		const timeClass = style.time + ((this.props.relative) ? (' ' + style.relative) : '');
@@ -44,8 +49,13 @@ export class LogTable extends Component {
 			}
 		};
 		let rows = this.props.entries.map((entry, i) => {
+			let className = style['level_' + entry.level];
+			if (entry.reqId === this.state.highlightedRequest) {
+				className += ' ' + style.highlight;
+			}
 			return (
-				<tr className={style['level_' + entry.level]} key={i}>
+				<tr className={className} key={i}
+					onClick={this.highlightRequest.bind(this, entry.reqId)}>
 					<td className={style.level}><LogLevel level={entry.level}/>
 					</td>
 					<td className={style.app}>{entry.app}</td>
