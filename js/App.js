@@ -58,6 +58,7 @@ export class App extends Component {
 	}
 
 	fetchNextPage = _.throttle(async () => {
+		console.log(this.state.provider.hasMore);
 		if (this.state.provider.hasMore) {
 			this.setState({loading: true});
 			this.state.provider.limit += 25;
@@ -134,6 +135,7 @@ export class App extends Component {
 			content = <div className="loading log-loading"/>
 		} else {
 			content = <ReactScrolla
+				className={styles.scrollContainer}
 				percentage={85}
 				onPercentage={this.fetchNextPage}
 				isLoading={this.state.loading}>
