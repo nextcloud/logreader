@@ -131,7 +131,7 @@ export class App extends Component {
 
 		let content;
 
-		if (this.state.loading) {
+		if (this.state.loading && entries.length < 1) {
 			content = <div className="loading log-loading"/>
 		} else {
 			content = <ReactScrolla
