@@ -44,7 +44,7 @@ export class LogProvider extends EventEmitter {
 		if (this.cachedEntries.length >= this.limit || this.fromFile || !this.hasMore) {
 			return;
 		}
-		var newData = await this.loadEntries(this.cachedEntries.length, this.limit - this.cachedEntries.length);
+		const newData = await this.loadEntries(this.cachedEntries.length, this.limit - this.cachedEntries.length);
 		if (newData.data.length === 0) {
 			this.hasMore = false;
 		}

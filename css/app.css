@@ -7,6 +7,10 @@
 	width: 100%;
 }
 
+#logreader-root > div {
+	height: 100%;
+}
+
 #log-section {
 	display: none; /** we overwrite this */
 }
@@ -16,4 +20,9 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.scrollContainer {
+	height: 100%;
+	overflow: auto;
 }
