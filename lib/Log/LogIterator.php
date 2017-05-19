@@ -72,7 +72,9 @@ class LogIterator implements \Iterator {
 		$entry = json_decode($this->lastLine, true);
 		if ($this->dateFormat !== \DateTime::ATOM) {
 			$time = \DateTime::createFromFormat($this->dateFormat, $entry['time']);
-			$entry['time'] = $time->format(\DateTime::ATOM);
+			if ($time) {
+				$entry['time'] = $time->format(\DateTime::ATOM);
+			}
 		}
 		return $entry;
 	}
