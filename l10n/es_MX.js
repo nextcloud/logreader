@@ -1,0 +1,27 @@
+OC.L10N.register(
+    "logreader",
+    {
+    "add" : "agregar",
+    "subtract" : "restar",
+    "37" : "37",
+    "38" : "38",
+    "39" : "39",
+    "40" : "40",
+    "41" : "41",
+    "42" : "42",
+    "43" : "43",
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
+    "_hidden" : "_hidden",
+    "toPrimitive" : "toPrimitive",
+    "captured" : "capturado",
+    "bubbled" : "bubbled",
+    "Error parsing log" : "Error al interpretar la bitácora",
+    "Download logs" : "Descargar bitácoras",
+    "No server logs" : "No hay bitácoras del servidor",
+    "One or more entries are hidden by the log level filter" : "Uno o más elementos están ocultos por el filtro del nivel de bitácora",
+    "Everything is working fine" : "Todo está funcionado correctamente",
+    "Logging" : "Registrando",
+    "Log Reader" : "Lector de Bitácoras"
+},
+"nplurals=2; plural=(n != 1);");
