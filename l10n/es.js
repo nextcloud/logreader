@@ -10,6 +10,7 @@ OC.L10N.register(
     "42" : "42",
     "43" : "43",
     "captured" : "capturado",
+    "Error parsing log" : "Error al analizar el registro",
     "Download logs" : "Descargar registros",
     "No server logs" : "No hay registros del servidor",
     "One or more entries are hidden by the log level filter" : "Una o más entradas están ocultas por el filtro de nivel del registro",
