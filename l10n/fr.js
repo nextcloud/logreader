@@ -10,10 +10,18 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
+    "_hidden" : "_hidden",
+    "toPrimitive" : "toPrimitive",
+    "captured" : "captured",
+    "bubbled" : "bubbled",
+    "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
     "Download logs" : "Télécharger les journaux",
     "No server logs" : "Aucun journal serveur",
     "One or more entries are hidden by the log level filter" : "Des entrées sont masquées par le filtre sur le niveau de journalisation",
     "Everything is working fine" : "Tout fonctionne à merveille",
-    "Logging" : "Connexion"
+    "Logging" : "Connexion",
+    "Log Reader" : "Lecteur du fichier journal"
 },
 "nplurals=2; plural=(n > 1);");
