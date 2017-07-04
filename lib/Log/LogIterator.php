@@ -49,15 +49,19 @@ class LogIterator implements \Iterator {
 	 */
 	private $dateFormat;
 
+	private $timezone;
+
 	const CHUNK_SIZE = 100; // how many chars do we try at once to find a new line
 
 	/**
 	 * @param resource $handle
 	 * @param string $dateFormat
+	 * @param string $timezone
 	 */
-	public function __construct($handle, $dateFormat) {
+	public function __construct($handle, $dateFormat, $timezone) {
 		$this->handle = $handle;
 		$this->dateFormat = $dateFormat;
+		$this->timezone = new \DateTimeZone($timezone);
 		$this->rewind();
 		$this->next();
 	}
@@ -71,8 +75,10 @@ class LogIterator implements \Iterator {
 	function current() {
 		$entry = json_decode($this->lastLine, true);
 		if ($this->dateFormat !== \DateTime::ATOM) {
-			$time = \DateTime::createFromFormat($this->dateFormat, $entry['time']);
-			$entry['time'] = $time->format(\DateTime::ATOM);
+			$time = \DateTime::createFromFormat($this->dateFormat, $entry['time'], $this->timezone);
+			if ($time) {
+				$entry['time'] = $time->format(\DateTime::ATOM);
+			}
 		}
 		return $entry;
 	}
