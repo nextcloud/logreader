@@ -49,12 +49,13 @@ class LogController extends Controller {
 
 	private function getLogIterator() {
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ATOM);
+		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
 		$logClasses = ['\OC\Log\Owncloud', '\OC_Log_Owncloud', '\OC\Log\File'];
 		foreach ($logClasses as $logClass) {
 			if (class_exists($logClass)) {
 				$handle = fopen($logClass::getLogFilePath(), 'rb');
 				if ($handle) {
-					return new LogIterator($handle, $dateFormat);
+					return new LogIterator($handle, $dateFormat, $timezone);
 				} else {
 					throw new \Exception("Error while opening ".$logClass::getLogFilePath());
 				}
