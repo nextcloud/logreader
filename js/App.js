@@ -53,6 +53,7 @@ export class App extends Component {
 			provider: this.logProvider
 		});
 		await this.logProvider.load();
+		this.logProvider.startPolling();
 		this.setState({loading: false});
 		document.addEventListener('paste', this.handlePaste)
 	}

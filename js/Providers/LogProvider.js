@@ -107,4 +107,30 @@ export class LogProvider extends EventEmitter {
 			data: {relative}
 		});
 	}
+
+	startPolling() {
+		let self = this;
+
+		/**
+		 * @brief calls the polling URL. This URL will do longpolling,
+		 * so it isn't necessary to sleep in this method.
+		 * @private
+		 */
+		function _internal() {
+			if (self.cachedEntries.length > 0) {
+
+				let lastReqId = self.cachedEntries[0].reqId;
+
+				$.get(OC.generateUrl('/apps/logreader/poll'), {
+					lastReqId
+				}).done(function (newData) {
+					self.cachedEntries = newData.data.concat(self.cachedEntries);
+					self.emit('entries', self.cachedEntries);
+					_internal();
+				});
+
+			}
+		}
+		_internal();
+	}
 }

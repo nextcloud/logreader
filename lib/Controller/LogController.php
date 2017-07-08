@@ -74,6 +74,74 @@ class LogController extends Controller {
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
 
+
+	/**
+	 * @brief Gets the last item in the log, bypassing any cache.
+	 * @return mixed
+	 */
+	private function getLastItem() {
+		$iterator = $this->getLogIterator();
+		$iterator->next();
+		return $iterator->current();
+
+	}
+
+	/**
+	 * @brief polls for a new log message since $lastReqId.
+	 * This method will sleep for maximum 20 seconds before returning an empty
+	 * result.
+	 *
+	 * Note that there is a race condition possible: when the user loads the
+	 * logging page when a request isn't finished and this specific request
+	 * is the last request in the log, then new messages of this request
+	 * won't be polled. This is because there is no reliable way to identify
+	 * a log message, so we have to use the reqid:
+	 *  - the key of the iterator will change when a new message is saved
+	 *  - a combination of reqid and counting the messages for that specific reqid
+	 *  will work in some cases but not when there are more than 50 messages of that
+	 *  request.
+	 * @param $lastReqId
+	 * @return JSONResponse
+	 */
+	public function poll($lastReqId) {
+
+		$cycles = 0;
+		$maxCycles = 20;
+
+		while ($this->getLastItem()["reqId"] === $lastReqId) {
+			sleep(1);
+			$cycles++;
+			if ($cycles === $maxCycles) {
+				return new JSONResponse([
+					'data' => []
+				]);
+			}
+		}
+		$iterator = $this->getLogIterator();
+		$iterator->next();
+
+		$data = [];
+
+		while ($iterator->valid()) {
+			$line = $iterator->current();
+
+			if ($line["reqId"]  === $lastReqId) {
+				break;
+			}
+
+			if (!is_null($line)) {
+				$data[] = $line;
+			}
+			$iterator->next();
+		}
+
+
+		return new JSONResponse([
+			'data' => $data
+		]);
+
+	}
+
 	/**
 	 * @param string $query
 	 * @param int $count
