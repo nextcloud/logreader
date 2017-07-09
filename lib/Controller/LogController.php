@@ -130,6 +130,7 @@ class LogController extends Controller {
 			}
 
 			if (!is_null($line)) {
+				$line["id"] = uniqid();
 				$data[] = $line;
 			}
 			$iterator->next();
@@ -201,6 +202,7 @@ class LogController extends Controller {
 		for ($i = 0; $i < $count && $iterator->valid(); $i++) {
 			$line = $iterator->current();
 			if (!is_null($line)) {
+				$line["id"] = uniqid();
 				$data[] = $line;
 			}
 			$iterator->next();

@@ -6,6 +6,7 @@ import MediaQuery from 'react-responsive';
 import {convertDateFormat} from '../DateFormatConverter.js'
 import {LevelSettings} from './LevelSettings';
 import Moment from 'moment'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import style from './LogTable.less';
 
@@ -48,13 +49,14 @@ export class LogTable extends Component {
 				return Moment(time).fromNow();
 			}
 		};
+
 		let rows = this.props.entries.map((entry, i) => {
 			let className = style['level_' + entry.level];
 			if (entry.reqId === this.state.highlightedRequest) {
 				className += ' ' + style.highlight;
 			}
 			return (
-				<tr className={className} key={i}
+				<tr className={className} key={entry.id}
 					onClick={this.highlightRequest.bind(this, entry.reqId)}>
 					<td className={style.level}><LogLevel level={entry.level}/>
 					</td>
@@ -130,9 +132,14 @@ export class LogTable extends Component {
 							</th>
 						</tr>
 						</thead>
-						<tbody>
-						{rows}
-						</tbody>
+						<ReactCSSTransitionGroup
+							transitionName="highlight"
+							transitionEnterTimeout={1500}
+							transitionLeaveTimeout={1500}
+							component="tbody"
+						>
+							{rows}
+						</ReactCSSTransitionGroup>
 					</table>
 				</MediaQuery>
 				<MediaQuery maxWidth={768}>

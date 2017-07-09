@@ -26,3 +26,13 @@
 	height: 100%;
 	overflow: auto;
 }
+
+.highlight-enter {
+	background-color: orange;
+}
+
+.highlight-enter.highlight-enter-active {
+	background-color: white;
+	transition: background 1500ms ease-in;
+}
+
