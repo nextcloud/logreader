@@ -7,6 +7,8 @@ export class LogProvider extends EventEmitter {
 	fromFile = false;
 	cachedEntries = [];
 	hasMore = true;
+	poll = false;
+	pollActive = false;
 
 	constructor (limit = 50) {
 		super();
@@ -95,9 +97,14 @@ export class LogProvider extends EventEmitter {
 		return relativedates;
 	}
 
-	async getDateFormat(){
+	async getDateFormat () {
 		const {dateformat} = await this.getSettings();
 		return dateformat;
+	}
+
+	async getLive () {
+		const {live} = await this.getSettings();
+		return live;
 	}
 
 	setRelative (relative) {
@@ -108,29 +115,36 @@ export class LogProvider extends EventEmitter {
 		});
 	}
 
-	startPolling() {
-		let self = this;
+	setLive (live) {
+		return $.ajax({
+			type: 'PUT',
+			url: OC.generateUrl('/apps/logreader/live'),
+			data: {live}
+		});
+	}
 
-		/**
-		 * @brief calls the polling URL. This URL will do longpolling,
-		 * so it isn't necessary to sleep in this method.
-		 * @private
-		 */
-		function _internal() {
-			if (self.cachedEntries.length > 0) {
-
-				let lastReqId = self.cachedEntries[0].reqId;
-
-				$.get(OC.generateUrl('/apps/logreader/poll'), {
-					lastReqId
-				}).done(function (newData) {
-					self.cachedEntries = newData.data.concat(self.cachedEntries);
-					self.emit('entries', self.cachedEntries);
-					_internal();
-				});
-
-			}
+	async startPolling () {
+		if (this.cachedEntries.length === 0 || this.poll || this.pollActive) {
+			return;
 		}
-		_internal();
+
+		this.pollActive = true;
+		this.poll = true;
+
+		while (this.poll) {
+			const lastReqId = this.cachedEntries[0].reqId;
+
+			const newData = await $.get(OC.generateUrl('/apps/logreader/poll'), {
+				lastReqId
+			});
+			this.cachedEntries = newData.concat(this.cachedEntries);
+			this.emit('entries', this.cachedEntries);
+		}
+
+		this.pollActive = false;
+	}
+
+	stopPolling () {
+		this.poll = false;
 	}
 }

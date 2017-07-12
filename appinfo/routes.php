@@ -18,4 +18,5 @@ return ['routes' => [
 	['name' => 'log#getLevels', 'url' => '/levels', 'verb' => 'GET'],
 	['name' => 'log#setLevels', 'url' => '/levels', 'verb' => 'PUT'],
 	['name' => 'log#setRelative', 'url' => '/relative', 'verb' => 'PUT'],
+	['name' => 'log#setLive', 'url' => '/live', 'verb' => 'PUT'],
 ]];

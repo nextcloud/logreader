@@ -26,7 +26,8 @@ export class App extends Component {
 		levels: [false, false, false, false, false],
 		provider: null,
 		relative: true,
-		dateFormat: 'Y-m-d\TH:i:sO'
+		dateFormat: 'Y-m-d\TH:i:sO',
+		live: false
 	};
 
 	constructor () {
@@ -40,20 +41,25 @@ export class App extends Component {
 		OCA.Search.logreader = new LogSearch(this.logProvider);
 		this.saveLevels = _.debounce(this.logProvider.setLevels, 100);
 		this.saveRelative = _.debounce(this.logProvider.setRelative, 100);
+		this.saveLive = _.debounce(this.logProvider.setLive, 100);
 	}
 
 	async componentDidMount () {
 		const levels = await this.logProvider.getLevels();
 		const relative = await this.logProvider.getRelative();
 		const dateFormat = await this.logProvider.getDateFormat();
+		const live = await this.logProvider.getLive();
 		this.setState({
 			levels,
 			relative,
 			dateFormat,
+			live,
 			provider: this.logProvider
 		});
 		await this.logProvider.load();
-		this.logProvider.startPolling();
+		if (live) {
+			this.logProvider.startPolling();
+		}
 		this.setState({loading: false});
 		document.addEventListener('paste', this.handlePaste)
 	}
@@ -99,6 +105,16 @@ export class App extends Component {
 	setRelative = (relative) => {
 		this.setState({relative});
 		this.saveRelative(relative);
+	};
+
+	setLive = (live) => {
+		this.setState({live});
+		if (live) {
+			this.logProvider.startPolling();
+		} else {
+			this.logProvider.stopPolling();
+		}
+		this.saveLive(live);
 	};
 
 	handlePaste = (event) => {
@@ -149,6 +165,8 @@ export class App extends Component {
 						relative={this.state.relative}
 						dateFormat={this.state.dateFormat}
 						hidden={this.state.entries.length - entries.length}
+						live={this.state.live}
+						setLive={this.setLive.bind(this)}
 					/>
 				</div>
 			</ReactScrolla>

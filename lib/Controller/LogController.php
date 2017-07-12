@@ -57,7 +57,7 @@ class LogController extends Controller {
 				if ($handle) {
 					return new LogIterator($handle, $dateFormat, $timezone);
 				} else {
-					throw new \Exception("Error while opening ".$logClass::getLogFilePath());
+					throw new \Exception("Error while opening " . $logClass::getLogFilePath());
 				}
 			}
 		}
@@ -108,13 +108,11 @@ class LogController extends Controller {
 		$cycles = 0;
 		$maxCycles = 20;
 
-		while ($this->getLastItem()["reqId"] === $lastReqId) {
+		while ($this->getLastItem()['reqId'] === $lastReqId) {
 			sleep(1);
 			$cycles++;
 			if ($cycles === $maxCycles) {
-				return new JSONResponse([
-					'data' => []
-				]);
+				return new JSONResponse([]);
 			}
 		}
 		$iterator = $this->getLogIterator();
@@ -125,22 +123,18 @@ class LogController extends Controller {
 		while ($iterator->valid()) {
 			$line = $iterator->current();
 
-			if ($line["reqId"]  === $lastReqId) {
+			if ($line['reqId'] === $lastReqId) {
 				break;
 			}
 
 			if (!is_null($line)) {
-				$line["id"] = uniqid();
+				$line['id'] = uniqid();
 				$data[] = $line;
 			}
 			$iterator->next();
 		}
 
-
-		return new JSONResponse([
-			'data' => $data
-		]);
-
+		return new JSONResponse($data);
 	}
 
 	/**
@@ -170,6 +164,7 @@ class LogController extends Controller {
 			'dateformat' => $this->config->getSystemValue('logdateformat', \DateTime::ISO8601),
 			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
 			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', false),
+			'live' => (bool)$this->config->getAppValue('logreader', 'live', true),
 		]);
 	}
 
@@ -178,6 +173,13 @@ class LogController extends Controller {
 	 */
 	public function setRelative($relative) {
 		$this->config->setAppValue('logreader', 'relativedates', $relative);
+	}
+
+	/**
+	 * @param bool $live
+	 */
+	public function setLive($live) {
+		$this->config->setAppValue('logreader', 'live', $live);
 	}
 
 	public function setLevels($levels) {

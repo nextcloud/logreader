@@ -106,7 +106,7 @@ export class LogTable extends Component {
 				<span className={style['log-settings-toggle'] + ' icon-more'}/>
 			</span>
 		);
-		const levelHeader = this.props.inlineSettings ? (levelSettingsHeader): "Level";
+		const levelHeader = this.props.inlineSettings ? (levelSettingsHeader) : "Level";
 
 		return (
 			<div>
@@ -121,6 +121,8 @@ export class LogTable extends Component {
 										<LevelSettings
 											setLevel={this.props.setLevel}
 											levels={this.props.levels}
+											live={this.props.live}
+											setLive={this.props.setLive}
 										/> :
 										<div className="hidden"/>
 								}
