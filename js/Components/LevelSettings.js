@@ -8,13 +8,20 @@ export class LevelSettings extends Component {
 	render () {
 		return (
 			<div className={style.settings + ' popovermenu bubble open menu'}>
+				<h4>{t('settings', 'Log levels')}</h4>
 				{LogProvider.levels.map((name, level) => {
-					return <ToggleEntry key={level} active={this.props.levels[level]}
-								 onChange={this.props.setLevel.bind(this, level)}>
+					return <ToggleEntry key={level}
+										active={this.props.levels[level]}
+										onChange={this.props.setLevel.bind(this, level)}>
 						{name}
 					</ToggleEntry>
 				})}
-				<a href={OC.generateUrl('settings/admin/log/download')} className="button">{t('settings', 'Download logs')}</a>
+				<h4>{t('settings', 'Log content')}</h4>
+				<ToggleEntry active={this.props.live} onChange={this.props.setLive}>
+					{t('settings', 'Live update')}
+				</ToggleEntry>
+				<a href={OC.generateUrl('settings/admin/log/download')}
+				   className="button">{t('settings', 'Download logs')}</a>
 			</div>
 		);
 	}

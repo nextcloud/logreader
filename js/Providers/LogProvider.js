@@ -7,6 +7,8 @@ export class LogProvider extends EventEmitter {
 	fromFile = false;
 	cachedEntries = [];
 	hasMore = true;
+	poll = false;
+	pollActive = false;
 
 	constructor (limit = 50) {
 		super();
@@ -95,9 +97,14 @@ export class LogProvider extends EventEmitter {
 		return relativedates;
 	}
 
-	async getDateFormat(){
+	async getDateFormat () {
 		const {dateformat} = await this.getSettings();
 		return dateformat;
+	}
+
+	async getLive () {
+		const {live} = await this.getSettings();
+		return live;
 	}
 
 	setRelative (relative) {
@@ -106,5 +113,38 @@ export class LogProvider extends EventEmitter {
 			url: OC.generateUrl('/apps/logreader/relative'),
 			data: {relative}
 		});
+	}
+
+	setLive (live) {
+		return $.ajax({
+			type: 'PUT',
+			url: OC.generateUrl('/apps/logreader/live'),
+			data: {live}
+		});
+	}
+
+	async startPolling () {
+		if (this.cachedEntries.length === 0 || this.poll || this.pollActive) {
+			return;
+		}
+
+		this.pollActive = true;
+		this.poll = true;
+
+		while (this.poll) {
+			const lastReqId = this.cachedEntries[0].reqId;
+
+			const newData = await $.get(OC.generateUrl('/apps/logreader/poll'), {
+				lastReqId
+			});
+			this.cachedEntries = newData.concat(this.cachedEntries);
+			this.emit('entries', this.cachedEntries);
+		}
+
+		this.pollActive = false;
+	}
+
+	stopPolling () {
+		this.poll = false;
 	}
 }

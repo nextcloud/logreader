@@ -57,7 +57,7 @@ class LogController extends Controller {
 				if ($handle) {
 					return new LogIterator($handle, $dateFormat, $timezone);
 				} else {
-					throw new \Exception("Error while opening ".$logClass::getLogFilePath());
+					throw new \Exception("Error while opening " . $logClass::getLogFilePath());
 				}
 			}
 		}
@@ -72,6 +72,69 @@ class LogController extends Controller {
 	public function get($count = 50, $offset = 0) {
 		$iterator = $this->getLogIterator();
 		return $this->responseFromIterator($iterator, $count, $offset);
+	}
+
+
+	/**
+	 * @brief Gets the last item in the log, bypassing any cache.
+	 * @return mixed
+	 */
+	private function getLastItem() {
+		$iterator = $this->getLogIterator();
+		$iterator->next();
+		return $iterator->current();
+
+	}
+
+	/**
+	 * @brief polls for a new log message since $lastReqId.
+	 * This method will sleep for maximum 20 seconds before returning an empty
+	 * result.
+	 *
+	 * Note that there is a race condition possible: when the user loads the
+	 * logging page when a request isn't finished and this specific request
+	 * is the last request in the log, then new messages of this request
+	 * won't be polled. This is because there is no reliable way to identify
+	 * a log message, so we have to use the reqid:
+	 *  - the key of the iterator will change when a new message is saved
+	 *  - a combination of reqid and counting the messages for that specific reqid
+	 *  will work in some cases but not when there are more than 50 messages of that
+	 *  request.
+	 * @param $lastReqId
+	 * @return JSONResponse
+	 */
+	public function poll($lastReqId) {
+
+		$cycles = 0;
+		$maxCycles = 20;
+
+		while ($this->getLastItem()['reqId'] === $lastReqId) {
+			sleep(1);
+			$cycles++;
+			if ($cycles === $maxCycles) {
+				return new JSONResponse([]);
+			}
+		}
+		$iterator = $this->getLogIterator();
+		$iterator->next();
+
+		$data = [];
+
+		while ($iterator->valid()) {
+			$line = $iterator->current();
+
+			if ($line['reqId'] === $lastReqId) {
+				break;
+			}
+
+			if (!is_null($line)) {
+				$line['id'] = uniqid();
+				$data[] = $line;
+			}
+			$iterator->next();
+		}
+
+		return new JSONResponse($data);
 	}
 
 	/**
@@ -101,6 +164,7 @@ class LogController extends Controller {
 			'dateformat' => $this->config->getSystemValue('logdateformat', \DateTime::ISO8601),
 			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
 			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', false),
+			'live' => (bool)$this->config->getAppValue('logreader', 'live', true),
 		]);
 	}
 
@@ -109,6 +173,13 @@ class LogController extends Controller {
 	 */
 	public function setRelative($relative) {
 		$this->config->setAppValue('logreader', 'relativedates', $relative);
+	}
+
+	/**
+	 * @param bool $live
+	 */
+	public function setLive($live) {
+		$this->config->setAppValue('logreader', 'live', $live);
 	}
 
 	public function setLevels($levels) {
@@ -133,6 +204,7 @@ class LogController extends Controller {
 		for ($i = 0; $i < $count && $iterator->valid(); $i++) {
 			$line = $iterator->current();
 			if (!is_null($line)) {
+				$line["id"] = uniqid();
 				$data[] = $line;
 			}
 			$iterator->next();
