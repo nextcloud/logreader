@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "Download logs" : "Ιστορικό λήψεων",
     "add" : "πρόσθεσε",
     "subtract" : "αφαίρεσε",
     "37" : "37",
@@ -10,7 +11,6 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "toPrimitive" : "toPrimitive",
-    "Download logs" : "Ιστορικό λήψεων"
+    "toPrimitive" : "toPrimitive"
 },
 "nplurals=2; plural=(n != 1);");

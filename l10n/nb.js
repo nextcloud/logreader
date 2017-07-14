@@ -1,6 +1,17 @@
 OC.L10N.register(
     "logreader",
     {
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
+    "captured" : "captured",
+    "bubbled" : "bubbled",
+    "Error parsing log" : "Feil ved fortolkning av logg",
+    "Download logs" : "Last ned logger",
+    "No server logs" : "Ingen tjenerlogger",
+    "One or more entries are hidden by the log level filter" : "Én eller flere oppføringer er skjult av loggnivåfilteret",
+    "Everything is working fine" : "Alt fungerer fint",
+    "Logging" : "Logging",
+    "Log Reader" : "Loggleser",
     "add" : "legg til",
     "subtract" : "trekk fra",
     "37" : "37",
@@ -10,18 +21,7 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "padLeft" : "padLeft",
-    "padRight" : "padRight",
     "_hidden" : "_skjult",
-    "toPrimitive" : "toPrimitive",
-    "captured" : "captured",
-    "bubbled" : "bubbled",
-    "Error parsing log" : "Feil ved fortolkning av logg",
-    "Download logs" : "Last ned logger",
-    "No server logs" : "Ingen tjenerlogger",
-    "One or more entries are hidden by the log level filter" : "Én eller flere oppføringer er skjult av loggnivåfilteret",
-    "Everything is working fine" : "Alt fungerer fint",
-    "Logging" : "Logging",
-    "Log Reader" : "Loggleser"
+    "toPrimitive" : "toPrimitive"
 },
 "nplurals=2; plural=(n != 1);");

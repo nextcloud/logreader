@@ -1,6 +1,17 @@
 OC.L10N.register(
     "logreader",
     {
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
+    "captured" : "ingenomen",
+    "bubbled" : "geborreld",
+    "Error parsing log" : "Fout parseren logboeken",
+    "Download logs" : "Logboek downloaden",
+    "No server logs" : "Geen server logs",
+    "One or more entries are hidden by the log level filter" : "Een of meer toegangen zijn verborgen door de logfilter",
+    "Everything is working fine" : "Alles werk prima",
+    "Logging" : "Logging",
+    "Log Reader" : "Logboek lezer",
     "add" : "Toevoegen",
     "subtract" : "Aftrekken",
     "37" : "37",
@@ -10,18 +21,7 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "padLeft" : "padLeft",
-    "padRight" : "padRight",
     "_hidden" : "_verborgen",
-    "toPrimitive" : "toPrimitive",
-    "captured" : "ingenomen",
-    "bubbled" : "geborreld",
-    "Error parsing log" : "Fout parseren logboeken",
-    "Download logs" : "Logboek downloaden",
-    "No server logs" : "Geen server logs",
-    "One or more entries are hidden by the log level filter" : "Een of meer toegangen zijn verborgen door de logfilter",
-    "Everything is working fine" : "Alles werk prima",
-    "Logging" : "Logging",
-    "Log Reader" : "Logboek lezer"
+    "toPrimitive" : "toPrimitive"
 },
 "nplurals=2; plural=(n != 1);");

@@ -1,6 +1,17 @@
 OC.L10N.register(
     "logreader",
     {
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
+    "captured" : "captured",
+    "bubbled" : "bubbled",
+    "Error parsing log" : "Error parsing log",
+    "Download logs" : "Скачать журналы",
+    "No server logs" : "Журналы сервера отсуствуют",
+    "One or more entries are hidden by the log level filter" : "Одна или более записей были скрыты настройками уровня фильтра",
+    "Everything is working fine" : "Всё работает нормально",
+    "Logging" : "Журналирование",
+    "Log Reader" : "Просмотр журналов",
     "add" : "добавить",
     "subtract" : "вычесть",
     "37" : "37",
@@ -10,18 +21,7 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "padLeft" : "padLeft",
-    "padRight" : "padRight",
     "_hidden" : "_hidden",
-    "toPrimitive" : "toPrimitive",
-    "captured" : "captured",
-    "bubbled" : "bubbled",
-    "Error parsing log" : "Error parsing log",
-    "Download logs" : "Скачать журналы",
-    "No server logs" : "Журналы сервера отсуствуют",
-    "One or more entries are hidden by the log level filter" : "Одна или более записей были скрыты настройками уровня фильтра",
-    "Everything is working fine" : "Всё работает нормально",
-    "Logging" : "Журналирование",
-    "Log Reader" : "Просмотр журналов"
+    "toPrimitive" : "toPrimitive"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");
