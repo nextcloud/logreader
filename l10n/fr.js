@@ -1,6 +1,17 @@
 OC.L10N.register(
     "logreader",
     {
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
+    "captured" : "captured",
+    "bubbled" : "bubbled",
+    "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
+    "Download logs" : "Télécharger les journaux",
+    "No server logs" : "Aucun journal serveur",
+    "One or more entries are hidden by the log level filter" : "Des entrées sont masquées par le filtre sur le niveau de journalisation",
+    "Everything is working fine" : "Tout fonctionne à merveille",
+    "Logging" : "Connexion",
+    "Log Reader" : "Lecteur du fichier journal",
     "add" : "additionner",
     "subtract" : "soustraire",
     "37" : "37",
@@ -10,18 +21,7 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "padLeft" : "padLeft",
-    "padRight" : "padRight",
     "_hidden" : "_hidden",
-    "toPrimitive" : "toPrimitive",
-    "captured" : "captured",
-    "bubbled" : "bubbled",
-    "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
-    "Download logs" : "Télécharger les journaux",
-    "No server logs" : "Aucun journal serveur",
-    "One or more entries are hidden by the log level filter" : "Des entrées sont masquées par le filtre sur le niveau de journalisation",
-    "Everything is working fine" : "Tout fonctionne à merveille",
-    "Logging" : "Connexion",
-    "Log Reader" : "Lecteur du fichier journal"
+    "toPrimitive" : "toPrimitive"
 },
 "nplurals=2; plural=(n > 1);");
