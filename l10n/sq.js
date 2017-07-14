@@ -1,6 +1,9 @@
 OC.L10N.register(
     "logreader",
     {
+    "captured" : "u kap ",
+    "bubbled" : "grumbulluar",
+    "Everything is working fine" : "Çdo gjë po funksionon mirë",
     "add" : "shto",
     "subtract" : "zbrit",
     "37" : "37",
@@ -10,9 +13,6 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "_hidden" : "_fshehur",
-    "captured" : "u kap ",
-    "bubbled" : "grumbulluar",
-    "Everything is working fine" : "Çdo gjë po funksionon mirë"
+    "_hidden" : "_fshehur"
 },
 "nplurals=2; plural=(n != 1);");

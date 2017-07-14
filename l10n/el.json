@@ -1,4 +1,5 @@
 { "translations": {
+    "Download logs" : "Ιστορικό λήψεων",
     "add" : "πρόσθεσε",
     "subtract" : "αφαίρεσε",
     "37" : "37",
@@ -8,7 +9,6 @@
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "toPrimitive" : "toPrimitive",
-    "Download logs" : "Ιστορικό λήψεων"
+    "toPrimitive" : "toPrimitive"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

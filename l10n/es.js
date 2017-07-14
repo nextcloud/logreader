@@ -1,6 +1,17 @@
 OC.L10N.register(
     "logreader",
     {
+    "padLeft" : "espacioIzquierda",
+    "padRight" : "espacioDerecha",
+    "captured" : "capturado",
+    "bubbled" : "enburbuja",
+    "Error parsing log" : "Error al analizar el registro",
+    "Download logs" : "Descargar registros",
+    "No server logs" : "No hay registros del servidor",
+    "One or more entries are hidden by the log level filter" : "Una o más entradas están ocultas por el filtro de nivel del registro",
+    "Everything is working fine" : "Todo funciona bien",
+    "Logging" : "Registrando",
+    "Log Reader" : "Lector del registro",
     "add" : "añadir",
     "subtract" : "sustraer",
     "37" : "37",
@@ -10,18 +21,7 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "padLeft" : "espacioIzquierda",
-    "padRight" : "espacioDerecha",
     "_hidden" : "_oculto",
-    "toPrimitive" : "aPrimitivo",
-    "captured" : "capturado",
-    "bubbled" : "enburbuja",
-    "Error parsing log" : "Error al analizar el registro",
-    "Download logs" : "Descargar registros",
-    "No server logs" : "No hay registros del servidor",
-    "One or more entries are hidden by the log level filter" : "Una o más entradas están ocultas por el filtro de nivel del registro",
-    "Everything is working fine" : "Todo funciona bien",
-    "Logging" : "Registrando",
-    "Log Reader" : "Lector del registro"
+    "toPrimitive" : "aPrimitivo"
 },
 "nplurals=2; plural=(n != 1);");

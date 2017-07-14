@@ -1,6 +1,17 @@
 OC.L10N.register(
     "logreader",
     {
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
+    "captured" : "captured",
+    "bubbled" : "bubbled",
+    "Error parsing log" : "Fehler beim Verarbeiten der Protokolldatei",
+    "Download logs" : "Protokolldatei herunterladen",
+    "No server logs" : "Keine Server-Protokolldateien",
+    "One or more entries are hidden by the log level filter" : "Ein oder mehrere Einträge sind versteckt durch die Protokoll-Level-Filter",
+    "Everything is working fine" : "Alles funktioniert gut",
+    "Logging" : "Protokollierung",
+    "Log Reader" : "Protokolldatei-Leser",
     "add" : "Hinzufügen",
     "subtract" : "Subtrahieren",
     "37" : "37",
@@ -10,18 +21,7 @@ OC.L10N.register(
     "41" : "41",
     "42" : "42",
     "43" : "43",
-    "padLeft" : "padLeft",
-    "padRight" : "padRight",
     "_hidden" : "_hidden",
-    "toPrimitive" : "toPrimitive",
-    "captured" : "captured",
-    "bubbled" : "bubbled",
-    "Error parsing log" : "Fehler beim Verarbeiten der Protokolldatei",
-    "Download logs" : "Protokolldatei herunterladen",
-    "No server logs" : "Keine Server-Protokolldateien",
-    "One or more entries are hidden by the log level filter" : "Ein oder mehrere Einträge sind versteckt durch die Protokoll-Level-Filter",
-    "Everything is working fine" : "Alles funktioniert gut",
-    "Logging" : "Protokollierung",
-    "Log Reader" : "Protokolldatei-Leser"
+    "toPrimitive" : "toPrimitive"
 },
 "nplurals=2; plural=(n != 1);");
