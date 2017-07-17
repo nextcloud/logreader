@@ -19,6 +19,8 @@ OC.L10N.register(
     "captured" : "captured",
     "bubbled" : "bubbled",
     "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
+    "Log levels" : "Niveaux du registre",
+    "Log content" : "Contenu du registre",
     "Live update" : "Mise à jour en direct",
     "Download logs" : "Télécharger les journaux",
     "No server logs" : "Aucun journal serveur",
