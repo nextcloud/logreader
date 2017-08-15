@@ -6,6 +6,8 @@ OC.L10N.register(
     "141" : "141",
     "71" : "71",
     "142" : "142",
+    "padLeft" : "padLeft",
+    "padRight" : "padRight",
     "137" : "137",
     "60" : "60",
     "61" : "61",
@@ -15,6 +17,7 @@ OC.L10N.register(
     "65" : "65",
     "66" : "66",
     "captured" : "catturato",
+    "bubbled" : "bubbled",
     "Error parsing log" : "Errore durante l'elaborazione dei log",
     "Log levels" : "Livelli di log",
     "Log content" : "Contenuto dei log",
@@ -33,6 +36,8 @@ OC.L10N.register(
     "40" : "40",
     "41" : "41",
     "42" : "42",
-    "43" : "43"
+    "43" : "43",
+    "_hidden" : "_hidden",
+    "toPrimitive" : "toPrimitive"
 },
 "nplurals=2; plural=(n != 1);");
