@@ -26,7 +26,7 @@ OC.L10N.register(
     "No server logs" : "Aucun journal serveur",
     "One or more entries are hidden by the log level filter" : "Des entrées sont masquées par le filtre sur le niveau de journalisation",
     "Everything is working fine" : "Tout fonctionne à merveille",
-    "Logging" : "Connexion",
+    "Logging" : "Journalisation",
     "Log Reader" : "Lecteur du fichier journal",
     "add" : "additionner",
     "subtract" : "soustraire",
