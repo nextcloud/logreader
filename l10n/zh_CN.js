@@ -1,8 +1,6 @@
 OC.L10N.register(
     "logreader",
     {
-    "captured" : "捕获",
-    "bubbled" : "冒泡",
     "Error parsing log" : "解析日志时出错",
     "Log levels" : "日志级别",
     "Log content" : "日志内容",
@@ -12,16 +10,6 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "一个或多个实例被日志过滤器隐藏",
     "Everything is working fine" : "一切正常",
     "Logging" : "日志",
-    "Log Reader" : "日志阅读器",
-    "add" : "添加",
-    "subtract" : "减去",
-    "37" : "37",
-    "38" : "38",
-    "39" : "39",
-    "40" : "40",
-    "41" : "41",
-    "42" : "42",
-    "43" : "43",
-    "_hidden" : "_隐藏"
+    "Log Reader" : "日志阅读器"
 },
 "nplurals=1; plural=0;");
