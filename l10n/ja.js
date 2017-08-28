@@ -10,7 +10,6 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "ログレベルでフィルタリングされている行があります",
     "Everything is working fine" : "問題ありません",
     "Logging" : "ログ取得",
-    "Log Reader" : "ログリーダー",
-    "add" : "追加"
+    "Log Reader" : "ログリーダー"
 },
 "nplurals=1; plural=0;");
