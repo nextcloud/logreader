@@ -1,17 +1,4 @@
 { "translations": {
-    "144" : "144",
-    "140" : "140",
-    "141" : "141",
-    "71" : "71",
-    "142" : "142",
-    "137" : "137",
-    "60" : "60",
-    "61" : "61",
-    "62" : "62",
-    "63" : "63",
-    "64" : "64",
-    "65" : "65",
-    "66" : "66",
     "Error parsing log" : "Villa við að þátta annál",
     "Log levels" : "Annálsstig",
     "Log content" : "Efni atvikaskrár",
@@ -20,16 +7,6 @@
     "No server logs" : "Engir annálar netþjóna",
     "Everything is working fine" : "Allt virkar eins og á að sér",
     "Logging" : "Atvikaskráning",
-    "Log Reader" : "Annálalesari",
-    "add" : "bæta við",
-    "subtract" : "draga frá",
-    "37" : "37",
-    "38" : "38",
-    "39" : "39",
-    "40" : "40",
-    "41" : "41",
-    "42" : "42",
-    "43" : "43",
-    "_hidden" : "_falið"
+    "Log Reader" : "Annálalesari"
 },"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
 }
