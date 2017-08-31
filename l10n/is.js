@@ -7,6 +7,7 @@ OC.L10N.register(
     "Live update" : "Uppfærsla í beinni",
     "Download logs" : "Sækja annála",
     "No server logs" : "Engir annálar netþjóna",
+    "One or more entries are hidden by the log level filter" : "Ein eða fleiri færslur eru faldar vegna síunar á stigi atvikaskráningar",
     "Everything is working fine" : "Allt virkar eins og á að sér",
     "Logging" : "Atvikaskráning",
     "Log Reader" : "Annálalesari"
