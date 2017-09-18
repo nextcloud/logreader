@@ -1,6 +1,9 @@
 OC.L10N.register(
     "logreader",
     {
+    "Error parsing log" : "Virhe jäsentäessä lokia",
+    "Log levels" : "Lokitasot",
+    "Log content" : "Lokin sisältö",
     "Download logs" : "Lataa lokit",
     "No server logs" : "Ei palvelinlokeja",
     "One or more entries are hidden by the log level filter" : "Yksi tai useampi kirjaus on piilotettu lokitason valitsimella",
