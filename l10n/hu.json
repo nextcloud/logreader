@@ -1,20 +1,13 @@
 { "translations": {
-    "144" : "144",
-    "140" : "140",
-    "141" : "141",
-    "71" : "71",
-    "142" : "142",
-    "137" : "137",
-    "60" : "60",
-    "61" : "61",
-    "62" : "62",
-    "63" : "63",
-    "64" : "64",
-    "65" : "65",
-    "66" : "66",
+    "Error parsing log" : "Napló feldolgozási hiba",
+    "Log levels" : "Naplózási szintek",
+    "Log content" : "Napló tartalom",
     "Live update" : "Élő frissítés",
+    "Download logs" : "Naplók letöltése",
+    "No server logs" : "Nincsenek szervernaplók",
+    "One or more entries are hidden by the log level filter" : "Egy vagy több bejegyzés elrejtve a naplózási szint szűrő miatt",
+    "Everything is working fine" : "Minden rendben működik",
     "Logging" : "Naplózás",
-    "add" : "hozzáadás",
-    "37" : "37"
+    "Log Reader" : "Napló olvasó"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
