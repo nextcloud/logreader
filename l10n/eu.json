@@ -1,0 +1,13 @@
+{ "translations": {
+    "Error parsing log" : "Log fitxategia irakurtzean errorea",
+    "Log levels" : "Log mailak",
+    "Log content" : "Log edukia",
+    "Live update" : "Etengabeko eguneraketa ",
+    "Download logs" : "Log fitxategiak jaitsi",
+    "No server logs" : "Ez dago zerbitzariaren log fitxategirik",
+    "One or more entries are hidden by the log level filter" : "Log mailaren filtroak sarrera bat edo gehiago ezkutatzen du",
+    "Everything is working fine" : "Dena ondo doa",
+    "Logging" : "Arazten",
+    "Log Reader" : "Log irakurgailua"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
