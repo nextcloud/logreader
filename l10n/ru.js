@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error parsing log" : "Error parsing log",
+    "Error parsing log" : "Ошибка разбора файла журнала",
     "Log levels" : "Уровни журналирования",
     "Log content" : "Записи журнала",
     "Live update" : "Живое обновление",
