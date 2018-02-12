@@ -39,6 +39,7 @@ build/appstore/$(package_name).tar.gz: build/main.js $(othersources)
 	--exclude=$(project_dir)/.gitattributes \
 	--exclude=$(project_dir)/.gitignore \
 	--exclude=$(project_dir)/.travis.yml \
+	--exclude=$(project_dir)/.tx \
 	--exclude=$(project_dir)/.scrutinizer.yml \
 	--exclude=$(project_dir)/CONTRIBUTING.md \
 	--exclude=$(project_dir)/package.json \
