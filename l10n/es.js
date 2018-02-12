@@ -9,7 +9,7 @@ OC.L10N.register(
     "No server logs" : "No hay registros del servidor",
     "One or more entries are hidden by the log level filter" : "Una o más entradas están ocultas por el filtro de nivel del registro",
     "Everything is working fine" : "Todo funciona bien",
-    "Logging" : "Registrando",
+    "Logging" : "Registros",
     "Log Reader" : "Lector del registro"
 },
 "nplurals=2; plural=(n != 1);");

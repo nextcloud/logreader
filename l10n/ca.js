@@ -9,7 +9,7 @@ OC.L10N.register(
     "No server logs" : "registre no valit",
     "One or more entries are hidden by the log level filter" : "Una o més entrades estan amagades pel filtre de nivell de registre",
     "Everything is working fine" : "tot correcte",
-    "Logging" : "Inici de sessió",
+    "Logging" : "Registre",
     "Log Reader" : "Lector de registre"
 },
 "nplurals=2; plural=(n != 1);");
