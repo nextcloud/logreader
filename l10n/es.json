@@ -2,7 +2,7 @@
     "Error parsing log" : "Error al analizar el registro",
     "Log levels" : "Niveles de registro",
     "Log content" : "Contenido del registro",
-    "Live update" : "Actualización en vivo",
+    "Live update" : "Actualización en directo",
     "Download logs" : "Descargar registros",
     "No server logs" : "No hay registros del servidor",
     "One or more entries are hidden by the log level filter" : "Una o más entradas están ocultas por el filtro de nivel del registro",
