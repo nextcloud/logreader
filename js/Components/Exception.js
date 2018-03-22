@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import {TraceLine} from './TraceLine.js';
 
-import style from './Exception.less';
+import style from './Exception.css';
 
 export class Exception extends Component {
 	state = {

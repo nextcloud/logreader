@@ -1,20 +1,22 @@
 // Webpack config for creating the production bundle.
 
-var path = require('path');
-var webpack = require('webpack');
-var CleanPlugin = require('clean-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var strip = require('strip-loader');
+const path = require('path');
+const webpack = require('webpack');
+const CleanPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const strip = require('strip-loader');
 
-var relativeAssetsPath = '../build';
-var assetsPath = path.join(__dirname, relativeAssetsPath);
+const relativeAssetsPath = '../build';
+const assetsPath = path.join(__dirname, relativeAssetsPath);
 
 module.exports = {
 	devtool: 'source-map',
+	mode: 'production',
 	context: path.resolve(__dirname, '..'),
-	entry: {
-		'main': ['babel-polyfill', './js/index.js']
-	},
+	entry: [
+		'babel-polyfill',
+		'./js/index.js'
+	],
 	output: {
 		path: assetsPath,
 		filename: '[name].js',
@@ -22,35 +24,33 @@ module.exports = {
 		publicPath: '/dist/'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.(jpe?g|png|gif|svg)$/,
-				loader: 'url',
-				query: {limit: 10240}
+				loader: 'url-loader',
+				options: {limit: 10240}
 			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: [strip.loader('debug'), 'babel-loader']
+				use: [strip.loader('debug'), 'babel-loader']
 			},
-			{test: /\.json$/, loader: 'json-loader'},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version')
-			},
-			{
-				test: /\.less$/,
-				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!less')
+				use: ExtractTextPlugin.extract({
+					fallback: "style-loader",
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								modules: true
+							}
+						},
+						'postcss-loader'
+					]
+				})
 			}
 		]
-	},
-	progress: true,
-	resolve: {
-		modulesDirectories: [
-			'src',
-			'node_modules'
-		],
-		extensions: ['', '.json', '.js']
 	},
 	plugins: [
 		new CleanPlugin([relativeAssetsPath]),
@@ -63,23 +63,6 @@ module.exports = {
 		}),
 
 		// ignore dev config
-		new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
-
-		// set global vars
-		new webpack.DefinePlugin({
-			'process.env': {
-				// Useful to reduce the size of client-side libraries, e.g. react
-				NODE_ENV: JSON.stringify('production')
-			}
-		}),
-
-		// optimizations
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			}
-		})
+		new webpack.IgnorePlugin(/\.\/dev/, /\/config$/)
 	]
 };

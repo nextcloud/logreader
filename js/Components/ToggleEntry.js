@@ -1,6 +1,6 @@
 import {Component} from 'react';
 
-import style from './ToggleEntry.less';
+import style from './ToggleEntry.css';
 
 export class ToggleEntry extends Component {
 	static idCounter = 0;

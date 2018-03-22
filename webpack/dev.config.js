@@ -1,20 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
 var assetsPath = path.resolve(__dirname, '../build');
-var host = process.env.HOST || 'localhost';
-var port = parseInt(process.env.PORT) || 3000;
-var targetUrl = process.env.PROXY_URL || 'http://localhost:' + port + '/';
 
 module.exports = {
-	ocRoot: 'https://' + host + '/',
-	appId: 'logreader',
-
-	webPackPort: 444,
+	mode: 'development',
 	devtool: 'cheap-module-source-map',
 	context: path.resolve(__dirname, '..'),
 	entry: {
 		'main': [
-			// 'webpack-dev-server/client?' + targetUrl,
 			'react-hot-loader/patch',
 			'webpack-hot-middleware/client',
 			'babel-polyfill',
@@ -28,41 +21,39 @@ module.exports = {
 		publicPath: '/build/'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.(jpe?g|png|gif|svg)$/,
-				loader: 'url',
-				query: {limit: 10240}
+				loader: 'url-loader',
+				options: {
+					limit: 10240
+				}
 			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loaders: ['babel-loader']
 			},
-			{test: /\.json$/, loader: 'json-loader'},
 			{
 				test: /\.css$/,
-				loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!'
-			},
-			{
-				test: /\.less$/,
-				loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!less'
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							localIdentName: '[path][name]__[local]'
+						}
+					},
+					'postcss-loader'
+				]
 			}
 		]
-	},
-	progress: true,
-	resolve: {
-		modulesDirectories: [
-			'src',
-			'node_modules'
-		],
-		extensions: ['', '.json', '.js']
 	},
 	plugins: [
 		// hot reload
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.IgnorePlugin(/\.json$/),
-		new webpack.NoErrorsPlugin(),
 		new webpack.DefinePlugin({
 			__CLIENT__: true,
 			__SERVER__: false,

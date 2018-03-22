@@ -8,7 +8,7 @@ import {LevelSettings} from './LevelSettings';
 import Moment from 'moment'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import style from './LogTable.less';
+import style from './LogTable.css';
 
 export class LogTable extends Component {
 	state = {

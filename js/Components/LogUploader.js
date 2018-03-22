@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import Dropzone from 'react-dropzone';
 
-import style from './LogUploader.less';
+import style from './LogUploader.css';
 
 export class LogUploader extends Component {
 	state = {

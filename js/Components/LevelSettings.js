@@ -2,7 +2,7 @@ import {Component} from 'react';
 import {ToggleEntry} from './ToggleEntry.js';
 import {LogProvider} from '../Providers/LogProvider.js';
 
-import style from './LevelSettings.less';
+import style from './LevelSettings.css';
 
 export class LevelSettings extends Component {
 	render () {

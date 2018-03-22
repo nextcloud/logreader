@@ -1,6 +1,6 @@
 import {Component} from 'react';
 
-import style from './TraceLine.less';
+import style from './TraceLine.css';
 
 export class TraceLine extends Component {
 	render () {
