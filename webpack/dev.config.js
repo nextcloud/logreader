@@ -1,6 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
-var assetsPath = path.resolve(__dirname, '../build');
+const path = require('path');
+const assetsPath = path.resolve(__dirname, '../build');
 
 module.exports = {
 	mode: 'development',
@@ -49,16 +48,5 @@ module.exports = {
 				]
 			}
 		]
-	},
-	plugins: [
-		// hot reload
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.IgnorePlugin(/\.json$/),
-		new webpack.DefinePlugin({
-			__CLIENT__: true,
-			__SERVER__: false,
-			__DEVELOPMENT__: true,
-			__DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
-		})
-	]
+	}
 };

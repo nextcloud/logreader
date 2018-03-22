@@ -21,11 +21,11 @@ node_modules: package.json
 	npm install --deps
 
 build/main.js: node_modules $(jssources)
-	NODE_ENV=production $(webpack) --verbose --colors --display-error-details --config webpack/prod.config.js
+	$(webpack) --verbose --colors --display-error-details --config webpack/prod.config.js
 
 .PHONY: watch
 watch: node_modules
-	node webpack/webpack-dev-server.js
+	node node_modules/.bin/webpack-dev-server --public localcloud.icewind.me:444 --inline --hot --port 3000 --config webpack/dev.config.js
 
 appstore: clean build/main.js package
 
