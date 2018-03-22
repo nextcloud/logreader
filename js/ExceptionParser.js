@@ -4,20 +4,27 @@ window.unserialize = unserialize;
 
 export class ExceptionParser {
 	isException (logMessage) {
-		return this.isRegularException(logMessage) || this.isBackgroundJobException(logMessage);
+		return this.isNewStyleException(logMessage) || this.isOldStyleException(logMessage) || this.isBackgroundJobException(logMessage);
 	}
 
-	isRegularException (logMessage) {
-		return logMessage.substr(0, 12) === 'Exception: {';
+	isNewStyleException(logMessage) {
+		return logMessage.Exception;
+	}
+
+	isOldStyleException (logMessage) {
+		return logMessage.substr && logMessage.substr(0, 12) === 'Exception: {';
 	}
 
 	isBackgroundJobException (logMessage) {
-		return logMessage.substr(0, 34) === 'Error while running background job' && logMessage.indexOf('{"Exception":') !== -1;
+		return logMessage.substr && logMessage.substr(0, 34) === 'Error while running background job' && logMessage.indexOf('{"Exception":') !== -1;
 	}
 
 	parse (logMessage) {
+		if (this.isNewStyleException(logMessage)) {
+			return logMessage;
+		}
 		let data;
-		if (this.isRegularException(logMessage)) {
+		if (this.isOldStyleException(logMessage)) {
 			try {
 				data = this.tryParseJSON(logMessage.substr(10));
 			} catch (e) {
