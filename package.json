@@ -37,18 +37,18 @@
   "dependencies": {
     "babel": "6.23.0",
     "babel-plugin-typecheck": "3.9.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-runtime": "^6.26.0",
-    "bluebird": "^3.5.1",
-    "less": "^3.0.1",
-    "less-loader": "^4.1.0",
-    "moment": "^2.21.0",
+    "babel-polyfill": "6.26.0",
+    "babel-runtime": "6.26.0",
+    "bluebird": "3.5.1",
+    "less": "3.0.1",
+    "less-loader": "4.1.0",
+    "moment": "2.21.0",
     "oc-react-components": "^0.2.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-dropzone": "^4.2.9",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-dropzone": "4.2.9",
     "react-responsive": "4.0.5",
-    "react-scrolla": "^0.3.0",
-    "react-time": "^4.3.0"
+    "react-scrolla": "0.3.0",
+    "react-time": "4.3.0"
   }
 }
