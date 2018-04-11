@@ -4,4 +4,8 @@
   .file, .line {
     font-style: italic;
   }
+
+  .argument {
+    font-weight: bold;
+  }
 }

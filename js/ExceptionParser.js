@@ -95,17 +95,17 @@ export class ExceptionParser {
 				lineNumber = filePaths[1].substr(0, filePaths[1].length - 1);
 			}
 			return {
-				call: call,
+				'function': call,
 				number: number,
 				file: file,
-				lineNumber: lineNumber
+				line: lineNumber
 			};
 		} else {
 			return {
-				call: traceData,
+				'function': traceData,
 				number: number,
 				file: false,
-				lineNumber: false
+				line: false
 			};
 		}
 	}
