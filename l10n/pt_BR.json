@@ -1,5 +1,6 @@
 { "translations": {
     "Error parsing log" : "Registro de análise de erros",
+    "Cased by " : "Revestido por",
     "Log levels" : "Níveis de registro",
     "Log content" : "Conteúdo do registro",
     "Live update" : "Atualização ao vivo",
