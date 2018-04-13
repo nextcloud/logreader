@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fehler beim Verarbeiten der Protokolldatei",
+    "Cased by " : "Eingefasst von",
     "Log levels" : "Log-Level",
     "Log content" : "Log-Inhalt",
     "Live update" : "Live-Aktualisierung",
