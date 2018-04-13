@@ -40,8 +40,8 @@ export class Argument extends Component {
 	};
 
 	render () {
-		const baseFormatted = JSON.stringify(this.props.data);
-		const fancyFormatted = JSON.stringify(this.props.data, null, 4);
+		const baseFormatted = formatArgument(this.props.data);
+		const fancyFormatted = formatArgument(this.props.data, 4);
 		const showInline = baseFormatted.length < 32;
 
 		return (
@@ -50,5 +50,31 @@ export class Argument extends Component {
 				{showInline ? baseFormatted : `${baseFormatted.substr(0, 12)} ... ${baseFormatted.substr(baseFormatted.length - 2, 2)}`}
 			</span>
 		)
+	}
+}
+
+function formatArgument (data, whitespace, depth = 0) {
+	const leadingSpace = ' '.repeat(whitespace * depth);
+	if (data && data.__class__) {
+		const {'__class__': className, ...copy} = data;
+		return `${leadingSpace}${className} ${formatArgument(copy, whitespace, depth).trim()}`;
+	} else if (Array.isArray(data)) {
+		return `${leadingSpace}[\n${
+			data.map(value =>
+				formatArgument(value, whitespace, depth + 1)
+			).join(whitespace ? ',\n' : ',')
+			}${whitespace ? '\n' : ''}${leadingSpace}]`;
+	} else if (data !== null && typeof data === 'object') {
+		if (Object.keys(data).length === 0) {
+			return `${leadingSpace}{}`;
+		}
+		const keyWhitespace = ' '.repeat(whitespace * (depth + 1));
+		return `${leadingSpace}{\n${
+			Object.keys(data).map((key) =>
+				`${keyWhitespace}${key}: ${formatArgument(data[key], whitespace, depth + 1).trim()}`
+			).join(whitespace ? ',\n' : ',')
+			}${whitespace ? '\n' : ''}${leadingSpace}}`;
+	} else {
+		return leadingSpace + JSON.stringify(data, null, whitespace);
 	}
 }

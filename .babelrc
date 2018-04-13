@@ -5,6 +5,7 @@
   ],
   "plugins": [
     "transform-class-properties",
+    "transform-object-rest-spread",
     [
       "transform-async-to-module-method",
       {
