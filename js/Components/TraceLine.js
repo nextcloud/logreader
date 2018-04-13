@@ -14,11 +14,13 @@ export class TraceLine extends Component {
 				</p>
 				<p className={style.call}>
 					{this.props.class}{this.props.type}{this.props.function}({
-					this.props.args
-						.map((arg, i) => [
-							<Argument key={i} data={arg}/>,
-							(i < this.props.args.length - 1) ? ', ' : ''
-						])
+					this.props.args ?
+						this.props.args
+							.map((arg, i) => [
+								<Argument key={i} data={arg}/>,
+								(i < this.props.args.length - 1) ? ', ' : ''
+							]) :
+						[]
 				})
 				</p>
 			</li>
