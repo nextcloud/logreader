@@ -59,6 +59,9 @@ function formatArgument (data, whitespace, depth = 0) {
 		const {'__class__': className, ...copy} = data;
 		return `${leadingSpace}${className} ${formatArgument(copy, whitespace, depth).trim()}`;
 	} else if (Array.isArray(data)) {
+		if (data.length === 0) {
+			return `${leadingSpace}[]`;
+		}
 		return `${leadingSpace}[\n${
 			data.map(value =>
 				formatArgument(value, whitespace, depth + 1)
