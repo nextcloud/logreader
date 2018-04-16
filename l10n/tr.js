@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Günlük işlenirken sorun çıktı",
+    "Cased by " : "Dosyalayan",
     "Log levels" : "Günlük düzeyleri",
     "Log content" : "Günlük içeriği",
     "Live update" : "Canlı güncelleme",
