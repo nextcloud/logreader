@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fout parseren logboeken",
+    "Cased by " : "Ingediend door",
     "Log levels" : "Niveau logboek",
     "Log content" : "Inhoud logboek",
     "Live update" : "Live bijgewerkt",
