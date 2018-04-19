@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Villa við að þátta annál",
+    "Cased by " : "Flokkað af",
     "Log levels" : "Annálsstig",
     "Log content" : "Efni atvikaskrár",
     "Live update" : "Uppfærsla í beinni",

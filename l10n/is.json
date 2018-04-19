@@ -1,5 +1,6 @@
 { "translations": {
     "Error parsing log" : "Villa við að þátta annál",
+    "Cased by " : "Flokkað af",
     "Log levels" : "Annálsstig",
     "Log content" : "Efni atvikaskrár",
     "Live update" : "Uppfærsla í beinni",
