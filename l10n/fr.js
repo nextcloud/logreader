@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
+    "Cased by " : "Enveloppé par",
     "Log levels" : "Niveaux du registre",
     "Log content" : "Contenu du registre",
     "Live update" : "Mise à jour en direct",
