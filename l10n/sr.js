@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Грешка при парсирању дневника",
+    "Cased by " : "Окружен са",
     "Log levels" : "Нивои логовања",
     "Log content" : "Садржај дневника",
     "Live update" : "Ажурирање уживо",
