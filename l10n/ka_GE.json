@@ -9,5 +9,5 @@
     "Everything is working fine" : "ყველაფერი კარგად მუშაობს",
     "Logging" : "იწერება ლოგი",
     "Log Reader" : "ლოგის მკითხველი"
-},"pluralForm" :"nplurals=1; plural=0;"
+},"pluralForm" :"nplurals=2; plural=(n==1);"
 }
