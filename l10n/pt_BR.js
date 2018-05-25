@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "Uma ou mais entradas estão escondidas pelo filtro de nível de registro",
     "Everything is working fine" : "Tudo está funcionando bem",
     "Logging" : "Registro",
-    "Log Reader" : "Leitor de Registro"
+    "Log Reader" : "Leitor de Registro",
+    "A log reader for Nextcloud" : "Um leitor de logs para Nextcloud",
+    "Log reader for Nextcloud" : "Leitor de logs para Nextcloud"
 },
 "nplurals=2; plural=(n > 1);");
