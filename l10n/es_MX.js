@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "Uno o más elementos están ocultos por el filtro del nivel de bitácora",
     "Everything is working fine" : "Todo está funcionado correctamente",
     "Logging" : "Registrando",
-    "Log Reader" : "Lector de Bitácoras"
+    "Log Reader" : "Lector de Bitácoras",
+    "A log reader for Nextcloud" : "Un lector de bitácoras para Nextcloud",
+    "Log reader for Nextcloud" : "Lector de bitácoras para Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");
