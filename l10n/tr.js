@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "Bir ya da bir kaç kayıt günlük düzeyi süzgeci ile gizlenmiş",
     "Everything is working fine" : "Her şey sorunsuz çalışıyor",
     "Logging" : "Günlükleme",
-    "Log Reader" : "Günlük Okuyucu"
+    "Log Reader" : "Günlük Okuyucu",
+    "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
+    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu"
 },
 "nplurals=2; plural=(n > 1);");
