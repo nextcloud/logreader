@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "Ein oder mehrere Einträge sind versteckt durch die Log-Level-Filter",
     "Everything is working fine" : "Alles funktioniert gut",
     "Logging" : "Protokollierung",
-    "Log Reader" : "Log-Datei-Leser"
+    "Log Reader" : "Log-Datei-Leser",
+    "A log reader for Nextcloud" : "Ein Log-Datei-Leser für Nextcloud",
+    "Log reader for Nextcloud" : "Log-Datei-Leser für Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");
