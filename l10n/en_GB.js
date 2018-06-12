@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "One or more entries are hidden by the log level filter",
     "Everything is working fine" : "Everything is working fine",
     "Logging" : "Logging",
-    "Log Reader" : "Log Reader"
+    "Log Reader" : "Log Reader",
+    "A log reader for Nextcloud" : "A log reader for Nextcloud",
+    "Log reader for Nextcloud" : "Log reader for Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");
