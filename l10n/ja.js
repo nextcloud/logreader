@@ -9,7 +9,7 @@ OC.L10N.register(
     "No server logs" : "サーバーログがありません",
     "One or more entries are hidden by the log level filter" : "ログレベルでフィルタリングされている行があります",
     "Everything is working fine" : "問題ありません",
-    "Logging" : "ログ取得",
+    "Logging" : "ログ",
     "Log Reader" : "ログリーダー"
 },
 "nplurals=1; plural=0;");
