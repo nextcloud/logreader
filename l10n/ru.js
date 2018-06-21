@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "Одна или более записей были скрыты настройками уровня фильтра",
     "Everything is working fine" : "Всё работает нормально",
     "Logging" : "Журналирование",
-    "Log Reader" : "Просмотр журналов"
+    "Log Reader" : "Просмотр журналов",
+    "A log reader for Nextcloud" : "Просмотр журналов(логов) для Nextcloud",
+    "Log reader for Nextcloud" : "Просмотр журналов(логов) для Nextcloud"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");
