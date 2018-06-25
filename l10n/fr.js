@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "Des entrées sont masquées par le filtre sur le niveau de journalisation",
     "Everything is working fine" : "Tout fonctionne à merveille",
     "Logging" : "Journalisation",
-    "Log Reader" : "Lecteur du fichier journal"
+    "Log Reader" : "Lecteur du fichier journal",
+    "A log reader for Nextcloud" : "Un lecteur du fichier journal pour Nextcloud",
+    "Log reader for Nextcloud" : "Lecteur du fichier journal pour Nextcloud"
 },
 "nplurals=2; plural=(n > 1);");
