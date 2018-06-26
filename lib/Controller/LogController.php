@@ -200,7 +200,6 @@ class LogController extends Controller {
 				break;
 			}
 		}
-		$this->config->setSystemValue('loglevel', $minLevel);
 		$this->config->setAppValue('logreader', 'levels', $levels);
 		return $minLevel;
 	}
