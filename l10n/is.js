@@ -11,6 +11,8 @@ OC.L10N.register(
     "One or more entries are hidden by the log level filter" : "Ein eða fleiri færslur eru faldar vegna síunar á stigi atvikaskráningar",
     "Everything is working fine" : "Allt virkar eins og á að sér",
     "Logging" : "Atvikaskráning",
-    "Log Reader" : "Annálalesari"
+    "Log Reader" : "Annálalesari",
+    "A log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud",
+    "Log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");
