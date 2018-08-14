@@ -49,7 +49,7 @@
     "react-dom": "16.2.0",
     "react-dropzone": "4.2.9",
     "react-responsive": "4.0.5",
-    "react-scrolla": "0.3.0",
+    "react-scrolla": "git://github.com/chentsulin/react-scrolla.git#8c19ff5488958f21eefd2f44d458ca48827c866c",
     "react-time": "4.3.0"
   }
 }

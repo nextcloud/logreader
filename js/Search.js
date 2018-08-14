@@ -1,4 +1,6 @@
 export class LogSearch {
+	name = 'logreader-search';
+
 	/**
 	 * @param {LogProvider} provider
 	 */
@@ -8,7 +10,7 @@ export class LogSearch {
 	}
 
 	initialize () {
-		OC.Plugins.register('OCA.Search', this);
+		OC.Plugins.register('OCA.Search.Core', this);
 	}
 
 	attach (search) {

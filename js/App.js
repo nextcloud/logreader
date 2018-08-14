@@ -6,15 +6,11 @@ import {LogTable} from './Components/LogTable.js';
 import {ToggleEntry} from './Components/ToggleEntry.js';
 import {LogUploader} from './Components/LogUploader.js';
 import {
-	App as AppContainer,
-	Entry,
 	SideBar,
-	Content,
 	Separator,
 	Settings
 } from 'oc-react-components';
 
-import {LogSearch} from './Search.js';
 import {LogFile} from './Providers/LogFile.js'
 
 import styles from '../css/app.css';
@@ -30,15 +26,14 @@ export class App extends Component {
 		live: false
 	};
 
-	constructor () {
-		super();
-		this.logProvider = new LogProvider(50);
+	constructor (props) {
+		super(props);
+		this.logProvider = this.props.logProvider;
 		this.logProvider.on('entries', entries => {
 			if (this.state.provider === this.logProvider) {
 				this.setState({entries});
 			}
 		});
-		OCA.Search.logreader = new LogSearch(this.logProvider);
 		this.saveLevels = _.debounce(this.logProvider.setLevels, 100);
 		this.saveRelative = _.debounce(this.logProvider.setRelative, 100);
 		this.saveLive = _.debounce(this.logProvider.setLive, 100);
