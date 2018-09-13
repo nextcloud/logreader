@@ -1,4 +1,6 @@
 import unserialize from './unserialize';
+import style from "./Components/TraceLine.css";
+import {formatArgument} from "./Components/TraceLine";
 
 window.unserialize = unserialize;
 
@@ -7,7 +9,7 @@ export class ExceptionParser {
 		return this.isNewStyleException(logMessage) || this.isOldStyleException(logMessage) || this.isBackgroundJobException(logMessage);
 	}
 
-	isNewStyleException(logMessage) {
+	isNewStyleException (logMessage) {
 		return logMessage.Exception;
 	}
 
@@ -36,7 +38,7 @@ export class ExceptionParser {
 			data = this.tryParseJSON(logMessage.substr(logMessage.indexOf('{"Exception":')));
 			const messageHead = logMessage.substr(0, logMessage.indexOf('{"Exception":'));
 			const jobDataString = messageHead.split('(', 2)[1];
-			const jobDataParts = jobDataString.split(',', 2).map(part=>part.trim());
+			const jobDataParts = jobDataString.split(',', 2).map(part => part.trim());
 			data.jobClass = jobDataParts[0].split(':', 2)[1].trim();
 			data.jobArguments = jobDataParts[1].substr(10).trim();
 			window.s = jobDataParts[1].substr(10).trim();
@@ -44,7 +46,7 @@ export class ExceptionParser {
 				try {
 					[data.jobClass, data.jobArguments] = this.parseCommandJob(data.jobArguments);
 				} catch (e) {
-					
+
 				}
 			}
 		}
@@ -53,7 +55,7 @@ export class ExceptionParser {
 		return data;
 	}
 
-	tryParseJSON(json) {
+	tryParseJSON (json) {
 		try {
 			return JSON.parse(json);
 		} catch (e) {
@@ -107,6 +109,40 @@ export class ExceptionParser {
 				file: false,
 				line: false
 			};
+		}
+	}
+
+	format (logMessage) {
+		if (!this.isException(logMessage)) {
+			return logMessage;
+		}
+		const parsed = this.parse(logMessage);
+
+		const fileAndLine = (item) => {
+			if (item.file && item.line) {
+				return `${item.file} line ${item.line}`
+			} else {
+				return '<<closure>>';
+			}
+		};
+
+		if (parsed.Exception) {
+			const widestIndex = ('' + (parsed.Trace.length - 1)).length;
+			let message = `${parsed.Exception}: ${parsed.Message} at ${fileAndLine(parsed)}\n\n`;
+			message += parsed.Trace.map(
+				(trace, i) => {
+					const args = trace.args.map(arg => {
+						const baseFormatted = formatArgument(arg, 0).replace(/\n/g, '');;
+						const showInline = baseFormatted.length < 42;
+						return showInline ? baseFormatted : `${baseFormatted.substr(0, 16)} ... ${baseFormatted.substr(baseFormatted.length - 2, 2)}`;
+					});
+					return `${' '.repeat(widestIndex - ('' + i).length)}${i}. ${fileAndLine(trace)}\n` +
+						`${' '.repeat(widestIndex + 2)}${trace.function}(${args.join(', ')})`;
+				}
+			).join('\n');
+			return message;
+		} else {
+			return parsed;
 		}
 	}
 }

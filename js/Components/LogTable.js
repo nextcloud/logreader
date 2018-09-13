@@ -7,13 +7,18 @@ import {convertDateFormat} from '../DateFormatConverter.js'
 import {LevelSettings} from './LevelSettings';
 import Moment from 'moment'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {copyTextToClipboard} from '../Providers/ClipboardProvider';
+import {ExceptionParser} from '../ExceptionParser';
+
+const exceptionParser = new ExceptionParser();
 
 import style from './LogTable.css';
 
 export class LogTable extends Component {
 	state = {
 		showLevelSettings: false,
-		highlightedRequest: null
+		highlightedRequest: null,
+		copyActive: null
 	};
 
 	toggleLevelSettings = () => {
@@ -55,14 +60,56 @@ export class LogTable extends Component {
 			if (entry.reqId === this.state.highlightedRequest) {
 				className += ' ' + style.highlight;
 			}
+
+			const copyEntry = (raw) => {
+				const text = (raw) ?
+					JSON.stringify(entry) :
+					`
+[${entry.app}] ${LogLevel.levels[entry.level]}: ${exceptionParser.format(entry.message)}\n\n` +
+					((entry.method) ? `${entry.method} ${entry.url}\n` : '') +
+					((entry.remoteAddr) ? `from ${entry.remoteAddr} ` : '') +
+					((entry.user !== '--') ? `by ${entry.user} ` : '') +
+						`at ${entry.time}\n`;
+				copyTextToClipboard(text.trim());
+				this.setState({copyActive: null});
+			};
+
 			return (
-				<tr className={className} key={entry.id}
+				<tr className={className + (this.state.copyActive === entry.id ? ' ' + style.active : '')}
+					key={entry.id}
 					onClick={this.highlightRequest.bind(this, entry.reqId)}>
 					<td className={style.level}><LogLevel level={entry.level}/>
 					</td>
 					<td className={style.app}>{entry.app}</td>
 					<td className={style.message}><LogEntry
 						message={entry.message}/></td>
+					<td className={style.copy}>
+						<button title={t('logreader', 'Copy')}
+								className="icon icon-clippy" onClick={() => {
+							this.setState({copyActive: this.state.copyActive === entry.id ? null : entry.id})
+						}}></button>
+						{
+							(this.state.copyActive === entry.id) ?
+								<div
+									className={style.copyMenu + ' popovermenu bubble open menu'}>
+									<ul>
+										<li>
+											<a className="menuitem icon icon-clippy"
+											   onClick={() => copyEntry(true)}>
+												{t('logreader', 'Copy raw')}
+											</a>
+										</li>
+										<li>
+											<a className="menuitem icon icon-clippy"
+											   onClick={() => copyEntry(false)}>
+												{t('logreader', 'Copy formatted')}
+											</a>
+										</li>
+									</ul>
+								</div> :
+								[]
+						}
+					</td>
 					<td className={timeClass}
 						title={getTimeTitle(entry)}>{getTimeStamp(entry)}</td>
 				</tr>
@@ -129,6 +176,7 @@ export class LogTable extends Component {
 							</th>
 							<th className={style.app}>App</th>
 							<th className={style.message}>Message</th>
+							<th className={style.copy}></th>
 							<th className={timeClass}
 								onClick={this.toggleRelativeTime}>Time
 							</th>

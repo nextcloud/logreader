@@ -7,7 +7,7 @@ export class TraceLine extends Component {
 		return (
 			<li className={style.line}>
 				<p>
-					<span className={style.file}>{this.props.file}</span>
+					<span className={style.file}>{this.props.file || '<<closure>>'}</span>
 					<span className={style.line}>
 						{this.props.line ? ' - line ' + this.props.line + ': ' : ''}
 					</span>
@@ -53,7 +53,7 @@ export class Argument extends Component {
 	}
 }
 
-function formatArgument (data, whitespace, depth = 0) {
+export function formatArgument (data, whitespace, depth = 0) {
 	const leadingSpace = ' '.repeat(whitespace * depth);
 	if (data && data.__class__) {
 		const {'__class__': className, ...copy} = data;
