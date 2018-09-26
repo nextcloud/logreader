@@ -2,10 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Chyba při analýze záznamu událostí",
-    "Log levels" : "Stupeň podrobností záznamu událostí (log)",
+    "Log levels" : "Stupně podrobností záznamu událostí",
     "Log content" : "Obsah záznamu událostí",
     "Live update" : "Živá aktualizace",
-    "Download logs" : "Stáhnout protokoly",
+    "Download logs" : "Stáhnout záznamy událostí",
     "Copy" : "Zkopírovat",
     "Copy raw" : "Zkopírovat tak, jak je (raw)",
     "Copy formatted" : "Zkopírovat včetně formátu",
