@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Chyba při analýze záznamu událostí",
+    "Cased by " : "Zastaralé",
     "Log levels" : "Stupně podrobností záznamu událostí",
     "Log content" : "Obsah záznamu událostí",
     "Live update" : "Živá aktualizace",
