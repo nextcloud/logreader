@@ -6,26 +6,26 @@
 	<summary>A log reader for Nextcloud</summary>
 	<description>Log reader for Nextcloud</description>
 	<version>2.0.0</version>
-	<licence>AGPL</licence>
+	<licence>agpl</licence>
 	<author>Robin Appelman</author>
 	<namespace>LogReader</namespace>
 	<default_enable/>
 
-	<settings>
-		<admin>OCA\LogReader\Settings\Admin</admin>
-		<admin-section>OCA\LogReader\Settings\Section</admin-section>
-	</settings>
-
+	<category>tools</category>
 	<website>https://github.com/nextcloud/logreader</website>
 	<bugs>https://github.com/nextcloud/logreader/issues</bugs>
 	<repository type="git">https://github.com/nextcloud/logreader</repository>
 	<screenshot>
 		https://raw.githubusercontent.com/nextcloud/logreader/master/screenshots/reader.png
 	</screenshot>
-	<category>tools</category>
+
 	<dependencies>
 		<owncloud min-version="9.1" max-version="9.1"/>
 		<nextcloud min-version="11" max-version="15"/>
 	</dependencies>
-	<ocsid>170871</ocsid>
+
+	<settings>
+		<admin>OCA\LogReader\Settings\Admin</admin>
+		<admin-section>OCA\LogReader\Settings\Section</admin-section>
+	</settings>
 </info>
