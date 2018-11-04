@@ -7,6 +7,8 @@ OC.L10N.register(
     "Log content" : "Obsah logov",
     "Live update" : "Živá aktualizácia",
     "Download logs" : "Prevziať logy",
+    "Copy" : "Kopírovať",
+    "Copy formatted" : "Kopírovať formátované",
     "No server logs" : "Žiadne serverové logy",
     "One or more entries are hidden by the log level filter" : "Jeden alebo viac záznamov je skrytých filtrom úrovne logovania",
     "Everything is working fine" : "Všetko funguje dobre",
