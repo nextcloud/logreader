@@ -55,17 +55,25 @@ class LogController extends Controller {
 	}
 
 	/**
-	 * @return LogIterator
+	 * @return \Iterator
+	 * @param string $levelsString
 	 * @throws \Exception
 	 */
-	private function getLogIterator() {
+	private function getLogIterator($levelsString) {
+		$levels = str_split($levelsString);
+		$levels = array_map(function ($level) {
+			return $level === '1';
+		}, $levels);
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ATOM);
 		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
 		$log = $this->logFactory->get('file');
-		if($log instanceof IFileBased) {
+		if ($log instanceof IFileBased) {
 			$handle = fopen($log->getLogFilePath(), 'rb');
 			if ($handle) {
-				return new LogIterator($handle, $dateFormat, $timezone);
+				$iterator = new LogIterator($handle, $dateFormat, $timezone);
+				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
+					return $logItem && isset($levels[$logItem['level']]) && $levels[$logItem['level']];
+				});
 			} else {
 				throw new \Exception("Error while opening " . $log->getLogFilePath());
 			}
@@ -76,10 +84,11 @@ class LogController extends Controller {
 	/**
 	 * @param int $count
 	 * @param int $offset
+	 * @param string $levels
 	 * @return TemplateResponse
 	 */
-	public function get($count = 50, $offset = 0) {
-		$iterator = $this->getLogIterator();
+	public function get($count = 50, $offset = 0, $levels = '11111') {
+		$iterator = $this->getLogIterator($levels);
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
 
@@ -88,8 +97,8 @@ class LogController extends Controller {
 	 * @brief Gets the last item in the log, bypassing any cache.
 	 * @return mixed
 	 */
-	private function getLastItem() {
-		$iterator = $this->getLogIterator();
+	private function getLastItem($levels) {
+		$iterator = $this->getLogIterator($levels);
 		$iterator->next();
 		return $iterator->current();
 
@@ -110,21 +119,22 @@ class LogController extends Controller {
 	 *  will work in some cases but not when there are more than 50 messages of that
 	 *  request.
 	 * @param $lastReqId
+	 * @param string $levels
 	 * @return JSONResponse
 	 */
-	public function poll($lastReqId) {
+	public function poll($lastReqId, $levels = '11111') {
 
 		$cycles = 0;
 		$maxCycles = 20;
 
-		while ($this->getLastItem()['reqId'] === $lastReqId) {
+		while ($this->getLastItem($levels)['reqId'] === $lastReqId) {
 			sleep(1);
 			$cycles++;
 			if ($cycles === $maxCycles) {
 				return new JSONResponse([]);
 			}
 		}
-		$iterator = $this->getLogIterator();
+		$iterator = $this->getLogIterator($levels);
 		$iterator->next();
 
 		$data = [];
@@ -150,12 +160,13 @@ class LogController extends Controller {
 	 * @param string $query
 	 * @param int $count
 	 * @param int $offset
+	 * @param string $levels
 	 * @return TemplateResponse
 	 *
 	 * @NoCSRFRequired
 	 */
-	public function search($query = '', $count = 50, $offset = 0) {
-		$iterator = $this->getLogIterator();
+	public function search($query = '', $count = 50, $offset = 0, $levels = '11111') {
+		$iterator = $this->getLogIterator($levels);
 		$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
 		$iterator->rewind();
 		$iterator = new SearchFilter($iterator, $query);
@@ -205,6 +216,8 @@ class LogController extends Controller {
 	}
 
 	protected function responseFromIterator(\Iterator $iterator, $count, $offset) {
+
+		$iterator->rewind();
 		for ($i = 0; $i < $offset; $i++) {
 			$iterator->next();
 		}

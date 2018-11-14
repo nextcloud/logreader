@@ -34,7 +34,6 @@ export class App extends Component {
 				this.setState({entries});
 			}
 		});
-		this.saveLevels = _.debounce(this.logProvider.setLevels, 100);
 		this.saveRelative = _.debounce(this.logProvider.setRelative, 100);
 		this.saveLive = _.debounce(this.logProvider.setLive, 100);
 	}
@@ -68,17 +67,13 @@ export class App extends Component {
 		}
 	}, 100);
 
-	setLevel (level, newState) {
+	async setLevel (level, newState) {
 		let levels = this.state.levels;
 		levels[level] = newState;
-		const entries = this.state.entries.filter(entry => {
-			return this.state.levels[entry.level];
-		});
-		if (entries.length < 50) {
-			this.fetchNextPage();
-		}
 		this.setState({levels});
-		this.saveLevels(levels);
+		await this.logProvider.setLevels(levels);
+		this.logProvider.reset();
+		this.logProvider.load();
 	}
 
 	onLogFile = async (content) => {
@@ -123,13 +118,17 @@ export class App extends Component {
 		}
 	};
 
-	render () {
-		let entries = this.state.entries.filter(entry => {
+	getFilteredEntries () {
+		return this.state.entries.filter(entry => {
 			if (!entry.level && entry.level !== 0) {
 				return true;
 			}
 			return this.state.levels[entry.level];
 		});
+	}
+
+	render () {
+		let entries = this.getFilteredEntries();
 
 		let filters = this.state.levels.map((status, level) => {
 			return (

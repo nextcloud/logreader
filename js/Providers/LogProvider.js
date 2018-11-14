@@ -56,18 +56,22 @@ export class LogProvider extends EventEmitter {
 	}
 
 	loadEntries (offset, count = 50) {
-		if (this.searchQuery) {
-			return $.get(OC.generateUrl('/apps/logreader/search'), {
-				offset,
-				count,
-				query: this.query
-			});
-		} else {
-			return $.get(OC.generateUrl('/apps/logreader/get'), {
-				offset,
-				count
-			});
-		}
+		return this.getSettings().then(({levels}) => {
+			if (this.searchQuery) {
+				return $.get(OC.generateUrl('/apps/logreader/search'), {
+					offset,
+					count,
+					query: this.query,
+					levels
+				});
+			} else {
+				return $.get(OC.generateUrl('/apps/logreader/get'), {
+					offset,
+					count,
+					levels
+				});
+			}
+		});
 	}
 
 	async getSettings () {
@@ -85,6 +89,9 @@ export class LogProvider extends EventEmitter {
 
 	setLevels (levels) {
 		const levelsString = levels.map(level => level ? 1 : 0).join('');
+		if (this.cachedSettings) {
+			this.cachedSettings.levels = levelsString;
+		}
 		return $.ajax({
 			type: 'PUT',
 			url: OC.generateUrl('/apps/logreader/levels'),
