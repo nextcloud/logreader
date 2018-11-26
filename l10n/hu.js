@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Napló feldolgozási hiba",
+    "Cased by " : "Létrehozta",
     "Log levels" : "Naplózási szintek",
     "Log content" : "Napló tartalom",
     "Live update" : "Élő frissítés",
