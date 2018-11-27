@@ -52,11 +52,20 @@ class SearchFilter extends \FilterIterator {
 			return true;
 		}
 		$value = $this->current();
-		return stripos($value['message'], $this->query) !== false
+		return $this->inMessage($value['message'], $this->query)
 			|| stripos($value['app'], $this->query) !== false
 			|| stripos($value['reqId'], $this->query) !== false
 			|| stripos($value['user'], $this->query) !== false
 			|| stripos($value['url'], $this->query) !== false
 			|| stripos($this->formatLevel($value['level']), $this->query) !== false;
+	}
+
+	private function inMessage($message, $query) {
+		if (is_string($message)) {
+			return stripos($message, $query) !== false;
+		} else if (isset($message['Exception'])) {
+			return stripos($message['Exception'], $query) !== false
+				|| stripos($message['Message'], $query) !== false;
+		}
 	}
 }
