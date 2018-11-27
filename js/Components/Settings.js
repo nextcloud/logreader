@@ -3,8 +3,10 @@ import {ToggleEntry} from './ToggleEntry.js';
 import {LogProvider} from '../Providers/LogProvider.js';
 
 import style from './LevelSettings.css';
+import {LogUploader} from "./LogUploader";
+import React from "react";
 
-export class LevelSettings extends Component {
+export class Settings extends Component {
 	render () {
 		return (
 			<div className={style.settings + ' popovermenu bubble open menu'}>
@@ -20,6 +22,8 @@ export class LevelSettings extends Component {
 				<ToggleEntry active={this.props.live} onChange={this.props.setLive}>
 					{t('settings', 'Live update')}
 				</ToggleEntry>
+				<LogUploader
+					onLogFile={this.props.onLogFile}/>
 				<a href={OC.generateUrl('settings/admin/log/download')}
 				   className="button">{t('settings', 'Download logs')}</a>
 			</div>

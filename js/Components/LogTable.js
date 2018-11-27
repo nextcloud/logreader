@@ -3,7 +3,7 @@ import {LogEntry} from './LogEntry.js';
 import {LogLevel} from './LogLevel.js';
 import MediaQuery from 'react-responsive';
 import {convertDateFormat} from '../DateFormatConverter.js'
-import {LevelSettings} from './LevelSettings';
+import {Settings} from './Settings';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {copyTextToClipboard} from '../Providers/ClipboardProvider';
 import {ExceptionParser} from '../ExceptionParser';
@@ -153,11 +153,12 @@ export class LogTable extends Component {
 								{levelHeader}
 								{
 									this.state.showLevelSettings ?
-										<LevelSettings
+										<Settings
 											setLevel={this.props.setLevel}
 											levels={this.props.levels}
 											live={this.props.live}
 											setLive={this.props.setLive}
+											onLogFile={this.props.onLogFile}
 										/> :
 										<div className="hidden"/>
 								}
@@ -185,7 +186,7 @@ export class LogTable extends Component {
 						{levelHeader}
 						{
 							this.state.showLevelSettings ?
-								<LevelSettings
+								<Settings
 									setLevel={this.props.setLevel}
 									levels={this.props.levels}
 								/> :

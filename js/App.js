@@ -161,6 +161,7 @@ export class App extends Component {
 						hidden={this.state.entries.length - entries.length}
 						live={this.state.live}
 						setLive={this.setLive.bind(this)}
+						onLogFile={this.onLogFile}
 					/>
 				</div>
 			</ReactScrolla>
