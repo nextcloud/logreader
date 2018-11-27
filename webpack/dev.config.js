@@ -9,7 +9,6 @@ module.exports = {
 		'main': [
 			'react-hot-loader/patch',
 			'webpack-hot-middleware/client',
-			'babel-polyfill',
 			'./js/index.js'
 		]
 	},
