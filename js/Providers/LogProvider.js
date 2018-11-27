@@ -31,9 +31,17 @@ export class LogProvider extends EventEmitter {
 
 	set query (newQuery) {
 		if (newQuery !== this.searchQuery) {
+			if (newQuery) {
+				this.stopPolling();
+			}
 			this.searchQuery = newQuery;
 			this.reset();
-			this.load();
+			this.load().then(async () => {
+				// wait with resuming polling until we've re-loaded the list
+				if (!newQuery && await this.getLive()) {
+					this.startPolling();
+				}
+			});
 		}
 	}
 
@@ -144,8 +152,10 @@ export class LogProvider extends EventEmitter {
 			const newData = await $.get(OC.generateUrl('/apps/logreader/poll'), {
 				lastReqId
 			});
-			this.cachedEntries = newData.concat(this.cachedEntries);
-			this.emit('entries', this.cachedEntries);
+			if (this.poll) {
+				this.cachedEntries = newData.concat(this.cachedEntries);
+				this.emit('entries', this.cachedEntries);
+			}
 		}
 
 		this.pollActive = false;
