@@ -1,11 +1,9 @@
 import {Component} from 'react';
 import {LogEntry} from './LogEntry.js';
 import {LogLevel} from './LogLevel.js';
-import Timestamp from 'react-time';
 import MediaQuery from 'react-responsive';
 import {convertDateFormat} from '../DateFormatConverter.js'
 import {LevelSettings} from './LevelSettings';
-import Moment from 'moment'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {copyTextToClipboard} from '../Providers/ClipboardProvider';
 import {ExceptionParser} from '../ExceptionParser';
@@ -31,29 +29,19 @@ export class LogTable extends Component {
 
 	highlightRequest (highlightedRequest) {
 		this.setState({highlightedRequest});
-	}
+	};
+
+	formatDate(entry, relative) {
+		const time = new Date(entry.time);
+		if (relative) {
+			return OC.Util.relativeModifiedDate(time);
+		} else {
+			return OC.Util.formatDate(time, convertDateFormat(this.props.dateFormat));
+		}
+	};
 
 	render () {
 		const timeClass = style.time + ((this.props.relative) ? (' ' + style.relative) : '');
-
-		const getTimeStamp = (entry) => {
-			const time = new Date(entry.time);
-			if (this.props.relative) {
-				return <Timestamp value={time} relative
-								  onClick={this.toggleRelativeTime}/>
-			} else {
-				return <Timestamp value={time} onClick={this.toggleRelativeTime}
-								  format={convertDateFormat(this.props.dateFormat)}/>
-			}
-		};
-		const getTimeTitle = (entry) => {
-			const time = new Date(entry.time);
-			if (this.props.relative) {
-				return Moment(time).format(convertDateFormat(this.props.dateFormat));
-			} else {
-				return Moment(time).fromNow();
-			}
-		};
 
 		let rows = this.props.entries.map((entry, i) => {
 			let className = style['level_' + entry.level];
@@ -111,7 +99,7 @@ export class LogTable extends Component {
 						}
 					</td>
 					<td className={timeClass}
-						title={getTimeTitle(entry)}>{getTimeStamp(entry)}</td>
+						title={this.formatDate(entry, !this.props.relative)}>{this.formatDate(entry, this.props.relative)}</td>
 				</tr>
 			)
 		});
@@ -127,7 +115,7 @@ export class LogTable extends Component {
 						className={style.app + ' ' + style.column}>{entry.app}</div>
 
 					<div
-						className={timeClass + ' ' + style.column}>{getTimeStamp(entry)}</div>
+						className={timeClass + ' ' + style.column}>{this.formatDate(entry, this.props.relative)}</div>
 					<div className={style.message + ' ' + style.column}>
 						<LogEntry
 							message={entry.message}/></div>

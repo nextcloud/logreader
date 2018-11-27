@@ -39,15 +39,11 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "bluebird": "3.5.3",
-    "less": "3.8.1",
-    "less-loader": "4.1.0",
-    "moment": "2.22.2",
     "oc-react-components": "^0.2.0",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-dropzone": "7.0.1",
     "react-responsive": "6.0.1",
-    "react-scrolla": "0.3.1",
-    "react-time": "4.3.0"
+    "react-scrolla": "0.3.1"
   }
 }
