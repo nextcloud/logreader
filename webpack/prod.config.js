@@ -14,7 +14,6 @@ module.exports = {
 	mode: 'production',
 	context: path.resolve(__dirname, '..'),
 	entry: [
-		'babel-polyfill',
 		'./js/index.js'
 	],
 	output: {
