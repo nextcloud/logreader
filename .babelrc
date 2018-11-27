@@ -7,10 +7,6 @@
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-transform-runtime",
-    ["@babel/plugin-transform-async-to-generator", {
-      "module": "bluebird",
-      "method": "coroutine"
-    }],
     "react-hot-loader/babel"
   ]
 }
