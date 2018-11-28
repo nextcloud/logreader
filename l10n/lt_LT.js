@@ -2,13 +2,13 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Klaida, nagrinėjant žurnalą",
+    "No server logs" : "Nėra serverio žurnalų",
+    "One or more entries are hidden by the log level filter" : "Vienas ar daugiau įrašų yra paslėpta pagal žurnalo lygmenų filtrą",
+    "Everything is working fine" : "Viskas veikia gerai",
     "Log levels" : "Žurnalo lygmenys",
     "Log content" : "Žurnalo turinys",
     "Live update" : "Tiesioginis atnaujinimas",
     "Download logs" : "Atsisiųsti žurnalus",
-    "No server logs" : "Nėra serverio žurnalų",
-    "One or more entries are hidden by the log level filter" : "Vienas ar daugiau įrašų yra paslėpta pagal žurnalo lygmenų filtrą",
-    "Everything is working fine" : "Viskas veikia gerai",
     "Logging" : "Registravimas",
     "Log Reader" : "Žurnalų skaitytuvė"
 },
