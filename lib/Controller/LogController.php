@@ -22,6 +22,7 @@
 namespace OCA\LogReader\Controller;
 
 use OCA\LogReader\Log\LogIterator;
+use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\Log\SearchFilter;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
@@ -37,48 +38,17 @@ use OCP\Log\ILogFactory;
  * @package OCA\LogReader\Controller
  */
 class LogController extends Controller {
-	/**
-	 * @var IConfig
-	 */
+	private $logIteratorFactory;
 	private $config;
-	/** @var ILogFactory */
-	private $logFactory;
 
 	public function __construct($appName,
 								IRequest $request,
 								IConfig $config,
-								ILogFactory $logFactory
+								LogIteratorFactory $logIteratorFactory
 	) {
 		parent::__construct($appName, $request);
+		$this->logIteratorFactory = $logIteratorFactory;
 		$this->config = $config;
-		$this->logFactory = $logFactory;
-	}
-
-	/**
-	 * @return \Iterator
-	 * @param string $levelsString
-	 * @throws \Exception
-	 */
-	private function getLogIterator($levelsString) {
-		$levels = str_split($levelsString);
-		$levels = array_map(function ($level) {
-			return $level === '1';
-		}, $levels);
-		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ATOM);
-		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
-		$log = $this->logFactory->get('file');
-		if ($log instanceof IFileBased) {
-			$handle = fopen($log->getLogFilePath(), 'rb');
-			if ($handle) {
-				$iterator = new LogIterator($handle, $dateFormat, $timezone);
-				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
-					return $logItem && isset($levels[$logItem['level']]) && $levels[$logItem['level']];
-				});
-			} else {
-				throw new \Exception("Error while opening " . $log->getLogFilePath());
-			}
-		}
-		throw new \Exception('Can\'t find log class');
 	}
 
 	/**
@@ -88,7 +58,7 @@ class LogController extends Controller {
 	 * @return TemplateResponse
 	 */
 	public function get($count = 50, $offset = 0, $levels = '11111') {
-		$iterator = $this->getLogIterator($levels);
+		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
 
@@ -98,7 +68,7 @@ class LogController extends Controller {
 	 * @return mixed
 	 */
 	private function getLastItem($levels) {
-		$iterator = $this->getLogIterator($levels);
+		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		$iterator->next();
 		return $iterator->current();
 
@@ -166,7 +136,7 @@ class LogController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function search($query = '', $count = 50, $offset = 0, $levels = '11111') {
-		$iterator = $this->getLogIterator($levels);
+		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
 		$iterator->rewind();
 		$iterator = new SearchFilter($iterator, $query);

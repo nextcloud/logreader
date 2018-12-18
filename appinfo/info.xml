@@ -23,6 +23,10 @@
 		<nextcloud min-version="11" max-version="16"/>
 	</dependencies>
 
+	<commands>
+		<command>OCA\LogReader\Command\Tail</command>
+	</commands>
+
 	<settings>
 		<admin>OCA\LogReader\Settings\Admin</admin>
 		<admin-section>OCA\LogReader\Settings\Section</admin-section>
