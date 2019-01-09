@@ -35,7 +35,7 @@ export class LogUploader extends Component {
 		return (
 			<Dropzone multiple={false} accept="text/*" className={"button"} style={dropStyle}
 					  onDrop={this.onDrop}>
-				{this.state.message}
+				{({getRootProps, getInputProps}) => <button {...getRootProps()}>{this.state.message}<input {...getInputProps()}/></button>}
 			</Dropzone>
 		);
 	}
