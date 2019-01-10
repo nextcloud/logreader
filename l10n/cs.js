@@ -11,7 +11,7 @@ OC.L10N.register(
     "Everything is working fine" : "Všechno funguje správně",
     "Log levels" : "Stupně podrobností záznamu událostí",
     "Log content" : "Obsah záznamu událostí",
-    "Live update" : "Živá aktualizace",
+    "Live update" : "Aktualizace za provozu",
     "Download logs" : "Stáhnout záznamy událostí",
     "Logging" : "Zaznamenávání událostí",
     "Log Reader" : "Čtečka protokolů",
