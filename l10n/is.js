@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Villa við að þátta annál",
-    "Cased by " : "Flokkað af",
+    "Caused by " : "Flokkað af",
     "Copy" : "Afrita",
     "Copy raw" : "Afrita hrátt",
     "Copy formatted" : "Afrita sniðið",

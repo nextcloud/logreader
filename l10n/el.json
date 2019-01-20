@@ -1,6 +1,6 @@
 { "translations": {
     "Error parsing log" : "Σφάλμα κατά την ανάλυση του αρχείου καταγραφής",
-    "Cased by " : "Δημιουργήθηκε απο",
+    "Caused by " : "Δημιουργήθηκε απο",
     "No server logs" : "Δεν υπάρχουν αρχεία καταγραφής εξυπηρετητή",
     "One or more entries are hidden by the log level filter" : "Μια ή περισσότερες καταχωρήσεις αποκρύφθηκαν από το φίλτρο επιπέδου του αρχείου καταγραφής",
     "Everything is working fine" : "Όλα λειτουργούν καλά",

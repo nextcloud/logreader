@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Napaka razčlenjevanja dnevnika",
-    "Cased by " : "Pakiranje",
+    "Caused by " : "Pakiranje",
     "Copy" : "Kopiraj",
     "Copy raw" : "Kopiraj neoblikovano",
     "Copy formatted" : "Kopiraj oblikovano",

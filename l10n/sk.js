@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Chyba pri analýze logov",
-    "Cased by " : "Zastrešené s",
+    "Caused by " : "Zastrešené s",
     "Copy" : "Kopírovať",
     "Copy formatted" : "Kopírovať formátované",
     "No server logs" : "Žiadne serverové logy",

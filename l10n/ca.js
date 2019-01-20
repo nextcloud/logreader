@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "S'ha produït un error en el registre",
-    "Cased by " : "Compartit per",
+    "Caused by " : "Compartit per",
     "No server logs" : "No hi ha registres del servidor",
     "One or more entries are hidden by the log level filter" : "Una o més entrades estan amagades pel filtre de nivell de registre",
     "Everything is working fine" : "tot correcte",

@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Błąd w trakcie przetwarzania loga",
-    "Cased by " : "Spowodowane przez",
+    "Caused by " : "Spowodowane przez",
     "Copy" : "Kopiuj",
     "Copy raw" : "Kopiuj raw",
     "Copy formatted" : "Kopiuj sformatowany",

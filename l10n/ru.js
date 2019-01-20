@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Ошибка разбора файла журнала",
-    "Cased by " : "Запротоколировано",
+    "Caused by " : "Запротоколировано",
     "Copy" : "Копировать",
     "Copy raw" : "Копировать строку",
     "Copy formatted" : "Копировать отформатированное",

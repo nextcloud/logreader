@@ -1,6 +1,6 @@
 { "translations": {
     "Error parsing log" : "Error parsing log",
-    "Cased by " : "Cased by ",
+    "Caused by " : "Caused by ",
     "No server logs" : "No server logs",
     "One or more entries are hidden by the log level filter" : "One or more entries are hidden by the log level filter",
     "Everything is working fine" : "Everything is working fine",

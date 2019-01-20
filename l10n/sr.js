@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Грешка при парсирању дневника",
-    "Cased by " : "Окружен са",
+    "Caused by " : "Окружен са",
     "Copy" : "Копирај",
     "Copy raw" : "Копирај непрерађено",
     "Copy formatted" : "Копирај форматирано",

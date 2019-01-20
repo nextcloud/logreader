@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Napló feldolgozási hiba",
-    "Cased by " : "Létrehozta",
+    "Caused by " : "Létrehozta",
     "Copy" : "Másol",
     "Copy raw" : "Eredeti formában másol",
     "Copy formatted" : "Formázva másol",

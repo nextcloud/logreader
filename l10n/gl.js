@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Produciuse un erro ao analizar o rexistro",
-    "Cased by " : "Cased by ",
+    "Caused by " : "Caused by ",
     "Copy" : "Copiar",
     "Copy raw" : "Copia básica",
     "Copy formatted" : "Copia formatda",
