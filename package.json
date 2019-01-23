@@ -32,7 +32,7 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.2.0",
+    "@babel/runtime": "^7.3.1",
     "oc-react-components": "^0.2.0",
     "react": "16.7.0",
     "react-dom": "16.7.0",
