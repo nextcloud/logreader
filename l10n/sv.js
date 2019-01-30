@@ -11,7 +11,7 @@ OC.L10N.register(
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
     "Live update" : "Live-uppdatering",
-    "Download logs" : "Ladda ner loggar",
+    "Download logs" : "Ladda ned loggar",
     "Logging" : "Loggar",
     "Log Reader" : "Loggläsare"
 },

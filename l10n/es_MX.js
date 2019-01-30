@@ -3,6 +3,9 @@ OC.L10N.register(
     {
     "Error parsing log" : "Error al interpretar la bitácora",
     "Cased by " : "Casos por",
+    "Copy" : "Copiar",
+    "Copy raw" : "Copiar simple",
+    "Copy formatted" : "Copiar formateado",
     "No server logs" : "No hay bitácoras del servidor",
     "One or more entries are hidden by the log level filter" : "Uno o más elementos están ocultos por el filtro del nivel de bitácora",
     "Everything is working fine" : "Todo está funcionado correctamente",
