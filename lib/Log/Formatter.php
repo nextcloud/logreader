@@ -60,7 +60,7 @@ class Formatter {
 		$argumentWhiteSpace = str_repeat(' ', $largestIndexWidth + 2);
 		if (strlen($argumentsString) < $argumentWidth) {
 			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n" .
-				$argumentWhiteSpace . $trace['function'] . '(' .
+				$argumentWhiteSpace . $trace['class'] . $trace['type'] . $trace['function'] . '(' .
 				$argumentsString . ')';
 		} else {
 			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n" .
