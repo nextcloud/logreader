@@ -104,7 +104,7 @@ class LogController extends Controller {
 				return new JSONResponse([]);
 			}
 		}
-		$iterator = $this->getLogIterator($levels);
+		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		$iterator->next();
 
 		$data = [];
