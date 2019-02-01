@@ -55,8 +55,8 @@ class Tail extends Base {
 		$count = (int)$input->getArgument('lines');
 		$terminal = new Terminal();
 		$totalWidth = $terminal->getWidth();
-		// 8 for level and app, 26 for time, 4 for formatting
-		$messageWidth = $totalWidth - 8 - 8 - 26 - 5;
+		// 8 level, 18 for app, 26 for time, 6 for formatting
+		$messageWidth = $totalWidth - 8 - 18 - 26 - 6;
 		$io = new SymfonyStyle($input, $output);
 		$logIterator = $this->logIteratorFactory->getLogIterator('11111');
 		$i = 0;
@@ -68,7 +68,7 @@ class Tail extends Base {
 			}
 			$tableItems[] = [
 				self::LEVELS[$logItem['level']],
-				wordwrap($logItem['app'], 8),
+				wordwrap($logItem['app'], 18),
 				$this->formatter->formatMessage($logItem['message'], $messageWidth) . "\n",
 				$logItem['time']
 			];

@@ -115,7 +115,7 @@ class Formatter {
 			while (strlen($file) > $fileWidth && strpos($file, '/') !== false && $count < 20) {
 				$file = substr($file, strpos($file, '/') + 1);
 				$prefix = '.../';
-				$count ++;
+				$count++;
 			}
 			return $prefix . $file . $postFix;
 		} else {
