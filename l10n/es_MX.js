@@ -13,7 +13,7 @@ OC.L10N.register(
     "Log content" : "Contenido de bitácoras",
     "Live update" : "Actualización en vivo",
     "Download logs" : "Descargar bitácoras",
-    "Logging" : "Registrando",
+    "Logging" : "Registro",
     "Log Reader" : "Lector de Bitácoras",
     "A log reader for Nextcloud" : "Un lector de bitácoras para Nextcloud",
     "Log reader for Nextcloud" : "Lector de bitácoras para Nextcloud"
