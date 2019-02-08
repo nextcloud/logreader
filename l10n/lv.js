@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error parsing log" : "Kļūda žurnālierakstu parsēšanā",
+    "Error parsing log" : "Kļūda analizējot žurnālus",
     "No server logs" : "Nav servera žurnālierakstu",
     "One or more entries are hidden by the log level filter" : "Vēl viens ieraksts ir slēpts žurnālierakstu līmeņa filtrā",
     "Everything is working fine" : "Viss darbojas labi",
