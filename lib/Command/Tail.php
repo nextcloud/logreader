@@ -52,6 +52,8 @@ class Tail extends Base {
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output) {
+		\OC::$server->getLogger()->logException(new \Exception('test'));
+		return;
 		$count = (int)$input->getArgument('lines');
 		$terminal = new Terminal();
 		$totalWidth = $terminal->getWidth();

@@ -25,6 +25,7 @@
 
 	<commands>
 		<command>OCA\LogReader\Command\Tail</command>
+		<command>OCA\LogReader\Command\Watch</command>
 	</commands>
 
 	<settings>
