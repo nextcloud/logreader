@@ -104,12 +104,13 @@ class Formatter {
 	}
 
 	private function getFileAndLine(array $item, int $width = 64): string {
-		if (isset($item['file']) && isset($item['line'])) {
-			$file = $item['file'];
+		$file = $item['file'] ?? $item['File'] ?? null;
+		$line = $item['line'] ?? $item['Line'] ?? null;
+		if ($file && $line) {
 			if (substr($file, 0, strlen($this->root) + 1) === $this->root . '/') {
 				$file = substr($file, strlen($this->root) + 1);
 			}
-			$postFix = ' line ' . $item['line'];
+			$postFix = ' line ' . $line;
 			$fileWidth = $width - strlen($postFix) - 4;
 			$prefix = '';
 			$count = 0;
