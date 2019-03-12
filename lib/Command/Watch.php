@@ -136,7 +136,7 @@ class Watch extends Base {
 		}, range(0, $lineCount - 1));
 
 		foreach ($lines as $line) {
-			$output->writeln($line);
+			$output->writeln('  ' . $line);
 		}
 	}
 }
