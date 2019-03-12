@@ -49,7 +49,8 @@ class Formatter {
 
 	private function formatTraceLine(int $index, array $trace, int $largestIndexWidth, int $width): string {
 		$whiteSpace = str_repeat(' ', $largestIndexWidth - strlen((string)$index));
-		$argumentWidth = $width - $largestIndexWidth - strlen($trace['function']) - 5;
+		$method = $trace['class'] . $trace['type'] . $trace['function'];
+		$argumentWidth = $width - $largestIndexWidth - strlen($method) - 5;
 		$arguments = array_map(function ($arg) use ($argumentWidth) {
 			$base = str_replace("\n", '', $this->formatArgument($arg, 0));
 			$showInline = strlen($base) < $argumentWidth;
@@ -60,11 +61,11 @@ class Formatter {
 		$argumentWhiteSpace = str_repeat(' ', $largestIndexWidth + 2);
 		if (strlen($argumentsString) < $argumentWidth) {
 			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n" .
-				$argumentWhiteSpace . $trace['class'] . $trace['type'] . $trace['function'] . '(' .
+				$argumentWhiteSpace . $method . '(' .
 				$argumentsString . ')';
 		} else {
 			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n" .
-				$argumentWhiteSpace . $trace['function'] . "(\n" .
+				$argumentWhiteSpace . $method . "(\n" .
 				implode(",\n", array_map(function ($argumentLine) use ($argumentWhiteSpace) {
 					return $argumentWhiteSpace . '  ' . trim($argumentLine);
 				}, $arguments)) . "\n" .

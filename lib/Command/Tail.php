@@ -46,8 +46,8 @@ class Tail extends Base {
 	protected function configure() {
 		$this
 			->setName('log:tail')
-			->setDescription('Tail the nextcloud logfile');
-		$this->addArgument('lines', InputArgument::OPTIONAL, 'The number of log entries to print', 10);
+			->setDescription('Tail the nextcloud logfile')
+			->addArgument('lines', InputArgument::OPTIONAL, 'The number of log entries to print', 10);
 		parent::configure();
 	}
 
