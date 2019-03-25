@@ -36,7 +36,7 @@
     "oc-react-components": "^0.2.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-dropzone": "9.0.0",
+    "react-dropzone": "10.0.6",
     "react-responsive": "6.1.1",
     "react-scrolla": "0.3.1"
   }
