@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "解析日志时出错",
+    "Copy" : "复制",
     "No server logs" : "没有服务器日志",
     "One or more entries are hidden by the log level filter" : "一个或多个实例被日志过滤器隐藏",
     "Everything is working fine" : "一切正常",
@@ -10,6 +11,8 @@ OC.L10N.register(
     "Live update" : "在线更新",
     "Download logs" : "下载日志",
     "Logging" : "日志",
-    "Log Reader" : "日志阅读器"
+    "Log Reader" : "日志阅读器",
+    "A log reader for Nextcloud" : "Nextcloud 日志读取器",
+    "Log reader for Nextcloud" : "Nextcloud 日志读取器"
 },
 "nplurals=1; plural=0;");
