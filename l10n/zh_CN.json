@@ -1,6 +1,9 @@
 { "translations": {
     "Error parsing log" : "解析日志时出错",
+    "Cased by " : "被围住",
     "Copy" : "复制",
+    "Copy raw" : "拷贝原始的",
+    "Copy formatted" : "拷贝格式化过的",
     "No server logs" : "没有服务器日志",
     "One or more entries are hidden by the log level filter" : "一个或多个实例被日志过滤器隐藏",
     "Everything is working fine" : "一切正常",
