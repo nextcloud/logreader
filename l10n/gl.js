@@ -7,7 +7,7 @@ OC.L10N.register(
     "Copy raw" : "Copia básica",
     "Copy formatted" : "Copia formatda",
     "No server logs" : "Non hai rexistros no servidor",
-    "One or more entries are hidden by the log level filter" : "Unha ou máis entradas están agachadas polo filtro de nivel do rexistro",
+    "One or more entries are hidden by the log level filter" : "Unha ou máis entradas están agochadas polo filtro de nivel do rexistro",
     "Everything is working fine" : "Todo está a funcionar ben",
     "Log levels" : "Níveis do registro",
     "Log content" : "Contido do rexistro",
