@@ -32,7 +32,7 @@
 }
 
 .highlight-enter.highlight-enter-active {
-	background-color: white;
+	background-color: var(--color-main-background);
 	transition: background 1500ms ease-in;
 }
 

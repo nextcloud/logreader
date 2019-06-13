@@ -145,7 +145,7 @@
   }
 
   tr.highlight {
-    background-color: #f8f8f8;
+    background-color: var(--color-background-dark);
   }
 }
 

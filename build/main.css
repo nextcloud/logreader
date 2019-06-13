@@ -33,11 +33,49 @@
 }
 
 ._3WSK5IDY3QaYMM9hTArr43._1pkNM-5U63zegXkKAOjxpm {
-	background-color: white;
+	background-color: var(--color-main-background);
 	-webkit-transition: background 1500ms ease-in;
 	transition: background 1500ms ease-in;
 }
 
+._343NvwC-fxwynY3tlTS1NP {
+  padding: 0.3em;
+}
+
+  ._343NvwC-fxwynY3tlTS1NP ._3jn6js072qWvDiDf7TMCwj, ._343NvwC-fxwynY3tlTS1NP ._343NvwC-fxwynY3tlTS1NP {
+    font-style: italic;
+  }
+
+  ._343NvwC-fxwynY3tlTS1NP ._2CleyL1yy9rm9_TekDzjNe {
+    font-weight: bold;
+  }
+._1QroZ8KXWVW-9MPOHJzSlc {
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  background-position: 100% 4px;
+}
+
+  ._1QroZ8KXWVW-9MPOHJzSlc * {
+    cursor: inherit;
+  }
+
+  ._1QroZ8KXWVW-9MPOHJzSlc ._1A9CbUxHGWEm1su-e2rFkB {
+    font-weight: bold;
+  }
+
+  ._1QroZ8KXWVW-9MPOHJzSlc ol._3z5Fajrou0jUMVB_afYT8c {
+    padding-top: 0.5em;
+  }
+
+  ._1QroZ8KXWVW-9MPOHJzSlc ._1V8t56nEGTa2C-fOk4N8k3 {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+  }
+._2myCKRvhvB1MvnTFPjCUEk {
+  margin: 12px 12px;
+}
 ._1Co43KzTWFxD2dhWoiztGz {
   background-color: white;
   border-bottom: 1px solid #eee;
@@ -82,33 +120,6 @@
 ._1Co43KzTWFxD2dhWoiztGz:after {
   left: 75px;
 }
-._2myCKRvhvB1MvnTFPjCUEk {
-  margin: 12px 12px;
-}
-._1QroZ8KXWVW-9MPOHJzSlc {
-  display: inline-block;
-  width: 100%;
-  cursor: pointer;
-  background-position: 100% 4px;
-}
-
-  ._1QroZ8KXWVW-9MPOHJzSlc * {
-    cursor: inherit;
-  }
-
-  ._1QroZ8KXWVW-9MPOHJzSlc ._1A9CbUxHGWEm1su-e2rFkB {
-    font-weight: bold;
-  }
-
-  ._1QroZ8KXWVW-9MPOHJzSlc ol._3z5Fajrou0jUMVB_afYT8c {
-    padding-top: 0.5em;
-  }
-
-  ._1QroZ8KXWVW-9MPOHJzSlc ._1V8t56nEGTa2C-fOk4N8k3 {
-    padding-top: 10px;
-    margin-top: 10px;
-    border-top: 1px solid #eee;
-  }
 ._35avWAFDf6IGgiIx9uV8bp a {
     line-height: 30px;
   }
@@ -119,17 +130,6 @@
     margin: 5px;
   }
 
-._343NvwC-fxwynY3tlTS1NP {
-  padding: 0.3em;
-}
-
-  ._343NvwC-fxwynY3tlTS1NP ._3jn6js072qWvDiDf7TMCwj, ._343NvwC-fxwynY3tlTS1NP ._343NvwC-fxwynY3tlTS1NP {
-    font-style: italic;
-  }
-
-  ._343NvwC-fxwynY3tlTS1NP ._2CleyL1yy9rm9_TekDzjNe {
-    font-weight: bold;
-  }
 ._3uGuI0yVAuPKT3b3TlPQEe {
   width: 100%;
   white-space: normal;
@@ -278,7 +278,7 @@
 }
 
 ._3uGuI0yVAuPKT3b3TlPQEe tr._2ZTTmsq774FZTPlwng5NtT {
-    background-color: #f8f8f8;
+    background-color: var(--color-background-dark);
 }
 
 ._2Dww2t5sT7uBM1zg08qSVI,
