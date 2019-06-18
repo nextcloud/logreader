@@ -49,7 +49,7 @@ class Formatter {
 
 	private function formatTraceLine(int $index, array $trace, int $largestIndexWidth, int $width): string {
 		$whiteSpace = str_repeat(' ', $largestIndexWidth - strlen((string)$index));
-		$method = $trace['class'] . $trace['type'] . $trace['function'];
+		$method = ($trace['class'] ?? '') . ($trace['type'] ?? '') . $trace['function'];
 		$argumentWidth = $width - $largestIndexWidth - strlen($method) - 5;
 		$arguments = array_map(function ($arg) use ($argumentWidth) {
 			$base = str_replace("\n", '', $this->formatArgument($arg, 0));
@@ -90,12 +90,12 @@ class Formatter {
 				return $leadingSpace . "{\n" .
 					implode($glue, array_map(function ($key, $value) use ($whiteSpace, $depth, $keyWhitespace) {
 							return $keyWhitespace . $key . ':' . trim($this->formatArgument($value, $whiteSpace, $depth + 1));
-						}, array_keys($argument), array_values($argument)) . ($whiteSpace ? "\n" : '')) . $leadingSpace . '}';
+						}, array_keys($argument), array_values($argument))) . ($whiteSpace ? "\n" : '') . $leadingSpace . '}';
 			} else {
 				return $leadingSpace . "[\n" .
 					implode($glue, array_map(function ($value) use ($whiteSpace, $depth) {
 							return $this->formatArgument($value, $whiteSpace, $depth + 1);
-						}, $argument) . ($whiteSpace ? "\n" : '')) . $leadingSpace . ']';
+						}, $argument)) . ($whiteSpace ? "\n" : '') . $leadingSpace . ']';
 			}
 		} else {
 			$value = json_encode($argument, $whiteSpace ? JSON_PRETTY_PRINT : 0);
