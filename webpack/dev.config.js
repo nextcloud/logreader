@@ -8,7 +8,6 @@ module.exports = {
 	entry: {
 		'main': [
 			'react-hot-loader/patch',
-			'webpack-hot-middleware/client',
 			'./js/index.js'
 		]
 	},
@@ -39,8 +38,7 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							modules: true,
-							localIdentName: '[path][name]__[local]'
+							modules: true
 						}
 					},
 					'postcss-loader'
