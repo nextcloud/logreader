@@ -141,7 +141,7 @@ export class LogTable extends Component {
 				<span className={style['log-settings-toggle'] + ' icon-more'}/>
 			</span>
 		);
-		const levelHeader = this.props.inlineSettings ? (levelSettingsHeader) : "Level";
+		const levelHeader = this.props.inlineSettings ? (levelSettingsHeader) : t('logreader', 'Level');
 
 		return (
 			<div>
@@ -163,11 +163,11 @@ export class LogTable extends Component {
 										<div className="hidden"/>
 								}
 							</th>
-							<th className={style.app}>App</th>
-							<th className={style.message}>Message</th>
+							<th className={style.app}>{t('logreader', 'App')}</th>
+							<th className={style.message}>{t('logreader', 'Message')}</th>
 							<th className={style.copy}></th>
 							<th className={timeClass}
-								onClick={this.toggleRelativeTime}>Time
+								onClick={this.toggleRelativeTime}>{t('logreader', 'Time')}
 							</th>
 						</tr>
 						</thead>
