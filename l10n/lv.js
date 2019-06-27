@@ -5,6 +5,8 @@ OC.L10N.register(
     "No server logs" : "Nav servera žurnālierakstu",
     "One or more entries are hidden by the log level filter" : "Vēl viens ieraksts ir slēpts žurnālierakstu līmeņa filtrā",
     "Everything is working fine" : "Viss darbojas labi",
+    "Message" : "Ziņojums",
+    "Time" : "Laiks",
     "Download logs" : "Lejupielādēt žurnālierakstu",
     "Logging" : "Žurnalēšana",
     "Log Reader" : "Žurnālierakstu lasītājs"
