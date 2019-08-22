@@ -14,7 +14,14 @@ export class LogFile extends LogProvider {
 	async loadEntries (offset, count = 50) {
 		const start = this.lines.length - offset;
 		const end = Math.max(start - count - 2, 0);
-		const entries = this.lines.slice(end, start).reverse().map(this.tryParseJSON);
+		const entries = this.lines.slice(end, start).reverse()
+			.map(this.tryParseJSON)
+			.map(entry => {
+				if (!entry.id) {
+					entry.id = Math.random() * 10000;
+				}
+				return entry;
+			});
 		return {data: entries};
 	}
 
