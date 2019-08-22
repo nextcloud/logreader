@@ -3,6 +3,10 @@ import {LogProvider} from './LogProvider.js'
 export class LogFile extends LogProvider {
 	constructor (content, limit) {
 		super(limit);
+
+		// newlines that aren't proceeded by a '}' are either invalid or cary no meaning
+		content = content.replace(/([^}])\s*([\n\r]+)/g, "$1");
+
 		this.content = content;
 		this.lines = this.content.split('\n');
 	}
