@@ -137,7 +137,7 @@ export class ExceptionParser {
 						return showInline ? baseFormatted : `${baseFormatted.substr(0, 16)} ... ${baseFormatted.substr(baseFormatted.length - 2, 2)}`;
 					});
 					return `${' '.repeat(widestIndex - ('' + i).length)}${i}. ${fileAndLine(trace)}\n` +
-						`${' '.repeat(widestIndex + 2)}${trace.class}${trace.type}${trace.function}(${args.join(', ')})`;
+						`${' '.repeat(widestIndex + 2)}${trace.class || ''}${trace.type || ''}${trace.function}(${args.join(', ')})`;
 				}
 			).join('\n');
 			return message;
