@@ -17,7 +17,7 @@ OC.L10N.register(
     "Log content" : "Contingut del registre",
     "Live update" : "Actualització en directe",
     "Download logs" : "Descarrega els registres",
-    "Logging" : "S'està enregistrant",
+    "Logging" : "Registre",
     "Log Reader" : "Lector de registre",
     "A log reader for Nextcloud" : "Un lector de registre per Nextcloud",
     "Log reader for Nextcloud" : "Lector de registre per Nextcloud"
