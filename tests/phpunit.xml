@@ -5,7 +5,7 @@
 		 timeoutForLargeTests="900"
 >
 	<testsuite name='Nextcloud - Logreader App Tests'>
-		<directory suffix='.php'>unit</directory>
+		<directory suffix='.php'>.</directory>
 	</testsuite>
 	<filter>
 		<whitelist>
