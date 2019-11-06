@@ -88,8 +88,10 @@ class LogIterator implements \Iterator {
 	}
 
 	function next() {
+		$this->currentLine = '';
+
 		// Loop through each character of the file looking for new lines
-		while ($this->position >= 0) {
+		while ($this->position > 0) {
 			fseek($this->handle, $this->position);
 			$chars = fread($this->handle, self::CHUNK_SIZE);
 			$newlinePos = strrpos($chars, "\n");
@@ -97,17 +99,37 @@ class LogIterator implements \Iterator {
 				$this->currentLine = substr($chars, $newlinePos + 1) . $this->currentLine;
 				$this->lastLine = $this->currentLine;
 				$this->currentKey++;
-				$this->currentLine = '';
 				$this->position -= (self::CHUNK_SIZE - $newlinePos);
 				return;
 			} else {
 				$this->currentLine = $chars . $this->currentLine;
-				$this->position -= self::CHUNK_SIZE;
+				if ($this->position >= self::CHUNK_SIZE) {
+					$this->position -= self::CHUNK_SIZE;
+				} else {
+					$remaining = $this->position;
+					fseek($this->handle, 0);
+					$chars = fread($this->handle, $remaining);
+					$this->currentLine = $chars . $this->currentLine;
+					$this->lastLine = $this->currentLine;
+					$this->position = 0;
+				}
 			}
 		}
 	}
 
 	function valid() {
-		return $this->position >= 0 && is_resource($this->handle);
+		if (!is_resource($this->handle)) {
+			return false;
+		}
+
+		if ($this->position > 0) {
+			return true;
+		}
+
+		if ($this->currentLine === '') {
+			return false;
+		}
+
+		return true;
 	}
 }
