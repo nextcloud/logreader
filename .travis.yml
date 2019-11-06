@@ -37,5 +37,6 @@ script:
   - cd tests
   - ../vendor/bin/phpunit --configuration phpunit.xml
   # build js
+  - cd ..
   - make
 
