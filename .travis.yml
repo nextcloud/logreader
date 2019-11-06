@@ -9,7 +9,7 @@ env:
     - APP_NAME=logreader
     - DB=sqlite
   matrix:
-    - CORE_BRANCH=stable17
+    - CORE_BRANCH=master
 
 branches:
   only:
