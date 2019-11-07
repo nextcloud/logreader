@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Error al interpretar la bitácora",
-    "Cased by " : "Casos por",
     "Copy" : "Copiar",
     "Copy raw" : "Copiar simple",
     "Copy formatted" : "Copiar formateado",
@@ -16,6 +15,7 @@ OC.L10N.register(
     "Logging" : "Registro",
     "Log Reader" : "Lector de Bitácoras",
     "A log reader for Nextcloud" : "Un lector de bitácoras para Nextcloud",
-    "Log reader for Nextcloud" : "Lector de bitácoras para Nextcloud"
+    "Log reader for Nextcloud" : "Lector de bitácoras para Nextcloud",
+    "Cased by " : "Casos por"
 },
 "nplurals=2; plural=(n != 1);");

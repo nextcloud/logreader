@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "로그 처리 오류",
-    "Cased by " : "발생 원인",
     "Copy" : "복사",
     "Copy raw" : "원본 복사",
     "Copy formatted" : "형식을 지정하여 복사",
@@ -16,6 +15,7 @@ OC.L10N.register(
     "Logging" : "로그",
     "Log Reader" : "로그 리더",
     "A log reader for Nextcloud" : "Nextcloud 로그 리더",
-    "Log reader for Nextcloud" : "Nextcloud 로그 리더"
+    "Log reader for Nextcloud" : "Nextcloud 로그 리더",
+    "Cased by " : "발생 원인"
 },
 "nplurals=1; plural=0;");

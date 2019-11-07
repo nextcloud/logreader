@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Villa við að þátta annál",
-    "Cased by " : "Flokkað af",
     "Copy" : "Afrita",
     "Copy raw" : "Afrita hrátt",
     "Copy formatted" : "Afrita sniðið",
@@ -16,6 +15,7 @@ OC.L10N.register(
     "Logging" : "Atvikaskráning",
     "Log Reader" : "Annálalesari",
     "A log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud",
-    "Log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud"
+    "Log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud",
+    "Cased by " : "Flokkað af"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");
