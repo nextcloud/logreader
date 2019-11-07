@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Errore durante l'elaborazione dei log",
-    "Cased by " : "Racchiuso tra",
     "Copy" : "Copia",
     "Copy raw" : "Copia grezza",
     "Copy formatted" : "Copia formattata",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Registrazione",
     "Log Reader" : "Lettore dei log",
     "A log reader for Nextcloud" : "Un lettore di log per Nextcloud",
-    "Log reader for Nextcloud" : "Lettore di log per Nextcloud"
+    "Log reader for Nextcloud" : "Lettore di log per Nextcloud",
+    "Cased by " : "Racchiuso tra"
 },
 "nplurals=2; plural=(n != 1);");

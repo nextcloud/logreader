@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fel vid tolkning av loggen",
-    "Cased by " : "Orsakat av",
     "Copy" : "Kopiera",
     "Copy raw" : "Kopiera oformaterad",
     "Copy formatted" : "Kopiera formaterad",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Loggar",
     "Log Reader" : "Loggläsare",
     "A log reader for Nextcloud" : "En loggläsare för Nextcloud",
-    "Log reader for Nextcloud" : "Loggläsare för Nextcloud"
+    "Log reader for Nextcloud" : "Loggläsare för Nextcloud",
+    "Cased by " : "Orsakat av"
 },
 "nplurals=2; plural=(n != 1);");

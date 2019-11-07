@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fejl i fortolkning af log",
-    "Cased by " : "Arkiveret af",
     "Copy" : "Kopier",
     "Copy raw" : "Kopier uformateret",
     "Copy formatted" : "Kopier formateret",
@@ -16,6 +15,7 @@ OC.L10N.register(
     "Logging" : "Logging",
     "Log Reader" : "Log aflæser",
     "A log reader for Nextcloud" : "En loglæser til Nextcloud",
-    "Log reader for Nextcloud" : "Loglæser til Nextcloud"
+    "Log reader for Nextcloud" : "Loglæser til Nextcloud",
+    "Cased by " : "Arkiveret af"
 },
 "nplurals=2; plural=(n != 1);");

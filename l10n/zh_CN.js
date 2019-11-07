@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "解析日志时出错",
-    "Cased by " : "被围住",
     "Copy" : "复制",
     "Copy raw" : "拷贝原始的",
     "Copy formatted" : "拷贝格式化过的",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "日志",
     "Log Reader" : "日志阅读器",
     "A log reader for Nextcloud" : "Nextcloud 日志读取器",
-    "Log reader for Nextcloud" : "Nextcloud 日志读取器"
+    "Log reader for Nextcloud" : "Nextcloud 日志读取器",
+    "Cased by " : "被围住"
 },
 "nplurals=1; plural=0;");
