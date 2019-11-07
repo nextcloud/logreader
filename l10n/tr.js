@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Günlük işlenirken sorun çıktı",
-    "Cased by " : "Dosyalayan",
     "Copy" : "Kopyala",
     "Copy raw" : "Ham olarak kopyala",
     "Copy formatted" : "Biçim ile kopyala",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Günlükleme",
     "Log Reader" : "Günlük Okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
-    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu"
+    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
+    "Cased by " : "Dosyalayan"
 },
 "nplurals=2; plural=(n > 1);");

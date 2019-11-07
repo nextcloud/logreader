@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Chyba pri analýze logov",
-    "Cased by " : "Zastrešené s",
     "Copy" : "Kopírovať",
     "Copy raw" : "Kopírovať bez formátovania",
     "Copy formatted" : "Kopírovať formátované",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Logovanie",
     "Log Reader" : "Čítačka logov",
     "A log reader for Nextcloud" : "Čítačka logov pre Nextcloud",
-    "Log reader for Nextcloud" : "Čítačka logov pre Nextcloud"
+    "Log reader for Nextcloud" : "Čítačka logov pre Nextcloud",
+    "Cased by " : "Zastrešené s"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

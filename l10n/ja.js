@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "ログ解析失敗",
-    "Cased by " : "ケース",
     "Copy" : "コピー",
     "Copy raw" : "そのままコピー",
     "Copy formatted" : "フォーマット済みのコピー",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "ログ",
     "Log Reader" : "ログリーダー",
     "A log reader for Nextcloud" : "NextCloudのためのログリーダー",
-    "Log reader for Nextcloud" : "NextCloudのためのログリーダー"
+    "Log reader for Nextcloud" : "NextCloudのためのログリーダー",
+    "Cased by " : "ケース"
 },
 "nplurals=1; plural=0;");

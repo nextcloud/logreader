@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Ошибка разбора файла журнала",
-    "Cased by " : "Запротоколировано",
     "Copy" : "Копировать",
     "Copy raw" : "Копировать строку",
     "Copy formatted" : "Копировать отформатированное",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Журналирование",
     "Log Reader" : "Просмотр журналов",
     "A log reader for Nextcloud" : "Просмотр журналов(логов) для Nextcloud",
-    "Log reader for Nextcloud" : "Просмотр журналов(логов) для Nextcloud"
+    "Log reader for Nextcloud" : "Просмотр журналов(логов) для Nextcloud",
+    "Cased by " : "Запротоколировано"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");

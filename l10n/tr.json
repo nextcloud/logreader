@@ -1,6 +1,5 @@
 { "translations": {
     "Error parsing log" : "Günlük işlenirken sorun çıktı",
-    "Cased by " : "Dosyalayan",
     "Copy" : "Kopyala",
     "Copy raw" : "Ham olarak kopyala",
     "Copy formatted" : "Biçim ile kopyala",
@@ -18,6 +17,7 @@
     "Logging" : "Günlükleme",
     "Log Reader" : "Günlük Okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
-    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu"
+    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
+    "Cased by " : "Dosyalayan"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
