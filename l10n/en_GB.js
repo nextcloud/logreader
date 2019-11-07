@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Error parsing log",
-    "Cased by " : "Cased by ",
     "No server logs" : "No server logs",
     "One or more entries are hidden by the log level filter" : "One or more entries are hidden by the log level filter",
     "Everything is working fine" : "Everything is working fine",
@@ -13,6 +12,7 @@ OC.L10N.register(
     "Logging" : "Logging",
     "Log Reader" : "Log Reader",
     "A log reader for Nextcloud" : "A log reader for Nextcloud",
-    "Log reader for Nextcloud" : "Log reader for Nextcloud"
+    "Log reader for Nextcloud" : "Log reader for Nextcloud",
+    "Cased by " : "Cased by "
 },
 "nplurals=2; plural=(n != 1);");

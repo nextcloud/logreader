@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fout parseren logboeken",
-    "Cased by " : "Ingediend door",
     "Copy" : "Kopiëren",
     "Copy raw" : "Kopiëren puut",
     "Copy formatted" : "Kopiëren geformatteerd",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Logs",
     "Log Reader" : "Logboek lezer",
     "A log reader for Nextcloud" : "Een loglezer voor Nextcloud",
-    "Log reader for Nextcloud" : "Loglezer voor Nextcloud"
+    "Log reader for Nextcloud" : "Loglezer voor Nextcloud",
+    "Cased by " : "Ingediend door"
 },
 "nplurals=2; plural=(n != 1);");

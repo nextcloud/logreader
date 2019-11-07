@@ -1,6 +1,5 @@
 { "translations": {
     "Error parsing log" : "Fel vid tolkning av loggen",
-    "Cased by " : "Orsakat av",
     "Copy" : "Kopiera",
     "Copy raw" : "Kopiera oformaterad",
     "Copy formatted" : "Kopiera formaterad",
@@ -18,6 +17,7 @@
     "Logging" : "Loggar",
     "Log Reader" : "Loggläsare",
     "A log reader for Nextcloud" : "En loggläsare för Nextcloud",
-    "Log reader for Nextcloud" : "Loggläsare för Nextcloud"
+    "Log reader for Nextcloud" : "Loggläsare för Nextcloud",
+    "Cased by " : "Orsakat av"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Eraro dum analizo de protokolo",
-    "Cased by " : "Kaŭzita de ",
     "Copy" : "Kopii",
     "Copy raw" : "Kopii krude",
     "Copy formatted" : "Kopii aranĝite",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Protokolo",
     "Log Reader" : "Protokola legilo",
     "A log reader for Nextcloud" : "Protokola legilo por Nextcloud",
-    "Log reader for Nextcloud" : "Protokola legilo por Nextcloud"
+    "Log reader for Nextcloud" : "Protokola legilo por Nextcloud",
+    "Cased by " : "Kaŭzita de "
 },
 "nplurals=2; plural=(n != 1);");

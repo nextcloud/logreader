@@ -2,7 +2,6 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
-    "Cased by " : "Enveloppé par",
     "Copy" : "Copier",
     "Copy raw" : "Copie brute",
     "Copy formatted" : "Copie formatée",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Logging" : "Journalisation",
     "Log Reader" : "Lecteur du fichier journal",
     "A log reader for Nextcloud" : "Un lecteur du fichier journal pour Nextcloud",
-    "Log reader for Nextcloud" : "Lecteur du fichier journal pour Nextcloud"
+    "Log reader for Nextcloud" : "Lecteur du fichier journal pour Nextcloud",
+    "Cased by " : "Enveloppé par"
 },
 "nplurals=2; plural=(n > 1);");
