@@ -24,7 +24,7 @@
     "postcss-preset-env": "^6.7.0",
     "react-a11y": "1.1.0",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-hot-loader": "4.12.15",
+    "react-hot-loader": "4.12.16",
     "strip-loader": "^0.1.2",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
