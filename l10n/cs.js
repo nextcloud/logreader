@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Chyba při analýze záznamu událostí",
+    "Caused by " : "Kým způsobeno",
     "Copy" : "Zkopírovat",
     "Copy raw" : "Zkopírovat tak, jak je (raw)",
     "Copy formatted" : "Zkopírovat včetně formátu",
