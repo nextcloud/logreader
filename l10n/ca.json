@@ -1,5 +1,6 @@
 { "translations": {
     "Error parsing log" : "S'ha produït un error mentre s'analitzava el registre",
+    "Caused by " : "Provocat per",
     "Copy" : "Copia",
     "Copy raw" : "Copia en brut",
     "Copy formatted" : "Copia formatat",

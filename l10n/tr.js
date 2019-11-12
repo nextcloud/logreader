@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Günlük işlenirken sorun çıktı",
+    "Caused by " : "Sebebiyle",
     "Copy" : "Kopyala",
     "Copy raw" : "Ham olarak kopyala",
     "Copy formatted" : "Biçim ile kopyala",
