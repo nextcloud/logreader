@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fel vid tolkning av loggen",
+    "Caused by " : "Orsakad av",
     "Copy" : "Kopiera",
     "Copy raw" : "Kopiera oformaterad",
     "Copy formatted" : "Kopiera formaterad",
