@@ -19,8 +19,8 @@ OC.L10N.register(
     "Download logs" : "Protokolldatei herunterladen",
     "Logging" : "Protokollierung",
     "Log Reader" : "Log-Datei-Leser",
-    "A log reader for Nextcloud" : "Ein Log-Datei-Leser für Nextcloud",
-    "Log reader for Nextcloud" : "Log-Datei-Leser für Nextcloud",
+    "A log reader for Nextcloud" : "Ein Logdatei-Leser für Nextcloud",
+    "Log reader for Nextcloud" : "Logdatei-Leser für Nextcloud",
     "Cased by " : "Verursacht von"
 },
 "nplurals=2; plural=(n != 1);");
