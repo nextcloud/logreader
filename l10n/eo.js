@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Eraro dum analizo de protokolo",
+    "Caused by " : "Kaŭzita de ",
     "Copy" : "Kopii",
     "Copy raw" : "Kopii krude",
     "Copy formatted" : "Kopii aranĝite",
