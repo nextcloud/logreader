@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Pogreška pri parsiranju zapisa",
+    "Caused by " : "Uzrokovao",
     "Copy" : "Kopiraj",
     "Copy raw" : "Kopiraj neobrađeno",
     "Copy formatted" : "Kopiraj formatirano",
