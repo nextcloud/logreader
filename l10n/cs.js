@@ -2,10 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Chyba při analýze záznamu událostí",
-    "Caused by " : "Kým způsobeno",
+    "Caused by " : "Čím způsobeno",
     "Copy" : "Zkopírovat",
-    "Copy raw" : "Zkopírovat tak, jak je (raw)",
-    "Copy formatted" : "Zkopírovat včetně formátu",
+    "Copy raw" : "Zkopírovat bez formátování",
+    "Copy formatted" : "Zkopírovat včetně formátování",
     "No server logs" : "Žádné záznamy událostí ze serveru",
     "One or more entries are hidden by the log level filter" : "Jeden nebo více záznamů je skryto filtrem úrovně protokolu",
     "Everything is working fine" : "Všechno funguje správně",
@@ -15,12 +15,12 @@ OC.L10N.register(
     "Time" : "Čas",
     "Log levels" : "Stupně podrobností záznamu událostí",
     "Log content" : "Obsah záznamu událostí",
-    "Live update" : "Aktualizace za provozu",
-    "Download logs" : "Stáhnout záznamy událostí",
+    "Live update" : "Průběžně znovu načítat",
+    "Download logs" : "Stáhnout si záznamy událostí",
     "Logging" : "Zaznamenávání událostí",
     "Log Reader" : "Čtečka záznamů událostí (log)",
     "A log reader for Nextcloud" : "Čtečka záznamů událostí (log) pro Nextcloud",
     "Log reader for Nextcloud" : "Čtečka záznamů událostí pro Nextcloud",
-    "Cased by " : "Zastaralé"
+    "Cased by " : "Čím způsobeno"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");
