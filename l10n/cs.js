@@ -15,7 +15,7 @@ OC.L10N.register(
     "Time" : "Čas",
     "Log levels" : "Stupně podrobností záznamu událostí",
     "Log content" : "Obsah záznamu událostí",
-    "Live update" : "Průběžně znovu načítat",
+    "Live update" : "Průběžně donačítat",
     "Download logs" : "Stáhnout si záznamy událostí",
     "Logging" : "Zaznamenávání událostí",
     "Log Reader" : "Čtečka záznamů událostí (log)",
