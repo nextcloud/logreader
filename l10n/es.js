@@ -15,7 +15,7 @@ OC.L10N.register(
     "Time" : "Hora",
     "Log levels" : "Niveles de registro",
     "Log content" : "Contenido del registro",
-    "Live update" : "Actualización en directo",
+    "Live update" : "Mostrar en directo",
     "Download logs" : "Descargar registros",
     "Logging" : "Registros",
     "Log Reader" : "Lector del registro",
