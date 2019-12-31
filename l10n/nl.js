@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fout parseren logboeken",
+    "Caused by " : "Veroorzaakt door",
     "Copy" : "Kopiëren",
     "Copy raw" : "Kopiëren puut",
     "Copy formatted" : "Kopiëren geformatteerd",
