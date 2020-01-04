@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "ログ解析失敗",
+    "Caused by " : "原因：",
     "Copy" : "コピー",
     "Copy raw" : "そのままコピー",
     "Copy formatted" : "フォーマット済みのコピー",
