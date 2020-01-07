@@ -12,7 +12,7 @@ OC.L10N.register(
     "Level" : "Ниво",
     "App" : "Апликација",
     "Message" : "Порака",
-    "Time" : "Врема",
+    "Time" : "Време",
     "Log levels" : "Ниво на евиденција",
     "Log content" : "Содржина на записот",
     "Live update" : "Ажурирање во живо",
