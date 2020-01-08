@@ -8,7 +8,7 @@ OC.L10N.register(
     "Copy formatted" : "Copiar con formato",
     "No server logs" : "No hay registros del servidor",
     "One or more entries are hidden by the log level filter" : "Una o más entradas están ocultas por el filtro de nivel del registro",
-    "Everything is working fine" : "Todo funciona bien",
+    "Everything is working fine" : "Todo está funcionando bien",
     "Level" : "Nivel",
     "App" : "Aplicación",
     "Message" : "Mensaje",
