@@ -2,7 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Σφάλμα κατά την ανάλυση του αρχείου καταγραφής",
+    "Caused by " : "Προκλήθηκε από",
     "Copy" : "Αντιγραφή",
+    "Copy raw" : "Αντιγραφή σειράς",
+    "Copy formatted" : "Αντιγραφή μορφοποίησης",
     "No server logs" : "Δεν υπάρχουν αρχεία καταγραφής εξυπηρετητή",
     "One or more entries are hidden by the log level filter" : "Μια ή περισσότερες καταχωρήσεις αποκρύφθηκαν από το φίλτρο επιπέδου του αρχείου καταγραφής",
     "Everything is working fine" : "Όλα λειτουργούν καλά",
@@ -16,6 +19,8 @@ OC.L10N.register(
     "Download logs" : "Αρχείο Καταγραφής Λήψεων",
     "Logging" : "Καταγραφή",
     "Log Reader" : "Αναγνώστης Καταγραφών",
+    "A log reader for Nextcloud" : "Ένας αναγνώστης αρχείου καταγραφής για το Nextcloud",
+    "Log reader for Nextcloud" : "Αναγνώστης αρχείου καταγραφής για το Nextcloud",
     "Cased by " : "Δημιουργήθηκε απο"
 },
 "nplurals=2; plural=(n != 1);");
