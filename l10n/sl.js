@@ -6,7 +6,7 @@ OC.L10N.register(
     "Copy" : "Kopiraj",
     "Copy raw" : "Kopiraj neoblikovano",
     "Copy formatted" : "Kopiraj oblikovano",
-    "No server logs" : "Ni dnevnikov strežnika",
+    "No server logs" : "Ni zabeleženih strežniških dnevnikov",
     "One or more entries are hidden by the log level filter" : "En ali več vnosov je skritih zaradi delovanja filtra ravni dnevnika",
     "Everything is working fine" : "Vse deluje po pričakovanjih",
     "Level" : "Raven",
