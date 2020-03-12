@@ -44,6 +44,10 @@ class Formatter {
 		$message .= implode("\n", array_map(function ($index, $trace) use ($largestIndexWidth, $width) {
 			return $this->formatTraceLine($index, $trace, $largestIndexWidth, $width);
 		}, array_keys($e['Trace']), array_values($e['Trace'])));
+
+		if (isset($e['Previous'])) {
+			$message .= "\n\n" . 'Caused by ' . $this->formatException($e['Previous'], $width);
+		}
 		return $message;
 	}
 
