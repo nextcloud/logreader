@@ -16,7 +16,7 @@ OC.L10N.register(
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
     "Live update" : "Live-uppdatering",
-    "Download logs" : "Ladda ner loggar",
+    "Download logs" : "Hämta loggar",
     "Logging" : "Loggar",
     "Log Reader" : "Loggläsare",
     "A log reader for Nextcloud" : "En loggläsare för Nextcloud",
