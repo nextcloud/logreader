@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Log fitxategia irakurtzean errorea",
+    "Caused by " : "Arrazoia",
     "Copy" : "Kopiatu",
     "Copy raw" : "Kopiatu gordin",
     "Copy formatted" : "Kopiatu formatuarekin",
@@ -17,6 +18,9 @@ OC.L10N.register(
     "Live update" : "Etengabeko eguneraketa ",
     "Download logs" : "Log fitxategiak jaitsi",
     "Logging" : "Arazten",
-    "Log Reader" : "Log irakurgailua"
+    "Log Reader" : "Log irakurgailua",
+    "A log reader for Nextcloud" : "Nextcloudentzat log fitxategien irakurlea",
+    "Log reader for Nextcloud" : "Nextcloudentzat log fitxategien irakurlea",
+    "Cased by " : "Arrazoia"
 },
 "nplurals=2; plural=(n != 1);");
