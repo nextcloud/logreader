@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Copy" : "Sao chép",
     "Level" : "Cấp độ",
+    "App" : "Ứng dụng",
     "Time" : "Thời gian"
 },
 "nplurals=1; plural=0;");
