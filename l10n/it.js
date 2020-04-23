@@ -7,7 +7,7 @@ OC.L10N.register(
     "Copy raw" : "Copia grezza",
     "Copy formatted" : "Copia formattata",
     "No server logs" : "Nessun log del server",
-    "One or more entries are hidden by the log level filter" : "Uns o più voci sono nascoste dal filtro del livello di registrazione",
+    "One or more entries are hidden by the log level filter" : "Una o più voci sono nascoste dal filtro del livello di registrazione",
     "Everything is working fine" : "Tutto funziona correttamente",
     "Level" : "Livello",
     "App" : "Applicazione",
