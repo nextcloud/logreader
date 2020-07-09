@@ -23,15 +23,21 @@ namespace OCA\LogReader\AppInfo;
 
 use OCA\LogReader\Log\Formatter;
 use OCP\AppFramework\App;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\IAppContainer;
 
-class Application extends App {
+class Application extends App implements IBootstrap {
 	public function __construct(array $urlParams = []) {
 		parent::__construct('logreader', $urlParams);
+	}
 
-		$container = $this->getContainer();
+	public function register(IRegistrationContext $context): void {
+	}
 
-		$container->registerService(Formatter::class, function(IAppContainer $c) {
+	public function boot(IBootContext $context): void {
+		$context->getAppContainer()->registerService(Formatter::class, function(IAppContainer $c) {
 			return new Formatter(\OC::$SERVERROOT);
 		});
 	}
