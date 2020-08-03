@@ -75,9 +75,11 @@ class LogIterator implements \Iterator {
 	function current() {
 		$entry = json_decode($this->lastLine, true);
 		if ($this->dateFormat !== \DateTime::ATOM) {
-			$time = \DateTime::createFromFormat($this->dateFormat, $entry['time'], $this->timezone);
-			if ($time) {
-				$entry['time'] = $time->format(\DateTime::ATOM);
+			if (isset($entry['time'])) {
+				$time = \DateTime::createFromFormat($this->dateFormat, $entry['time'], $this->timezone);
+				if ($time) {
+					$entry['time'] = $time->format(\DateTime::ATOM);
+				}
 			}
 		}
 		return $entry;
