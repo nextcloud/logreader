@@ -140,12 +140,9 @@
   tr.empty td {
     border-bottom: none;
   }
-  tr.empty td:hover {
-    background-color: white;
-  }
 
   tr.highlight {
-    background-color: var(--color-background-dark);
+    background-color: var(--color-background-hover);
   }
 }
 

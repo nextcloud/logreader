@@ -28,11 +28,10 @@
 }
 
 .highlight-enter {
-	background-color: orange;
+	background-color: var(--color-warning);
 }
 
 .highlight-enter.highlight-enter-active {
 	background-color: var(--color-main-background);
 	transition: background 1500ms ease-in;
 }
-
