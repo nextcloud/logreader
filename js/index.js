@@ -11,7 +11,10 @@ import {LogSearch} from "./Search";
 window.React = React;
 
 const logProvider = new LogProvider(50);
-OCA.Search.logreader = new LogSearch(logProvider);
+
+if (OCA.Search) {
+	OCA.Search.logreader = new LogSearch(logProvider);
+}
 
 function render (App, rootElement) {
 	ReactDom.render(
