@@ -235,12 +235,8 @@
     border-bottom: none;
   }
 
-  ._167F0SBD3kSKVBEfd57_Uq tr._1K777VVuB68Rrw_CXVPP7u td:hover {
-    background-color: white;
-  }
-
   ._167F0SBD3kSKVBEfd57_Uq tr._3XTj7BAehWjW_4VvJocVvD {
-    background-color: var(--color-background-dark);
+    background-color: var(--color-background-hover);
   }
 
 ._3zKQjNzIOey2XmCGlgAmCy,
@@ -312,14 +308,13 @@ th._1ARgYSQS4MfijjOGI4pQ8a {
 }
 
 ._1iAPnZijiF3xNNm61pJId3 {
-	background-color: orange;
+	background-color: var(--color-warning);
 }
 
 ._1iAPnZijiF3xNNm61pJId3._2_7jr-CZLhx8xE6OFnYSnW {
 	background-color: var(--color-main-background);
 	transition: background 1500ms ease-in;
 }
-
 
 
 /*# sourceMappingURL=main.css.map*/
