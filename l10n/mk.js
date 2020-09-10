@@ -2,7 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Грешка разложен запис",
-    "Caused by " : "Предизвикана од",
+    "Caused by " : "Предизвикана од ",
     "Copy" : "Копирај",
     "Copy raw" : "Копирај raw",
     "Copy formatted" : "Копирај форматирано",
