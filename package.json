@@ -27,7 +27,7 @@
     "react-hot-loader": "4.12.21",
     "strip-loader": "^0.1.2",
     "style-loader": "^1.2.1",
-    "webpack": "^4.44.1",
+    "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "3.11.0",
     "webpack-hot-middleware": "^2.25.0"
