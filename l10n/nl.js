@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Niveau logboek",
+    "Log content" : "Inhoud logboek",
+    "Live update" : "Live bijgewerkt",
+    "Download logs" : "Logboek downloaden",
     "Error parsing log" : "Fout parseren logboeken",
-    "Caused by " : "Veroorzaakt door",
     "Copy" : "Kopiëren",
     "Copy raw" : "Kopiëren puur",
     "Copy formatted" : "Kopiëren geformatteerd",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Bericht",
     "Time" : "Tijd",
-    "Log levels" : "Niveau logboek",
-    "Log content" : "Inhoud logboek",
-    "Live update" : "Live bijgewerkt",
-    "Download logs" : "Logboek downloaden",
+    "Caused by " : "Veroorzaakt door",
     "Logging" : "Logs",
     "Log Reader" : "Logboek lezer",
     "A log reader for Nextcloud" : "Een loglezer voor Nextcloud",
-    "Log reader for Nextcloud" : "Loglezer voor Nextcloud",
-    "Cased by " : "Ingediend door"
+    "Log reader for Nextcloud" : "Loglezer voor Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");

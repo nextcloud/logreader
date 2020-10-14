@@ -1,6 +1,10 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Nivelet e hyrjes",
+    "Log content" : "Përmbajtja e hyrjes",
+    "Live update" : "Përditësim live",
+    "Download logs" : "Regjistrimet e shkarkuara",
     "Error parsing log" : "Gabim në analizimin e regjistrit",
     "Copy" : "Kopjo",
     "No server logs" : "Nuk ka regjistra të serverit",
@@ -10,10 +14,6 @@ OC.L10N.register(
     "App" : "Aplikacion",
     "Message" : "Mesazh",
     "Time" : "Kohë",
-    "Log levels" : "Nivelet e hyrjes",
-    "Log content" : "Përmbajtja e hyrjes",
-    "Live update" : "Përditësim live",
-    "Download logs" : "Regjistrimet e shkarkuara",
     "Logging" : "Duke hyrë",
     "Log Reader" : "Lexuesi i Regjistrit"
 },

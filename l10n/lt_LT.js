@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Žurnalo lygmenys",
+    "Log content" : "Žurnalo turinys",
+    "Live update" : "Tiesioginis atnaujinimas",
+    "Download logs" : "Atsisiųsti žurnalus",
     "Error parsing log" : "Klaida, nagrinėjant žurnalą",
-    "Caused by " : "Sukėlė ",
     "Copy" : "Kopijuoti",
     "Copy raw" : "Kopijuoti neapdorotą",
     "Copy formatted" : "Kopijuoti formatuotą",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Programėlė",
     "Message" : "Žinutė",
     "Time" : "Laikas",
-    "Log levels" : "Žurnalo lygmenys",
-    "Log content" : "Žurnalo turinys",
-    "Live update" : "Tiesioginis atnaujinimas",
-    "Download logs" : "Atsisiųsti žurnalus",
+    "Caused by " : "Sukėlė ",
     "Logging" : "Registravimas",
     "Log Reader" : "Žurnalų skaitytuvė",
     "A log reader for Nextcloud" : "Žurnalo skaitytuvė, skirta Nextcloud",
-    "Log reader for Nextcloud" : "Žurnalo skaitytuvė, skirta Nextcloud",
-    "Cased by " : "Sukėlė "
+    "Log reader for Nextcloud" : "Žurnalo skaitytuvė, skirta Nextcloud"
 },
 "nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);");

@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Níveis do registro",
+    "Log content" : "Contido do rexistro",
+    "Live update" : "Actualización ao vivo",
+    "Download logs" : "Descargar rexistros",
     "Error parsing log" : "Produciuse un erro ao analizar o rexistro",
-    "Caused by " : "Causado por",
     "Copy" : "Copiar",
     "Copy raw" : "Copia básica",
     "Copy formatted" : "Copia formatda",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Aplicación",
     "Message" : "Mensaxe",
     "Time" : "Hora",
-    "Log levels" : "Níveis do registro",
-    "Log content" : "Contido do rexistro",
-    "Live update" : "Actualización ao vivo",
-    "Download logs" : "Descargar rexistros",
+    "Caused by " : "Causado por",
     "Logging" : "Rexistrando",
     "Log Reader" : "Lector de rexistros",
     "A log reader for Nextcloud" : "Un lector de rexistros para o Nextcloud",
-    "Log reader for Nextcloud" : "Lector de rexistros para o Nextcloud",
-    "Cased by " : "Cased by "
+    "Log reader for Nextcloud" : "Lector de rexistros para o Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");

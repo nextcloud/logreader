@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Annálsstig",
+    "Log content" : "Efni atvikaskrár",
+    "Live update" : "Uppfærsla í beinni",
+    "Download logs" : "Sækja annála",
     "Error parsing log" : "Villa við að þátta annál",
-    "Caused by " : "Atvikaðist af",
     "Copy" : "Afrita",
     "Copy raw" : "Afrita hrátt",
     "Copy formatted" : "Afrita sniðið",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Forrit",
     "Message" : "Skilaboð",
     "Time" : "Tími",
-    "Log levels" : "Annálsstig",
-    "Log content" : "Efni atvikaskrár",
-    "Live update" : "Uppfærsla í beinni",
-    "Download logs" : "Sækja annála",
+    "Caused by " : "Atvikaðist af",
     "Logging" : "Atvikaskráning",
     "Log Reader" : "Annálalesari",
     "A log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud",
-    "Log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud",
-    "Cased by " : "Flokkað af"
+    "Log reader for Nextcloud" : "Atvikaskráalesari fyrir Nextcloud"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

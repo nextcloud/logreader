@@ -1,4 +1,8 @@
 { "translations": {
+    "Log levels" : "Niveles de registro",
+    "Log content" : "Contenido del registro",
+    "Live update" : "Actualización en vivo",
+    "Download logs" : "Descargar registros",
     "Error parsing log" : "Error al analizar el registro",
     "Copy" : "Copiar",
     "Copy raw" : "Copia cruda",
@@ -9,14 +13,9 @@
     "Level" : "Nivel",
     "App" : "Aplicación",
     "Time" : "Hora",
-    "Log levels" : "Niveles de registro",
-    "Log content" : "Contenido del registro",
-    "Live update" : "Actualización en vivo",
-    "Download logs" : "Descargar registros",
     "Logging" : "Explotación forestal",
     "Log Reader" : "Lector de registro",
     "A log reader for Nextcloud" : "Un lector de registro para Nextcloud",
-    "Log reader for Nextcloud" : "Lector de registro para Nextcloud",
-    "Cased by " : "Encajonada por"
+    "Log reader for Nextcloud" : "Lector de registro para Nextcloud"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
