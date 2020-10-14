@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Naplózási szintek",
+    "Log content" : "Naplótartalom",
+    "Live update" : "Élő frissítés",
+    "Download logs" : "Naplók letöltése",
     "Error parsing log" : "Napló feldolgozási hiba",
-    "Caused by " : "Okozta:",
     "Copy" : "Másolás",
     "Copy raw" : "Másolás eredeti formába",
     "Copy formatted" : "Másolás formázva",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Alkalmazás",
     "Message" : "Üzenet",
     "Time" : "Idő",
-    "Log levels" : "Naplózási szintek",
-    "Log content" : "Naplótartalom",
-    "Live update" : "Élő frissítés",
-    "Download logs" : "Naplók letöltése",
+    "Caused by " : "Okozta:",
     "Logging" : "Naplózás",
     "Log Reader" : "Naplóolvasó",
     "A log reader for Nextcloud" : "Egy naplóolvasó a Nextcloudhoz",
-    "Log reader for Nextcloud" : "Naplóolvasó a Nextcloudhoz",
-    "Cased by " : "Létrehozta"
+    "Log reader for Nextcloud" : "Naplóolvasó a Nextcloudhoz"
 },
 "nplurals=2; plural=(n != 1);");
