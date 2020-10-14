@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Επίπεδα αρχείου καταγραφής",
+    "Log content" : "Περιεχόμενα αρχείου καταγραφής",
+    "Live update" : "Ενημέρωση σε πραγματικό χρόνο",
+    "Download logs" : "Αρχείο Καταγραφής Λήψεων",
     "Error parsing log" : "Σφάλμα κατά την ανάλυση του αρχείου καταγραφής",
-    "Caused by " : "Προκλήθηκε από",
     "Copy" : "Αντιγραφή",
     "Copy raw" : "Αντιγραφή σειράς",
     "Copy formatted" : "Αντιγραφή μορφοποίησης",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Εφαρμογή",
     "Message" : "Μήνυμα",
     "Time" : "Ώρα",
-    "Log levels" : "Επίπεδα αρχείου καταγραφής",
-    "Log content" : "Περιεχόμενα αρχείου καταγραφής",
-    "Live update" : "Ενημέρωση σε πραγματικό χρόνο",
-    "Download logs" : "Αρχείο Καταγραφής Λήψεων",
+    "Caused by " : "Προκλήθηκε από",
     "Logging" : "Καταγραφή",
     "Log Reader" : "Αναγνώστης Καταγραφών",
     "A log reader for Nextcloud" : "Ένας αναγνώστης αρχείου καταγραφής για το Nextcloud",
-    "Log reader for Nextcloud" : "Αναγνώστης αρχείου καταγραφής για το Nextcloud",
-    "Cased by " : "Δημιουργήθηκε απο"
+    "Log reader for Nextcloud" : "Αναγνώστης αρχείου καταγραφής για το Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");

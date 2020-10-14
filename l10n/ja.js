@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "ログレベル",
+    "Log content" : "ログ情報",
+    "Live update" : "ライブアップデート",
+    "Download logs" : "ログのダウンロード",
     "Error parsing log" : "ログ解析失敗",
-    "Caused by " : "原因：",
     "Copy" : "コピー",
     "Copy raw" : "そのままコピー",
     "Copy formatted" : "フォーマット済みのコピー",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "アプリ",
     "Message" : "メッセージ",
     "Time" : "時間",
-    "Log levels" : "ログレベル",
-    "Log content" : "ログ情報",
-    "Live update" : "ライブアップデート",
-    "Download logs" : "ログのダウンロード",
+    "Caused by " : "原因：",
     "Logging" : "ログ",
     "Log Reader" : "ログリーダー",
     "A log reader for Nextcloud" : "NextCloudのためのログリーダー",
-    "Log reader for Nextcloud" : "NextCloudのためのログリーダー",
-    "Cased by " : "ケース"
+    "Log reader for Nextcloud" : "NextCloudのためのログリーダー"
 },
 "nplurals=1; plural=0;");

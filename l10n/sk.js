@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Úroveň logov",
+    "Log content" : "Obsah logov",
+    "Live update" : "Živá aktualizácia",
+    "Download logs" : "Prevziať logy",
     "Error parsing log" : "Chyba pri analýze logov",
-    "Caused by " : "Spôsobené",
     "Copy" : "Kopírovať",
     "Copy raw" : "Kopírovať bez formátovania",
     "Copy formatted" : "Kopírovať formátované",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Aplikácia",
     "Message" : "Správa",
     "Time" : "Čas",
-    "Log levels" : "Úroveň logov",
-    "Log content" : "Obsah logov",
-    "Live update" : "Živá aktualizácia",
-    "Download logs" : "Prevziať logy",
+    "Caused by " : "Spôsobené",
     "Logging" : "Logovanie",
     "Log Reader" : "Čítačka logov",
     "A log reader for Nextcloud" : "Čítačka logov pre Nextcloud",
-    "Log reader for Nextcloud" : "Čítačka logov pre Nextcloud",
-    "Cased by " : "Zastrešené s"
+    "Log reader for Nextcloud" : "Čítačka logov pre Nextcloud"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

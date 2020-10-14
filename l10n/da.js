@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Log niveauer",
+    "Log content" : "Log indhold",
+    "Live update" : "Live opdateringer",
+    "Download logs" : "Hent logs",
     "Error parsing log" : "Fejl i fortolkning af log",
-    "Caused by " : "Forårsaget af",
     "Copy" : "Kopier",
     "Copy raw" : "Kopier uformateret",
     "Copy formatted" : "Kopier formateret",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Besked",
     "Time" : "Tid",
-    "Log levels" : "Log niveauer",
-    "Log content" : "Log indhold",
-    "Live update" : "Live opdateringer",
-    "Download logs" : "Hent logs",
+    "Caused by " : "Forårsaget af",
     "Logging" : "Logging",
     "Log Reader" : "Log aflæser",
     "A log reader for Nextcloud" : "En loglæser til Nextcloud",
-    "Log reader for Nextcloud" : "Loglæser til Nextcloud",
-    "Cased by " : "Arkiveret af"
+    "Log reader for Nextcloud" : "Loglæser til Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");

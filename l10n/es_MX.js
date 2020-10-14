@@ -1,6 +1,10 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Niveles de bitácoras",
+    "Log content" : "Contenido de bitácoras",
+    "Live update" : "Actualización en vivo",
+    "Download logs" : "Descargar bitácoras",
     "Error parsing log" : "Error al interpretar la bitácora",
     "Copy" : "Copiar",
     "Copy raw" : "Copiar simple",
@@ -12,14 +16,9 @@ OC.L10N.register(
     "App" : "Aplicación",
     "Message" : "Mensaje",
     "Time" : "Hora",
-    "Log levels" : "Niveles de bitácoras",
-    "Log content" : "Contenido de bitácoras",
-    "Live update" : "Actualización en vivo",
-    "Download logs" : "Descargar bitácoras",
     "Logging" : "Registro",
     "Log Reader" : "Lector de Bitácoras",
     "A log reader for Nextcloud" : "Un lector de bitácoras para Nextcloud",
-    "Log reader for Nextcloud" : "Lector de bitácoras para Nextcloud",
-    "Cased by " : "Casos por"
+    "Log reader for Nextcloud" : "Lector de bitácoras para Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");

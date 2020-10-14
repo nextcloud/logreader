@@ -1,6 +1,10 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "記錄層級",
+    "Log content" : "記錄內容",
+    "Live update" : "記錄更新",
+    "Download logs" : "下載記錄檔",
     "Error parsing log" : "導入失敗",
     "Copy" : "複製",
     "No server logs" : "伺服器無記錄檔",
@@ -10,10 +14,6 @@ OC.L10N.register(
     "App" : "應用程式",
     "Message" : "訊息",
     "Time" : "時間",
-    "Log levels" : "記錄層級",
-    "Log content" : "記錄內容",
-    "Live update" : "記錄更新",
-    "Download logs" : "下載記錄檔",
     "Logging" : "記錄",
     "Log Reader" : "Log Reader"
 },

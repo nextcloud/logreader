@@ -1,6 +1,9 @@
 { "translations": {
+    "Log levels" : "Stupně podrobností záznamu událostí",
+    "Log content" : "Obsah záznamu událostí",
+    "Live update" : "Průběžně donačítat",
+    "Download logs" : "Stáhnout si záznamy událostí",
     "Error parsing log" : "Chyba při analýze záznamu událostí",
-    "Caused by " : "Čím způsobeno",
     "Copy" : "Zkopírovat",
     "Copy raw" : "Zkopírovat bez formátování",
     "Copy formatted" : "Zkopírovat včetně formátování",
@@ -11,14 +14,10 @@
     "App" : "Aplikace",
     "Message" : "Zpráva",
     "Time" : "Čas",
-    "Log levels" : "Stupně podrobností záznamu událostí",
-    "Log content" : "Obsah záznamu událostí",
-    "Live update" : "Průběžně donačítat",
-    "Download logs" : "Stáhnout si záznamy událostí",
+    "Caused by " : "Čím způsobeno",
     "Logging" : "Zaznamenávání událostí",
     "Log Reader" : "Čtečka záznamů událostí (log)",
     "A log reader for Nextcloud" : "Čtečka záznamů událostí (log) pro Nextcloud",
-    "Log reader for Nextcloud" : "Čtečka záznamů událostí pro Nextcloud",
-    "Cased by " : "Čím způsobeno"
+    "Log reader for Nextcloud" : "Čtečka záznamů událostí pro Nextcloud"
 },"pluralForm" :"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"
 }

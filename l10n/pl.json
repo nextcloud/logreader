@@ -1,6 +1,9 @@
 { "translations": {
+    "Log levels" : "Poziomy",
+    "Log content" : "Zawiera",
+    "Live update" : "Aktualizacja na żywo",
+    "Download logs" : "Pobierz",
     "Error parsing log" : "Błąd w trakcie przetwarzania loga",
-    "Caused by " : "Spowodowany",
     "Copy" : "Kopiuj",
     "Copy raw" : "Kopiuj raw",
     "Copy formatted" : "Kopiuj sformatowany",
@@ -11,14 +14,10 @@
     "App" : "Aplikacja",
     "Message" : "Komunikat",
     "Time" : "Czas",
-    "Log levels" : "Poziomy",
-    "Log content" : "Zawiera",
-    "Live update" : "Aktualizacja na żywo",
-    "Download logs" : "Pobierz",
+    "Caused by " : "Spowodowany",
     "Logging" : "Dziennik zdarzeń",
     "Log Reader" : "Czytnik logów",
     "A log reader for Nextcloud" : "Czytnik logów dla Nextcloud",
-    "Log reader for Nextcloud" : "Czytnik logów dla Nextcloud",
-    "Cased by " : "Spowodowane przez"
+    "Log reader for Nextcloud" : "Czytnik logów dla Nextcloud"
 },"pluralForm" :"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);"
 }
