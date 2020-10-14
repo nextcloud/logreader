@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Log-Level",
+    "Log content" : "Log-Inhalt",
+    "Live update" : "Live-Aktualisierung",
+    "Download logs" : "Protokolldatei herunterladen",
     "Error parsing log" : "Fehler beim Verarbeiten der Protokolldatei",
-    "Caused by " : "Verursacht durch",
     "Copy" : "Kopieren",
     "Copy raw" : "Rohformat kopieren",
     "Copy formatted" : "Formatiert kopieren",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Nachricht",
     "Time" : "Zeit",
-    "Log levels" : "Log-Level",
-    "Log content" : "Log-Inhalt",
-    "Live update" : "Live-Aktualisierung",
-    "Download logs" : "Protokolldatei herunterladen",
+    "Caused by " : "Verursacht durch",
     "Logging" : "Protokollierung",
     "Log Reader" : "Log-Datei-Leser",
     "A log reader for Nextcloud" : "Ein Logdatei-Leser für Nextcloud",
-    "Log reader for Nextcloud" : "Logdatei-Leser für Nextcloud",
-    "Cased by " : "Verursacht von"
+    "Log reader for Nextcloud" : "Logdatei-Leser für Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");

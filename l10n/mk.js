@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Ниво на евиденција",
+    "Log content" : "Содржина на записот",
+    "Live update" : "Ажурирање во живо",
+    "Download logs" : "Преземи записи",
     "Error parsing log" : "Грешка разложен запис",
-    "Caused by " : "Предизвикана од ",
     "Copy" : "Копирај",
     "Copy raw" : "Копирај raw",
     "Copy formatted" : "Копирај форматирано",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Апликација",
     "Message" : "Порака",
     "Time" : "Време",
-    "Log levels" : "Ниво на евиденција",
-    "Log content" : "Содржина на записот",
-    "Live update" : "Ажурирање во живо",
-    "Download logs" : "Преземи записи",
+    "Caused by " : "Предизвикана од ",
     "Logging" : "Евидентирање",
     "Log Reader" : "Читач на записи",
     "A log reader for Nextcloud" : "Читач на записи со евиденција за Nextcloud",
-    "Log reader for Nextcloud" : "Читач на записи со евиденција за Nextcloud",
-    "Cased by " : "Случајно од"
+    "Log reader for Nextcloud" : "Читач на записи со евиденција за Nextcloud"
 },
 "nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;");

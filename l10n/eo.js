@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Protokolniveloj",
+    "Log content" : "Protokolenhavo",
+    "Live update" : "Tuj montri novajn erojn",
+    "Download logs" : "Elŝuti prokolon",
     "Error parsing log" : "Eraro dum analizo de protokolo",
-    "Caused by " : "Kaŭzita de ",
     "Copy" : "Kopii",
     "Copy raw" : "Kopii krude",
     "Copy formatted" : "Kopii aranĝite",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Aplikaĵo",
     "Message" : "Mesaĝo",
     "Time" : "Dato",
-    "Log levels" : "Protokolniveloj",
-    "Log content" : "Protokolenhavo",
-    "Live update" : "Tuj montri novajn erojn",
-    "Download logs" : "Elŝuti prokolon",
+    "Caused by " : "Kaŭzita de ",
     "Logging" : "Protokolo",
     "Log Reader" : "Protokola legilo",
     "A log reader for Nextcloud" : "Protokola legilo por Nextcloud",
-    "Log reader for Nextcloud" : "Protokola legilo por Nextcloud",
-    "Cased by " : "Kaŭzita de "
+    "Log reader for Nextcloud" : "Protokola legilo por Nextcloud"
 },
 "nplurals=2; plural=(n != 1);");

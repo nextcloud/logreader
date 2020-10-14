@@ -1,8 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
+    "Log levels" : "Günlük düzeyleri",
+    "Log content" : "Günlük içeriği",
+    "Live update" : "Canlı güncelleme",
+    "Download logs" : "Günlüğü indir",
     "Error parsing log" : "Günlük işlenirken sorun çıktı",
-    "Caused by " : "Nedeni",
     "Copy" : "Kopyala",
     "Copy raw" : "Ham olarak kopyala",
     "Copy formatted" : "Biçim ile kopyala",
@@ -13,14 +16,10 @@ OC.L10N.register(
     "App" : "Uygulama",
     "Message" : "İleti",
     "Time" : "Zaman",
-    "Log levels" : "Günlük düzeyleri",
-    "Log content" : "Günlük içeriği",
-    "Live update" : "Canlı güncelleme",
-    "Download logs" : "Günlüğü indir",
+    "Caused by " : "Nedeni",
     "Logging" : "Günlükleme",
     "Log Reader" : "Günlük Okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
-    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
-    "Cased by " : "Dosyalayan"
+    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu"
 },
 "nplurals=2; plural=(n > 1);");
