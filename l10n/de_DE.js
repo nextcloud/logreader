@@ -10,7 +10,7 @@ OC.L10N.register(
     "Copy raw" : "Rohformat kopieren",
     "Copy formatted" : "Formatiert kopieren",
     "No server logs" : "Keine Server-Log-Dateien",
-    "One or more entries are hidden by the log level filter" : "Ein oder mehrere Einträge sind versteckt durch die Log-Level-Filter",
+    "One or more entries are hidden by the log level filter" : "Ein oder mehrere Einträge sind aufgrund des Log-Level-Filter ausgeblendet",
     "Everything is working fine" : "Alles funktioniert gut",
     "Level" : "Level",
     "App" : "App",
