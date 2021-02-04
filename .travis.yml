@@ -34,7 +34,7 @@ script:
   - vendor/bin/parallel-lint --exclude app --exclude vendor --exclude tests .
   # Run phpunit tests
   - cd tests
-  - ../vendor/bin/phpunit --configuration phpunit.xml
+  - XDEBUG_MODE=coverage ../vendor/bin/phpunit --configuration phpunit.xml
   # build js
   - cd ..
   - make
