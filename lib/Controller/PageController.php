@@ -36,7 +36,6 @@ class PageController extends Controller {
 	 * @return TemplateResponse
 	 */
 	public function index() {
-
 		$response = new TemplateResponse(
 			$this->appName,
 			'index',
@@ -48,6 +47,4 @@ class PageController extends Controller {
 
 		return $response;
 	}
-
-
 }

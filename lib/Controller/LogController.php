@@ -21,7 +21,6 @@
 
 namespace OCA\LogReader\Controller;
 
-use OCA\LogReader\Log\LogIterator;
 use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\Log\SearchFilter;
 use OCP\AppFramework\Controller;
@@ -29,8 +28,6 @@ use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
 use OCP\IRequest;
-use OCP\Log\IFileBased;
-use OCP\Log\ILogFactory;
 
 /**
  * Class LogController
@@ -71,7 +68,6 @@ class LogController extends Controller {
 		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		$iterator->next();
 		return $iterator->current();
-
 	}
 
 	/**
@@ -93,7 +89,6 @@ class LogController extends Controller {
 	 * @return JSONResponse
 	 */
 	public function poll($lastReqId, $levels = '11111') {
-
 		$cycles = 0;
 		$maxCycles = 20;
 
@@ -186,7 +181,6 @@ class LogController extends Controller {
 	}
 
 	protected function responseFromIterator(\Iterator $iterator, $count, $offset) {
-
 		$iterator->rewind();
 		for ($i = 0; $i < $offset; $i++) {
 			$iterator->next();

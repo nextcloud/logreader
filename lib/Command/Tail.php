@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018 Robin Appelman <robin@icewind.nl>
  *
@@ -33,7 +35,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Terminal;
 
 class Tail extends Base {
-	const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
+	public const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 
 	private $formatter;
 	private $logIteratorFactory;
@@ -42,7 +44,6 @@ class Tail extends Base {
 		parent::__construct();
 		$this->formatter = $formatter;
 		$this->logIteratorFactory = $logIteratorFactory;
-
 	}
 
 	protected function configure() {

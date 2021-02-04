@@ -63,7 +63,7 @@ class SearchFilter extends \FilterIterator {
 	private function inMessage($message, $query) {
 		if (is_string($message)) {
 			return stripos($message, $query) !== false;
-		} else if (isset($message['Exception'])) {
+		} elseif (isset($message['Exception'])) {
 			return stripos($message['Exception'], $query) !== false
 				|| stripos($message['Message'], $query) !== false;
 		}

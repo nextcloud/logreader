@@ -51,7 +51,7 @@ class LogIterator implements \Iterator {
 
 	private $timezone;
 
-	const CHUNK_SIZE = 100; // how many chars do we try at once to find a new line
+	public const CHUNK_SIZE = 100; // how many chars do we try at once to find a new line
 
 	/**
 	 * @param resource $handle
@@ -66,13 +66,13 @@ class LogIterator implements \Iterator {
 		$this->next();
 	}
 
-	function rewind() {
+	public function rewind() {
 		fseek($this->handle, 0, SEEK_END);
 		$this->position = ftell($this->handle) - self::CHUNK_SIZE;
 		$this->currentKey = 0;
 	}
 
-	function current() {
+	public function current() {
 		$entry = json_decode($this->lastLine, true);
 		if ($this->dateFormat !== \DateTime::ATOM) {
 			if (isset($entry['time'])) {
@@ -85,11 +85,11 @@ class LogIterator implements \Iterator {
 		return $entry;
 	}
 
-	function key() {
+	public function key() {
 		return $this->currentKey;
 	}
 
-	function next() {
+	public function next() {
 		$this->currentLine = '';
 
 		// Loop through each character of the file looking for new lines
@@ -119,7 +119,7 @@ class LogIterator implements \Iterator {
 		}
 	}
 
-	function valid() {
+	public function valid() {
 		if (!is_resource($this->handle)) {
 			return false;
 		}

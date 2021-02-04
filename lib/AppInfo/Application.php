@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018 Robin Appelman <robin@icewind.nl>
  *
@@ -37,7 +39,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function boot(IBootContext $context): void {
-		$context->getAppContainer()->registerService(Formatter::class, function(IAppContainer $c) {
+		$context->getAppContainer()->registerService(Formatter::class, function (IAppContainer $c) {
 			return new Formatter(\OC::$SERVERROOT);
 		});
 	}

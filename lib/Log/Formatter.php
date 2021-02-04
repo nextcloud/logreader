@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018 Robin Appelman <robin@icewind.nl>
  *
@@ -20,7 +22,6 @@
  */
 
 namespace OCA\LogReader\Log;
-
 
 class Formatter {
 	private $root;
@@ -84,7 +85,7 @@ class Formatter {
 			$className = $argument['__class__'];
 			unset($argument['__class__']);
 			return $leadingSpace . $className . ' ' . trim($this->formatArgument($argument, $whiteSpace, $depth, true));
-		} else if (is_array($argument)) {
+		} elseif (is_array($argument)) {
 			if (count($argument) === 0) {
 				return $leadingSpace . ($forceObject ? '{}' : '[]');
 			}
@@ -93,13 +94,13 @@ class Formatter {
 				$keyWhitespace = str_repeat(' ', $whiteSpace * ($depth + 1));
 				return $leadingSpace . "{\n" .
 					implode($glue, array_map(function ($key, $value) use ($whiteSpace, $depth, $keyWhitespace) {
-							return $keyWhitespace . $key . ':' . trim($this->formatArgument($value, $whiteSpace, $depth + 1));
-						}, array_keys($argument), array_values($argument))) . ($whiteSpace ? "\n" : '') . $leadingSpace . '}';
+						return $keyWhitespace . $key . ':' . trim($this->formatArgument($value, $whiteSpace, $depth + 1));
+					}, array_keys($argument), array_values($argument))) . ($whiteSpace ? "\n" : '') . $leadingSpace . '}';
 			} else {
 				return $leadingSpace . "[\n" .
 					implode($glue, array_map(function ($value) use ($whiteSpace, $depth) {
-							return $this->formatArgument($value, $whiteSpace, $depth + 1);
-						}, $argument)) . ($whiteSpace ? "\n" : '') . $leadingSpace . ']';
+						return $this->formatArgument($value, $whiteSpace, $depth + 1);
+					}, $argument)) . ($whiteSpace ? "\n" : '') . $leadingSpace . ']';
 			}
 		} else {
 			$value = json_encode($argument, $whiteSpace ? JSON_PRETTY_PRINT : 0);

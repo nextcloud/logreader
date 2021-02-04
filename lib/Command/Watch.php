@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018 Robin Appelman <robin@icewind.nl>
  *
@@ -25,15 +27,13 @@ use OC\Core\Command\Base;
 use OC\Core\Command\InterruptedException;
 use OCA\LogReader\Log\Formatter;
 use OCA\LogReader\Log\LogIteratorFactory;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Terminal;
 
 class Watch extends Base {
-	const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
-	const ALL_LEVELS = '11111';
+	public const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
+	public const ALL_LEVELS = '11111';
 
 	private $formatter;
 	private $logIteratorFactory;
@@ -42,7 +42,6 @@ class Watch extends Base {
 		parent::__construct();
 		$this->formatter = $formatter;
 		$this->logIteratorFactory = $logIteratorFactory;
-
 	}
 
 	protected function configure() {
