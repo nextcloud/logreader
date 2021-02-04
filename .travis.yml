@@ -8,7 +8,7 @@ env:
     - APP_NAME=logreader
     - DB=sqlite
   matrix:
-    - CORE_BRANCH=master
+    - CORE_BRANCH=stable21
 
 branches:
   only:
@@ -34,7 +34,7 @@ script:
   - vendor/bin/parallel-lint --exclude app --exclude vendor --exclude tests .
   # Run phpunit tests
   - cd tests
-  - ../vendor/bin/phpunit --configuration phpunit.xml
+  - XDEBUG_MODE=coverage ../vendor/bin/phpunit --configuration phpunit.xml
   # build js
   - cd ..
   - make
