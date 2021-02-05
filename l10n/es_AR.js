@@ -1,10 +1,6 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "Niveles de registro",
-    "Log content" : "Contenido del registro",
-    "Live update" : "Actualización en vivo",
-    "Download logs" : "Descargar registros",
     "Error parsing log" : "Error al analizar el registro",
     "Copy" : "Copiar",
     "Copy raw" : "Copia cruda",
@@ -15,6 +11,10 @@ OC.L10N.register(
     "Level" : "Nivel",
     "App" : "Aplicación",
     "Time" : "Hora",
+    "Log levels" : "Niveles de registro",
+    "Log content" : "Contenido del registro",
+    "Live update" : "Actualización en vivo",
+    "Download logs" : "Descargar registros",
     "Logging" : "Explotación forestal",
     "Log Reader" : "Lector de registro",
     "A log reader for Nextcloud" : "Un lector de registro para Nextcloud",

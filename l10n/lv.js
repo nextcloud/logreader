@@ -1,7 +1,6 @@
 OC.L10N.register(
     "logreader",
     {
-    "Download logs" : "Lejupielādēt žurnālierakstu",
     "Error parsing log" : "Kļūda analizējot žurnālus",
     "Copy" : "Kopēt",
     "No server logs" : "Nav servera žurnālierakstu",
@@ -10,6 +9,7 @@ OC.L10N.register(
     "App" : "Lietotne",
     "Message" : "Ziņojums",
     "Time" : "Laiks",
+    "Download logs" : "Lejupielādēt žurnālierakstu",
     "Logging" : "Žurnalēšana",
     "Log Reader" : "Žurnālierakstu lasītājs"
 },

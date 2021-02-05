@@ -1,10 +1,6 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "로그 단계",
-    "Log content" : "로그 내용",
-    "Live update" : "실시간 업데이트",
-    "Download logs" : "로그 다운로드",
     "Error parsing log" : "로그 처리 오류",
     "Copy" : "복사",
     "Copy raw" : "원본 복사",
@@ -16,6 +12,10 @@ OC.L10N.register(
     "App" : "앱",
     "Message" : "메시지",
     "Time" : "시간",
+    "Log levels" : "로그 단계",
+    "Log content" : "로그 내용",
+    "Live update" : "실시간 업데이트",
+    "Download logs" : "로그 다운로드",
     "Logging" : "로그",
     "Log Reader" : "로그 리더",
     "A log reader for Nextcloud" : "Nextcloud 로그 리더",
