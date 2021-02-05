@@ -1,10 +1,6 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "Logide tasemed",
-    "Log content" : "Logi sisu",
-    "Live update" : "Reaalajas uuendus",
-    "Download logs" : "Lae logid alla",
     "Error parsing log" : "Viga logide lugemisel",
     "Copy" : "Kopeeri",
     "No server logs" : "Serveri logid puuduvad",
@@ -14,6 +10,10 @@ OC.L10N.register(
     "App" : "Rakendus",
     "Message" : "Sõnum",
     "Time" : "Aeg",
+    "Log levels" : "Logide tasemed",
+    "Log content" : "Logi sisu",
+    "Live update" : "Reaalajas uuendus",
+    "Download logs" : "Lae logid alla",
     "Logging" : "Logimine",
     "Log Reader" : "Logi Lugeja"
 },
