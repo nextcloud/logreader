@@ -1,10 +1,6 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "Loggfør nivå",
-    "Log content" : "Loggfør innhold",
-    "Live update" : "Levende oppdatering",
-    "Download logs" : "Last ned logger",
     "Error parsing log" : "Feil ved fortolkning av logg",
     "Copy" : "Kopier",
     "No server logs" : "Ingen serverlogger",
@@ -14,6 +10,10 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Melding",
     "Time" : "Tid",
+    "Log levels" : "Loggfør nivå",
+    "Log content" : "Loggfør innhold",
+    "Live update" : "Levende oppdatering",
+    "Download logs" : "Last ned logger",
     "Logging" : "Logging",
     "Log Reader" : "Loggleser"
 },
