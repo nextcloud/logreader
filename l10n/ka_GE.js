@@ -1,10 +1,6 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "ლოგის დონეები",
-    "Log content" : "ლოგის მოცულობა",
-    "Live update" : "ცოცხალი განახლება",
-    "Download logs" : "ლოგების გადმოწერა",
     "Error parsing log" : "შეცდომა ლოგის გარჩევისას",
     "Copy" : "კოპირება",
     "No server logs" : "სერვერის ლოგები არაა",
@@ -14,6 +10,10 @@ OC.L10N.register(
     "App" : "აპლიკაცია",
     "Message" : "წერილი",
     "Time" : "დრო",
+    "Log levels" : "ლოგის დონეები",
+    "Log content" : "ლოგის მოცულობა",
+    "Live update" : "ცოცხალი განახლება",
+    "Download logs" : "ლოგების გადმოწერა",
     "Logging" : "იწერება ლოგი",
     "Log Reader" : "ლოგის მკითხველი"
 },
