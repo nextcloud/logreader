@@ -1,0 +1,12 @@
+.toggleEntry {
+  a {
+    line-height: 30px;
+  }
+  input[type="radio"] {
+    margin: 5px;
+  }
+  label {
+    margin: 5px;
+  }
+}
+
