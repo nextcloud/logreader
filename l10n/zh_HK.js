@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error parsing log" : "分析記錄檔時出錯",
+    "Error parsing log" : "分析記錄日誌時出錯",
     "Caused by " : "造成原因",
     "Copy" : "複製",
     "Copy raw" : "複製原始",
@@ -18,8 +18,8 @@ OC.L10N.register(
     "Live update" : "實時更新",
     "Download logs" : "下載記錄檔",
     "Logging" : "記錄",
-    "Log Reader" : "紀錄檔閱讀程式",
-    "A log reader for Nextcloud" : "Nextcloud 的紀錄檔閱讀程式",
-    "Log reader for Nextcloud" : "Nextcloud 的紀錄檔閱讀程式"
+    "Log Reader" : "記錄日誌閱讀程式",
+    "A log reader for Nextcloud" : "Nextcloud 的記錄日誌閱讀程式",
+    "Log reader for Nextcloud" : "Nextcloud 的記錄日誌閱讀程式"
 },
 "nplurals=1; plural=0;");
