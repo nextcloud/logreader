@@ -122,6 +122,11 @@ export class LogProvider extends EventEmitter {
 		return live;
 	}
 
+	async getLogFile () {
+		const {logFile} = await this.getSettings();
+		return logFile;
+	}
+
 	setRelative (relative) {
 		return $.ajax({
 			type: 'PUT',
@@ -135,6 +140,14 @@ export class LogProvider extends EventEmitter {
 			type: 'PUT',
 			url: OC.generateUrl('/apps/logreader/live'),
 			data: {live}
+		});
+	}
+
+	setLogFile (logFile) {
+		return $.ajax({
+			type: 'PUT',
+			url: OC.generateUrl('/apps/logreader/logFile'),
+			data: {logFile}
 		});
 	}
 

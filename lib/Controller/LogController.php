@@ -37,14 +37,16 @@ use OCP\Log\ILogFactory;
  *
  * @package OCA\LogReader\Controller
  */
-class LogController extends Controller {
+class LogController extends Controller
+{
 	private $logIteratorFactory;
 	private $config;
 
-	public function __construct($appName,
-								IRequest $request,
-								IConfig $config,
-								LogIteratorFactory $logIteratorFactory
+	public function __construct(
+		$appName,
+		IRequest $request,
+		IConfig $config,
+		LogIteratorFactory $logIteratorFactory
 	) {
 		parent::__construct($appName, $request);
 		$this->logIteratorFactory = $logIteratorFactory;
@@ -71,7 +73,6 @@ class LogController extends Controller {
 		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		$iterator->next();
 		return $iterator->current();
-
 	}
 
 	/**
@@ -155,6 +156,7 @@ class LogController extends Controller {
 			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
 			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', false),
 			'live' => (bool)$this->config->getAppValue('logreader', 'live', true),
+			'logFile' => $this->config->getAppValue('logreader', 'logFile', ''),
 		]);
 	}
 
@@ -172,7 +174,14 @@ class LogController extends Controller {
 		$this->config->setAppValue('logreader', 'live', $live);
 	}
 
-	public function setLevels($levels) {
+	public function setLogFile(string $logFile): void
+	{
+		// FIXME: get key-value instead only boolean
+		$this->config->setAppValue('logreader', 'logFile', 'Audit logs');
+	}
+
+	public function setLevels($levels)
+	{
 		$intLevels = array_map('intval', str_split($levels));
 		$minLevel = 4;
 		foreach ($intLevels as $level => $log) {

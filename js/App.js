@@ -23,7 +23,8 @@ export class App extends Component {
 		provider: null,
 		relative: true,
 		dateFormat: 'Y-m-d\TH:i:sO',
-		live: false
+		live: false,
+		logFile: '',
 	};
 
 	constructor (props) {
@@ -36,6 +37,7 @@ export class App extends Component {
 		});
 		this.saveRelative = _.debounce(this.logProvider.setRelative, 100);
 		this.saveLive = _.debounce(this.logProvider.setLive, 100);
+		this.saveLogFile = _.debounce(this.logProvider.setLogFile, 100);
 	}
 
 	async componentDidMount () {
@@ -43,12 +45,14 @@ export class App extends Component {
 		const relative = await this.logProvider.getRelative();
 		const dateFormat = await this.logProvider.getDateFormat();
 		const live = await this.logProvider.getLive();
+		const logFile = await this.logProvider.getLogFile();
 		this.setState({
 			levels,
 			relative,
 			dateFormat,
 			live,
-			provider: this.logProvider
+			provider: this.logProvider,
+			logFile,
 		});
 		await this.logProvider.load();
 		if (live) {
@@ -107,6 +111,12 @@ export class App extends Component {
 		this.saveLive(live);
 	};
 
+	setLogFile = async (logFile) => {
+		this.setState({logFile});
+		this.saveLogFile(logFile);
+		this.logProvider.load();
+	};
+
 	handlePaste = (event) => {
 		let data = event.clipboardData.getData('Text');
 		if (!data) {
@@ -161,6 +171,8 @@ export class App extends Component {
 						hidden={this.state.entries.length - entries.length}
 						live={this.state.live}
 						setLive={this.setLive.bind(this)}
+						logFile={this.state.logFile}
+						setLogFile={this.setLogFile.bind(this)}
 						onLogFile={this.onLogFile}
 					/>
 				</div>

@@ -158,6 +158,7 @@ export class LogTable extends Component {
 											levels={this.props.levels}
 											live={this.props.live}
 											setLive={this.props.setLive}
+											setLogFile={this.props.setLogFile}
 											onLogFile={this.props.onLogFile}
 										/> :
 										<div className="hidden"/>

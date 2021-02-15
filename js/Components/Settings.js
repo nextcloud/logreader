@@ -22,6 +22,10 @@ export class Settings extends Component {
 				<ToggleEntry active={this.props.live} onChange={this.props.setLive}>
 					{t('settings', 'Live update')}
 				</ToggleEntry>
+				<h4>{t('settings', 'Log type')}</h4>
+				<ToggleEntry active={this.props.logFile} onChange={this.props.setLogFile}>
+					{t('settings', 'AdminAudit.log')}
+				</ToggleEntry>
 				<LogUploader
 					onLogFile={this.props.onLogFile}/>
 				<a href={OC.generateUrl('settings/admin/log/download')}
