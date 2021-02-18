@@ -1,0 +1,7 @@
+OC.L10N.register(
+    "logreader",
+    {
+    "Copy" : "පිටපත්",
+    "App" : "යෙදුම"
+},
+"nplurals=2; plural=(n != 1);");
