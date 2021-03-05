@@ -17,7 +17,7 @@ OC.L10N.register(
     "Log content" : "Vsebina dnevnika",
     "Live update" : "Posodobitev v živo",
     "Download logs" : "Prejem dnevnikov",
-    "Logging" : "Beleženje",
+    "Logging" : "Dnevnik beleženja",
     "Log Reader" : "Bralnik dnevnikov",
     "A log reader for Nextcloud" : "Bralnik dnevnikov za Nextcloud",
     "Log reader for Nextcloud" : "Bralnik dnevnikov za Nextcloud"
