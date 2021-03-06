@@ -57,7 +57,7 @@ class Watch extends Base {
 		return $logIterator->current()['reqId'];
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output) {
+	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$terminal = new Terminal();
 		$totalWidth = $terminal->getWidth();
 		// 8 level, 18 for app, 26 for time, 6 for formatting
@@ -102,6 +102,8 @@ class Watch extends Base {
 				$lastId = $id;
 			}
 		}
+
+		return 0;
 	}
 
 	private function printItem(array $logItem, OutputInterface $output, int $messageWidth) {

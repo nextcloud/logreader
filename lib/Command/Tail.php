@@ -50,12 +50,12 @@ class Tail extends Base {
 		$this
 			->setName('log:tail')
 			->setDescription('Tail the nextcloud logfile')
-			->addArgument('lines', InputArgument::OPTIONAL, 'The number of log entries to print', 10)
+			->addArgument('lines', InputArgument::OPTIONAL, 'The number of log entries to print', "10")
 			->addOption('follow', 'f', InputOption::VALUE_NONE, 'Output new log entries as they appear');
 		parent::configure();
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output) {
+	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$count = (int)$input->getArgument('lines');
 		$terminal = new Terminal();
 		$totalWidth = $terminal->getWidth();
@@ -88,5 +88,7 @@ class Tail extends Base {
 			$watch = new Watch($this->formatter, $this->logIteratorFactory);
 			$watch->run(new StringInput(''), $output);
 		}
+
+		return 0;
 	}
 }

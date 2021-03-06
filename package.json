@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --config webpack/dev.config.js",
+    "watch": "NODE_ENV=development webpack --progress --watch --config webpack/dev.config.js",
+    "build": "NODE_ENV=production webpack --progress --config webpack/prod.config.js"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "@babel/plugin-proposal-class-properties": "^7.12.13",
