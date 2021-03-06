@@ -102,6 +102,7 @@ class Watch extends Base {
 				$lastId = $id;
 			}
 		}
+		return 0;
 	}
 
 	private function printItem(array $logItem, OutputInterface $output, int $messageWidth) {

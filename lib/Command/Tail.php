@@ -88,5 +88,6 @@ class Tail extends Base {
 			$watch = new Watch($this->formatter, $this->logIteratorFactory);
 			$watch->run(new StringInput(''), $output);
 		}
+		return 0;
 	}
 }
