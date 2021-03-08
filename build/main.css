@@ -195,6 +195,7 @@
   ._167F0SBD3kSKVBEfd57_Uq td._66tJUL6uXvVFFjVbEQFOF button, ._167F0SBD3kSKVBEfd57_Uq th._66tJUL6uXvVFFjVbEQFOF button {
       position: relative;
       opacity: 0;
+      -webkit-transition: opacity 0.5s;
       transition: opacity 0.5s;
       top: -5px;
       padding: 0;
@@ -259,6 +260,7 @@ th._1ARgYSQS4MfijjOGI4pQ8a {
     float: right;
     margin: 2px;
     opacity: 0.5;
+    -webkit-transition: opacity 0.2s;
     transition: opacity 0.2s;
   }
 
@@ -299,7 +301,8 @@ th._1ARgYSQS4MfijjOGI4pQ8a {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 }
 
 ._35CNRB4NJW_FOXpoZf7NWn {
@@ -313,6 +316,7 @@ th._1ARgYSQS4MfijjOGI4pQ8a {
 
 ._1iAPnZijiF3xNNm61pJId3._2_7jr-CZLhx8xE6OFnYSnW {
 	background-color: var(--color-main-background);
+	-webkit-transition: background 1500ms ease-in;
 	transition: background 1500ms ease-in;
 }
 
