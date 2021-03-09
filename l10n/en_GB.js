@@ -1,7 +1,10 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error parsing log" : "Error parsing log",
+    "Log levels" : "Log levels",
+    "Log content" : "Log content",
+    "Live update" : "Live update",
+    "Download logs" : "Download logs",
     "Copy" : "Copy",
     "No server logs" : "No server logs",
     "One or more entries are hidden by the log level filter" : "One or more entries are hidden by the log level filter",
@@ -10,10 +13,7 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Message",
     "Time" : "Time",
-    "Log levels" : "Log levels",
-    "Log content" : "Log content",
-    "Live update" : "Live update",
-    "Download logs" : "Download logs",
+    "Error parsing log" : "Error parsing log",
     "Logging" : "Logging",
     "Log Reader" : "Log Reader",
     "A log reader for Nextcloud" : "A log reader for Nextcloud",
