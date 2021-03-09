@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error parsing log" : "Kļūda analizējot žurnālus",
+    "Download logs" : "Lejupielādēt žurnālierakstu",
     "Copy" : "Kopēt",
     "No server logs" : "Nav servera žurnālierakstu",
     "One or more entries are hidden by the log level filter" : "Vēl viens ieraksts ir slēpts žurnālierakstu līmeņa filtrā",
@@ -9,7 +9,7 @@ OC.L10N.register(
     "App" : "Lietotne",
     "Message" : "Ziņojums",
     "Time" : "Laiks",
-    "Download logs" : "Lejupielādēt žurnālierakstu",
+    "Error parsing log" : "Kļūda analizējot žurnālus",
     "Logging" : "Žurnalēšana",
     "Log Reader" : "Žurnālierakstu lasītājs"
 },
