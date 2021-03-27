@@ -64,19 +64,21 @@ export class LogProvider extends EventEmitter {
 	}
 
 	loadEntries (offset, count = 50) {
-		return this.getSettings().then(({levels}) => {
+		return this.getSettings().then(({levels, logfile}) => {
 			if (this.searchQuery) {
 				return $.get(OC.generateUrl('/apps/logreader/search'), {
 					offset,
 					count,
 					query: this.query,
-					levels
+					levels,
+					logfile
 				});
 			} else {
 				return $.get(OC.generateUrl('/apps/logreader/get'), {
 					offset,
 					count,
-					levels
+					levels,
+					logfile
 				});
 			}
 		});
@@ -122,6 +124,16 @@ export class LogProvider extends EventEmitter {
 		return live;
 	}
 
+	async getAvailableLogFiles () {
+		const {availableLogFiles} = await this.getSettings();
+		return availableLogFiles;
+	}
+
+	async getLogFile() {
+		const {logfile} = await this.getSettings();
+		return logfile;
+	}
+
 	setRelative (relative) {
 		return $.ajax({
 			type: 'PUT',
@@ -138,6 +150,17 @@ export class LogProvider extends EventEmitter {
 		});
 	}
 
+	setLogFile (logFile) {
+		if (this.cachedSettings) {
+			this.cachedSettings.logfile = logFile;
+		}
+		return $.ajax({
+			type: 'PUT',
+			url: OC.generateUrl('/apps/logreader/logFile'),
+			data: {logFile}
+		});
+	}
+
 	async startPolling () {
 		if (this.cachedEntries.length === 0 || this.poll || this.pollActive) {
 			return;
@@ -146,11 +169,14 @@ export class LogProvider extends EventEmitter {
 		this.pollActive = true;
 		this.poll = true;
 
+		const { levels, logfile } = await this.getSettings();
 		while (this.poll) {
 			const lastReqId = this.cachedEntries[0].reqId;
 
 			const newData = await $.get(OC.generateUrl('/apps/logreader/poll'), {
-				lastReqId
+				lastReqId,
+				levels,
+				logfile
 			});
 			if (this.poll) {
 				this.cachedEntries = newData.concat(this.cachedEntries);
