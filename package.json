@@ -41,8 +41,8 @@
   "dependencies": {
     "@babel/runtime": "^7.12.13",
     "oc-react-components": "^0.2.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-dropzone": "11.3.0",
     "react-responsive": "8.2.0",
     "react-scrolla": "0.3.1"
