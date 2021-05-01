@@ -21,7 +21,7 @@ export class LogUploader extends Component {
 				this.setState({message: 'Invalid log file'});
 				return;
 			}
-			this.props.onLogFile(content);
+			this.props.onCustomLogFile(content);
 		};
 		reader.readAsText(file);
 	};
