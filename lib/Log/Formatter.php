@@ -60,7 +60,7 @@ class Formatter {
 			$base = str_replace("\n", '', $this->formatArgument($arg, 0));
 			$showInline = strlen($base) < $argumentWidth;
 			return $showInline ? $base : substr($base, 0, $argumentWidth - 8) . ' ... ' . substr($base, -2);
-		}, $trace['args']);
+		}, $trace['args'] ?? array());
 
 		$argumentsString = implode(', ', $arguments);
 		$argumentWhiteSpace = str_repeat(' ', $largestIndexWidth + 2);
