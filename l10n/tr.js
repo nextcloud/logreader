@@ -18,7 +18,7 @@ OC.L10N.register(
     "Time" : "Zaman",
     "Error parsing log" : "Günlük işlenirken sorun çıktı",
     "Logging" : "Günlükleme",
-    "Log Reader" : "Günlük Okuyucu",
+    "Log Reader" : "Günlük okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
     "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu"
 },
