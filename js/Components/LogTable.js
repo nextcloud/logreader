@@ -70,7 +70,7 @@ export class LogTable extends Component {
 					</td>
 					<td className={style.app}>{entry.app}</td>
 					<td className={style.message}><LogEntry
-						message={entry.message}/></td>
+						message={entry.message} exception={entry.exception}/></td>
 					<td className={style.copy}>
 						<button title={t('logreader', 'Copy')}
 								className="icon icon-clippy" onClick={() => {
@@ -118,7 +118,7 @@ export class LogTable extends Component {
 						className={timeClass + ' ' + style.column}>{this.formatDate(entry, this.props.relative)}</div>
 					<div className={style.message + ' ' + style.column}>
 						<LogEntry
-							message={entry.message}/></div>
+							message={entry.message} exception={entry.exception}/></div>
 				</div>
 			)
 		});

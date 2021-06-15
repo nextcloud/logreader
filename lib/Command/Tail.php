@@ -73,7 +73,7 @@ class Tail extends Base {
 			$tableItems[] = [
 				self::LEVELS[$logItem['level']],
 				wordwrap($logItem['app'], 18),
-				$this->formatter->formatMessage($logItem['message'], $messageWidth) . "\n",
+				$this->formatter->formatMessage($logItem, $messageWidth) . "\n",
 				$logItem['time']
 			];
 		}
