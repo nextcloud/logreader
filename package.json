@@ -38,6 +38,10 @@
     "webpack-dev-server": "3.11.2",
     "webpack-hot-middleware": "^2.25.0"
   },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
+  },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
     "oc-react-components": "^0.2.0",
