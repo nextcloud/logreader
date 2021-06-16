@@ -111,7 +111,7 @@ class Watch extends Base {
 		$parts = [
 			self::LEVELS[$logItem['level']],
 			wordwrap($logItem['app'], 18),
-			$this->formatter->formatMessage($logItem['message'], $messageWidth),
+			$this->formatter->formatMessage($logItem, $messageWidth),
 			$logItem['time'],
 		];
 

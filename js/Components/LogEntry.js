@@ -27,24 +27,24 @@ export class LogEntry extends Component {
 	}
 
 	renderException () {
-		var exceptionData = this.exceptionParser.parse(this.props.message);
+		var exceptionData = this.exceptionParser.parse(this.props.exception ?? this.props.message);
 		return (
 			<Exception {...exceptionData}/>
 		);
 	}
 
 	renderBackgroundException () {
-		var exceptionData = this.exceptionParser.parse(this.props.message);
+		var exceptionData = this.exceptionParser.parse(this.props.exception ?? this.props.message);
 		return (
 			<BackgroundException {...exceptionData}/>
 		);
 	}
 
 	isBackgroundJobException () {
-		return this.exceptionParser.isBackgroundJobException(this.props.message);
+		return this.exceptionParser.isBackgroundJobException(this.props.exception ?? this.props.message);
 	}
 
 	isException () {
-		return this.exceptionParser.isException(this.props.message);
+		return this.exceptionParser.isException(this.props.exception ?? this.props.message);
 	}
 }

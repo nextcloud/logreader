@@ -30,12 +30,14 @@ class Formatter {
 		$this->root = $root;
 	}
 
-	public function formatMessage($message, int $width) {
-		if (is_array($message) && isset($message['Exception'])) {
-			return $this->formatException($message, $width);
-		} else {
-			return wordwrap($message, $width);
+	public function formatMessage($logItem, int $width) {
+		if (isset($logItem['exception'])) {
+			return $this->formatException($logItem['exception'], $width);
 		}
+		if (is_array($logItem['message']) && isset($logItem['message']['Exception'])) {
+			return $this->formatException($logItem['message'], $width);
+		}
+		return wordwrap($logItem['message'], $width);
 	}
 
 	private function formatException(array $e, int $width) {
