@@ -1,10 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "Lokitasot",
-    "Log content" : "Lokin sisältö",
-    "Live update" : "Live-päivitys",
-    "Download logs" : "Lataa lokit",
+    "Error parsing log" : "Virhe jäsentäessä lokia",
     "Copy" : "Kopioi",
     "Copy raw" : "Kopioi raakatekstinä",
     "Copy formatted" : "Kopioi muotoiltuna",
@@ -15,7 +12,10 @@ OC.L10N.register(
     "App" : "Sovellus",
     "Message" : "Viesti",
     "Time" : "Aika",
-    "Error parsing log" : "Virhe jäsentäessä lokia",
+    "Log levels" : "Lokitasot",
+    "Log content" : "Lokin sisältö",
+    "Live update" : "Live-päivitys",
+    "Download logs" : "Lataa lokit",
     "Logging" : "Loki",
     "Log Reader" : "Lokilukija",
     "A log reader for Nextcloud" : "Nextcloudin lokilukija",

@@ -1,10 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "Niveles de bitácoras",
-    "Log content" : "Contenido de bitácoras",
-    "Live update" : "Actualización en vivo",
-    "Download logs" : "Descargar bitácoras",
+    "Error parsing log" : "Error al interpretar la bitácora",
     "Copy" : "Copiar",
     "No server logs" : "No hay bitácoras del servidor",
     "One or more entries are hidden by the log level filter" : "Uno o más elementos están ocultos por el filtro del nivel de bitácora",
@@ -13,7 +10,10 @@ OC.L10N.register(
     "App" : "Aplicación",
     "Message" : "Mensaje",
     "Time" : "Hora",
-    "Error parsing log" : "Error al interpretar la bitácora",
+    "Log levels" : "Niveles de bitácoras",
+    "Log content" : "Contenido de bitácoras",
+    "Live update" : "Actualización en vivo",
+    "Download logs" : "Descargar bitácoras",
     "Logging" : "Registrando",
     "Log Reader" : "Lector de Bitácoras"
 },
