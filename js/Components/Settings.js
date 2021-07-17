@@ -10,7 +10,7 @@ export class Settings extends Component {
 	render () {
 		return (
 			<div className={style.settings + ' popovermenu bubble open menu'}>
-				<h4>{t('settings', 'Log levels')}</h4>
+				<h4>{t('logreader', 'Log levels')}</h4>
 				{LogProvider.levels.map((name, level) => {
 					return <ToggleEntry key={level}
 										active={this.props.levels[level]}
@@ -20,12 +20,12 @@ export class Settings extends Component {
 				})}
 				<h4>{t('settings', 'Log content')}</h4>
 				<ToggleEntry active={this.props.live} onChange={this.props.setLive}>
-					{t('settings', 'Live update')}
+					{t('logreader', 'Live update')}
 				</ToggleEntry>
 				<LogUploader
 					onLogFile={this.props.onLogFile}/>
 				<a href={OC.generateUrl('settings/admin/log/download')}
-				   className="button">{t('settings', 'Download logs')}</a>
+				   className="button">{t('logreader', 'Download logs')}</a>
 			</div>
 		);
 	}
