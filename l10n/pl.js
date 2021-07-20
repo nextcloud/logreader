@@ -16,7 +16,7 @@ OC.L10N.register(
     "Log levels" : "Poziomy",
     "Log content" : "Zawiera",
     "Live update" : "Aktualizacja na żywo",
-    "Download logs" : "Pobierz",
+    "Download logs" : "Pobierz dziennik",
     "Logging" : "Dziennik zdarzeń",
     "Log Reader" : "Czytnik logów",
     "A log reader for Nextcloud" : "Czytnik logów dla Nextcloud",
