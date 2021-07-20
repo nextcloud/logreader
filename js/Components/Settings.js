@@ -18,7 +18,7 @@ export class Settings extends Component {
 						{name}
 					</ToggleEntry>
 				})}
-				<h4>{t('settings', 'Log content')}</h4>
+				<h4>{t('logreader', 'Log content')}</h4>
 				<ToggleEntry active={this.props.live} onChange={this.props.setLive}>
 					{t('logreader', 'Live update')}
 				</ToggleEntry>
