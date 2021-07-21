@@ -167,7 +167,9 @@ export class LogTable extends Component {
 							<th className={style.message}>{t('logreader', 'Message')}</th>
 							<th className={style.copy}></th>
 							<th className={timeClass}
-								onClick={this.toggleRelativeTime}>{t('logreader', 'Time')}
+								onClick={this.toggleRelativeTime}>
+									<span className={style.time}>{t('logreader', 'Time')}
+									</span>
 							</th>
 						</tr>
 						</thead>
