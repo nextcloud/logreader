@@ -200,5 +200,5 @@ th.level {
 .copyMenu {
   right: -10px;
   top: 50px;
-  width: 150px;
+  width: auto;
 }
