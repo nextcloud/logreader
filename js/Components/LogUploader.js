@@ -5,7 +5,7 @@ import style from './LogUploader.css';
 
 export class LogUploader extends Component {
 	state = {
-		message: 'Load log file...'
+		message: t('logreader', 'Load log file...')
 	};
 
 	isLog (content) {
@@ -18,7 +18,7 @@ export class LogUploader extends Component {
 		reader.onload = (e) => {
 			const content = e.target.result.trim();
 			if (!this.isLog(content)) {
-				this.setState({message: 'Invalid log file'});
+				this.setState({message: t('logreader', 'Invalid log file')});
 				return;
 			}
 			this.props.onLogFile(content);
