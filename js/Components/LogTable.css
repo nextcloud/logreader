@@ -25,7 +25,7 @@
 
   .time {
     width: 180px;
-    
+
     > span {
     margin: -0.8em;
     padding: .8em;
@@ -38,7 +38,7 @@
 
   .time.relative {
     width: 100px;
-    
+
     > span {
     margin: -0.8em;
     padding: .8em;
