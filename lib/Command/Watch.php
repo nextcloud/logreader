@@ -54,7 +54,10 @@ class Watch extends Base {
 	private function getLastLogId() {
 		$logIterator = $this->logIteratorFactory->getLogIterator(self::ALL_LEVELS);
 		$logIterator->next();
-		return $logIterator->current()['reqId'];
+		if ($logIterator->current() !== NULL) {
+			return $logIterator->current()['reqId'];
+		}
+
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output): int {
