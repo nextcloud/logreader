@@ -21,7 +21,7 @@ node_modules: package.json
 	npm install --deps
 
 build/main.js: node_modules $(jssources)
-	$(webpack) --config webpack/prod.config.js
+	npm run build
 
 .PHONY: watch
 watch: node_modules
