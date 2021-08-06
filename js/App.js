@@ -1,15 +1,7 @@
 import React, {Component} from 'react';
 import ReactScrolla from 'react-scrolla';
 
-import {LogProvider} from './Providers/LogProvider.js';
 import {LogTable} from './Components/LogTable.js';
-import {ToggleEntry} from './Components/ToggleEntry.js';
-import {LogUploader} from './Components/LogUploader.js';
-import {
-	SideBar,
-	Separator,
-	Settings
-} from 'oc-react-components';
 
 import {LogFile} from './Providers/LogFile.js'
 
@@ -130,63 +122,28 @@ export class App extends Component {
 	render () {
 		let entries = this.getFilteredEntries();
 
-		let filters = this.state.levels.map((status, level) => {
-			return (
-				<ToggleEntry key={level} active={status}
-							 onChange={this.setLevel.bind(this, level)}>
-					{LogProvider.levels[level]}
-				</ToggleEntry>
-			);
-		});
-
-		let content;
-
 		if (this.state.loading && entries.length < 1) {
-			content = <div className="loading log-loading"/>
+			return <div className="loading log-loading"/>
 		} else {
-			content = <ReactScrolla
+			return <ReactScrolla
 				className={styles.scrollContainer}
 				percentage={85}
 				onPercentage={this.fetchNextPage}
-				isLoading={this.state.loading}>
-				<div className={styles.content}>
-					<LogTable
-						inlineSettings={this.props.inlineSettings}
-						levels={this.state.levels}
-						setRelative={this.setRelative}
-						setLevel={this.setLevel.bind(this)}
-						entries={entries}
-						relative={this.state.relative}
-						dateFormat={this.state.dateFormat}
-						hidden={this.state.entries.length - entries.length}
-						live={this.state.live}
-						setLive={this.setLive.bind(this)}
-						onLogFile={this.onLogFile}
-					/>
-				</div>
+				isLoading={this.state.loading}
+				className={styles.content}>
+				<LogTable
+					levels={this.state.levels}
+					setRelative={this.setRelative}
+					setLevel={this.setLevel.bind(this)}
+					entries={entries}
+					relative={this.state.relative}
+					dateFormat={this.state.dateFormat}
+					hidden={this.state.entries.length - entries.length}
+					live={this.state.live}
+					setLive={this.setLive.bind(this)}
+					onLogFile={this.onLogFile}
+				/>
 			</ReactScrolla>
 		}
-
-		return (
-
-			<div>
-				{!this.props.inlineSettings ?
-					<SideBar><LogUploader
-						onLogFile={this.onLogFile}/>
-						<Separator/>
-						{filters}
-						<Settings>
-							<ToggleEntry key='relative'
-										 active={this.state.relative}
-										 onChange={this.setRelative}>
-								Relative Dates
-							</ToggleEntry>
-						</Settings>
-					</SideBar>
-					: <div/>}
-
-				{content}
-			</div>
-		);
 	}
 }

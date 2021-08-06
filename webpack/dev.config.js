@@ -7,7 +7,6 @@ module.exports = {
 	context: path.resolve(__dirname, '..'),
 	entry: {
 		'main': [
-			'react-hot-loader/patch',
 			'./js/index.js'
 		]
 	},

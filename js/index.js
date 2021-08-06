@@ -1,7 +1,6 @@
 'use strict';
 
 import {App} from './App';
-import {AppContainer} from 'react-hot-loader';
 import React from 'react';
 import ReactDom from 'react-dom';
 import {LogProvider} from "./Providers/LogProvider";
@@ -17,22 +16,17 @@ if (OCA.Search) {
 }
 
 function render (App, rootElement) {
-	ReactDom.render(
-		<AppContainer>
-			<App
-				logProvider={logProvider}
-				inlineSettings={rootElement.dataset.inlineSettings === 'true'}/>
-		</AppContainer>, rootElement);
+	ReactDom.render(<App logProvider={logProvider}/>, rootElement);
 }
 
-$(document).ready(() => {
+function ready(callbackFunction){
+	if(document.readyState !== 'loading')
+		callbackFunction(event)
+	else
+		document.addEventListener("DOMContentLoaded", callbackFunction)
+}
+
+ready(() => {
 	const rootElement = document.getElementById('logreader-root');
 	render(App, rootElement);
-
-	if (module.hot) {
-		module.hot.accept('./App', () => {
-			const {App: NextApp} = require('./App');
-			render(NextApp, rootElement);
-		});
-	}
 });
