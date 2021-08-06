@@ -1,7 +1,6 @@
 'use strict';
 
 import {App} from './App';
-import {AppContainer} from 'react-hot-loader';
 import React from 'react';
 import ReactDom from 'react-dom';
 import {LogProvider} from "./Providers/LogProvider";
@@ -18,11 +17,9 @@ if (OCA.Search) {
 
 function render (App, rootElement) {
 	ReactDom.render(
-		<AppContainer>
-			<App
-				logProvider={logProvider}
-				inlineSettings={rootElement.dataset.inlineSettings === 'true'}/>
-		</AppContainer>, rootElement);
+		<App
+			logProvider={logProvider}
+			inlineSettings={rootElement.dataset.inlineSettings === 'true'}/>, rootElement);
 }
 
 $(document).ready(() => {

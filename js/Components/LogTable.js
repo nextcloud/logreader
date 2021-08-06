@@ -31,7 +31,7 @@ export class LogTable extends Component {
 		this.setState({highlightedRequest});
 	};
 
-	formatDate(entry, relative) {
+	formatDate (entry, relative) {
 		const time = new Date(entry.time);
 		if (relative) {
 			return OC.Util.relativeModifiedDate(time);
@@ -57,7 +57,7 @@ export class LogTable extends Component {
 					((entry.method) ? `${entry.method} ${entry.url}\n` : '') +
 					((entry.remoteAddr) ? `from ${entry.remoteAddr} ` : '') +
 					((entry.user !== '--') ? `by ${entry.user} ` : '') +
-						`at ${entry.time}\n`;
+					`at ${entry.time}\n`;
 				copyTextToClipboard(text.trim());
 				this.setState({copyActive: null});
 			};
@@ -135,13 +135,12 @@ export class LogTable extends Component {
 			</tr>
 		}
 
-		const levelSettingsHeader = (
-			<span onClick={this.toggleLevelSettings}>{t('logreader', 'Level')}
+		const levelHeader = (
+			<>{t('logreader', 'Level')}
 				<span className={style['log-settings-toggle'] + ' icon-more'}>
 				</span>
-			</span>
+			</>
 		);
-		const levelHeader = this.props.inlineSettings ? (levelSettingsHeader) : t('logreader', 'Level');
 
 		return (
 			<div>
@@ -149,7 +148,8 @@ export class LogTable extends Component {
 					<table className={style.logs}>
 						<thead>
 						<tr>
-							<th className={style.level + ' ' + (this.state.showLevelSettings ? style.active : '')}>
+							<th className={style.level + ' ' + (this.state.showLevelSettings ? style.active : '')}
+								onClick={this.toggleLevelSettings}>
 								{levelHeader}
 								{
 									this.state.showLevelSettings ?
@@ -160,7 +160,7 @@ export class LogTable extends Component {
 											setLive={this.props.setLive}
 											onLogFile={this.props.onLogFile}
 										/> :
-										<div className="hidden"/>
+										<></>
 								}
 							</th>
 							<th className={style.app}>{t('logreader', 'App')}</th>
@@ -185,7 +185,9 @@ export class LogTable extends Component {
 				</MediaQuery>
 				<MediaQuery maxWidth={768}>
 					<div className={style.smallHeader}>
-						{levelHeader}
+						<span onClick={this.toggleLevelSettings}>
+							{levelHeader}
+						</span>
 						{
 							this.state.showLevelSettings ?
 								<Settings

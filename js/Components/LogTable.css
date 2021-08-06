@@ -168,14 +168,10 @@
 th.level {
   overflow: visible;
 
-  > span {
-    margin: -0.8em;
-    padding: .8em;
-    display: block;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
+  margin: -0.8em;
+  padding: .8em;
+  height: 100%;
+  cursor: pointer;
 
   .log-settings-toggle {
     cursor: pointer;

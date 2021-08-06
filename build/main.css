@@ -260,16 +260,12 @@
 .ommRUKWa1i6IjsyO8US7,
 th.CkJnBKvK0yQ9MGHTNg_V {
   overflow: visible;
-}
 
-.ommRUKWa1i6IjsyO8US7 > span, th.CkJnBKvK0yQ9MGHTNg_V > span {
-    margin: -0.8em;
-    padding: .8em;
-    display: block;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
+  margin: -0.8em;
+  padding: .8em;
+  height: 100%;
+  cursor: pointer;
+}
 
 .ommRUKWa1i6IjsyO8US7 .lE6HuqBssvD9MOCs2zAx, th.CkJnBKvK0yQ9MGHTNg_V .lE6HuqBssvD9MOCs2zAx {
     cursor: pointer;
