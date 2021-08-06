@@ -1,200 +1,202 @@
 .logs {
-  width: 100%;
-  white-space: normal;
-  margin-bottom: 14px;
-  table-layout: fixed;
+	width: 100%;
+	white-space: normal;
+	table-layout: fixed;
 
-  th {
-    color: var(--color-text-maxcontrast);
-  }
+	th {
+		color: var(--color-text-maxcontrast);
+	}
 
-  td, th {
-    vertical-align: top;
-    padding: .8em;
-    text-align: left;
-    font-weight: normal;
-    position: relative;
-    word-wrap: break-word;
-    border-bottom: 1px solid var(--color-border);
-  }
+	td, th {
+		vertical-align: top;
+		padding: .8em;
+		text-align: left;
+		font-weight: normal;
+		position: relative;
+		word-wrap: break-word;
+		border-bottom: 1px solid var(--color-border);
+	}
 
-  th.level.active .log-settings-toggle,
-  th.level:hover .log-settings-toggle {
-    opacity: 1;
-  }
+	th.level.active .log-settings-toggle,
+	th.level:hover .log-settings-toggle {
+		opacity: 1;
+	}
 
-  .time {
-    width: 180px;
+	.time {
+		width: 220px;
 
-    > span {
-    margin: -0.8em;
-    padding: .8em;
-    display: block;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
-  }
+		> span {
+			margin: -0.8em;
+			padding: .8em;
+			display: block;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+		}
+	}
 
-  .time.relative {
-    width: 100px;
+	.time.relative {
+		width: 120px;
 
-    > span {
-    margin: -0.8em;
-    padding: .8em;
-    display: block;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
-  }
+		> span {
+			margin: -0.8em;
+			padding: .8em;
+			display: block;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+		}
+	}
 
-  .app {
-    width: 100px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+	.app {
+		width: 100px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
 
-  td.app, th.app {
-    @media only screen and (max-width: 1100px) {
-      display: none;
-    }
-  }
+	td.app, th.app {
+		@media only screen and (max-width: 1100px) {
+			display: none;
+		}
+	}
 
-  .level {
-    width: 100px;
-  }
+	.level {
+		width: 100px;
+	}
 
-  /* warning*/
-  .level_2 td.level {
-    border-left: 5px solid #FEEFB3;
-  }
+	/* warning*/
 
-  /*error*/
-  .level_3 td.level {
-    border-left: 5px solid #FFBABA;
-  }
+	.level_2 td.level {
+		border-left: 5px solid #FEEFB3;
+	}
 
-  /*fatal*/
-  .level_4 td.level {
-    border-left: 5px solid #ff8080;
-  }
+	/*error*/
 
-  div.column {
-    box-sizing: border-box;
-    padding: 7px;
-  }
+	.level_3 td.level {
+		border-left: 5px solid #FFBABA;
+	}
 
-  div.level {
-    font-weight: bold;
-  }
+	/*fatal*/
 
-  div.level, div.app, div.time {
-    display: inline-block;
-    width: 33%;
-  }
+	.level_4 td.level {
+		border-left: 5px solid #ff8080;
+	}
 
-  div.time {
-    padding-right: 20px;
-  }
+	div.column {
+		box-sizing: border-box;
+		padding: 7px;
+	}
 
-  div.row {
-    position: relative;
-  }
+	div.level {
+		font-weight: bold;
+	}
 
-  div.message {
-    border-bottom: 1px solid var(--color-border);
-  }
+	div.level, div.app, div.time {
+		display: inline-block;
+		width: 33%;
+	}
 
-  td.copy, th.copy {
-    position: relative;
-    width: 42px;
-    margin: 0;
-    overflow: visible;
+	div.time {
+		padding-right: 20px;
+	}
 
-    button {
-      position: relative;
-      opacity: 0;
-      transition: opacity 0.5s;
-      top: -5px;
-      padding: 0;
-      background-color: transparent;
-      border: none;
-      width: 42px;
-    }
-  }
+	div.row {
+		position: relative;
+	}
 
-  tr:hover {
-    td.copy button {
-      opacity: 0.5;
+	div.message {
+		border-bottom: 1px solid var(--color-border);
+	}
 
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
+	td.copy, th.copy {
+		position: relative;
+		width: 42px;
+		margin: 0;
+		overflow: visible;
 
-  tr.active td.copy button {
-    opacity: 1;
-  }
+		button {
+			position: relative;
+			opacity: 0;
+			transition: opacity 0.5s;
+			top: -5px;
+			padding: 0;
+			background-color: transparent;
+			border: none;
+			width: 42px;
+		}
+	}
 
-  div.level_1 {
+	tr:hover {
+		td.copy button {
+			opacity: 0.5;
 
-  }
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
 
-  div.level_2 {
-    border-left: 5px solid #FEEFB3;
-  }
+	tr.active td.copy button {
+		opacity: 1;
+	}
 
-  div.level_3 {
-    border-left: 5px solid #FFBABA;
-  }
+	div.level_1 {
 
-  div.level_4 {
-    border-left: 5px solid #ff8080;
-  }
+	}
 
-  tr.empty td {
-    border-bottom: none;
-  }
+	div.level_2 {
+		border-left: 5px solid #FEEFB3;
+	}
 
-  tr.highlight {
-    background-color: var(--color-background-hover);
-  }
+	div.level_3 {
+		border-left: 5px solid #FFBABA;
+	}
+
+	div.level_4 {
+		border-left: 5px solid #ff8080;
+	}
+
+	tr.empty td {
+		border-bottom: none;
+	}
+
+	tr.highlight {
+		background-color: var(--color-background-hover);
+	}
 }
 
 .smallHeader,
 th.level {
-  overflow: visible;
+	overflow: visible;
 
-  margin: -0.8em;
-  padding: .8em;
-  height: 100%;
-  cursor: pointer;
+	margin: -0.8em;
+	padding: .8em;
+	height: 100%;
+	cursor: pointer;
 
-  .log-settings-toggle {
-    cursor: pointer;
-    display: block;
-    float: right;
-    margin: 2px;
-    opacity: 0.5;
-    transition: opacity 0.2s;
-  }
+	.log-settings-toggle {
+		cursor: pointer;
+		display: block;
+		float: right;
+		margin: 2px;
+		opacity: 0.5;
+		transition: opacity 0.2s;
+	}
 }
 
 .smallHeader {
-  margin-left: 44px;
-  width: 62px;
-  padding: 10px;
+	margin-left: 44px;
+	width: 62px;
+	padding: 10px;
 
-  .log-settings-toggle:hover {
-    opacity: 1;
-  }
+	.log-settings-toggle:hover {
+		opacity: 1;
+	}
 }
 
 .copyMenu {
-  right: -10px;
-  top: 50px;
-  width: auto;
+	right: -10px;
+	top: 50px;
+	width: auto;
 }

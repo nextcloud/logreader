@@ -143,7 +143,7 @@ export class LogTable extends Component {
 		);
 
 		return (
-			<div>
+			<>
 				<MediaQuery minWidth={750}>
 					<table className={style.logs}>
 						<thead>
@@ -201,7 +201,7 @@ export class LogTable extends Component {
 						{smallRows}
 					</div>
 				</MediaQuery>
-			</div>
+			</>
 		);
 	}
 }

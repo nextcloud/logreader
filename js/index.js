@@ -16,20 +16,17 @@ if (OCA.Search) {
 }
 
 function render (App, rootElement) {
-	ReactDom.render(
-		<App
-			logProvider={logProvider}
-			inlineSettings={rootElement.dataset.inlineSettings === 'true'}/>, rootElement);
+	ReactDom.render(<App logProvider={logProvider}/>, rootElement);
 }
 
-$(document).ready(() => {
+function ready(callbackFunction){
+	if(document.readyState !== 'loading')
+		callbackFunction(event)
+	else
+		document.addEventListener("DOMContentLoaded", callbackFunction)
+}
+
+ready(() => {
 	const rootElement = document.getElementById('logreader-root');
 	render(App, rootElement);
-
-	if (module.hot) {
-		module.hot.accept('./App', () => {
-			const {App: NextApp} = require('./App');
-			render(NextApp, rootElement);
-		});
-	}
 });
