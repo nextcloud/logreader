@@ -3,6 +3,10 @@ OC.L10N.register(
     {
     "Error parsing log" : "Log fitxategia irakurtzean errorea",
     "Caused by " : "Arrazoia",
+    "Debug" : "Arazketa",
+    "Info" : "Informazioa",
+    "Warning" : "Oharra",
+    "Error" : "Errorea",
     "Copy" : "Kopiatu",
     "Copy raw" : "Kopiatu gordin",
     "Copy formatted" : "Kopiatu formatuarekin",
