@@ -18,6 +18,7 @@ OC.L10N.register(
     "App" : "應用程式",
     "Message" : "訊息",
     "Time" : "時間",
+    "Load log file …" : "載入記錄檔...",
     "Invalid log file" : "無效的紀錄檔",
     "Log levels" : "記錄層級",
     "Log content" : "記錄內容",

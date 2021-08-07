@@ -18,6 +18,7 @@ OC.L10N.register(
     "App" : "应用",
     "Message" : "消息",
     "Time" : "时间",
+    "Load log file …" : "加载日志文件 …",
     "Invalid log file" : "无效的日志文件",
     "Log levels" : "日志级别",
     "Log content" : "日志内容",

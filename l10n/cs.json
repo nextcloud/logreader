@@ -16,6 +16,7 @@
     "App" : "Aplikace",
     "Message" : "Zpráva",
     "Time" : "Čas",
+    "Load log file …" : "Načíst soubor se záznamem událostí",
     "Invalid log file" : "Neplatný soubor se záznamem událostí",
     "Log levels" : "Stupně podrobností záznamu událostí",
     "Log content" : "Obsah záznamu událostí",
