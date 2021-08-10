@@ -17,6 +17,8 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Mezua",
     "Time" : "Noiz",
+    "Load log file …" : "Kargatu log fitxategia ...",
+    "Invalid log file" : "Log fitxategi baliogabea",
     "Log levels" : "Log mailak",
     "Log content" : "Log edukia",
     "Live update" : "Etengabeko eguneraketa ",
