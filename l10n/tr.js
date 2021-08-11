@@ -18,6 +18,7 @@ OC.L10N.register(
     "App" : "Uygulama",
     "Message" : "İleti",
     "Time" : "Zaman",
+    "Load log file …" : "Günlük dosyasını yükle …",
     "Invalid log file" : "Günlük dosyası geçersiz",
     "Log levels" : "Günlük düzeyleri",
     "Log content" : "Günlük içeriği",
