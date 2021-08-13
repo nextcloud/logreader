@@ -7,6 +7,7 @@ OC.L10N.register(
     "Info" : "Informazioa",
     "Warning" : "Oharra",
     "Error" : "Errorea",
+    "Fatal" : "Larria",
     "Copy" : "Kopiatu",
     "Copy raw" : "Kopiatu gordin",
     "Copy formatted" : "Kopiatu formatuarekin",
