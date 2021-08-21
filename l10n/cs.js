@@ -24,7 +24,7 @@ OC.L10N.register(
     "Log content" : "Obsah záznamu událostí",
     "Live update" : "Průběžně donačítat",
     "Download logs" : "Stáhnout si záznamy událostí",
-    "Logging" : "Zaznamenávání událostí",
+    "Logging" : "Záznam událostí",
     "Log Reader" : "Čtečka záznamů událostí (log)",
     "A log reader for Nextcloud" : "Čtečka záznamů událostí (log) pro Nextcloud",
     "Log reader for Nextcloud" : "Čtečka záznamů událostí pro Nextcloud"
