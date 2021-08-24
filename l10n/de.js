@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Error parsing log" : "Fehler beim Verarbeiten der Protokolldatei",
     "Caused by " : "Verursacht durch",
+    "Fatal" : "Fatal",
     "Copy" : "Kopieren",
     "Copy raw" : "Rohformat kopieren",
     "Copy formatted" : "Formatiert kopieren",
@@ -13,6 +14,8 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Nachricht",
     "Time" : "Zeit",
+    "Load log file …" : "Lade Protokolldatei …",
+    "Invalid log file" : "Ungültige Protokolldatei",
     "Log levels" : "Log-Level",
     "Log content" : "Log-Inhalt",
     "Live update" : "Live-Aktualisierung",
