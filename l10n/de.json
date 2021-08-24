@@ -1,6 +1,7 @@
 { "translations": {
     "Error parsing log" : "Fehler beim Verarbeiten der Protokolldatei",
     "Caused by " : "Verursacht durch",
+    "Fatal" : "Fatal",
     "Copy" : "Kopieren",
     "Copy raw" : "Rohformat kopieren",
     "Copy formatted" : "Formatiert kopieren",
@@ -11,6 +12,8 @@
     "App" : "App",
     "Message" : "Nachricht",
     "Time" : "Zeit",
+    "Load log file …" : "Lade Protokolldatei …",
+    "Invalid log file" : "Ungültige Protokolldatei",
     "Log levels" : "Log-Level",
     "Log content" : "Log-Inhalt",
     "Live update" : "Live-Aktualisierung",
