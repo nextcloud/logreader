@@ -3,6 +3,10 @@ OC.L10N.register(
     {
     "Error parsing log" : "Fehler beim Verarbeiten der Protokolldatei",
     "Caused by " : "Verursacht durch",
+    "Debug" : "Fehlersuche",
+    "Info" : "Information",
+    "Warning" : "Warnung",
+    "Error" : "Fehler",
     "Fatal" : "Fatal",
     "Copy" : "Kopieren",
     "Copy raw" : "Rohformat kopieren",
