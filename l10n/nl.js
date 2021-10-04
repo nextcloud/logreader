@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Error parsing log" : "Fout parseren logboeken",
     "Caused by " : "Veroorzaakt door",
+    "Warning" : "Waarschuwing",
+    "Error" : "Fout",
     "Copy" : "Kopiëren",
     "Copy raw" : "Kopiëren puur",
     "Copy formatted" : "Kopiëren geformatteerd",
