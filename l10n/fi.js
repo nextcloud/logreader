@@ -2,6 +2,8 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Virhe jäsentäessä lokia",
+    "Warning" : "Varoitus",
+    "Error" : "Virhe",
     "Copy" : "Kopioi",
     "Copy raw" : "Kopioi raakatekstinä",
     "Copy formatted" : "Kopioi muotoiltuna",
@@ -12,6 +14,8 @@ OC.L10N.register(
     "App" : "Sovellus",
     "Message" : "Viesti",
     "Time" : "Aika",
+    "Load log file …" : "Ladataan lokitiedostoa…",
+    "Invalid log file" : "Virheellinen lokitiedosto",
     "Log levels" : "Lokitasot",
     "Log content" : "Lokin sisältö",
     "Live update" : "Live-päivitys",
