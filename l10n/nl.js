@@ -12,7 +12,7 @@ OC.L10N.register(
     "Copy raw" : "Kopiëren puur",
     "Copy formatted" : "Kopiëren geformatteerd",
     "No server logs" : "Geen server logboek",
-    "One or more entries are hidden by the log level filter" : "Een of meer meldingen zijn verborgen door de logfilter",
+    "One or more entries are hidden by the log level filter" : "Een of meer waarden zijn verborgen door de logfilter",
     "Everything is working fine" : "Alles werkt prima",
     "Level" : "Level",
     "App" : "App",
