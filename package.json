@@ -26,7 +26,7 @@
 		"react-addons-css-transition-group": "^15.6.2",
 		"strip-loader": "^0.1.2",
 		"style-loader": "^3.2.1",
-		"webpack": "^5.49.0",
+		"webpack": "^5.64.1",
 		"webpack-cli": "^4.7.2"
 	},
 	"engines": {
