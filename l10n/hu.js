@@ -2,6 +2,13 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "Okozta:",
+    "Debug" : "Hibakeresés",
+    "Info" : "Infó",
+    "Warning" : "Figyelmeztetés",
+    "Error" : "Hiba",
+    "Fatal" : "Végzetes",
+    "Load log file …" : "Naplófájl betöltése…",
+    "Invalid log file" : "Érvénytelen naplófájl",
     "Log levels" : "Naplózási szintek",
     "Log content" : "Naplótartalom",
     "Live update" : "Élő frissítés",

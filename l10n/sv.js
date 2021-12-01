@@ -2,6 +2,13 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "Orsakad av",
+    "Debug" : "Debug",
+    "Info" : "Info",
+    "Warning" : "Varning",
+    "Error" : "Fel",
+    "Fatal" : "Fatal",
+    "Load log file …" : "Ladda loggfil ...",
+    "Invalid log file" : "Ogiltig loggfil",
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
     "Live update" : "Live-uppdatering",

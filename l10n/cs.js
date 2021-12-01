@@ -2,6 +2,13 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "Čím způsobeno",
+    "Debug" : "Ladící",
+    "Info" : "Informace",
+    "Warning" : "Varování",
+    "Error" : "Chyba",
+    "Fatal" : "Fatální",
+    "Load log file …" : "Načíst soubor se záznamem událostí",
+    "Invalid log file" : "Neplatný soubor se záznamem událostí",
     "Log levels" : "Stupně podrobností záznamu událostí",
     "Log content" : "Obsah záznamu událostí",
     "Live update" : "Průběžně donačítat",
@@ -17,7 +24,7 @@ OC.L10N.register(
     "Message" : "Zpráva",
     "Time" : "Čas",
     "Error parsing log" : "Chyba při analýze záznamu událostí",
-    "Logging" : "Zaznamenávání událostí",
+    "Logging" : "Záznam událostí",
     "Log Reader" : "Čtečka záznamů událostí (log)",
     "A log reader for Nextcloud" : "Čtečka záznamů událostí (log) pro Nextcloud",
     "Log reader for Nextcloud" : "Čtečka záznamů událostí pro Nextcloud"

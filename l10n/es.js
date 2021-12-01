@@ -2,6 +2,13 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "Causado por",
+    "Debug" : "Depuración",
+    "Info" : "Información",
+    "Warning" : "Advertencia",
+    "Error" : "Error",
+    "Fatal" : "Fatal",
+    "Load log file …" : "Cargar archivo de registro ...",
+    "Invalid log file" : "Archivo de registro inválido",
     "Log levels" : "Niveles de registro",
     "Log content" : "Contenido del registro",
     "Live update" : "Mostrar en directo",

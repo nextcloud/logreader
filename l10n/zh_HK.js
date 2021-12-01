@@ -2,6 +2,13 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "造成原因",
+    "Debug" : "除錯",
+    "Info" : "資訊",
+    "Warning" : "警告",
+    "Error" : "錯誤",
+    "Fatal" : "致命",
+    "Load log file …" : "加載記錄中...",
+    "Invalid log file" : "無效的紀錄檔案",
     "Log levels" : "記錄層級",
     "Log content" : "記錄內容",
     "Live update" : "實時更新",

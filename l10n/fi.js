@@ -1,6 +1,10 @@
 OC.L10N.register(
     "logreader",
     {
+    "Warning" : "Varoitus",
+    "Error" : "Virhe",
+    "Load log file …" : "Ladataan lokitiedostoa…",
+    "Invalid log file" : "Virheellinen lokitiedosto",
     "Log levels" : "Lokitasot",
     "Log content" : "Lokin sisältö",
     "Live update" : "Live-päivitys",

@@ -2,6 +2,13 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "Spôsobené",
+    "Debug" : "Ladenie",
+    "Info" : "Info",
+    "Warning" : "Varovanie",
+    "Error" : "Chyba",
+    "Fatal" : "Fatálne",
+    "Load log file …" : "Načítanie log súboru ...",
+    "Invalid log file" : "Neplatný log súbor",
     "Log levels" : "Úroveň logov",
     "Log content" : "Obsah logov",
     "Live update" : "Živá aktualizácia",
