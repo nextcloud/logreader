@@ -1,10 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "Loggfør nivå",
-    "Log content" : "Loggfør innhold",
-    "Live update" : "Levende oppdatering",
-    "Download logs" : "Last ned logger",
+    "Error parsing log" : "Feil ved fortolkning av logg",
     "Copy" : "Kopier",
     "No server logs" : "Ingen serverlogger",
     "One or more entries are hidden by the log level filter" : "Én eller flere oppføringer er skjult av loggnivåfilteret",
@@ -13,7 +10,10 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Melding",
     "Time" : "Tid",
-    "Error parsing log" : "Feil ved fortolkning av logg",
+    "Log levels" : "Loggfør nivå",
+    "Log content" : "Loggfør innhold",
+    "Live update" : "Levende oppdatering",
+    "Download logs" : "Last ned logger",
     "Logging" : "Logging",
     "Log Reader" : "Loggleser"
 },
