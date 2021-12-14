@@ -5,7 +5,7 @@ import style from './LogUploader.css';
 
 export class LogUploader extends Component {
 	state = {
-		message: t('logreader', 'Load log file …')
+		message: t('logreader', 'Load log file')
 	};
 
 	isLog (content) {
