@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "Aplikácia",
     "Message" : "Správa",
     "Time" : "Čas",
-    "Load log file …" : "Načítanie log súboru ...",
     "Invalid log file" : "Neplatný log súbor",
     "Log levels" : "Úroveň logov",
     "Log content" : "Obsah logov",

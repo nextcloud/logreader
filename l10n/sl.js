@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "Program",
     "Message" : "Sporočilo",
     "Time" : "Čas",
-    "Load log file …" : "Naloži dnevniško datoteko ...",
     "Invalid log file" : "Neveljavna dnevniška datoteka",
     "Log levels" : "Ravni beleženja",
     "Log content" : "Vsebina dnevnika",
