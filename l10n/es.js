@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "Aplicación",
     "Message" : "Mensaje",
     "Time" : "Hora",
-    "Load log file …" : "Cargar archivo de registro ...",
     "Invalid log file" : "Archivo de registro inválido",
     "Log levels" : "Niveles de registro",
     "Log content" : "Contenido del registro",
