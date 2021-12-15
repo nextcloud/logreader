@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Besked",
     "Time" : "Tid",
-    "Load log file …" : "Indlæs logfil...",
     "Invalid log file" : "Ugyldig logfil",
     "Log levels" : "Log niveauer",
     "Log content" : "Log indhold",

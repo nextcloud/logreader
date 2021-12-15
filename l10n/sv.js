@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Meddelande",
     "Time" : "Tid",
-    "Load log file …" : "Ladda loggfil ...",
     "Invalid log file" : "Ogiltig loggfil",
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
