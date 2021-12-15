@@ -14,7 +14,6 @@ OC.L10N.register(
     "App" : "Sovellus",
     "Message" : "Viesti",
     "Time" : "Aika",
-    "Load log file …" : "Ladataan lokitiedostoa…",
     "Invalid log file" : "Virheellinen lokitiedosto",
     "Log levels" : "Lokitasot",
     "Log content" : "Lokin sisältö",

@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "Aplikacija",
     "Message" : "Poruka",
     "Time" : "Vrijeme",
-    "Load log file …" : "Učitaj datoteku zapisa...",
     "Invalid log file" : "Nevažeća datoteka zapisa",
     "Log levels" : "Razine zapisa",
     "Log content" : "Sadržaj zapisa",

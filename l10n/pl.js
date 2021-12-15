@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "Aplikacja",
     "Message" : "Komunikat",
     "Time" : "Czas",
-    "Load log file …" : "Załaduj plik dziennika…",
     "Invalid log file" : "Nieprawidłowy plik dziennika",
     "Log levels" : "Poziomy",
     "Log content" : "Zawiera",
