@@ -3,6 +3,9 @@ OC.L10N.register(
     {
     "Error parsing log" : "Klaida, nagrinėjant žurnalą",
     "Caused by " : "Sukėlė ",
+    "Info" : "Informacija",
+    "Warning" : "Įspėjimas",
+    "Error" : "Klaida",
     "Copy" : "Kopijuoti",
     "Copy raw" : "Kopijuoti neapdorotą",
     "Copy formatted" : "Kopijuoti formatuotą",
@@ -13,6 +16,8 @@ OC.L10N.register(
     "App" : "Programėlė",
     "Message" : "Žinutė",
     "Time" : "Laikas",
+    "Load log file" : "Įkelti žurnalo failą",
+    "Invalid log file" : "Neteisingas žurnalo failas",
     "Log levels" : "Žurnalo lygmenys",
     "Log content" : "Žurnalo turinys",
     "Live update" : "Tiesioginis atnaujinimas",
