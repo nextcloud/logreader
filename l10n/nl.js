@@ -7,7 +7,6 @@ OC.L10N.register(
     "Warning" : "Waarschuwing",
     "Error" : "Fout",
     "Fatal" : "Fataal",
-    "Load log file …" : "Laden logbestand",
     "Invalid log file" : "Ongeldig logbestand",
     "Log levels" : "Niveau logboek",
     "Log content" : "Inhoud logboek",

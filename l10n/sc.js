@@ -7,7 +7,6 @@ OC.L10N.register(
     "Warning" : "Avisu",
     "Error" : "Errore",
     "Fatal" : "Fatale",
-    "Load log file …" : "Càrriga archìviu de registru ...",
     "Invalid log file" : "Archìviu de registru non bàlidu",
     "Log levels" : "Livellos de registru",
     "Log content" : "Cuntenutu de is registros",

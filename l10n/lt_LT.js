@@ -2,6 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "Sukėlė ",
+    "Info" : "Informacija",
+    "Warning" : "Įspėjimas",
+    "Error" : "Klaida",
+    "Invalid log file" : "Neteisingas žurnalo failas",
     "Log levels" : "Žurnalo lygmenys",
     "Log content" : "Žurnalo turinys",
     "Live update" : "Tiesioginis atnaujinimas",
@@ -17,6 +21,7 @@ OC.L10N.register(
     "Message" : "Žinutė",
     "Time" : "Laikas",
     "Error parsing log" : "Klaida, nagrinėjant žurnalą",
+    "Load log file" : "Įkelti žurnalo failą",
     "Logging" : "Registravimas",
     "Log Reader" : "Žurnalų skaitytuvė",
     "A log reader for Nextcloud" : "Žurnalo skaitytuvė, skirta Nextcloud",

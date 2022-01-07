@@ -2,6 +2,12 @@ OC.L10N.register(
     "logreader",
     {
     "Caused by " : "Uzrokovao",
+    "Debug" : "Otklanjanje pogrešaka",
+    "Info" : "Informacije",
+    "Warning" : "Upozorenje",
+    "Error" : "Pogreška",
+    "Fatal" : "Fatalno",
+    "Invalid log file" : "Nevažeća datoteka zapisa",
     "Log levels" : "Razine zapisa",
     "Log content" : "Sadržaj zapisa",
     "Live update" : "Ažuriranje uživo",

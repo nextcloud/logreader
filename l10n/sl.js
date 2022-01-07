@@ -7,7 +7,6 @@ OC.L10N.register(
     "Warning" : "Opozorilo",
     "Error" : "Napaka",
     "Fatal" : "Usodna napaka",
-    "Load log file …" : "Naloži dnevniško datoteko ...",
     "Invalid log file" : "Neveljavna dnevniška datoteka",
     "Log levels" : "Ravni beleženja",
     "Log content" : "Vsebina dnevnika",

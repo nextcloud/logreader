@@ -7,7 +7,6 @@ OC.L10N.register(
     "Warning" : "Figyelmeztetés",
     "Error" : "Hiba",
     "Fatal" : "Végzetes",
-    "Load log file …" : "Naplófájl betöltése…",
     "Invalid log file" : "Érvénytelen naplófájl",
     "Log levels" : "Naplózási szintek",
     "Log content" : "Naplótartalom",

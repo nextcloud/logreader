@@ -7,7 +7,6 @@ OC.L10N.register(
     "Warning" : "Oharra",
     "Error" : "Errorea",
     "Fatal" : "Larria",
-    "Load log file …" : "Kargatu log fitxategia ...",
     "Invalid log file" : "Log fitxategi baliogabea",
     "Log levels" : "Log mailak",
     "Log content" : "Log edukia",
