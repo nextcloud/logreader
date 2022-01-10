@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Error parsing log" : "ログ解析失敗",
     "Caused by " : "原因：",
+    "Error" : "エラー",
     "Copy" : "コピー",
     "Copy raw" : "そのままコピー",
     "Copy formatted" : "フォーマット済みのコピー",
@@ -13,6 +14,7 @@ OC.L10N.register(
     "App" : "アプリ",
     "Message" : "メッセージ",
     "Time" : "時間",
+    "Load log file" : "ログファイルを読み込む",
     "Log levels" : "ログレベル",
     "Log content" : "ログ情報",
     "Live update" : "ライブアップデート",
