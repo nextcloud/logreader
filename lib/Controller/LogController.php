@@ -75,7 +75,7 @@ class LogController extends Controller {
 	 * This method will sleep for maximum 20 seconds before returning an empty
 	 * result.
 	 *
-	 * Note that there is a race condition possible: when the user loads the
+	 * @note There is a possible race condition, when the user loads the
 	 * logging page when a request isn't finished and this specific request
 	 * is the last request in the log, then new messages of this request
 	 * won't be polled. This is because there is no reliable way to identify
@@ -84,20 +84,19 @@ class LogController extends Controller {
 	 *  - a combination of reqid and counting the messages for that specific reqid
 	 *  will work in some cases but not when there are more than 50 messages of that
 	 *  request.
-	 * @param $lastReqId
-	 * @param string $levels
-	 * @return JSONResponse
 	 */
-	public function poll($lastReqId, $levels = '11111') {
+	public function poll(string $lastReqId, string $levels = '11111'): JSONResponse {
 		$cycles = 0;
 		$maxCycles = 20;
 
-		while ($this->getLastItem($levels)['reqId'] === $lastReqId) {
+		$lastItem = $this->getLastItem($levels);
+		while ($lastItem === null || $lastItem['reqId'] === $lastReqId) {
 			sleep(1);
 			$cycles++;
 			if ($cycles === $maxCycles) {
 				return new JSONResponse([]);
 			}
+			$lastItem = $this->getLastItem($levels);
 		}
 		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		$iterator->next();
