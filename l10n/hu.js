@@ -18,7 +18,6 @@ OC.L10N.register(
     "App" : "Alkalmazás",
     "Message" : "Üzenet",
     "Time" : "Idő",
-    "Load log file …" : "Naplófájl betöltése…",
     "Invalid log file" : "Érvénytelen naplófájl",
     "Log levels" : "Naplózási szintek",
     "Log content" : "Naplótartalom",
