@@ -27,6 +27,7 @@ OC.L10N.register(
     "Logging" : "記錄",
     "Log Reader" : "記錄日誌閱讀程式",
     "A log reader for Nextcloud" : "Nextcloud 的記錄日誌閱讀程式",
-    "Log reader for Nextcloud" : "Nextcloud 的記錄日誌閱讀程式"
+    "Log reader for Nextcloud" : "Nextcloud 的記錄日誌閱讀程式",
+    "Load log file …" : "加載記錄中..."
 },
 "nplurals=1; plural=0;");
