@@ -3,6 +3,9 @@ OC.L10N.register(
     {
     "Error parsing log" : "ログ解析失敗",
     "Caused by " : "原因：",
+    "Debug" : "デバッグ",
+    "Info" : "情報",
+    "Warning" : "警告",
     "Error" : "エラー",
     "Copy" : "コピー",
     "Copy raw" : "そのままコピー",

@@ -27,6 +27,7 @@ OC.L10N.register(
     "Logging" : "Záznam událostí",
     "Log Reader" : "Čtečka záznamů událostí (log)",
     "A log reader for Nextcloud" : "Čtečka záznamů událostí (log) pro Nextcloud",
-    "Log reader for Nextcloud" : "Čtečka záznamů událostí pro Nextcloud"
+    "Log reader for Nextcloud" : "Čtečka záznamů událostí pro Nextcloud",
+    "Load log file …" : "Načíst soubor se záznamem událostí…"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");
