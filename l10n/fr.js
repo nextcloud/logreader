@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
     "Caused by " : "Causé par",
+    "Info" : "Info",
+    "Error" : "Erreur",
     "Copy" : "Copier",
     "Copy raw" : "Copie brute",
     "Copy formatted" : "Copie formatée",

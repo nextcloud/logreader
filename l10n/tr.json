@@ -25,6 +25,7 @@
     "Logging" : "Günlükleme",
     "Log Reader" : "Günlük okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
-    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu"
+    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
+    "Load log file …" : "Günlük dosyasını yükle …"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
