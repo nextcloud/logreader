@@ -131,7 +131,7 @@ export class ExceptionParser {
 			let message = `${parsed.Exception}: ${parsed.Message} at ${fileAndLine(parsed)}\n\n`;
 			message += parsed.Trace.map(
 				(trace, i) => {
-					const args = trace.args.map(arg => {
+					const args = (trace.args || []).map(arg => {
 						const baseFormatted = formatArgument(arg, 0).replace(/\n/g, '');;
 						const showInline = baseFormatted.length < 42;
 						return showInline ? baseFormatted : `${baseFormatted.substr(0, 16)} ... ${baseFormatted.substr(baseFormatted.length - 2, 2)}`;

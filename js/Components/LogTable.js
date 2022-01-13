@@ -53,7 +53,7 @@ export class LogTable extends Component {
 				const text = (raw) ?
 					JSON.stringify(entry) :
 					`
-[${entry.app}] ${LogLevel.levels[entry.level]}: ${exceptionParser.format(entry.message)}\n\n` +
+[${entry.app}] ${LogLevel.levels[entry.level]}: ${exceptionParser.format(entry.exception || entry.message)}\n\n` +
 					((entry.method) ? `${entry.method} ${entry.url}\n` : '') +
 					((entry.remoteAddr) ? `from ${entry.remoteAddr} ` : '') +
 					((entry.user !== '--') ? `by ${entry.user} ` : '') +
