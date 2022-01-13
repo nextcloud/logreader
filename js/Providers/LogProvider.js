@@ -1,5 +1,15 @@
 import {EventEmitter} from 'events';
 
+const fetch = function (input, init) {
+	init = init || {};
+	init.headers = init.headers || {};
+	init.headers["requesttoken"] = OC.requestToken;
+	if (init.params) {
+		input += '?' + new URLSearchParams(init.params).toString();
+	}
+	return window.fetch(input, init);
+}
+
 export class LogProvider extends EventEmitter {
 	static levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 
@@ -66,18 +76,22 @@ export class LogProvider extends EventEmitter {
 	loadEntries (offset, count = 50) {
 		return this.getSettings().then(({levels}) => {
 			if (this.searchQuery) {
-				return $.get(OC.generateUrl('/apps/logreader/search'), {
-					offset,
-					count,
-					query: this.query,
-					levels
-				});
+				return fetch(OC.generateUrl('/apps/logreader/search'), {
+					params: {
+						offset,
+						count,
+						query: this.query,
+						levels
+					}
+				}).then(res => res.json());
 			} else {
-				return $.get(OC.generateUrl('/apps/logreader/get'), {
-					offset,
-					count,
-					levels
-				});
+				return fetch(OC.generateUrl('/apps/logreader/get'), {
+					params: {
+						offset,
+						count,
+						levels
+					}
+				}).then(res => res.json());
 			}
 		});
 	}
@@ -86,7 +100,8 @@ export class LogProvider extends EventEmitter {
 		if (this.cachedSettings) {
 			return this.cachedSettings;
 		}
-		this.cachedSettings = await $.get(OC.generateUrl('/apps/logreader/settings'));
+		let response = await fetch(OC.generateUrl('/apps/logreader/settings'));
+		this.cachedSettings = await response.json();
 		return this.cachedSettings;
 	}
 
@@ -100,10 +115,12 @@ export class LogProvider extends EventEmitter {
 		if (this.cachedSettings) {
 			this.cachedSettings.levels = levelsString;
 		}
-		return $.ajax({
-			type: 'PUT',
-			url: OC.generateUrl('/apps/logreader/levels'),
-			data: {levels: levelsString}
+		return fetch(OC.generateUrl('/apps/logreader/levels'), {
+			method: 'PUT',
+			body: JSON.stringify({levels: levelsString}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
 		});
 	}
 
@@ -123,18 +140,22 @@ export class LogProvider extends EventEmitter {
 	}
 
 	setRelative (relative) {
-		return $.ajax({
-			type: 'PUT',
-			url: OC.generateUrl('/apps/logreader/relative'),
-			data: {relative}
+		return fetch(OC.generateUrl('/apps/logreader/relative'), {
+			method: 'PUT',
+			body: JSON.stringify({relative}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
 		});
 	}
 
 	setLive (live) {
-		return $.ajax({
-			type: 'PUT',
-			url: OC.generateUrl('/apps/logreader/live'),
-			data: {live}
+		return fetch(OC.generateUrl('/apps/logreader/live'), {
+			method: 'PUT',
+			data: {live},
+			headers: {
+				'Content-Type': 'application/json'
+			}
 		});
 	}
 
@@ -149,9 +170,11 @@ export class LogProvider extends EventEmitter {
 		while (this.poll) {
 			const lastReqId = this.cachedEntries[0].reqId;
 
-			const newData = await $.get(OC.generateUrl('/apps/logreader/poll'), {
-				lastReqId
-			});
+			const newData = await fetch(OC.generateUrl('/apps/logreader/poll'), {
+				params: {
+					lastReqId
+				}
+			}).then(res => res.json());
 			if (this.poll) {
 				this.cachedEntries = newData.concat(this.cachedEntries);
 				this.emit('entries', this.cachedEntries);
