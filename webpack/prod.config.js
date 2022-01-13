@@ -62,6 +62,6 @@ module.exports = {
 		}),
 
 		// ignore dev config
-		new webpack.IgnorePlugin(/\.\/dev/, /\/config$/)
+		new webpack.IgnorePlugin({resourceRegExp: /\.\/dev/, contextRegExp: /\/config$/})
 	]
 };
