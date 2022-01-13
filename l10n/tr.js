@@ -27,6 +27,7 @@ OC.L10N.register(
     "Logging" : "Günlükleme",
     "Log Reader" : "Günlük okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
-    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu"
+    "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
+    "Load log file …" : "Günlük dosyasını yükle …"
 },
 "nplurals=2; plural=(n > 1);");
