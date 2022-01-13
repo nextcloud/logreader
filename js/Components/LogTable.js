@@ -7,6 +7,7 @@ import {Settings} from './Settings';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {copyTextToClipboard} from '../Providers/ClipboardProvider';
 import {ExceptionParser} from '../ExceptionParser';
+import moment from '@nextcloud/moment';
 
 const exceptionParser = new ExceptionParser();
 
@@ -34,9 +35,9 @@ export class LogTable extends Component {
 	formatDate (entry, relative) {
 		const time = new Date(entry.time);
 		if (relative) {
-			return OC.Util.relativeModifiedDate(time);
+			return moment(time).fromNow();
 		} else {
-			return OC.Util.formatDate(time, convertDateFormat(this.props.dateFormat));
+			return moment(time).format(convertDateFormat(this.props.dateFormat));
 		}
 	};
 
