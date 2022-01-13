@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error parsing log" : "Fout parseren logboeken",
+    "Error parsing log" : "Fout verwerken logboek",
     "Caused by " : "Veroorzaakt door",
     "Debug" : "Debug",
     "Info" : "Info",
@@ -9,12 +9,12 @@ OC.L10N.register(
     "Error" : "Fout",
     "Fatal" : "Fataal",
     "Copy" : "Kopiëren",
-    "Copy raw" : "Kopiëren puur",
+    "Copy raw" : "Onbewerkt kopiëren",
     "Copy formatted" : "Kopiëren geformatteerd",
     "No server logs" : "Geen server logboek",
     "One or more entries are hidden by the log level filter" : "Een of meer waarden zijn verborgen door de logfilter",
     "Everything is working fine" : "Alles werkt prima",
-    "Level" : "Level",
+    "Level" : "Niveau",
     "App" : "App",
     "Message" : "Bericht",
     "Time" : "Tijd",
@@ -27,6 +27,7 @@ OC.L10N.register(
     "Logging" : "Logs",
     "Log Reader" : "Logboek lezer",
     "A log reader for Nextcloud" : "Een loglezer voor Nextcloud",
-    "Log reader for Nextcloud" : "Loglezer voor Nextcloud"
+    "Log reader for Nextcloud" : "Loglezer voor Nextcloud",
+    "Load log file …" : "Laad logbestand"
 },
 "nplurals=2; plural=(n != 1);");
