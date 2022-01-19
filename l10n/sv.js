@@ -18,6 +18,7 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Meddelande",
     "Time" : "Tid",
+    "Load log file" : "Ladda loggfil",
     "Invalid log file" : "Ogiltig loggfil",
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
@@ -26,6 +27,7 @@ OC.L10N.register(
     "Logging" : "Loggar",
     "Log Reader" : "Loggläsare",
     "A log reader for Nextcloud" : "En loggläsare för Nextcloud",
-    "Log reader for Nextcloud" : "Loggläsare för Nextcloud"
+    "Log reader for Nextcloud" : "Loggläsare för Nextcloud",
+    "Load log file …" : "Ladda loggfil ..."
 },
 "nplurals=2; plural=(n != 1);");
