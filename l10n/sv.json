@@ -16,6 +16,7 @@
     "App" : "App",
     "Message" : "Meddelande",
     "Time" : "Tid",
+    "Load log file" : "Ladda loggfil",
     "Invalid log file" : "Ogiltig loggfil",
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
@@ -24,6 +25,7 @@
     "Logging" : "Loggar",
     "Log Reader" : "Loggläsare",
     "A log reader for Nextcloud" : "En loggläsare för Nextcloud",
-    "Log reader for Nextcloud" : "Loggläsare för Nextcloud"
+    "Log reader for Nextcloud" : "Loggläsare för Nextcloud",
+    "Load log file …" : "Ladda loggfil ..."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
