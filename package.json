@@ -17,7 +17,7 @@
 		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^6.5.1",
 		"json-loader": "0.5.7",
-		"mini-css-extract-plugin": "^2.4.6",
+		"mini-css-extract-plugin": "^2.5.2",
 		"postcss": "^8.4.5",
 		"postcss-loader": "^6.2.1",
 		"postcss-nested": "^5.0.6",
