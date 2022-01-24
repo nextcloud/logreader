@@ -18,6 +18,7 @@ OC.L10N.register(
     "App" : "Alkalmazás",
     "Message" : "Üzenet",
     "Time" : "Idő",
+    "Load log file" : "Naplófájl betöltése",
     "Invalid log file" : "Érvénytelen naplófájl",
     "Log levels" : "Naplózási szintek",
     "Log content" : "Naplótartalom",
@@ -26,6 +27,7 @@ OC.L10N.register(
     "Logging" : "Naplózás",
     "Log Reader" : "Naplóolvasó",
     "A log reader for Nextcloud" : "Egy naplóolvasó a Nextcloudhoz",
-    "Log reader for Nextcloud" : "Naplóolvasó a Nextcloudhoz"
+    "Log reader for Nextcloud" : "Naplóolvasó a Nextcloudhoz",
+    "Load log file …" : "Naplófájl betöltése…"
 },
 "nplurals=2; plural=(n != 1);");
