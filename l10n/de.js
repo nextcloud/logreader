@@ -27,6 +27,7 @@ OC.L10N.register(
     "Logging" : "Protokollierung",
     "Log Reader" : "Log-Datei-Leser",
     "A log reader for Nextcloud" : "Ein Logdatei-Leser für Nextcloud",
-    "Log reader for Nextcloud" : "Logdatei-Leser für Nextcloud"
+    "Log reader for Nextcloud" : "Logdatei-Leser für Nextcloud",
+    "Load log file …" : "Lade Protokolldatei …"
 },
 "nplurals=2; plural=(n != 1);");
