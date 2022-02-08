@@ -72,7 +72,11 @@ class LogIterator implements \Iterator {
 		$this->currentKey = 0;
 	}
 
-	public function current(): mixed {
+	/**
+	 * @return mixed
+	 */
+	#[\ReturnTypeWillChange]
+	public function current() {
 		$entry = json_decode($this->lastLine, true);
 		if ($this->dateFormat !== \DateTime::ATOM) {
 			if (isset($entry['time'])) {
