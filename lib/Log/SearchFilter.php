@@ -61,7 +61,8 @@ class SearchFilter extends \FilterIterator {
 			return stripos($message, $query) !== false;
 		} elseif (isset($message['Exception'])) {
 			return stripos($message['Exception'], $query) !== false
-				|| stripos($message['Message'], $query) !== false;
+				|| stripos($message['Message'] ?? '', $query) !== false;
 		}
+		return false;
 	}
 }
