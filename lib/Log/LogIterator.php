@@ -66,13 +66,13 @@ class LogIterator implements \Iterator {
 		$this->next();
 	}
 
-	public function rewind() {
+	public function rewind(): void {
 		fseek($this->handle, 0, SEEK_END);
 		$this->position = ftell($this->handle) - self::CHUNK_SIZE;
 		$this->currentKey = 0;
 	}
 
-	public function current() {
+	public function current(): mixed {
 		$entry = json_decode($this->lastLine, true);
 		if ($this->dateFormat !== \DateTime::ATOM) {
 			if (isset($entry['time'])) {
@@ -85,11 +85,11 @@ class LogIterator implements \Iterator {
 		return $entry;
 	}
 
-	public function key() {
+	public function key(): int {
 		return $this->currentKey;
 	}
 
-	public function next() {
+	public function next(): void {
 		$this->currentLine = '';
 
 		// Loop through each character of the file looking for new lines
@@ -119,7 +119,7 @@ class LogIterator implements \Iterator {
 		}
 	}
 
-	public function valid() {
+	public function valid(): bool {
 		if (!is_resource($this->handle)) {
 			return false;
 		}
