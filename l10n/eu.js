@@ -27,6 +27,7 @@ OC.L10N.register(
     "Logging" : "Arazten",
     "Log Reader" : "Log irakurgailua",
     "A log reader for Nextcloud" : "Nextcloudentzat log fitxategien irakurlea",
-    "Log reader for Nextcloud" : "Nextcloudentzat log fitxategien irakurlea"
+    "Log reader for Nextcloud" : "Nextcloudentzat log fitxategien irakurlea",
+    "Load log file …" : "Kargatu log fitxategia ..."
 },
 "nplurals=2; plural=(n != 1);");
