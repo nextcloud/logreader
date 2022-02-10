@@ -6,21 +6,23 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const strip = require('strip-loader');
 
-const relativeAssetsPath = '../build';
+const relativeAssetsPath = '../js';
 const assetsPath = path.join(__dirname, relativeAssetsPath);
 
 module.exports = {
 	devtool: 'source-map',
 	mode: 'production',
 	context: path.resolve(__dirname, '..'),
-	entry: [
-		'./js/index.js'
-	],
+	entry: {
+		'logreader-main': [
+			'./src/index.js'
+		]
+	},
 	output: {
 		path: assetsPath,
 		filename: '[name].js',
 		chunkFilename: '[name]-[chunkhash].js',
-		publicPath: '/build/'
+		publicPath: '/js/'
 	},
 	module: {
 		rules: [
