@@ -309,8 +309,7 @@ th.CzbYfZPJ0SdnC6s0lRjv {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .p7QkjNe92r1Q9n0QaxkK {
