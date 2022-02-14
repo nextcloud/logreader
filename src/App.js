@@ -5,7 +5,7 @@ import {LogTable} from './Components/LogTable.js';
 
 import {LogFile} from './Providers/LogFile.js'
 
-import styles from '../css/app.css';
+import styles from './App.css';
 
 export class App extends Component {
 	state = {

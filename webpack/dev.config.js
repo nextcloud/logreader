@@ -1,12 +1,12 @@
 const path = require('path');
-const assetsPath = path.resolve(__dirname, '../build');
+const assetsPath = path.resolve(__dirname, '../js');
 
 module.exports = {
 	mode: 'development',
 	devtool: 'cheap-module-source-map',
 	context: path.resolve(__dirname, '..'),
 	entry: {
-		'main': [
+		'logreader-main': [
 			'./js/index.js'
 		]
 	},
@@ -14,7 +14,7 @@ module.exports = {
 		path: assetsPath,
 		filename: '[name].js',
 		chunkFilename: '[name]-[chunkhash].js',
-		publicPath: '/build/'
+		publicPath: '/js/'
 	},
 	module: {
 		rules: [
