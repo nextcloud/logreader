@@ -13,16 +13,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ChristophWurst/nextcloud_composer.git",
-                "reference": "3aca7baf34a63c9566ed8161c1f720d3d3ae8a74"
+                "reference": "901a16e81614dbacdd7480dd8f566b236472048b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ChristophWurst/nextcloud_composer/zipball/3aca7baf34a63c9566ed8161c1f720d3d3ae8a74",
-                "reference": "3aca7baf34a63c9566ed8161c1f720d3d3ae8a74",
+                "url": "https://api.github.com/repos/ChristophWurst/nextcloud_composer/zipball/901a16e81614dbacdd7480dd8f566b236472048b",
+                "reference": "901a16e81614dbacdd7480dd8f566b236472048b",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3 || ~8.0.0",
+                "php": "^7.4 || ~8.0 || ~8.1",
                 "psr/container": "^1.0",
                 "psr/event-dispatcher": "^1.0",
                 "psr/log": "^1.1"
@@ -49,7 +49,7 @@
                 "issues": "https://github.com/ChristophWurst/nextcloud_composer/issues",
                 "source": "https://github.com/ChristophWurst/nextcloud_composer/tree/master"
             },
-            "time": "2022-01-28T01:10:59+00:00"
+            "time": "2022-02-10T01:13:39+00:00"
         },
         {
             "name": "composer/semver",
