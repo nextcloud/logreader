@@ -1,13 +1,18 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error parsing log" : "Fejl i fortolkning af log",
     "Caused by " : "Forårsaget af",
     "Debug" : "Fejlfinding",
     "Info" : "Info",
     "Warning" : "Advarsler",
     "Error" : "Fejl",
     "Fatal" : "Fatal",
+    "Load log file" : "Indlæs logfil",
+    "Invalid log file" : "Ugyldig logfil",
+    "Log levels" : "Log niveauer",
+    "Log content" : "Log indhold",
+    "Live update" : "Live opdateringer",
+    "Download logs" : "Hent logs",
     "Copy" : "Kopier",
     "Copy raw" : "Kopier uformateret",
     "Copy formatted" : "Kopier formateret",
@@ -18,14 +23,11 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Besked",
     "Time" : "Tid",
-    "Invalid log file" : "Ugyldig logfil",
-    "Log levels" : "Log niveauer",
-    "Log content" : "Log indhold",
-    "Live update" : "Live opdateringer",
-    "Download logs" : "Hent logs",
+    "Error parsing log" : "Fejl i fortolkning af log",
     "Logging" : "Logging",
     "Log Reader" : "Log aflæser",
     "A log reader for Nextcloud" : "En loglæser til Nextcloud",
-    "Log reader for Nextcloud" : "Loglæser til Nextcloud"
+    "Log reader for Nextcloud" : "Loglæser til Nextcloud",
+    "Load log file …" : "Indlæs logfil …"
 },
 "nplurals=2; plural=(n != 1);");
