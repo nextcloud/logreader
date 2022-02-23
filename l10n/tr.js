@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "seconds" : "saniye",
     "Caused by " : "Nedeni",
     "Debug" : "Hata ayıklama",
     "Info" : "Bilgiler",

@@ -1,4 +1,5 @@
 { "translations": {
+    "seconds" : "Sekunden",
     "Caused by " : "Verursacht durch",
     "Debug" : "Fehlersuche",
     "Info" : "Information",
