@@ -1,4 +1,5 @@
 { "translations": {
+    "seconds" : "秒",
     "Caused by " : "造成原因",
     "Debug" : "Debug",
     "Info" : "Info",

@@ -1,4 +1,5 @@
 { "translations": {
+    "seconds" : "secondi",
     "Caused by " : "Generato da",
     "Debug" : "Debug",
     "Info" : "Info",
