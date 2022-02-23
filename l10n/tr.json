@@ -1,4 +1,5 @@
 { "translations": {
+    "seconds" : "saniye",
     "Caused by " : "Nedeni",
     "Debug" : "Hata ayıklama",
     "Info" : "Bilgiler",

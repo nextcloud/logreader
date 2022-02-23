@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "seconds" : "秒",
     "Caused by " : "造成原因",
     "Debug" : "Debug",
     "Info" : "Info",
