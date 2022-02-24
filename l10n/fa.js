@@ -1,11 +1,12 @@
 OC.L10N.register(
     "logreader",
     {
+    "Logging" : "ورود به سیستم",
+    "Log Reader" : "ورود به سیستم خواننده",
+    "A log reader for Nextcloud" : "خواننده گزارش برای Nextcloud",
+    "Log reader for Nextcloud" : "خواننده را برای Nextcloud وارد کنید",
+    "Error parsing log" : "خطا در ثبت گزارش",
     "Caused by " : "ناشی از",
-    "Log levels" : "سطح ورود به سیستم",
-    "Log content" : "محتوا را وارد کنید",
-    "Live update" : "به روز رسانی زنده",
-    "Download logs" : "بارگیری لگاریتم",
     "Copy" : "کپی کردن",
     "Copy raw" : "کپی کردن خام",
     "Copy formatted" : "قالب کپی کنید",
@@ -16,10 +17,9 @@ OC.L10N.register(
     "App" : "برنامه",
     "Message" : "پیام",
     "Time" : "زمان",
-    "Error parsing log" : "خطا در ثبت گزارش",
-    "Logging" : "ورود به سیستم",
-    "Log Reader" : "ورود به سیستم خواننده",
-    "A log reader for Nextcloud" : "خواننده گزارش برای Nextcloud",
-    "Log reader for Nextcloud" : "خواننده را برای Nextcloud وارد کنید"
+    "Log levels" : "سطح ورود به سیستم",
+    "Log content" : "محتوا را وارد کنید",
+    "Live update" : "به روز رسانی زنده",
+    "Download logs" : "بارگیری لگاریتم"
 },
 "nplurals=2; plural=(n > 1);");
