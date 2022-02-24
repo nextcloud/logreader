@@ -1,8 +1,7 @@
 { "translations": {
-    "Log levels" : "Loggfør nivå",
-    "Log content" : "Loggfør innhold",
-    "Live update" : "Levende oppdatering",
-    "Download logs" : "Last ned logger",
+    "Logging" : "Logging",
+    "Log Reader" : "Loggleser",
+    "Error parsing log" : "Feil ved fortolkning av logg",
     "Copy" : "Kopier",
     "No server logs" : "Ingen serverlogger",
     "One or more entries are hidden by the log level filter" : "Én eller flere oppføringer er skjult av loggnivåfilteret",
@@ -11,8 +10,9 @@
     "App" : "App",
     "Message" : "Melding",
     "Time" : "Tid",
-    "Error parsing log" : "Feil ved fortolkning av logg",
-    "Logging" : "Logging",
-    "Log Reader" : "Loggleser"
+    "Log levels" : "Loggfør nivå",
+    "Log content" : "Loggfør innhold",
+    "Live update" : "Levende oppdatering",
+    "Download logs" : "Last ned logger"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

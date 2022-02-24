@@ -1,16 +1,15 @@
 { "translations": {
+    "Logging" : "Registre",
+    "Log Reader" : "Lector del registre",
+    "A log reader for Nextcloud" : "Lector del registre per al Nextcloud",
+    "Log reader for Nextcloud" : "Lector del registre per al Nextcloud",
+    "Error parsing log" : "S'ha produït un error en analitzar el registre",
     "Caused by " : "Provocat per ",
     "Debug" : "Depuració",
     "Info" : "Informació",
     "Warning" : "Avís",
     "Error" : "Error",
     "Fatal" : "Crític",
-    "Load log file" : "Carrega un fitxer de registre",
-    "Invalid log file" : "El fitxer de registre no és vàlid",
-    "Log levels" : "Nivells de registre",
-    "Log content" : "Contingut del registre",
-    "Live update" : "Actualització en directe",
-    "Download logs" : "Baixa els registres",
     "Copy" : "Copia",
     "Copy raw" : "Copia sense processar",
     "Copy formatted" : "Copia amb format",
@@ -21,10 +20,11 @@
     "App" : "Aplicació",
     "Message" : "Missatge",
     "Time" : "Hora",
-    "Error parsing log" : "S'ha produït un error en analitzar el registre",
-    "Logging" : "Registre",
-    "Log Reader" : "Lector del registre",
-    "A log reader for Nextcloud" : "Lector del registre per al Nextcloud",
-    "Log reader for Nextcloud" : "Lector del registre per al Nextcloud"
+    "Load log file" : "Carrega un fitxer de registre",
+    "Invalid log file" : "El fitxer de registre no és vàlid",
+    "Log levels" : "Nivells de registre",
+    "Log content" : "Contingut del registre",
+    "Live update" : "Actualització en directe",
+    "Download logs" : "Baixa els registres"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

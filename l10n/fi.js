@@ -1,13 +1,13 @@
 OC.L10N.register(
     "logreader",
     {
+    "Logging" : "Loki",
+    "Log Reader" : "Lokilukija",
+    "A log reader for Nextcloud" : "Nextcloudin lokilukija",
+    "Log reader for Nextcloud" : "Nextcloudin lokilukija",
+    "Error parsing log" : "Virhe jäsentäessä lokia",
     "Warning" : "Varoitus",
     "Error" : "Virhe",
-    "Invalid log file" : "Virheellinen lokitiedosto",
-    "Log levels" : "Lokitasot",
-    "Log content" : "Lokin sisältö",
-    "Live update" : "Live-päivitys",
-    "Download logs" : "Lataa lokit",
     "Copy" : "Kopioi",
     "Copy raw" : "Kopioi raakatekstinä",
     "Copy formatted" : "Kopioi muotoiltuna",
@@ -18,10 +18,10 @@ OC.L10N.register(
     "App" : "Sovellus",
     "Message" : "Viesti",
     "Time" : "Aika",
-    "Error parsing log" : "Virhe jäsentäessä lokia",
-    "Logging" : "Loki",
-    "Log Reader" : "Lokilukija",
-    "A log reader for Nextcloud" : "Nextcloudin lokilukija",
-    "Log reader for Nextcloud" : "Nextcloudin lokilukija"
+    "Invalid log file" : "Virheellinen lokitiedosto",
+    "Log levels" : "Lokitasot",
+    "Log content" : "Lokin sisältö",
+    "Live update" : "Live-päivitys",
+    "Download logs" : "Lataa lokit"
 },
 "nplurals=2; plural=(n != 1);");
