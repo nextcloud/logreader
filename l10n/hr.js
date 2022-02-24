@@ -1,17 +1,17 @@
 OC.L10N.register(
     "logreader",
     {
+    "Logging" : "Zapisivanje",
+    "Log Reader" : "Čitač zapisa",
+    "A log reader for Nextcloud" : "Čitač zapisa za Nextcloud",
+    "Log reader for Nextcloud" : "Čitač zapisa za Nextcloud",
+    "Error parsing log" : "Pogreška pri parsiranju zapisa",
     "Caused by " : "Uzrokovao",
     "Debug" : "Otklanjanje pogrešaka",
     "Info" : "Informacije",
     "Warning" : "Upozorenje",
     "Error" : "Pogreška",
     "Fatal" : "Fatalno",
-    "Invalid log file" : "Nevažeća datoteka zapisa",
-    "Log levels" : "Razine zapisa",
-    "Log content" : "Sadržaj zapisa",
-    "Live update" : "Ažuriranje uživo",
-    "Download logs" : "Preuzmi zapise",
     "Copy" : "Kopiraj",
     "Copy raw" : "Kopiraj neobrađeno",
     "Copy formatted" : "Kopiraj formatirano",
@@ -22,10 +22,10 @@ OC.L10N.register(
     "App" : "Aplikacija",
     "Message" : "Poruka",
     "Time" : "Vrijeme",
-    "Error parsing log" : "Pogreška pri parsiranju zapisa",
-    "Logging" : "Zapisivanje",
-    "Log Reader" : "Čitač zapisa",
-    "A log reader for Nextcloud" : "Čitač zapisa za Nextcloud",
-    "Log reader for Nextcloud" : "Čitač zapisa za Nextcloud"
+    "Invalid log file" : "Nevažeća datoteka zapisa",
+    "Log levels" : "Razine zapisa",
+    "Log content" : "Sadržaj zapisa",
+    "Live update" : "Ažuriranje uživo",
+    "Download logs" : "Preuzmi zapise"
 },
 "nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;");

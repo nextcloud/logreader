@@ -1,7 +1,9 @@
 OC.L10N.register(
     "logreader",
     {
-    "Download logs" : "Lejupielādēt žurnālierakstu",
+    "Logging" : "Žurnalēšana",
+    "Log Reader" : "Žurnālierakstu lasītājs",
+    "Error parsing log" : "Kļūda analizējot žurnālus",
     "Copy" : "Kopēt",
     "No server logs" : "Nav servera žurnālierakstu",
     "One or more entries are hidden by the log level filter" : "Vēl viens ieraksts ir slēpts žurnālierakstu līmeņa filtrā",
@@ -9,8 +11,6 @@ OC.L10N.register(
     "App" : "Lietotne",
     "Message" : "Ziņojums",
     "Time" : "Laiks",
-    "Error parsing log" : "Kļūda analizējot žurnālus",
-    "Logging" : "Žurnalēšana",
-    "Log Reader" : "Žurnālierakstu lasītājs"
+    "Download logs" : "Lejupielādēt žurnālierakstu"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

@@ -1,11 +1,12 @@
 OC.L10N.register(
     "logreader",
     {
+    "Logging" : "Уписивање у дневник",
+    "Log Reader" : "Читач дневника",
+    "A log reader for Nextcloud" : "Читач дневника за Некстклауд",
+    "Log reader for Nextcloud" : "Читач дневника за Некстклауд",
+    "Error parsing log" : "Грешка при парсирању дневника",
     "Caused by " : "Изазвао",
-    "Log levels" : "Нивои логовања",
-    "Log content" : "Садржај дневника",
-    "Live update" : "Ажурирање уживо",
-    "Download logs" : "Скини дневнике",
     "Copy" : "Копирај",
     "Copy raw" : "Копирај непрерађено",
     "Copy formatted" : "Копирај форматирано",
@@ -16,10 +17,9 @@ OC.L10N.register(
     "App" : "Апликација",
     "Message" : "Порука",
     "Time" : "Време",
-    "Error parsing log" : "Грешка при парсирању дневника",
-    "Logging" : "Уписивање у дневник",
-    "Log Reader" : "Читач дневника",
-    "A log reader for Nextcloud" : "Читач дневника за Некстклауд",
-    "Log reader for Nextcloud" : "Читач дневника за Некстклауд"
+    "Log levels" : "Нивои логовања",
+    "Log content" : "Садржај дневника",
+    "Live update" : "Ажурирање уживо",
+    "Download logs" : "Скини дневнике"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");
