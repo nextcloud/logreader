@@ -1,10 +1,11 @@
 OC.L10N.register(
     "logreader",
     {
-    "Log levels" : "Log levels",
-    "Log content" : "Log content",
-    "Live update" : "Live update",
-    "Download logs" : "Download logs",
+    "Logging" : "Logging",
+    "Log Reader" : "Log Reader",
+    "A log reader for Nextcloud" : "A log reader for Nextcloud",
+    "Log reader for Nextcloud" : "Log reader for Nextcloud",
+    "Error parsing log" : "Error parsing log",
     "Copy" : "Copy",
     "No server logs" : "No server logs",
     "One or more entries are hidden by the log level filter" : "One or more entries are hidden by the log level filter",
@@ -13,10 +14,9 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Message",
     "Time" : "Time",
-    "Error parsing log" : "Error parsing log",
-    "Logging" : "Logging",
-    "Log Reader" : "Log Reader",
-    "A log reader for Nextcloud" : "A log reader for Nextcloud",
-    "Log reader for Nextcloud" : "Log reader for Nextcloud"
+    "Log levels" : "Log levels",
+    "Log content" : "Log content",
+    "Live update" : "Live update",
+    "Download logs" : "Download logs"
 },
 "nplurals=2; plural=(n != 1);");

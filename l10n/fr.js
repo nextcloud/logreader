@@ -1,13 +1,14 @@
 OC.L10N.register(
     "logreader",
     {
+    "Logging" : "Journalisation",
+    "Log Reader" : "Lecteur du fichier journal",
+    "A log reader for Nextcloud" : "Un lecteur du fichier journal pour Nextcloud",
+    "Log reader for Nextcloud" : "Lecteur du fichier journal pour Nextcloud",
+    "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
     "Caused by " : "Causé par",
     "Info" : "Info",
     "Error" : "Erreur",
-    "Log levels" : "Niveaux du registre",
-    "Log content" : "Contenu du registre",
-    "Live update" : "Mise à jour en direct",
-    "Download logs" : "Télécharger les journaux",
     "Copy" : "Copier",
     "Copy raw" : "Copie brute",
     "Copy formatted" : "Copie formatée",
@@ -18,10 +19,9 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Message",
     "Time" : "Heure",
-    "Error parsing log" : "Erreur lors de l'analyse du fichier journal",
-    "Logging" : "Journalisation",
-    "Log Reader" : "Lecteur du fichier journal",
-    "A log reader for Nextcloud" : "Un lecteur du fichier journal pour Nextcloud",
-    "Log reader for Nextcloud" : "Lecteur du fichier journal pour Nextcloud"
+    "Log levels" : "Niveaux du registre",
+    "Log content" : "Contenu du registre",
+    "Live update" : "Mise à jour en direct",
+    "Download logs" : "Télécharger les journaux"
 },
 "nplurals=2; plural=(n > 1);");
