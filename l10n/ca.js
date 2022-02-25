@@ -27,6 +27,7 @@ OC.L10N.register(
     "Log levels" : "Nivells de registre",
     "Log content" : "Contingut del registre",
     "Live update" : "Actualització en directe",
-    "Download logs" : "Baixa els registres"
+    "Download logs" : "Baixa els registres",
+    "Load log file …" : "Carrega un fitxer de registre..."
 },
 "nplurals=2; plural=(n != 1);");
