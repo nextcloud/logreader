@@ -7,6 +7,7 @@ OC.L10N.register(
     "Log reader for Nextcloud" : "Αναγνώστης αρχείου καταγραφής για το Nextcloud",
     "Error parsing log" : "Σφάλμα κατά την ανάλυση του αρχείου καταγραφής",
     "Caused by " : "Προκλήθηκε από",
+    "Fatal" : "Καίριο",
     "Copy" : "Αντιγραφή",
     "Copy raw" : "Αντιγραφή σειράς",
     "Copy formatted" : "Αντιγραφή μορφοποίησης",
