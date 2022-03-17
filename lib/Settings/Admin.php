@@ -22,9 +22,16 @@
 namespace OCA\LogReader\Settings;
 
 use OCP\AppFramework\Http\TemplateResponse;
-use OCP\Settings\ISettings;
+use OCP\IL10N;
+use OCP\Settings\IDelegatedSettings;
 
-class Admin implements ISettings {
+class Admin implements IDelegatedSettings {
+	/** @var IL10N */
+	private $l;
+
+	public function __construct(IL10N $l) {
+		$this->l = $l;
+	}
 	/**
 	 * @return TemplateResponse
 	 */
@@ -51,5 +58,13 @@ class Admin implements ISettings {
 	 */
 	public function getPriority() {
 		return 90;
+	}
+
+	public function getName(): ?string {
+		return null;
+	}
+
+	public function getAuthorizedAppConfig(): array {
+		return [];
 	}
 }
