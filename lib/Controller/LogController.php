@@ -49,6 +49,7 @@ class LogController extends Controller {
 	}
 
 	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
 	 * @param int $count
 	 * @param int $offset
 	 * @param string $levels
@@ -71,6 +72,7 @@ class LogController extends Controller {
 	}
 
 	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
 	 * @brief polls for a new log message since $lastReqId.
 	 * This method will sleep for maximum 20 seconds before returning an empty
 	 * result.
@@ -121,6 +123,7 @@ class LogController extends Controller {
 	}
 
 	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
 	 * @param string $query
 	 * @param int $count
 	 * @param int $offset
@@ -138,11 +141,17 @@ class LogController extends Controller {
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
 
-	public function getLevels() {
+	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
+	 */
+	public function getLevels(): JSONResponse {
 		return new JSONResponse($this->config->getAppValue('logreader', 'levels', '11111'));
 	}
 
-	public function getSettings() {
+	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
+	 */
+	public function getSettings(): JSONResponse {
 		return new JSONResponse([
 			'levels' => $this->config->getAppValue('logreader', 'levels', '11111'),
 			'dateformat' => $this->config->getSystemValue('logdateformat', \DateTime::ISO8601),
@@ -153,6 +162,7 @@ class LogController extends Controller {
 	}
 
 	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
 	 * @param bool $relative
 	 */
 	public function setRelative($relative) {
@@ -160,13 +170,17 @@ class LogController extends Controller {
 	}
 
 	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
 	 * @param bool $live
 	 */
 	public function setLive($live) {
 		$this->config->setAppValue('logreader', 'live', $live);
 	}
 
-	public function setLevels($levels) {
+	/**
+	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
+	 */
+	public function setLevels(string $levels): int {
 		$intLevels = array_map('intval', str_split($levels));
 		$minLevel = 4;
 		foreach ($intLevels as $level => $log) {
