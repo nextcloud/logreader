@@ -13,7 +13,7 @@
 		"@babel/preset-env": "^7.16.11",
 		"@babel/preset-react": "^7.16.7",
 		"@nextcloud/browserslist-config": "^2.2.0",
-		"babel-loader": "8.2.3",
+		"babel-loader": "8.2.4",
 		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^6.7.1",
 		"json-loader": "0.5.7",
