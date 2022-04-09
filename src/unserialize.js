@@ -92,7 +92,7 @@ export default function (phpstr) {
 			case 's':
 				var key = readString();
 				if (key[key.length - 2] === '"') { // missing null bytes gives invalid length
-					key = key.substr(0, key.length - 2);
+					key = key.slice(0, -2);
 					idx -= 2;
 				}
 				return key;
@@ -153,7 +153,7 @@ export default function (phpstr) {
 			pos = parsedName.indexOf("\u0000", 1);
 			if (pos > 0) {
 				class_name = parsedName.substring(1, pos);
-				prop_name = parsedName.substr(pos + 1);
+				prop_name = parsedName.slice(pos + 1);
 
 				if ("*" === class_name) {
 					// protected
@@ -181,8 +181,8 @@ export default function (phpstr) {
 					// So, we can to lose something in any way.
 				}
 			}
-		} else if (parsedName.substr(0, baseClassName.length) === baseClassName) { // private property with missing null bytes
-			return baseClassName + '::' + parsedName.substr(baseClassName.length);
+		} else if (parsedName.slice(0, baseClassName.length) === baseClassName) { // private property with missing null bytes
+			return baseClassName + '::' + parsedName.slice(baseClassName.length);
 		} else {
 			// public "property"
 			return parsedName;
