@@ -19,9 +19,12 @@ OC.L10N.register(
     "App" : "App",
     "Message" : "Message",
     "Time" : "Heure",
+    "Load log file" : "Charger un fichier journal",
+    "Invalid log file" : "Fichier journal invalide",
     "Log levels" : "Niveaux du registre",
     "Log content" : "Contenu du registre",
     "Live update" : "Mise à jour en direct",
-    "Download logs" : "Télécharger les journaux"
+    "Download logs" : "Télécharger les journaux",
+    "Load log file …" : "Charger un fichier journal..."
 },
 "nplurals=2; plural=(n > 1);");
