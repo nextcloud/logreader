@@ -1,6 +1,10 @@
 OC.L10N.register(
     "logreader",
     {
+    "Info" : "Info",
+    "Warning" : "Åtvaring",
+    "Error" : "Feil",
+    "Copy" : "Kopier",
     "App" : "Applikasjon",
     "Time" : "Tid"
 },

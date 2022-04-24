@@ -1,0 +1,7 @@
+{ "translations": {
+    "Info" : "Info",
+    "Warning" : "எச்சரிக்கை",
+    "Error" : "வழு",
+    "Copy" : "Copy"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

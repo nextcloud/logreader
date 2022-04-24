@@ -26,6 +26,7 @@ OC.L10N.register(
     "Log levels" : "Livellos de registru",
     "Log content" : "Cuntenutu de is registros",
     "Live update" : "Agiornamentu in direta",
-    "Download logs" : "Iscàrriga registros"
+    "Download logs" : "Iscàrriga registros",
+    "Load log file …" : "Càrriga archìviu de registru ..."
 },
 "nplurals=2; plural=(n != 1);");

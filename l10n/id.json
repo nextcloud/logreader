@@ -1,4 +1,7 @@
 { "translations": {
+    "Info" : "Info",
+    "Warning" : "Peringatan",
+    "Error" : "Galat",
     "Copy" : "Salin",
     "App" : "Apl",
     "Message" : "Pesan",
