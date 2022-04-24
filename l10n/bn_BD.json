@@ -1,0 +1,7 @@
+{ "translations": {
+    "Info" : "Info",
+    "Warning" : "সতর্কবাণী",
+    "Error" : "সমস্যা",
+    "Time" : "সময়"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
