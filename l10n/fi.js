@@ -7,6 +7,7 @@ OC.L10N.register(
     "Log reader for Nextcloud" : "Nextcloudin lokilukija",
     "Error parsing log" : "Virhe jäsentäessä lokia",
     "Caused by " : "Aiheuttanut",
+    "Info" : "Tietoa",
     "Warning" : "Varoitus",
     "Error" : "Virhe",
     "Copy" : "Kopioi",

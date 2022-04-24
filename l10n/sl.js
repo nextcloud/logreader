@@ -26,6 +26,7 @@ OC.L10N.register(
     "Log levels" : "Ravni beleženja",
     "Log content" : "Vsebina dnevnika",
     "Live update" : "Posodobitev v živo",
-    "Download logs" : "Prejem dnevnikov"
+    "Download logs" : "Prejem dnevnikov",
+    "Load log file …" : "Naloži dnevniško datoteko ..."
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");

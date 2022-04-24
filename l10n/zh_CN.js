@@ -27,6 +27,7 @@ OC.L10N.register(
     "Log levels" : "日志级别",
     "Log content" : "日志内容",
     "Live update" : "在线更新",
-    "Download logs" : "下载日志"
+    "Download logs" : "下载日志",
+    "Load log file …" : "加载日志文件 …"
 },
 "nplurals=1; plural=0;");

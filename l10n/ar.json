@@ -1,4 +1,7 @@
 { "translations": {
+    "Info" : "معلومات",
+    "Warning" : "تحذير",
+    "Error" : "خطأ",
     "Copy" : "أنسخ",
     "Level" : "الدرجة",
     "App" : "التطبيق",

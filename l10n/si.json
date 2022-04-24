@@ -1,4 +1,7 @@
 { "translations": {
+    "Info" : "තොරතුරු",
+    "Warning" : "අවවාදයයි",
+    "Error" : "දෝෂය",
     "Copy" : "පිටපත්",
     "App" : "යෙදුම",
     "Message" : "පණිවිඩය",

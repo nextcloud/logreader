@@ -1,4 +1,7 @@
 { "translations": {
+    "Info" : "Info",
+    "Warning" : "Warning",
+    "Error" : "Алдаа",
     "Copy" : "Хуулах",
     "Level" : "түвшин",
     "App" : "Аппликэйшин",

@@ -26,6 +26,7 @@ OC.L10N.register(
     "Log levels" : "Razine zapisa",
     "Log content" : "Sadržaj zapisa",
     "Live update" : "Ažuriranje uživo",
-    "Download logs" : "Preuzmi zapise"
+    "Download logs" : "Preuzmi zapise",
+    "Load log file …" : "Učitaj datoteku zapisa..."
 },
 "nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;");

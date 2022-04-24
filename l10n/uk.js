@@ -1,6 +1,9 @@
 OC.L10N.register(
     "logreader",
     {
+    "Info" : "Info",
+    "Warning" : "Увага",
+    "Error" : "Помилка",
     "Copy" : "Копіювати",
     "App" : "Застосунок",
     "Time" : "Час"
