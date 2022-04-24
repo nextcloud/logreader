@@ -1,0 +1,7 @@
+{ "translations": {
+    "Info" : "Info",
+    "Warning" : "Warnung",
+    "Error" : "Fehler",
+    "Time" : "Zäit"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

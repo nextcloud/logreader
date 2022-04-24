@@ -1,6 +1,9 @@
 OC.L10N.register(
     "logreader",
     {
+    "Info" : "Info",
+    "Warning" : "Warning",
+    "Error" : "Алдаа",
     "Copy" : "Хуулах",
     "Level" : "түвшин",
     "App" : "Аппликэйшин",
