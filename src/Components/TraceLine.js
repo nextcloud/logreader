@@ -47,7 +47,7 @@ export class Argument extends Component {
 		return (
 			<span className={style.argument}
 				  title={showInline ? null : fancyFormatted}>
-				{showInline ? baseFormatted : `${baseFormatted.slice(0, 12)} ... ${baseFormatted.slice(-2)}`}
+				{showInline ? baseFormatted : `${baseFormatted.substr(0, 12)} ... ${baseFormatted.substr(baseFormatted.length - 2, 2)}`}
 			</span>
 		)
 	}
