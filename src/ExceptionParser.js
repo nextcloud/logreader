@@ -14,11 +14,11 @@ export class ExceptionParser {
 	}
 
 	isOldStyleException (logMessage) {
-		return logMessage.substr && logMessage.slice(0, 12) === 'Exception: {';
+		return logMessage.substr && logMessage.substr(0, 12) === 'Exception: {';
 	}
 
 	isBackgroundJobException (logMessage) {
-		return logMessage.substr && logMessage.slice(0, 34) === 'Error while running background job' && logMessage.indexOf('{"Exception":') !== -1;
+		return logMessage.substr && logMessage.substr(0, 34) === 'Error while running background job' && logMessage.indexOf('{"Exception":') !== -1;
 	}
 
 	parse (logMessage) {
@@ -28,20 +28,20 @@ export class ExceptionParser {
 		let data;
 		if (this.isOldStyleException(logMessage)) {
 			try {
-				data = this.tryParseJSON(logMessage.slice(10));
+				data = this.tryParseJSON(logMessage.substr(10));
 			} catch (e) {
 				console.log('Error while parsing exception:');
-				console.log(logMessage.slice(10));
+				console.log(logMessage.substr(10));
 				console.error(e);
 			}
 		} else {
-			data = this.tryParseJSON(logMessage.slice(logMessage.indexOf('{"Exception":')));
-			const messageHead = logMessage.substring(0, logMessage.indexOf('{"Exception":'));
+			data = this.tryParseJSON(logMessage.substr(logMessage.indexOf('{"Exception":')));
+			const messageHead = logMessage.substr(0, logMessage.indexOf('{"Exception":'));
 			const jobDataString = messageHead.split('(', 2)[1];
 			const jobDataParts = jobDataString.split(',', 2).map(part => part.trim());
 			data.jobClass = jobDataParts[0].split(':', 2)[1].trim();
-			data.jobArguments = jobDataParts[1].slice(10).trim();
-			window.s = jobDataParts[1].slice(10).trim();
+			data.jobArguments = jobDataParts[1].substr(10).trim();
+			window.s = jobDataParts[1].substr(10).trim();
 			if (data.jobClass === 'OC\\Command\\CommandJob') {
 				try {
 					[data.jobClass, data.jobArguments] = this.parseCommandJob(data.jobArguments);
@@ -94,7 +94,7 @@ export class ExceptionParser {
 			} else {
 				let filePaths = fileAndLine.split('(', 2);
 				file = filePaths[0];
-				lineNumber = filePaths[1].slice(0, -1);
+				lineNumber = filePaths[1].substr(0, filePaths[1].length - 1);
 			}
 			return {
 				'function': call,
@@ -134,7 +134,7 @@ export class ExceptionParser {
 					const args = (trace.args || []).map(arg => {
 						const baseFormatted = formatArgument(arg, 0).replace(/\n/g, '');;
 						const showInline = baseFormatted.length < 42;
-						return showInline ? baseFormatted : `${baseFormatted.slice(0, 16)} ... ${baseFormatted.slice(-2)}`;
+						return showInline ? baseFormatted : `${baseFormatted.substr(0, 16)} ... ${baseFormatted.substr(baseFormatted.length - 2, 2)}`;
 					});
 					return `${' '.repeat(widestIndex - ('' + i).length)}${i}. ${fileAndLine(trace)}\n` +
 						`${' '.repeat(widestIndex + 2)}${trace.class || ''}${trace.type || ''}${trace.function}(${args.join(', ')})`;
