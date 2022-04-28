@@ -32,9 +32,9 @@ export class LogFile extends LogProvider {
 			// fix unescaped message json
 			const startPos = json.indexOf('"message":"') + ('"message":"').length;
 			const endPos = json.lastIndexOf('","level":');
-			const start = json.slice(0, startPos);
-			const end = json.slice(endPos);
-			const message = json.slice(startPos, endPos);
+			const start = json.substr(0, startPos);
+			const end = json.substr(endPos);
+			const message = json.substr(startPos, endPos - startPos);
 
 			const escapedMessage = message.replace(/([^\\]|^)["]/g, '$1\\"');
 			json = start + escapedMessage + end;
