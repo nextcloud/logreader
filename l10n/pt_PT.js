@@ -2,6 +2,9 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Registos",
+    "Info" : "Informação",
+    "Warning" : "Aviso",
+    "Error" : "Erro",
     "Copy" : "Copiar",
     "Level" : "Nível",
     "App" : "Aplicação",

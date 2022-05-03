@@ -2,6 +2,9 @@ OC.L10N.register(
     "logreader",
     {
     "Error parsing log" : "Fallu analizando'l rexistru",
+    "Info" : "Info",
+    "Warning" : "Alvertencia",
+    "Error" : "Fallu",
     "Copy" : "Copiar",
     "No server logs" : "Nun hai rexistros del sirvidor",
     "Everything is working fine" : "Too ta funcionando bien",

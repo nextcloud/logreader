@@ -27,6 +27,7 @@ OC.L10N.register(
     "Log levels" : "Niveles de registro",
     "Log content" : "Contenido del registro",
     "Live update" : "Mostrar en directo",
-    "Download logs" : "Descargar registros"
+    "Download logs" : "Descargar registros",
+    "Load log file …" : "Cargar archivo de registro ..."
 },
 "nplurals=2; plural=(n != 1);");

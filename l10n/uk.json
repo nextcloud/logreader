@@ -1,4 +1,7 @@
 { "translations": {
+    "Info" : "Info",
+    "Warning" : "Увага",
+    "Error" : "Помилка",
     "Copy" : "Копіювати",
     "App" : "Застосунок",
     "Time" : "Час"

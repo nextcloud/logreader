@@ -1,6 +1,9 @@
 OC.L10N.register(
     "logreader",
     {
+    "Info" : "Info",
+    "Warning" : "Rhybudd",
+    "Error" : "Gwall",
     "Copy" : "Copïo",
     "Time" : "Amser"
 },
