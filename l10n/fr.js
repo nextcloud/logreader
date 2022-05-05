@@ -11,6 +11,7 @@ OC.L10N.register(
     "Info" : "Info",
     "Warning" : "Avertissement",
     "Error" : "Erreur",
+    "Fatal" : "Fatal",
     "Copy" : "Copier",
     "Copy raw" : "Copie brute",
     "Copy formatted" : "Copie formatée",
