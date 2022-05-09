@@ -11,6 +11,7 @@ OC.L10N.register(
     "Info" : "情報",
     "Warning" : "警告",
     "Error" : "エラー",
+    "Fatal" : " 致命的なエラー",
     "Copy" : "コピー",
     "Copy raw" : "そのままコピー",
     "Copy formatted" : "フォーマット済みのコピー",
@@ -22,9 +23,11 @@ OC.L10N.register(
     "Message" : "メッセージ",
     "Time" : "時間",
     "Load log file" : "ログファイルを読み込む",
+    "Invalid log file" : "不正なログファイルです",
     "Log levels" : "ログレベル",
     "Log content" : "ログ情報",
     "Live update" : "ライブアップデート",
-    "Download logs" : "ログのダウンロード"
+    "Download logs" : "ログのダウンロード",
+    "Load log file …" : "ログファイルを読み込む"
 },
 "nplurals=1; plural=0;");
