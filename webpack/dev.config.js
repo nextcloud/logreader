@@ -7,7 +7,7 @@ module.exports = {
 	context: path.resolve(__dirname, '..'),
 	entry: {
 		'logreader-main': [
-			'./js/index.js'
+			'./src/index.js'
 		]
 	},
 	output: {
