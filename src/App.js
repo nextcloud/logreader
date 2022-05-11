@@ -23,7 +23,7 @@ export class App extends Component {
 		this.logProvider = this.props.logProvider;
 		this.logProvider.on('entries', entries => {
 			if (this.state.provider === this.logProvider) {
-				this.setState({entries});
+				this.setState({entries, loading: false});
 			}
 		});
 		this.saveRelative = _.debounce(this.logProvider.setRelative, 100);
@@ -62,17 +62,20 @@ export class App extends Component {
 	async setLevel (level, newState) {
 		let levels = this.state.levels;
 		levels[level] = newState;
-		this.setState({levels});
+		this.setState({levels, entries: [], loading: true});
 		await this.logProvider.setLevels(levels);
-		this.logProvider.reset();
-		this.logProvider.load();
+		this.state.provider.reset();
+		await this.state.provider.load();
+		this.setState({loading: false});
 	}
 
 	onLogFile = async (content) => {
+		this.setState({loading: true});
+
 		const logFile = new LogFile(content);
 		logFile.on('entries', entries => {
 			if (this.state.provider === logFile) {
-				this.setState({entries});
+				this.setState({entries, loading: false});
 			}
 		});
 		try {
