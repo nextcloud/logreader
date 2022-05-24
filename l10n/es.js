@@ -30,4 +30,4 @@ OC.L10N.register(
     "Download logs" : "Descargar registros",
     "Load log file …" : "Cargar archivo de registro ..."
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
