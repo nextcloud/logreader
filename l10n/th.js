@@ -5,6 +5,7 @@ OC.L10N.register(
     "Warning" : "คำเตือน",
     "Error" : "ข้อผิดพลาด",
     "Copy" : "คัดลอก",
+    "App" : "แอป",
     "Time" : "เวลา"
 },
 "nplurals=1; plural=0;");
