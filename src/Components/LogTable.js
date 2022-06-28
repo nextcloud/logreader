@@ -4,7 +4,8 @@ import {LogLevel} from './LogLevel.js';
 import MediaQuery from 'react-responsive';
 import {convertDateFormat} from '../DateFormatConverter.js'
 import {Settings} from './Settings';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactTransitionGroup from 'react-transition-group/TransitionGroup';
+import ReactCSSTransition from 'react-transition-group/CSSTransition';
 import {copyTextToClipboard} from '../Providers/ClipboardProvider';
 import {ExceptionParser} from '../ExceptionParser';
 import moment from '@nextcloud/moment';
@@ -64,6 +65,11 @@ export class LogTable extends Component {
 			};
 
 			return (
+				<ReactCSSTransition
+					key={i}
+					classNames="highlight"
+					timeout={{ enter: 15000, exit: 1500 }}
+				>
 				<tr className={className + (this.state.copyActive === entry.id ? ' ' + style.active : '')}
 					key={entry.id}
 					onClick={this.highlightRequest.bind(this, entry.reqId)}>
@@ -102,6 +108,7 @@ export class LogTable extends Component {
 					<td className={timeClass}
 						title={this.formatDate(entry, !this.props.relative)}>{this.formatDate(entry, this.props.relative)}</td>
 				</tr>
+				</ReactCSSTransition>
 			)
 		});
 
@@ -174,14 +181,9 @@ export class LogTable extends Component {
 							</th>
 						</tr>
 						</thead>
-						<ReactCSSTransitionGroup
-							transitionName="highlight"
-							transitionEnterTimeout={1500}
-							transitionLeaveTimeout={1500}
-							component="tbody"
-						>
+						<ReactTransitionGroup component="tbody">
 							{rows}
-						</ReactCSSTransitionGroup>
+						</ReactTransitionGroup>
 					</table>
 				</MediaQuery>
 				<MediaQuery maxWidth={768}>
