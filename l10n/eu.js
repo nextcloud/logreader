@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Logging" : "Arazten",
+    "Logging" : "Erregistroa",
     "Log Reader" : "Log irakurgailua",
     "A log reader for Nextcloud" : "Nextcloudentzat log fitxategien irakurlea",
     "Log reader for Nextcloud" : "Nextcloudentzat log fitxategien irakurlea",
