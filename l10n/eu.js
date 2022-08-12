@@ -27,7 +27,7 @@ OC.L10N.register(
     "Log levels" : "Log mailak",
     "Log content" : "Log edukia",
     "Live update" : "Etengabeko eguneraketa ",
-    "Download logs" : "Log fitxategiak jaitsi",
+    "Download logs" : "Deskargatu log fitxategiak",
     "Load log file …" : "Kargatu log fitxategia ..."
 },
 "nplurals=2; plural=(n != 1);");
