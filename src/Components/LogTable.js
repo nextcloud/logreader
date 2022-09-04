@@ -126,7 +126,7 @@ export class LogTable extends Component {
 
 		if (rows.length === 0) {
 			rows = <tr className={style.empty}>
-				<td colSpan="4">
+				<td colSpan="6">
 					<div className="emptycontent">
 						<div className="icon-filetype-text"/>
 						<h2>{t('logreader', 'No server logs')}</h2>
