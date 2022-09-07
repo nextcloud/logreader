@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Error" : "Xato",
-    "Copy" : "Nusxalash"
+    "Error" : "Error",
+    "Copy" : "Copy"
 },
 "nplurals=1; plural=0;");
