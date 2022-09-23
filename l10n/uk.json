@@ -1,10 +1,31 @@
 { "translations": {
+    "Logging" : "Логування",
+    "Log Reader" : "Читач журналів",
+    "A log reader for Nextcloud" : "Програма для читання журналів для Nextcloud",
+    "Log reader for Nextcloud" : "Читач журналів для Nextcloud",
+    "Error parsing log" : "Помилка аналізу журналу",
+    "Caused by " : "Спричинений",
+    "Debug" : "Відлагоджувати",
     "Info" : "Info",
     "Warning" : "Увага",
     "Error" : "Помилка",
+    "Fatal" : "Фатальний",
     "Copy" : "Копіювати",
+    "Copy raw" : "Скопіюйте raw",
+    "Copy formatted" : "Копіювати відформатовано",
+    "No server logs" : "Немає журналів сервера",
+    "One or more entries are hidden by the log level filter" : "Один або кілька записів приховано фільтром рівня журналу",
+    "Everything is working fine" : "Все працює добре",
+    "Level" : "Рівень",
     "App" : "Застосунок",
     "Message" : "Повідомлення",
-    "Time" : "Час"
+    "Time" : "Час",
+    "Load log file" : "Завантажити файл журналу",
+    "Invalid log file" : "Недійсний файл журналу",
+    "Log levels" : "Рівні журналу",
+    "Log content" : "Вміст журналу",
+    "Live update" : "Оновлення в реальному часі",
+    "Download logs" : "Завантажити журнали",
+    "Load log file …" : "Завантажити файл журналу…"
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);"
 }
