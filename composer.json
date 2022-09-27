@@ -1,16 +1,24 @@
 {
 	"require-dev": {
+		"nextcloud/coding-standard": "^0.4.0",
+		"nextcloud/ocp": "dev-master",
 		"php-parallel-lint/php-parallel-lint": "^1.0",
 		"phpunit/phpunit": "^8",
-		"psalm/phar": "^4.3",
-		"nextcloud/coding-standard": "^0.4.0",
-		"nextcloud/ocp": "dev-master"
+		"vimeo/psalm": "^4.27"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"classmap-authoritative": true,
+		"platform": {
+			"php": "7.4"
+		},
+		"sort-packages": true
 	},
 	"scripts": {
 		"lint": "parallel-lint --exclude src --exclude vendor --exclude target --exclude build .",
 		"cs:check": "php-cs-fixer fix --dry-run --diff",
 		"cs:fix": "php-cs-fixer fix",
-		"psalm": "psalm.phar"
+		"psalm": "psalm --threads=1"
 	},
 	"autoload-dev": {
 		"psr-4": {
