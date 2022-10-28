@@ -36,7 +36,7 @@ export class LogProvider extends EventEmitter {
 	}
 
 	get entries () {
-		return cachedEntries;
+		return this.cachedEntries;
 	}
 
 	set query (newQuery) {
