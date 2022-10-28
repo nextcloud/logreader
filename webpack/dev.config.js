@@ -26,6 +26,11 @@ module.exports = {
 				}
 			},
 			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader'
@@ -34,6 +39,7 @@ module.exports = {
 				test: /\.css$/,
 				use: [
 					'style-loader',
+					"@teamsupercell/typings-for-css-modules-loader",
 					{
 						loader: 'css-loader',
 						options: {
@@ -44,5 +50,8 @@ module.exports = {
 				]
 			}
 		]
-	}
+	},
+	resolve: {
+		extensions: ['.tsx', '.ts', '.js'],
+	},
 };

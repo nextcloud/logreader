@@ -31,6 +31,11 @@ module.exports = {
 				options: {limit: 10240}
 			},
 			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: ['babel-loader']
@@ -41,6 +46,7 @@ module.exports = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 					},
+					"@teamsupercell/typings-for-css-modules-loader",
 					{
 						loader: 'css-loader',
 						options: {
@@ -51,6 +57,9 @@ module.exports = {
 				]
 			}
 		]
+	},
+	resolve: {
+		extensions: ['.tsx', '.ts', '.js'],
 	},
 	plugins: [
 		new CleanWebpackPlugin(),

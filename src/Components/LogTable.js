@@ -4,7 +4,6 @@ import {LogLevel} from './LogLevel.js';
 import MediaQuery from 'react-responsive';
 import {convertDateFormat} from '../DateFormatConverter.js'
 import {Settings} from './Settings';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {copyTextToClipboard} from '../Providers/ClipboardProvider';
 import {ExceptionParser} from '../ExceptionParser';
 import moment from '@nextcloud/moment';
@@ -174,14 +173,7 @@ export class LogTable extends Component {
 							</th>
 						</tr>
 						</thead>
-						<ReactCSSTransitionGroup
-							transitionName="highlight"
-							transitionEnterTimeout={1500}
-							transitionLeaveTimeout={1500}
-							component="tbody"
-						>
-							{rows}
-						</ReactCSSTransitionGroup>
+						{rows}
 					</table>
 				</MediaQuery>
 				<MediaQuery maxWidth={768}>

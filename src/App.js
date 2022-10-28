@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import ReactScrolla from 'react-scrolla';
 
-import {LogTable} from './Components/LogTable.js';
+import {LogTable} from './Components/LogTable';
 
-import {LogFile} from './Providers/LogFile.js'
+import {LogFile} from './Providers/LogFile'
 
 import styles from './App.css';
 
@@ -129,11 +129,10 @@ export class App extends Component {
 			return <div className="loading log-loading"/>
 		} else {
 			return <ReactScrolla
-				className={styles.scrollContainer}
+				className={styles.scrollContainer + ' ' + styles.content}
 				percentage={85}
 				onPercentage={this.fetchNextPage}
-				isLoading={this.state.loading}
-				className={styles.content}>
+				isLoading={this.state.loading}>
 				<LogTable
 					levels={this.state.levels}
 					setRelative={this.setRelative}
