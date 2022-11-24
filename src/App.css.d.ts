@@ -4,7 +4,7 @@ declare namespace AppCssNamespace {
 		"highlight-enter-active": string;
 		"log-loading": string;
 		"log-section": string;
-		"logreader-root": string;
+		scrollContainer: string;
 	}
 }
 
