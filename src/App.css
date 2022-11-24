@@ -1,9 +1,9 @@
-#logreader-root {
+:global(#logreader-root) {
 	width: 100%;
 	height: calc(100vh - 56px);
 }
 
-#logreader-root > div {
+:global(#logreader-root) > div {
 	height: 100%;
 	overflow: auto;
 }
@@ -26,4 +26,9 @@
 .highlight-enter.highlight-enter-active {
 	background-color: var(--color-main-background);
 	transition: background 1500ms ease-in;
+}
+
+.scrollContainer {
+	height: 100%;
+	overflow: auto;
 }
