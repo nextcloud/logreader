@@ -152,7 +152,7 @@ export class LogProvider extends EventEmitter {
 	setLive (live) {
 		return fetch(OC.generateUrl('/apps/logreader/live'), {
 			method: 'PUT',
-			data: {live},
+			body: JSON.stringify({live}),
 			headers: {
 				'Content-Type': 'application/json'
 			}
