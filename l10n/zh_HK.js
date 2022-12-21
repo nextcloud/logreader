@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "記錄層級",
     "Log content" : "記錄內容",
     "Live update" : "實時更新",
-    "Download logs" : "下載記錄檔",
-    "Load log file …" : "加載記錄中..."
+    "Download logs" : "下載記錄檔"
 },
 "nplurals=1; plural=0;");

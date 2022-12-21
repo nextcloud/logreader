@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Log-Level",
     "Log content" : "Log-Inhalt",
     "Live update" : "Live-Aktualisierung",
-    "Download logs" : "Protokolldatei herunterladen",
-    "Load log file …" : "Lade Protokolldatei …"
+    "Download logs" : "Protokolldatei herunterladen"
 },
 "nplurals=2; plural=(n != 1);");
