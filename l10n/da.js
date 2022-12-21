@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Log niveauer",
     "Log content" : "Log indhold",
     "Live update" : "Live opdateringer",
-    "Download logs" : "Hent logs",
-    "Load log file …" : "Indlæs logfil …"
+    "Download logs" : "Hent logs"
 },
 "nplurals=2; plural=(n != 1);");

@@ -25,7 +25,6 @@
     "Log levels" : "Naplózási szintek",
     "Log content" : "Naplótartalom",
     "Live update" : "Élő frissítés",
-    "Download logs" : "Naplók letöltése",
-    "Load log file …" : "Naplófájl betöltése…"
+    "Download logs" : "Naplók letöltése"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

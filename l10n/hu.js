@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Naplózási szintek",
     "Log content" : "Naplótartalom",
     "Live update" : "Élő frissítés",
-    "Download logs" : "Naplók letöltése",
-    "Load log file …" : "Naplófájl betöltése…"
+    "Download logs" : "Naplók letöltése"
 },
 "nplurals=2; plural=(n != 1);");

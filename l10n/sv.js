@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
     "Live update" : "Live-uppdatering",
-    "Download logs" : "Hämta loggar",
-    "Load log file …" : "Ladda loggfil ..."
+    "Download logs" : "Hämta loggar"
 },
 "nplurals=2; plural=(n != 1);");

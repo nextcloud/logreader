@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Günlük düzeyleri",
     "Log content" : "Günlük içeriği",
     "Live update" : "Canlı güncelleme",
-    "Download logs" : "Günlüğü indir",
-    "Load log file …" : "Günlük dosyasını yükle …"
+    "Download logs" : "Günlüğü indir"
 },
 "nplurals=2; plural=(n > 1);");

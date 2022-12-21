@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Niveaux du registre",
     "Log content" : "Contenu du registre",
     "Live update" : "Mise à jour en direct",
-    "Download logs" : "Télécharger les journaux",
-    "Load log file …" : "Charger un fichier journal..."
+    "Download logs" : "Télécharger les journaux"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

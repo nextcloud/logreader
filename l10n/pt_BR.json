@@ -25,7 +25,6 @@
     "Log levels" : "Níveis de registro",
     "Log content" : "Conteúdo do registro",
     "Live update" : "Atualização ao vivo",
-    "Download logs" : "Registro de downloads",
-    "Load log file …" : "Carregar arquivo de registro…"
+    "Download logs" : "Registro de downloads"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
