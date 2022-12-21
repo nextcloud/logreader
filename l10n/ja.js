@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "ログレベル",
     "Log content" : "ログ情報",
     "Live update" : "ライブアップデート",
-    "Download logs" : "ログのダウンロード",
-    "Load log file …" : "ログファイルを読み込む"
+    "Download logs" : "ログのダウンロード"
 },
 "nplurals=1; plural=0;");

@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Úroveň logov",
     "Log content" : "Obsah logov",
     "Live update" : "Živá aktualizácia",
-    "Download logs" : "Prevziať logy",
-    "Load log file …" : "Načítanie log súboru ..."
+    "Download logs" : "Prevziať logy"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

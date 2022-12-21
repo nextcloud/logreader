@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Niveau logboek",
     "Log content" : "Inhoud logboek",
     "Live update" : "Live bijgewerkt",
-    "Download logs" : "Logboek downloaden",
-    "Load log file …" : "Laad logbestand"
+    "Download logs" : "Logboek downloaden"
 },
 "nplurals=2; plural=(n != 1);");

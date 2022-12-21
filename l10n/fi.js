@@ -25,7 +25,6 @@ OC.L10N.register(
     "Log levels" : "Lokitasot",
     "Log content" : "Lokin sisältö",
     "Live update" : "Live-päivitys",
-    "Download logs" : "Lataa lokit",
-    "Load log file …" : "Lataa lokitiedosto…"
+    "Download logs" : "Lataa lokit"
 },
 "nplurals=2; plural=(n != 1);");

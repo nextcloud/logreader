@@ -25,7 +25,6 @@
     "Log levels" : "Log mailak",
     "Log content" : "Log edukia",
     "Live update" : "Etengabeko eguneraketa ",
-    "Download logs" : "Deskargatu log fitxategiak",
-    "Load log file …" : "Kargatu log fitxategia ..."
+    "Download logs" : "Deskargatu log fitxategiak"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

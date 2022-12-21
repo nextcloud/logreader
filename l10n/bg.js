@@ -27,7 +27,6 @@ OC.L10N.register(
     "Log levels" : "Регистрационни нива",
     "Log content" : "Съдържание на журнал",
     "Live update" : "Обновяване на живо",
-    "Download logs" : "Изтегляне на журнали",
-    "Load log file …" : "Зареждане на регистрационен файл /журнал/ …"
+    "Download logs" : "Изтегляне на журнали"
 },
 "nplurals=2; plural=(n != 1);");
