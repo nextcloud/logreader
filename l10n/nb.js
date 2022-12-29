@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Logging" : "Logging",
     "Log Reader" : "Loggleser",
+    "A log reader for Nextcloud" : "En loggleser for Nextcloud",
+    "Log reader for Nextcloud" : "Loggleser for Nextcloud",
     "Error parsing log" : "Feil ved fortolkning av logg",
     "Info" : "Info",
     "Warning" : "Advarsel",
