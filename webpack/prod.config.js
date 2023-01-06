@@ -4,7 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const strip = require('strip-loader');
 
 const relativeAssetsPath = '../js';
 const assetsPath = path.join(__dirname, relativeAssetsPath);
@@ -34,7 +33,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: [strip.loader('debug'), 'babel-loader']
+				use: ['babel-loader']
 			},
 			{
 				test: /\.css$/,

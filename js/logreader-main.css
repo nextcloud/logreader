@@ -291,12 +291,12 @@ th.OTKDXFrip__elQzsAO0r {
 	width: auto;
 }
 
-#OfqZ4emGJxmv8hlxQ8kk {
+#logreader-root {
 	width: 100%;
-	height: calc(100vh - 56px);
+	height: 100%;
 }
 
-#OfqZ4emGJxmv8hlxQ8kk > div {
+#logreader-root > div {
 	height: 100%;
 	overflow: auto;
 }
@@ -309,8 +309,7 @@ th.OTKDXFrip__elQzsAO0r {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .IwCJTokvQlAyHwhvT5wy {
@@ -320,6 +319,11 @@ th.OTKDXFrip__elQzsAO0r {
 .IwCJTokvQlAyHwhvT5wy.EbeOnsXiQ_LTQJ4iEifl {
 	background-color: var(--color-main-background);
 	transition: background 1500ms ease-in;
+}
+
+.APZI1VeZ01hF7YWIDRQB {
+	height: 100%;
+	overflow: auto;
 }
 
 
