@@ -51,6 +51,7 @@ export class App extends Component {
 	}
 
 	fetchNextPage = _.throttle(async () => {
+		console.log('fetch');
 		if (this.state.provider.hasMore) {
 			this.setState({loading: true});
 			this.state.provider.limit += 25;
