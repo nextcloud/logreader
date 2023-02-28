@@ -140,7 +140,12 @@ export class ExceptionParser {
 						`${' '.repeat(widestIndex + 2)}${trace.class || ''}${trace.type || ''}${trace.function}(${args.join(', ')})`;
 				}
 			).join('\n');
-			return message;
+
+			if (parsed.Previous) {
+				return message + "\n\nCaused by:\n\n" + this.format(parsed.Previous);
+			} else {
+				return message;
+			}
 		} else {
 			return parsed;
 		}
