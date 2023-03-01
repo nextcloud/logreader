@@ -2,7 +2,6 @@
 	"require-dev": {
 		"nextcloud/coding-standard": "^0.4.0",
 		"nextcloud/ocp": "dev-master",
-		"php-parallel-lint/php-parallel-lint": "^1.0",
 		"phpunit/phpunit": "^8",
 		"vimeo/psalm": "^4.27"
 	},
@@ -15,9 +14,10 @@
 		"sort-packages": true
 	},
 	"scripts": {
-		"lint": "parallel-lint --exclude src --exclude vendor --exclude target --exclude build .",
+		"lint": "find . -name \\*.php -not -path './vendor/*' -not -path './build/*' -not -path './tests/integration/vendor/*' -print0 | xargs -0 -n1 php -l",
 		"cs:check": "php-cs-fixer fix --dry-run --diff",
 		"cs:fix": "php-cs-fixer fix",
+		"test:unit": "phpunit -c tests/phpunit.xml",
 		"psalm": "psalm --threads=1"
 	},
 	"autoload-dev": {
