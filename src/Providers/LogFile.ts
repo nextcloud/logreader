@@ -5,7 +5,15 @@ export class LogFile extends LogProvider {
 	constructor (content: string, limit: number) {
 		super(limit);
 
-		this.cachedEntries = parseLog(content).reverse();
+		let id = 1;
+
+		this.cachedEntries = parseLog(content).map(entry => {
+			if (!entry.id) {
+				entry.id = id;
+				id++;
+			}
+			return entry;
+		}).reverse();
 	}
 
 	async loadEntries (offset: number, count: number = 50) {
