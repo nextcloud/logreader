@@ -18,7 +18,7 @@ OC.L10N.register(
     "No server logs" : "Žádné záznamy událostí ze serveru",
     "One or more entries are hidden by the log level filter" : "Jeden nebo více záznamů je skryto filtrem stupně závažnosti",
     "Everything is working fine" : "Všechno funguje správně",
-    "Level" : "Úroveň",
+    "Level" : "Stupeň podrobnosti/závažnosti",
     "App" : "Aplikace",
     "Message" : "Zpráva",
     "Time" : "Čas",
