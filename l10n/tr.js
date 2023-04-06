@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Logging" : "Günlükleme",
+    "Logging" : "Günlük kaydı",
     "Log Reader" : "Günlük okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
     "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
