@@ -1,9 +1,9 @@
 declare namespace AppCssNamespace {
 	export interface IAppCss {
-		"highlight-enter": string;
-		"highlight-enter-active": string;
-		"log-loading": string;
-		"log-section": string;
+		'highlight-enter': string;
+		'highlight-enter-active': string;
+		'log-loading': string;
+		'log-section': string;
 		scrollContainer: string;
 	}
 }

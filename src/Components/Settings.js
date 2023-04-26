@@ -5,6 +5,7 @@ import {LogProvider} from '../Providers/LogProvider.js';
 import style from './LevelSettings.css';
 import {LogUploader} from "./LogUploader";
 import React from "react";
+import {ToggleChoice} from './ToggleChoice.js';
 
 export class Settings extends Component {
 	render () {
@@ -22,10 +23,19 @@ export class Settings extends Component {
 				<ToggleEntry active={this.props.live} onChange={this.props.setLive}>
 					{t('logreader', 'Live update')}
 				</ToggleEntry>
+				<h4>{t('logreader', 'Log files')}</h4>
+				{Object.keys(this.props.availableLogFiles).map((logFile) => {
+					return <ToggleChoice key={logFile}
+										name="logFile"
+										active={logFile === this.props.logFile}
+										onChange={this.props.setLogFile.bind(this, logFile)}>
+						{logFile}
+					</ToggleChoice>
+				})}
 				<LogUploader
-					onLogFile={this.props.onLogFile}/>
-				<a href={OC.generateUrl('settings/admin/log/download')}
-				   className="button">{t('logreader', 'Download logs')}</a>
+					onCustomLogFile={this.props.onCustomLogFile}/>
+				<a href={OC.generateUrl('/apps/logreader/download')}
+					className="button">{t('logreader', 'Download logs')}</a>
 			</div>
 		);
 	}
