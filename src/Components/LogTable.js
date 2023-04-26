@@ -159,17 +159,14 @@ export class LogTable extends Component {
 							<th className={style.level + ' ' + (this.state.showLevelSettings ? style.active : '')}
 								onClick={this.toggleLevelSettings}>
 								{levelHeader}
-								{
-									this.state.showLevelSettings ?
-										<Settings
-											setLevel={this.props.setLevel}
-											levels={this.props.levels}
-											live={this.props.live}
-											setLive={this.props.setLive}
-											onLogFile={this.props.onLogFile}
-										/> :
-										<></>
-								}
+								<Settings
+									setLevel={this.props.setLevel}
+									levels={this.props.levels}
+									live={this.props.live}
+									setLive={this.props.setLive}
+									onLogFile={this.props.onLogFile}
+									class={this.state.showLevelSettings ? '' : 'hidden'}
+								/>
 							</th>
 							<th className={style.app}>{t('logreader', 'App')}</th>
 							<th className={style.message}>{t('logreader', 'Message')}</th>
@@ -191,14 +188,11 @@ export class LogTable extends Component {
 						<span onClick={this.toggleLevelSettings}>
 							{levelHeader}
 						</span>
-						{
-							this.state.showLevelSettings ?
-								<Settings
-									setLevel={this.props.setLevel}
-									levels={this.props.levels}
-								/> :
-								<div className="hidden"/>
-						}
+						<Settings
+							setLevel={this.props.setLevel}
+							levels={this.props.levels}
+							class={this.state.showLevelSettings ? '' : 'hidden'}
+						/>
 					</div>
 					<div className={style.logs}>
 						{smallRows}

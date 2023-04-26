@@ -85,8 +85,8 @@
   left: 75px;
 }
 
-.TmLT1_bWqe90xjFQbhgG {
-  margin: 12px 12px;
+input[type="file"] {
+  width: 100%;
 }
 
 .XdjZ45iqoqqO7fTLXNa_ {
@@ -309,7 +309,8 @@ th.OTKDXFrip__elQzsAO0r {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 }
 
 .IwCJTokvQlAyHwhvT5wy {
@@ -324,6 +325,10 @@ th.OTKDXFrip__elQzsAO0r {
 .APZI1VeZ01hF7YWIDRQB {
 	height: 100%;
 	overflow: auto;
+}
+
+.hidden.popovermenu {
+	display: none;
 }
 
 

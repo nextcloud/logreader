@@ -82,7 +82,9 @@ export class App extends Component {
 		try {
 			await logFile.loadEntries(0);
 			this.setState({provider: logFile, entries: []});
-			logFile.load();
+			setTimeout(() => {
+				logFile.load();
+			}, 0);
 		} catch (e) {
 			console.log(e);
 			OC.Notification.show(t('logreader', 'Error parsing log'));
