@@ -103,7 +103,6 @@ class LogController extends Controller {
 			if ($cycles === $maxCycles) {
 				return new JSONResponse([]);
 			}
-			$lastItem = $this->getLastItem($levels);
 		}
 		$iterator = $this->logIteratorFactory->getLogIterator($levels, $logfile);
 		$iterator->next();
