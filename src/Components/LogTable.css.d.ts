@@ -12,7 +12,7 @@ declare namespace LogTableCssNamespace {
 		level_2: string;
 		level_3: string;
 		level_4: string;
-		"log-settings-toggle": string;
+		'log-settings-toggle': string;
 		logs: string;
 		message: string;
 		relative: string;

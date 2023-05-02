@@ -22,9 +22,11 @@
 namespace OCA\LogReader\Controller;
 
 use OCA\LogReader\Log\LogIteratorFactory;
+use OCA\LogReader\Log\LogFileProvider;
 use OCA\LogReader\Log\SearchFilter;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
+use OCP\AppFramework\Http\StreamResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
 use OCP\IRequest;
@@ -36,16 +38,19 @@ use OCP\IRequest;
  */
 class LogController extends Controller {
 	private $logIteratorFactory;
+	private $logFileProvider;
 	private $config;
 
 	public function __construct($appName,
 								IRequest $request,
 								IConfig $config,
-								LogIteratorFactory $logIteratorFactory
+								LogIteratorFactory $logIteratorFactory,
+								LogFileProvider $logFileProvider
 	) {
 		parent::__construct($appName, $request);
 		$this->logIteratorFactory = $logIteratorFactory;
 		$this->config = $config;
+		$this->logFileProvider = $logFileProvider;
 	}
 
 	/**
@@ -53,10 +58,11 @@ class LogController extends Controller {
 	 * @param int $count
 	 * @param int $offset
 	 * @param string $levels
+	 * @param string $logfile
 	 * @return TemplateResponse
 	 */
-	public function get($count = 50, $offset = 0, $levels = '11111') {
-		$iterator = $this->logIteratorFactory->getLogIterator($levels);
+	public function get($count = 50, $offset = 0, $levels = '11111', string $logfile) {
+		$iterator = $this->logIteratorFactory->getLogIterator($levels, $logfile);
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
 
@@ -65,8 +71,8 @@ class LogController extends Controller {
 	 * @brief Gets the last item in the log, bypassing any cache.
 	 * @return mixed
 	 */
-	private function getLastItem($levels) {
-		$iterator = $this->logIteratorFactory->getLogIterator($levels);
+	private function getLastItem($levels, string $logfile) {
+		$iterator = $this->logIteratorFactory->getLogIterator($levels, $logfile);
 		$iterator->next();
 		return $iterator->current();
 	}
@@ -87,20 +93,18 @@ class LogController extends Controller {
 	 *  will work in some cases but not when there are more than 50 messages of that
 	 *  request.
 	 */
-	public function poll(string $lastReqId, string $levels = '11111'): JSONResponse {
+	public function poll(string $lastReqId, string $levels = '11111', string $logfile): JSONResponse {
 		$cycles = 0;
 		$maxCycles = 20;
 
-		$lastItem = $this->getLastItem($levels);
-		while ($lastItem === null || $lastItem['reqId'] === $lastReqId) {
+		while ($this->getLastItem($levels, $logfile)['reqId'] === $lastReqId) {
 			sleep(1);
 			$cycles++;
 			if ($cycles === $maxCycles) {
 				return new JSONResponse([]);
 			}
-			$lastItem = $this->getLastItem($levels);
 		}
-		$iterator = $this->logIteratorFactory->getLogIterator($levels);
+		$iterator = $this->logIteratorFactory->getLogIterator($levels, $logfile);
 		$iterator->next();
 
 		$data = [];
@@ -132,13 +136,26 @@ class LogController extends Controller {
 	 *
 	 * @NoCSRFRequired
 	 */
-	public function search($query = '', $count = 50, $offset = 0, $levels = '11111') {
-		$iterator = $this->logIteratorFactory->getLogIterator($levels);
+	public function search($query = '', $count = 50, $offset = 0, $levels = '11111', string $logfile) {
+		$iterator = $this->logIteratorFactory->getLogIterator($levels, $logfile);
 		$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
 		$iterator->rewind();
 		$iterator = new SearchFilter($iterator, $query);
 		$iterator->rewind();
 		return $this->responseFromIterator($iterator, $count, $offset);
+	}
+
+	/**
+	 * @NoCSRFRequired
+	 */
+	public function download(): StreamResponse {
+		$logFile = $this->config->getAppValue('logreader', 'logfile', LogFileProvider::DEFAULT_LOG_ID);
+		$logFilePath = $this->logFileProvider->getLogFilePathById($logFile) ??
+			$this->logFileProvider->getDefaultLogFilePath();
+		$resp = new StreamResponse($logFilePath);
+		$resp->addHeader('Content-Type', 'application/octet-stream');
+		$resp->addHeader('Content-Disposition', "attachment; filename=\"$logFile\"");
+		return $resp;
 	}
 
 	/**
@@ -158,6 +175,8 @@ class LogController extends Controller {
 			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
 			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', false),
 			'live' => (bool)$this->config->getAppValue('logreader', 'live', true),
+			'availableLogFiles' => $this->logFileProvider->getAvailableLogFiles(),
+			'logfile' => $this->config->getAppValue('logreader', 'logfile', LogFileProvider::DEFAULT_LOG_ID)
 		]);
 	}
 
@@ -191,6 +210,10 @@ class LogController extends Controller {
 		}
 		$this->config->setAppValue('logreader', 'levels', $levels);
 		return $minLevel;
+	}
+
+	public function setLogFile($logFile): void {
+		$this->config->setAppValue('logreader', 'logfile', $logFile);
 	}
 
 	protected function responseFromIterator(\Iterator $iterator, $count, $offset) {

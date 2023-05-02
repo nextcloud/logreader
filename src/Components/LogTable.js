@@ -133,7 +133,7 @@ export class LogTable extends Component {
 
 		if (rows.length === 0) {
 			rows = <tr className={style.empty}>
-				<td colSpan="6">
+				<td colSpan="5">
 					<div className="emptycontent">
 						<div className="icon-filetype-text"/>
 						<h2>{t('logreader', 'No server logs')}</h2>
@@ -162,11 +162,14 @@ export class LogTable extends Component {
 								{
 									this.state.showLevelSettings ?
 										<Settings
+											availableLogFiles={this.props.availableLogFiles}
 											setLevel={this.props.setLevel}
 											levels={this.props.levels}
 											live={this.props.live}
 											setLive={this.props.setLive}
-											onLogFile={this.props.onLogFile}
+											setLogFile={this.props.setLogFile}
+											logFile={this.props.logFile}
+											onCustomLogFile={this.props.onCustomLogFile}
 										/> :
 										<></>
 								}

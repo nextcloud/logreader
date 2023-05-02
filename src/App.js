@@ -15,7 +15,8 @@ export class App extends Component {
 		provider: null,
 		relative: true,
 		dateFormat: 'Y-m-d\TH:i:sO',
-		live: false
+		live: false,
+		availableLogFiles: []
 	};
 
 	constructor (props) {
@@ -35,11 +36,15 @@ export class App extends Component {
 		const relative = await this.logProvider.getRelative();
 		const dateFormat = await this.logProvider.getDateFormat();
 		const live = await this.logProvider.getLive();
+		const availableLogFiles = await this.logProvider.getAvailableLogFiles();
+		const logFile = await this.logProvider.getLogFile();
 		this.setState({
 			levels,
 			relative,
 			dateFormat,
 			live,
+			availableLogFiles,
+			logFile,
 			provider: this.logProvider
 		});
 		await this.logProvider.load();
@@ -70,7 +75,7 @@ export class App extends Component {
 		this.setState({loading: false});
 	}
 
-	onLogFile = async (content) => {
+	onCustomLogFile = async (content) => {
 		this.setState({loading: true});
 
 		const logFile = new LogFile(content);
@@ -104,6 +109,14 @@ export class App extends Component {
 		this.saveLive(live);
 	};
 
+	async setLogFile (logFile)  {
+		this.setState({logFile, loading: true});
+		await this.logProvider.setLogFile(logFile);
+		this.logProvider.reset();
+		this.logProvider.load();
+		this.setState({loading: false});
+	}
+
 	handlePaste = (event) => {
 		let data = event.clipboardData.getData('Text');
 		if (!data) {
@@ -111,7 +124,7 @@ export class App extends Component {
 		}
 		data = data.trim();
 		if (data.indexOf('{') !== -1 && data.indexOf('}')) {
-			this.onLogFile(data);
+			this.onCustomLogFile(data);
 		}
 	};
 
@@ -136,6 +149,7 @@ export class App extends Component {
 				onPercentage={this.fetchNextPage}
 				isLoading={this.state.loading}>
 				<LogTable
+					availableLogFiles={this.state.availableLogFiles}
 					levels={this.state.levels}
 					setRelative={this.setRelative}
 					setLevel={this.setLevel.bind(this)}
@@ -145,7 +159,9 @@ export class App extends Component {
 					hidden={this.state.entries.length - entries.length}
 					live={this.state.live}
 					setLive={this.setLive.bind(this)}
-					onLogFile={this.onLogFile}
+					logFile={this.state.logFile}
+					setLogFile={this.setLogFile.bind(this)}
+					onCustomLogFile={this.onCustomLogFile}
 				/>
 			</ReactScrolla>
 		}

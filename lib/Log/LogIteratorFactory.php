@@ -24,42 +24,58 @@ declare(strict_types=1);
 namespace OCA\LogReader\Log;
 
 use OCP\IConfig;
-use OCP\Log\IFileBased;
-use OCP\Log\ILogFactory;
 
 class LogIteratorFactory {
 	private $config;
-	private $logFactory;
+	private $logFileProvider;
 
-	public function __construct(IConfig $config, ILogFactory $logFactory) {
+	public function __construct(IConfig $config, LogFileProvider $logFileProvider) {
 		$this->config = $config;
-		$this->logFactory = $logFactory;
+		$this->logFileProvider = $logFileProvider;
 	}
 
 	/**
 	 * @return \Iterator
 	 * @param string $levelsString
+	 * @param string $logIdentifier
 	 * @throws \Exception
 	 */
-	public function getLogIterator($levelsString) {
+	public function getLogIterator($levelsString, string $logIdentifier = null) {
 		$levels = str_split($levelsString);
 		$levels = array_map(function ($level) {
 			return $level === '1';
 		}, $levels);
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ATOM);
 		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
-		$log = $this->logFactory->get('file');
-		if ($log instanceof IFileBased) {
-			$handle = fopen($log->getLogFilePath(), 'rb');
-			if ($handle) {
-				$iterator = new LogIterator($handle, $dateFormat, $timezone);
-				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
-					return $logItem && isset($levels[$logItem['level']]) && $levels[$logItem['level']];
-				});
-			} else {
-				throw new \Exception("Error while opening " . $log->getLogFilePath());
-			}
+		if ($logIdentifier) {
+			$logFilePath = $this->logFileProvider->getLogFilePathById($logIdentifier) ??
+				$this->logFileProvider->getDefaultLogFilePath();
+		} else {
+			$logFilePath = $this->logFileProvider->getDefaultLogFilePath();
 		}
-		throw new \Exception('Can\'t find log class');
+
+		return $this->getIterator(
+			$logFilePath,
+			$dateFormat,
+			$timezone,
+			$levels
+		);
+	}
+
+	private function getIterator(
+		string $logFilePath,
+		string $dateFormat,
+		string $timezone,
+		array $levels
+	): \CallbackFilterIterator {
+		$handle = fopen($logFilePath, 'rb');
+		if ($handle) {
+			$iterator = new LogIterator($handle, $dateFormat, $timezone);
+			return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
+				return $logItem && isset($levels[$logItem['level']]) && $levels[$logItem['level']];
+			});
+		} else {
+			throw new \Exception('Error while opening ' . $logFilePath);
+		}
 	}
 }
