@@ -38,7 +38,7 @@
 		"npm": "^8.0.0"
 	},
 	"dependencies": {
-		"@babel/runtime": "^7.19.0",
+		"@babel/runtime": "^7.21.5",
 		"@nextcloud/moment": "^1.2.1",
 		"json-string-splitter": "^1.0.0",
 		"react": "18.2.0",
