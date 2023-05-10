@@ -34,8 +34,8 @@
 		"webpack-cli": "^4.10.0"
 	},
 	"engines": {
-		"node": "^14.0.0",
-		"npm": "^7.0.0"
+		"node": "^16.0.0",
+		"npm": "^8.0.0"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.19.0",

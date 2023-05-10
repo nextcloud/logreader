@@ -6,11 +6,15 @@ window.unserialize = unserialize;
 
 export class ExceptionParser {
 	isException (logMessage) {
-		return this.isNewStyleException(logMessage) || this.isOldStyleException(logMessage) || this.isBackgroundJobException(logMessage);
+		return this.isNewStyleException(logMessage) || this.isOldStyleException(logMessage) || this.isBackgroundJobException(logMessage) || this.isNestedJsonException(logMessage);
 	}
 
 	isNewStyleException (logMessage) {
 		return logMessage.Exception;
+	}
+
+	isNestedJsonException (logMessage) {
+		return logMessage.substr && logMessage[0] === '{';
 	}
 
 	isOldStyleException (logMessage) {
@@ -29,6 +33,14 @@ export class ExceptionParser {
 		if (this.isOldStyleException(logMessage)) {
 			try {
 				data = this.tryParseJSON(logMessage.substr(10));
+			} catch (e) {
+				console.log('Error while parsing exception:');
+				console.log(logMessage.substr(10));
+				console.error(e);
+			}
+		} else if (this.isNestedJsonException(logMessage)) {
+			try {
+				return this.tryParseJSON(logMessage);
 			} catch (e) {
 				console.log('Error while parsing exception:');
 				console.log(logMessage.substr(10));
