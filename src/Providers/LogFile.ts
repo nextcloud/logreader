@@ -2,12 +2,14 @@ import {LogProvider} from './LogProvider.js'
 import {parseLog} from "../LogParser";
 
 export class LogFile extends LogProvider {
+	private readonly logEntries;
+
 	constructor (content: string, limit: number) {
 		super(limit);
 
 		let id = 1;
 
-		this.cachedEntries = parseLog(content).map(entry => {
+		this.logEntries = parseLog(content).map(entry => {
 			if (!entry.id) {
 				entry.id = id;
 				id++;
@@ -17,9 +19,9 @@ export class LogFile extends LogProvider {
 	}
 
 	async loadEntries (offset: number, count: number = 50) {
-		const start = this.entries.length - offset;
+		const start = this.logEntries.length - offset;
 		const end = Math.max(start - count - 2, 0);
-		const entries = this.entries.slice(end, start);
+		const entries = this.logEntries.slice(end, start);
 		return {data: entries};
 	}
 }

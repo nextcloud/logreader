@@ -2,7 +2,8 @@ import splitter from "json-string-splitter";
 
 export function parseLog(raw: string): any[] {
 	try {
-		const lines = raw.split('\n');
+		const lines = raw.split('\n')
+			.filter(line => !line.startsWith("@")); // csv headers
 		return lines.map(tryParseJSON).map(fixUpLogJson);
 	} catch (e) {
 		console.log("falling back to json splitter")
@@ -16,6 +17,19 @@ function tryParseJSON(json: string): any {
 	try {
 		return JSON.parse(json);
 	} catch (e) {
+		if (json.startsWith('"') && json.endsWith('"')) {
+			try {
+				let inner = json.substring(1, json.length - 1);
+
+				// csv escaped quotes
+				if (inner.startsWith('{""')) {
+					inner = inner.replace(/""/g, '"');
+				}
+				return JSON.parse(inner);
+			} catch (e) {
+				console.log(e);
+			}
+		}
 		// fix unescaped message json
 		const startPos = json.indexOf('"message":"') + ('"message":"').length;
 		const endPos = json.lastIndexOf('","level":');

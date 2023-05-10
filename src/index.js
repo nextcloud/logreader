@@ -2,9 +2,9 @@
 
 import {App} from './App';
 import React from 'react';
-import ReactDom from 'react-dom';
 import {LogProvider} from "./Providers/LogProvider";
 import {LogSearch} from "./Search";
+import {createRoot} from 'react-dom/client';
 
 // Enable React devtools
 window.React = React;
@@ -16,7 +16,8 @@ if (OCA.Search) {
 }
 
 function render (App, rootElement) {
-	ReactDom.render(<App logProvider={logProvider}/>, rootElement);
+	const root = createRoot(rootElement);
+	root.render(<App logProvider={logProvider}/>);
 }
 
 function ready(callbackFunction){

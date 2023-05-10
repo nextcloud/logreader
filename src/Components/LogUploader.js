@@ -1,5 +1,4 @@
 import {Component} from 'react';
-import Dropzone from 'react-dropzone';
 
 import style from './LogUploader.css';
 
@@ -9,7 +8,8 @@ export class LogUploader extends Component {
 	};
 
 	isLog (content) {
-		return content[0] === '{' && content[content.length - 1] === '}';
+		return (content[0] === '{' && content[content.length - 1] === '}') ||
+			content.substring(content.length - 2) === '}"'; // csv wrapped
 	}
 
 	onDrop = (files) => {
@@ -27,16 +27,10 @@ export class LogUploader extends Component {
 	};
 
 	render () {
-		const dropStyle = {
-			display: 'inline-block',
-			margin: '5px'
-		};
-
 		return (
-			<Dropzone multiple={false} accept="text/*" className={"button"} style={dropStyle}
-					  onDrop={this.onDrop}>
-				{({getRootProps, getInputProps}) => <button {...getRootProps()}>{this.state.message}<input {...getInputProps()}/></button>}
-			</Dropzone>
+			<input type="file" multiple={false} onChange={e => {
+				this.onDrop(e.target.files);
+			}}/>
 		);
 	}
 }
