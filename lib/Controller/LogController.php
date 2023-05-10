@@ -25,7 +25,6 @@ use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\Log\SearchFilter;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
-use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
 use OCP\IRequest;
 
@@ -53,16 +52,16 @@ class LogController extends Controller {
 	 * @param int $count
 	 * @param int $offset
 	 * @param string $levels
-	 * @return TemplateResponse
+	 * @return JSONResponse
 	 */
-	public function get($count = 50, $offset = 0, $levels = '11111') {
-		$logType = $this->config->getSystemValue('log_type','file');
+	public function get($count = 50, $offset = 0, $levels = '11111'): JSONResponse {
+		$logType = $this->config->getSystemValue('log_type', 'file');
 		if ($logType === 'file') { // we only support web access when `log_type` is set to `file` (the default)
 			$iterator = $this->logIteratorFactory->getLogIterator($levels);
 			return $this->responseFromIterator($iterator, $count, $offset);
 		} else { // A log_type other than `file` seems to be configured so:
-			 //     * Generate a dummy entry so we don't error out
- 			 //     * Use the dummy entry to inform the admin to look elsewhere and/or correct their configuration
+			//     * Generate a dummy entry so we don't error out
+			//     * Use the dummy entry to inform the admin to look elsewhere and/or correct their configuration
 			$dummyLine["id"] = uniqid();
 			$dummyLine["reqid"] = "00000000000000000000"; // irrelevant
 			$dummyLine["level"] = 1; // INFO
@@ -113,7 +112,7 @@ class LogController extends Controller {
 		$cycles = 0;
 		$maxCycles = 20;
 
-		$logType = $this->config->getSystemValue('log_type','file');
+		$logType = $this->config->getSystemValue('log_type', 'file');
 		if ($logType !== 'file') { // we only support access when `log_type` is set to `file` (the default)
 			// TODO: Don't even attempt polling in the front-end
 			sleep(20);
@@ -156,11 +155,11 @@ class LogController extends Controller {
 	 * @param int $count
 	 * @param int $offset
 	 * @param string $levels
-	 * @return TemplateResponse
+	 * @return JSONResponse
 	 *
 	 * @NoCSRFRequired
 	 */
-	public function search($query = '', $count = 50, $offset = 0, $levels = '11111') {
+	public function search($query = '', $count = 50, $offset = 0, $levels = '11111'): JSONResponse {
 		$iterator = $this->logIteratorFactory->getLogIterator($levels);
 		$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
 		$iterator->rewind();
@@ -221,7 +220,7 @@ class LogController extends Controller {
 		return $minLevel;
 	}
 
-	protected function responseFromIterator(\Iterator $iterator, $count, $offset) {
+	protected function responseFromIterator(\Iterator $iterator, $count, $offset): JSONResponse {
 		$iterator->rewind();
 		for ($i = 0; $i < $offset; $i++) {
 			$iterator->next();
