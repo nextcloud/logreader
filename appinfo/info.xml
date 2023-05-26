@@ -12,6 +12,10 @@
 	<namespace>LogReader</namespace>
 	<default_enable/>
 
+	<types>
+		<logging/>
+	</types>
+
 	<category>tools</category>
 	<website>https://github.com/nextcloud/logreader</website>
 	<bugs>https://github.com/nextcloud/logreader/issues</bugs>
