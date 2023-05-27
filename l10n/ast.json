@@ -1,0 +1,6 @@
+{ "translations": {
+    "Info" : "Información",
+    "Error" : "Error",
+    "App" : "Aplicación"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
