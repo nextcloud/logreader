@@ -20,7 +20,7 @@
 		"css-loader": "^6.7.1",
 		"json-loader": "0.5.7",
 		"mini-css-extract-plugin": "^2.6.1",
-		"postcss": "^8.4.17",
+		"postcss": "^8.4.24",
 		"postcss-loader": "^6.2.1",
 		"postcss-nested": "^5.0.6",
 		"postcss-preset-env": "^7.8.2",
