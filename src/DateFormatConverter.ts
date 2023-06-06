@@ -5,7 +5,8 @@
  * http://momentjs.com/docs/#/displaying/format/
  * https://gist.github.com/NTICompass/9375143
  */
-const formatMap = {
+
+const formatMap: Record<string, string> = {
 	d: 'DD',
 	D: 'ddd',
 	j: 'D',
@@ -32,15 +33,19 @@ const formatMap = {
 	e: '[e]', // moment does not have this
 	O: 'ZZ',
 	P: 'Z',
-	T: '\T', // deprecated in moment
+	T: 'T', // deprecated in moment
 	c: 'YYYY-MM-DD[T]HH:mm:ssZ',
 	r: 'ddd, DD MMM YYYY HH:mm:ss ZZ',
-	U: 'X'
-};
-const formatEx = /[dDjlNSwzWFmMntLoYyaABgGhHisueIOPTZcrU]/g;
+	U: 'X',
+}
+const formatEx = /[dDjlNSwzWFmMntLoYyaABgGhHisueIOPTZcrU]/g
 
-export function convertDateFormat (format) {
-	return format.replace(formatEx, (phpStr) => {
-		return typeof formatMap[phpStr] === 'function' ? formatMap[phpStr]() : formatMap[phpStr];
-	});
+/**
+ * Convert PHP date format code to Moment.js
+ *
+ * @param format PHP date format code
+ * @return Moment.js date format code
+ */
+export function convertDateFormat(format: string) {
+	return format.replace(formatEx, (phpStr: string) => formatMap[phpStr])
 }
