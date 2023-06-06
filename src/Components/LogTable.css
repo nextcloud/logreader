@@ -115,7 +115,7 @@
 		margin: 0;
 		overflow: visible;
 
-		button {
+		> button {
 			position: relative;
 			opacity: 0;
 			transition: opacity 0.5s;

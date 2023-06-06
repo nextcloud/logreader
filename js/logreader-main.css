@@ -203,7 +203,7 @@ input[type="file"] {
 		overflow: visible;
 	}
 
-.XdjZ45iqoqqO7fTLXNa_ td.icHaLzkPGTJOpB7Cu_jA button, .XdjZ45iqoqqO7fTLXNa_ th.icHaLzkPGTJOpB7Cu_jA button {
+.XdjZ45iqoqqO7fTLXNa_ td.icHaLzkPGTJOpB7Cu_jA > button, .XdjZ45iqoqqO7fTLXNa_ th.icHaLzkPGTJOpB7Cu_jA > button {
 			position: relative;
 			opacity: 0;
 			transition: opacity 0.5s;
