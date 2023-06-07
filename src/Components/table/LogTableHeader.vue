@@ -1,0 +1,124 @@
+<!--
+    SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
+    SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<template>
+	<th>
+		<div class="log-table__header-wrapper">
+			<NcButton v-if="sortable"
+				type="tertiary-no-background"
+				:aria-label="name"
+				:aria-sort="ariaSort"
+				:wide="true"
+				@click="changeSortMode">
+				<template #icon>
+					<component :is="sortIcon" :size="20" />
+				</template>
+				{{ name }}
+			</NcButton>
+			<span v-else :title="name" class="log-table__header--text">
+				{{ name }}
+			</span>
+			<!-- Allow to add content -->
+			<slot />
+		</div>
+	</th>
+</template>
+
+<script setup lang="ts">
+import type { SortingOptions } from '../../types'
+
+import { computed } from 'vue'
+
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import IconSort from 'vue-material-design-icons/Sort.vue'
+import IconSortAscending from 'vue-material-design-icons/SortAscending.vue'
+import IconSortDescending from 'vue-material-design-icons/SortDescending.vue'
+
+interface Props {
+	/**
+	 * Whether the column is sortable
+	 * @default true
+	 */
+	sortable?: boolean
+	/**
+	 * Current sorting
+	 * @default ''
+	 */
+	sorted?: SortingOptions
+	/**
+	 * Name of the column
+	 */
+	name: string
+}
+
+interface Emits {
+	(e: 'update:sorted', value: SortingOptions): void
+}
+
+const props = withDefaults(defineProps<Props>(), {
+	sorted: '',
+	sortable: true,
+})
+
+const emit = defineEmits<Emits>()
+
+/**
+ * Set the `aria-sort` property to the current sorting (or undefined if not = remove property)
+ */
+const ariaSort = computed(() => props.sorted || undefined)
+
+/**
+ * Icon for current sorting order
+ */
+const sortIcon = computed(() => {
+	if (props.sorted === 'ascending') {
+		return IconSortAscending
+	} else if (props.sorted === 'descending') {
+		return IconSortDescending
+	} else {
+		return IconSort
+	}
+})
+
+/**
+ * Switch through the sort modes
+ */
+const changeSortMode = () => {
+	switch (props.sorted) {
+	case 'ascending': emit('update:sorted', 'descending'); break
+	case 'descending': emit('update:sorted', ''); break
+	case '': emit('update:sorted', 'ascending'); break
+	}
+}
+
+</script>
+
+<style lang="scss" scoped>
+.log-table {
+	&__header-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__header--text {
+		// Fake a button icon style
+		padding-inline-start: 12px;
+	}
+}
+
+th {
+	:deep(.button-vue__wrapper) {
+		justify-content: left;
+	}
+
+	&> * {
+		padding-inline: 6px 2px;
+	}
+
+	&:last-of-type {
+		// the sidebar toggle must not overlap the text
+		padding-inline-end: 44px;
+	}
+}
+</style>

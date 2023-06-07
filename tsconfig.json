@@ -1,12 +1,18 @@
 {
+	"extends": "@vue/tsconfig",
 	"compilerOptions": {
 		"outDir": "./js/",
+		"lib": [
+			"DOM",
+			"ESNext"
+		],
+		"types": [
+			"vite/client"
+		],
 		"noImplicitAny": true,
-		"module": "es6",
-		"target": "es5",
-		"jsx": "react",
-		"allowJs": true,
-		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
-	}
+	},
+	"vueCompilerOptions": {
+		"target": 2.7,
+	},
 }

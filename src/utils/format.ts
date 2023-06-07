@@ -1,0 +1,57 @@
+/**
+ * SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <opensource@fthiessen.de>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import type { LogEntry } from '../types'
+
+import { getCanonicalLocale, translate as t } from '@nextcloud/l10n'
+import { LOGGING_LEVEL_NAMES } from '../constants'
+import { useSettingsStore } from '../store/settings'
+
+export const useLogFormatting = () => {
+	const settingsStore = useSettingsStore()
+
+	/**
+	 * Format time according to current time format
+	 *
+	 * @param time Raw time string
+	 */
+	const formatTime = (time: string) => {
+		if (settingsStore.dateTimeFormat === 'local') {
+			const dateFormat = Intl.DateTimeFormat(getCanonicalLocale(), {
+				dateStyle: 'medium',
+				timeStyle: 'medium',
+			})
+			return dateFormat.format(new Date(time))
+		} else if (settingsStore.dateTimeFormat === 'utc') {
+			const dateFormat = Intl.DateTimeFormat(getCanonicalLocale(), {
+				dateStyle: 'medium',
+				timeStyle: 'medium',
+				timeZone: 'UTC',
+			})
+			return dateFormat.format(new Date(time))
+		}
+		return time
+	}
+
+	/**
+	 * Format a log entry into a human readable text
+	 * @param entry
+	 */
+	const formatLogEntry = (entry: LogEntry) => {
+		return (
+			`[${entry.app}] ${LOGGING_LEVEL_NAMES[entry.level]}: ${entry.message}\n`
+			+ (entry.method ? `\t${entry.method} ${entry.url}\n` : '')
+			+ t('logreader', '\tfrom {address} by {user} at {time}\n', {
+				address: entry.remoteAddr || '?',
+				user: entry.user || '?',
+				time: entry.time,
+			})
+		)
+	}
+	return {
+		formatTime,
+		formatLogEntry,
+	}
+}
