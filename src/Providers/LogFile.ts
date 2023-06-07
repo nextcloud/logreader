@@ -1,4 +1,4 @@
-import {LogProvider} from './LogProvider.js'
+import {LogProvider} from './LogProvider'
 import {parseLog} from "../LogParser";
 
 export class LogFile extends LogProvider {

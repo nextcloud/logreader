@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import {ToggleEntry} from './ToggleEntry';
-import {LogProvider} from '../Providers/LogProvider.js';
+import {LogProvider} from '../Providers/LogProvider';
 
 import style from './LevelSettings.css';
 import {LogUploader} from "./LogUploader";

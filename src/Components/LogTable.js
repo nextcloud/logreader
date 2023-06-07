@@ -2,7 +2,7 @@ import {Component} from 'react';
 import {LogEntry} from './LogEntry.js';
 import {LogLevel} from './LogLevel.js';
 import MediaQuery from 'react-responsive';
-import {convertDateFormat} from '../DateFormatConverter.js'
+import {convertDateFormat} from '../DateFormatConverter'
 import {Settings} from './Settings';
 import ReactTransitionGroup from 'react-transition-group/TransitionGroup';
 import ReactCSSTransition from 'react-transition-group/CSSTransition';
