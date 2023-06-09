@@ -5,6 +5,20 @@
 
 	th {
 		color: var(--color-text-maxcontrast);
+
+		button {
+			display: flex;
+			background: none;
+			color: inherit;
+			border: none;
+			margin: 0;
+			padding: 0;
+			font: inherit;
+			cursor: pointer;
+			border-radius: 5px;
+			width: 100%;
+			gap: 20%;
+		}
 	}
 
 	td, th {
