@@ -61,7 +61,7 @@ class LogController extends Controller {
 	 * @param string $logfile
 	 * @return TemplateResponse
 	 */
-	public function get($count = 50, $offset = 0, $levels = '11111', string $logfile) {
+	public function get($count = 50, $offset = 0, $levels = '11111', string $logfile = '') {
 		$iterator = $this->logIteratorFactory->getLogIterator($levels, $logfile);
 		return $this->responseFromIterator($iterator, $count, $offset);
 	}
@@ -93,7 +93,7 @@ class LogController extends Controller {
 	 *  will work in some cases but not when there are more than 50 messages of that
 	 *  request.
 	 */
-	public function poll(string $lastReqId, string $levels = '11111', string $logfile): JSONResponse {
+	public function poll(string $lastReqId, string $levels = '11111', string $logfile = ''): JSONResponse {
 		$cycles = 0;
 		$maxCycles = 20;
 
@@ -136,7 +136,7 @@ class LogController extends Controller {
 	 *
 	 * @NoCSRFRequired
 	 */
-	public function search($query = '', $count = 50, $offset = 0, $levels = '11111', string $logfile) {
+	public function search($query = '', $count = 50, $offset = 0, $levels = '11111', string $logfile = '') {
 		$iterator = $this->logIteratorFactory->getLogIterator($levels, $logfile);
 		$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
 		$iterator->rewind();
