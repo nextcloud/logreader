@@ -14,7 +14,7 @@
 		"@nextcloud/browserslist-config": "^2.3.0",
 		"@teamsupercell/typings-for-css-modules-loader": "^2.5.2",
 		"@types/lodash.debounce": "^4.0.7",
-		"@types/react": "^18.0.24",
+		"@types/react": "^18.2.9",
 		"@types/react-responsive": "^8.0.5",
 		"babel-loader": "8.2.5",
 		"clean-webpack-plugin": "^4.0.0",
