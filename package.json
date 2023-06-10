@@ -22,7 +22,7 @@
 		"json-loader": "0.5.7",
 		"mini-css-extract-plugin": "^2.6.1",
 		"postcss": "^8.4.24",
-		"postcss-loader": "^7.3.2",
+		"postcss-loader": "^7.3.3",
 		"postcss-nested": "^6.0.1",
 		"postcss-preset-env": "^7.8.2",
 		"react-a11y": "1.1.0",
