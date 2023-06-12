@@ -23,6 +23,8 @@ namespace OCA\LogReader\Controller;
 
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IInitialState;
+use OCP\Util;
 
 /**
  * Class PageController
@@ -30,21 +32,22 @@ use OCP\AppFramework\Http\TemplateResponse;
  * @package OCA\LogReader\Controller
  */
 class PageController extends Controller {
+	private IInitialState $initialState;
+
+	public function __construct(IInitialState $initialState) {
+		$this->initialState = $initialState;
+	}
+
 	/**
 	 * @NoCSRFRequired
 	 *
 	 * @return TemplateResponse
 	 */
 	public function index() {
-		$response = new TemplateResponse(
-			$this->appName,
-			'index',
-			[
-				'appId' => $this->appName
-				, 'inline-settings' => 'false'
-			]
-		);
+		Util::addScript($this->appName, 'logreader-main');
+		Util::addStyle($this->appName, 'logreader-style');
+		$this->initialState->provideInitialState('settings', true);
 
-		return $response;
+		return new TemplateResponse($this->appName, 'index');
 	}
 }
