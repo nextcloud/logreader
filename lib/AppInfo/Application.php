@@ -29,8 +29,8 @@ use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
-use Psr\Container\ContainerInterface;
 use OCP\Log\BeforeMessageLoggedEvent;
+use Psr\Container\ContainerInterface;
 
 class Application extends App implements IBootstrap {
 	public function __construct(array $urlParams = []) {

@@ -42,7 +42,7 @@ class Console extends LogDetails {
 		$this->terminalWidth = $terminalWidth;
 	}
 
-	public function log(int $level, string $app, $entry) {
+	public function log(int $level, string $app, array $entry) {
 		if ($level >= $this->level) {
 			$messageWidth = $this->terminalWidth - 8 - 18 - 6;
 
