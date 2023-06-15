@@ -9,7 +9,7 @@ OC.L10N.register(
     "Caused by " : "Causado por",
     "Debug" : "Depurar",
     "Info" : "Información",
-    "Warning" : "Aviso",
+    "Warning" : "Advertencia",
     "Error" : "Erro",
     "Fatal" : "Fatal",
     "Copy" : "Copiar",
