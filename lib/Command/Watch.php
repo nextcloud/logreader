@@ -25,6 +25,7 @@ namespace OCA\LogReader\Command;
 
 use OC\Core\Command\Base;
 use OC\Core\Command\InterruptedException;
+use OCA\LogReader\Log\FilterQuery;
 use OCA\LogReader\Log\Formatter;
 use OCA\LogReader\Log\LogIteratorFactory;
 use Symfony\Component\Console\Input\InputInterface;
@@ -49,7 +50,8 @@ class Watch extends Base {
 		$this
 			->setName('log:watch')
 			->setDescription('Watch the nextcloud logfile')
-			->addOption('raw', 'r', InputOption::VALUE_NONE, 'Output raw log json instead of formatted log item');
+			->addOption('raw', 'r', InputOption::VALUE_NONE, 'Output raw log json instead of formatted log item')
+			->addOption('filter', null, InputOption::VALUE_REQUIRED, 'Filter log items according to the provided query');
 		parent::configure();
 	}
 
@@ -63,10 +65,11 @@ class Watch extends Base {
 
 	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$raw = $input->getOption('raw');
-		return $this->watch($raw, $output);
+		$filter = new FilterQuery((string)$input->getOption('filter'));
+		return $this->watch($raw, $filter, $output);
 	}
 
-	public function watch(bool $raw, OutputInterface $output): int {
+	public function watch(bool $raw, FilterQuery $filter, OutputInterface $output): int {
 		$terminal = new Terminal();
 		$totalWidth = $terminal->getWidth();
 		// 8 level, 18 for app, 26 for time, 6 for formatting
@@ -95,7 +98,7 @@ class Watch extends Base {
 						break;
 					}
 
-					if (!is_null($line)) {
+					if (!is_null($line) && $filter->matches($line)) {
 						$lines[] = $line;
 					}
 					$iterator->next();
