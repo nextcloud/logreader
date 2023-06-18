@@ -1,11 +1,30 @@
 { "translations": {
+    "Logging" : "تسجيل الحركات Logging",
+    "Log Reader" : "قراءة سجل الحركات",
+    "A log reader for Nextcloud" : "تطبيق لقراءة سجل الحركات في نكست كلاود",
+    "Log reader for Nextcloud" : "قارئ الحركات في نكست كلاود",
+    "Error parsing log" : "خطأ في قراءة سجل الحركات",
+    "Caused by " : "بسبب ",
+    "Debug" : "تنقيح",
     "Info" : "معلومات",
     "Warning" : "تحذير",
     "Error" : "خطأ",
+    "Fatal" : "خطأ فادح",
     "Copy" : "أنسخ",
+    "Copy raw" : "إنسخ السطر",
+    "Copy formatted" : "نسخ مُنسّق",
+    "No server logs" : "لا يوجد سجل بالحركات على الخادوم",
+    "One or more entries are hidden by the log level filter" : "بعض المداخل تم إخفاؤها من فلتر مستوى تسجيلات الحركات",
+    "Everything is working fine" : "كل شيء يعمل على ما يرام",
     "Level" : "الدرجة",
     "App" : "التطبيق",
     "Message" : "الرسالة",
-    "Time" : "إلى وقت"
+    "Time" : "إلى وقت",
+    "Load log file" : "رفع ملف سجل الحركات",
+    "Invalid log file" : "ملف سجل حركات غير سليم",
+    "Log levels" : "مستويات تسجيلات الحركات",
+    "Log content" : "محتوى سجل الحركات",
+    "Live update" : "تحديث مُباشر",
+    "Download logs" : "تنزيل سجلات الحركات"
 },"pluralForm" :"nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;"
 }
