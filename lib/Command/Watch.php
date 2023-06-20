@@ -28,6 +28,7 @@ use OC\Core\Command\InterruptedException;
 use OCA\LogReader\Log\Formatter;
 use OCA\LogReader\Log\LogIteratorFactory;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Terminal;
 
@@ -47,7 +48,8 @@ class Watch extends Base {
 	protected function configure() {
 		$this
 			->setName('log:watch')
-			->setDescription('Watch the nextcloud logfile');
+			->setDescription('Watch the nextcloud logfile')
+			->addOption('raw', 'r', InputOption::VALUE_NONE, 'Output raw log json instead of formatted log item');
 		parent::configure();
 	}
 
@@ -60,6 +62,11 @@ class Watch extends Base {
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output): int {
+		$raw = $input->getOption('raw');
+		return $this->watch($raw, $output);
+	}
+
+	public function watch(bool $raw, OutputInterface $output): int {
 		$terminal = new Terminal();
 		$totalWidth = $terminal->getWidth();
 		// 8 level, 18 for app, 26 for time, 6 for formatting
@@ -97,8 +104,12 @@ class Watch extends Base {
 				array_reverse($lines);
 
 				foreach ($lines as $line) {
-					$this->printItem($line, $output, $messageWidth);
-					$output->writeln("");
+					if ($raw) {
+						$output->writeln(json_encode($line));
+					} else {
+						$this->printItem($line, $output, $messageWidth);
+						$output->writeln("");
+					}
 				}
 
 				$lastId = $id;
