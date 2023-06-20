@@ -1,8 +1,8 @@
 { "translations": {
     "Logging" : "Rexistrando",
     "Log Reader" : "Lector de rexistros",
-    "A log reader for Nextcloud" : "Un lector de rexistros para o Nextcloud",
-    "Log reader for Nextcloud" : "Lector de rexistros para o Nextcloud",
+    "A log reader for Nextcloud" : "Un lector de rexistros para Nextcloud",
+    "Log reader for Nextcloud" : "Lector de rexistros para Nextcloud",
     "Error parsing log" : "Produciuse un erro ao analizar o rexistro",
     "Caused by " : "Causado por",
     "Debug" : "Depurar",
