@@ -89,16 +89,16 @@ export class LogTable extends Component {
 									className={style.copyMenu + ' popovermenu bubble open menu'}>
 									<ul>
 										<li>
-											<a className="menuitem icon icon-clippy"
+											<button className="menuitem icon icon-clippy"
 											   onClick={() => copyEntry(true)}>
 												{t('logreader', 'Copy raw')}
-											</a>
+											</button>
 										</li>
 										<li>
-											<a className="menuitem icon icon-clippy"
+											<button className="menuitem icon icon-clippy"
 											   onClick={() => copyEntry(false)}>
 												{t('logreader', 'Copy formatted')}
-											</a>
+											</button>
 										</li>
 									</ul>
 								</div> :
