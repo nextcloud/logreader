@@ -144,10 +144,11 @@ export class LogTable extends Component {
 		}
 
 		const levelHeader = (
-			<>{t('logreader', 'Level')}
+			<button>
+			{t('logreader', 'Level')}
 				<span className={style['log-settings-toggle'] + ' icon-more'}>
 				</span>
-			</>
+			</button>
 		);
 
 		return (

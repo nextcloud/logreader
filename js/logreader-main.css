@@ -93,6 +93,20 @@ input[type="file"] {
 		color: var(--color-text-maxcontrast);
 	}
 
+	.XdjZ45iqoqqO7fTLXNa_ th button {
+			display: flex;
+			background: none;
+			color: inherit;
+			border: none;
+			margin: 0;
+			padding: 0;
+			font: inherit;
+			cursor: pointer;
+			border-radius: 5px;
+			width: 100%;
+			gap: 20%;
+		}
+
 	.XdjZ45iqoqqO7fTLXNa_ td, .XdjZ45iqoqqO7fTLXNa_ th {
 		vertical-align: top;
 		padding: .8em;
