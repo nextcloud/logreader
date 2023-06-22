@@ -1,6 +1,7 @@
 <?php
 /**
  * @author Robin Appelman <icewind@owncloud.com>
+ * @author Ferdinand Thiessen <opensource@fthiessen.de>
  *
  * @copyright Copyright (c) 2015, ownCloud, Inc.
  * @license AGPL-3.0
@@ -23,9 +24,9 @@ namespace OCA\LogReader\Controller;
 
 use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\Log\SearchFilter;
+use OCA\LogReader\Service\SettingsService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
-use OCP\IConfig;
 use OCP\IRequest;
 
 /**
@@ -34,17 +35,17 @@ use OCP\IRequest;
  * @package OCA\LogReader\Controller
  */
 class LogController extends Controller {
-	private $logIteratorFactory;
-	private $config;
+	private LogIteratorFactory $logIteratorFactory;
+	private SettingsService $settings;
 
 	public function __construct($appName,
 		IRequest $request,
-		IConfig $config,
-		LogIteratorFactory $logIteratorFactory
+		LogIteratorFactory $logIteratorFactory,
+		SettingsService $settingsService
 	) {
 		parent::__construct($appName, $request);
 		$this->logIteratorFactory = $logIteratorFactory;
-		$this->config = $config;
+		$this->settings = $settingsService;
 	}
 
 	/**
@@ -55,7 +56,7 @@ class LogController extends Controller {
 	 * @return JSONResponse
 	 */
 	public function get($count = 50, $offset = 0, $levels = '11111'): JSONResponse {
-		$logType = $this->config->getSystemValue('log_type', 'file');
+		$logType = $this->settings->getLoggingType();
 		if ($logType === 'file') { // we only support web access when `log_type` is set to `file` (the default)
 			$iterator = $this->logIteratorFactory->getLogIterator($levels);
 			return $this->responseFromIterator($iterator, $count, $offset);
@@ -64,11 +65,11 @@ class LogController extends Controller {
 			//     * Use the dummy entry to inform the admin to look elsewhere and/or correct their configuration
 			$dummyLine["id"] = uniqid();
 			$dummyLine["reqid"] = "00000000000000000000"; // irrelevant
-			$dummyLine["level"] = 1; // INFO
-			$dummyLine["time"] = date(DATE_ATOM, time());
+			$dummyLine["level"] = 4; // FATAL so it is always displayed
+			$dummyLine["time"] = date(\DateTime::ATOM, time());
 			$dummyLine["remoteAddr"] = "0.0.0.0";
 			$dummyLine["user"] = "---";
-			$dummyLine["app"] = "Logreader";
+			$dummyLine["app"] = "logreader";
 			$dummyLine["method"] = "---";
 			$dummyLine["url"] = "---";
 			$dummyLine["message"] =
@@ -112,7 +113,7 @@ class LogController extends Controller {
 		$cycles = 0;
 		$maxCycles = 20;
 
-		$logType = $this->config->getSystemValue('log_type', 'file');
+		$logType = $this->settings->getLoggingType();
 		if ($logType !== 'file') { // we only support access when `log_type` is set to `file` (the default)
 			// TODO: Don't even attempt polling in the front-end
 			sleep(20);
@@ -166,58 +167,6 @@ class LogController extends Controller {
 		$iterator = new SearchFilter($iterator, $query);
 		$iterator->rewind();
 		return $this->responseFromIterator($iterator, $count, $offset);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 */
-	public function getLevels(): JSONResponse {
-		return new JSONResponse($this->config->getAppValue('logreader', 'levels', '11111'));
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 */
-	public function getSettings(): JSONResponse {
-		return new JSONResponse([
-			'levels' => $this->config->getAppValue('logreader', 'levels', '11111'),
-			'dateformat' => $this->config->getSystemValue('logdateformat', \DateTime::ISO8601),
-			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
-			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', false),
-			'live' => (bool)$this->config->getAppValue('logreader', 'live', true),
-		]);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 * @param bool $relative
-	 */
-	public function setRelative($relative) {
-		$this->config->setAppValue('logreader', 'relativedates', $relative);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 * @param bool $live
-	 */
-	public function setLive($live) {
-		$this->config->setAppValue('logreader', 'live', $live);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 */
-	public function setLevels(string $levels): int {
-		$intLevels = array_map('intval', str_split($levels));
-		$minLevel = 4;
-		foreach ($intLevels as $level => $log) {
-			if ($log) {
-				$minLevel = $level;
-				break;
-			}
-		}
-		$this->config->setAppValue('logreader', 'levels', $levels);
-		return $minLevel;
 	}
 
 	protected function responseFromIterator(\Iterator $iterator, $count, $offset): JSONResponse {

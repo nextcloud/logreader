@@ -36,7 +36,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
-		$context->registerService(Formatter::class, function(ContainerInterface $c) {
+		$context->registerService(Formatter::class, function (ContainerInterface $c) {
 			return new Formatter(\OC::$SERVERROOT);
 		});
 	}

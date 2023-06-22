@@ -21,6 +21,7 @@
 
 namespace OCA\LogReader\Controller;
 
+use OCA\LogReader\Service\SettingsService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
@@ -33,9 +34,11 @@ use OCP\Util;
  */
 class PageController extends Controller {
 	private IInitialState $initialState;
+	private SettingsService $settingsService;
 
-	public function __construct(IInitialState $initialState) {
+	public function __construct(IInitialState $initialState, SettingsService $settingsService) {
 		$this->initialState = $initialState;
+		$this->settingsService = $settingsService;
 	}
 
 	/**
@@ -46,7 +49,7 @@ class PageController extends Controller {
 	public function index() {
 		Util::addScript($this->appName, 'logreader-main');
 		Util::addStyle($this->appName, 'logreader-style');
-		$this->initialState->provideInitialState('settings', true);
+		$this->initialState->provideInitialState('settings', $this->settingsService->getAppSettings());
 
 		return new TemplateResponse($this->appName, 'index');
 	}
