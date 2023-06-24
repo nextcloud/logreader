@@ -7,7 +7,7 @@ OC.L10N.register(
     "Log reader for Nextcloud" : "Читач журналів для Nextcloud",
     "Error parsing log" : "Помилка аналізу журналу",
     "Caused by " : "Спричинений",
-    "Debug" : "Відлагоджувати",
+    "Debug" : "Зневадження",
     "Info" : "Info",
     "Warning" : "Увага",
     "Error" : "Помилка",
