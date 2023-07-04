@@ -24,8 +24,9 @@ declare module 'vue/types/options.d.ts' {
 	}
 }
 
-(() => new Vue({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const mainApp = new Vue({
 	el: '#logreader-root',
 	render: (h) => h(App),
 	pinia,
-}))()
+})

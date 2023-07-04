@@ -7,6 +7,7 @@ import { getLog, pollLog } from '../api'
 import { POLLING_INTERVAL } from '../constants'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
+import { debounce } from '../utils/debounce'
 
 /**
  * Store for handling log entries
@@ -15,7 +16,18 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	/**
 	 * List of all log entries
 	 */
-	const entries = ref<LogEntry[]>([])
+	const allEntries = ref<LogEntry[]>([])
+
+	/**
+	 * The current query to filter logs
+	 */
+	const query = ref<string>('')
+
+	/**
+	 * List of filtered log entries (search query)
+	 */
+	const entries = computed(() => query.value ? allEntries.value.filter(entry => JSON.stringify(entry).includes(query.value)) : allEntries.value)
+
 	/**
 	 * Last entry in the log ("newest")
 	 */
@@ -32,11 +44,11 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	 */
 	async function loadMore(older = true) {
 		if (older) {
-			const { data } = await getLog({ offset: entries.value.length })
-			entries.value.splice(0, 0, ...data.data)
+			const { data } = await getLog({ offset: allEntries.value.length })
+			allEntries.value.splice(0, 0, ...data.data)
 		} else {
 			const { data } = await pollLog({ lastReqId: lastEntry.value?.reqId || '' })
-			entries.value.push(...data.data)
+			allEntries.value.push(...data.data)
 		}
 	}
 
@@ -61,7 +73,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		const doPolling = async () => {
 			try {
 				const { data } = await pollLog({ lastReqId: lastEntry.value?.reqId || '' })
-				entries.value.push(...data.data)
+				allEntries.value.push(...data.data)
 			} catch (e) {
 				console.warn('Unexpected error while polling for new log entries', { exception: e })
 				const error = e as AxiosError
@@ -78,5 +90,21 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		window.setTimeout(doPolling, POLLING_INTERVAL)
 	}
 
-	return { entries, startPolling, stopPolling, loadMore }
+	/**
+	 * Search the logs for a string
+	 *
+	 * First it sets the query string so the filtered entries are updated,
+	 * then it searched on the server for other logs
+	 *
+	 * @param search The query string
+	 */
+	function searchLogs(search = '') {
+		query.value = search
+		if (search !== '') {
+			// Actual server side search
+			debounce(() => loadMore(), 500)
+		}
+	}
+
+	return { allEntries, lastEntry, entries, query, startPolling, stopPolling, loadMore, searchLogs }
 })
