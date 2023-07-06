@@ -10,7 +10,7 @@ Log reader for Nextcloud with clean exception display, infinite scrolling and mo
 
 Log Reader is installed by default in recent versions of Nextcloud so you don't have to do anything  else to use the app.
 
-### Install the latest sable release manually
+### Install the latest stable release manually
 
  - Download the last pre-build [release](https://github.com/nextcloud/logreader/releases)
  - Extract the `tar.gz` into the apps folder

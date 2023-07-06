@@ -1,6 +1,6 @@
 <!--
-    SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
-    SPDX-License-Identifier: AGPL-3.0-or-later
+	SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
+	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
 	<tr ref="tableRowElement" :class="{ expanded: isExpanded }">
@@ -13,7 +13,7 @@
 		<td class="row-message" @click="isExpanded = !isExpanded">
 			<div class="row-message__container">
 				<div class="row-message__text" :class="{ 'row-message__text--expanded': isExpanded }" :title="row.message">
-					{{ row.message }}
+					{{ row.exception }}, {{ row.message }}
 				</div>
 				<div class="row-message__action">
 					<NcButton type="tertiary-no-background"
@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LogEntry } from '../../types'
+import type { ILogEntry } from '../../interfaces'
 
 import { translate as t } from '@nextcloud/l10n'
 import { computed, ref, nextTick, watch, onUpdated } from 'vue'
@@ -77,7 +77,7 @@ import { showSuccess } from '@nextcloud/dialogs'
 
 const props = withDefaults(
 	defineProps<{
-		row: LogEntry
+		row: ILogEntry
 		timeFormat?: 'local' | 'raw' | 'utc'
 	}>(),
 	{

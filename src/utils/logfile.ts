@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { LogEntry } from '../types'
+import type { ILogEntry } from '../interfaces'
 
 /**
  * Parse a given data string to an array of Nextcloud log entries
@@ -14,4 +14,4 @@ export const parseLogfile = (data: string) =>
 	(JSON.parse(`[${data.replaceAll('}\n', '},\n')}]`) as any[]).map((v) => ({
 		...v,
 		data: v.data === '--' ? {} : JSON.parse(v.data),
-	})) as LogEntry[]
+	})) as ILogEntry[]

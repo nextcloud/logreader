@@ -1,6 +1,6 @@
 <!--
-    SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
-    SPDX-License-Identifier: AGPL-3.0-or-later
+	SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
+	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
 	<th>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SortingOptions } from '../../types'
+import type { ISortingOptions } from '../../interfaces'
 
 import { computed } from 'vue'
 
@@ -45,7 +45,7 @@ interface Props {
 	 * Current sorting
 	 * @default ''
 	 */
-	sorted?: SortingOptions
+	sorted?: ISortingOptions
 	/**
 	 * Name of the column
 	 */
@@ -53,7 +53,7 @@ interface Props {
 }
 
 interface Emits {
-	(e: 'update:sorted', value: SortingOptions): void
+	(e: 'update:sorted', value: ISortingOptions): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

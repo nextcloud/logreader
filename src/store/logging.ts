@@ -1,5 +1,10 @@
+/**
+ * SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <opensource@fthiessen.de>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import type { AxiosError } from 'axios'
-import type { LogEntry } from '../types'
+import type { ILogEntry } from '../interfaces'
 
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
@@ -16,7 +21,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	/**
 	 * List of all log entries
 	 */
-	const allEntries = ref<LogEntry[]>([])
+	const allEntries = ref<ILogEntry[]>([])
 
 	/**
 	 * The current query to filter logs
@@ -29,13 +34,19 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	const entries = computed(() => query.value ? allEntries.value.filter(entry => JSON.stringify(entry).includes(query.value)) : allEntries.value)
 
 	/**
-	 * Last entry in the log ("newest")
+	 * Whether there are more remaining (older) log entries on the server
 	 */
-	const lastEntry = computed(() => entries.value.length > 0 ? entries.value.slice(-1)[0] : null)
+	const hasRemainingEntries = ref(true)
+
 	/**
 	 * Whether polling service is currently running
 	 */
 	const _polling = ref(false)
+
+	/**
+	 * Whether we are currently loading, used to prevent multiple loading requests at the same time
+	 */
+	const _loading = ref(false)
 
 	/**
 	 * Load more entries from server
@@ -43,12 +54,21 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	 * @param older Load older entries (default: true)
 	 */
 	async function loadMore(older = true) {
-		if (older) {
-			const { data } = await getLog({ offset: allEntries.value.length })
-			allEntries.value.splice(0, 0, ...data.data)
-		} else {
-			const { data } = await pollLog({ lastReqId: lastEntry.value?.reqId || '' })
-			allEntries.value.push(...data.data)
+		// Only load any entries if there is no previous unfinished request
+		if (!(_loading.value = !_loading.value)) return
+
+		try {
+			if (older) {
+				const { data } = await getLog({ offset: allEntries.value.length })
+				allEntries.value.push(...data.data)
+				hasRemainingEntries.value = data.remain
+			} else {
+				const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
+				allEntries.value.splice(0, 0, ...data)
+			}
+		} finally {
+			// Handle any error to prevent a dead lock of the _loading property
+			_loading.value = false
 		}
 	}
 
@@ -61,10 +81,8 @@ export const useLogStore = defineStore('logreader-logs', () => {
 
 	/**
 	 * Start polling new entries from server
-	 *
-	 * Note: Do not await this, as it will only terminate after `stopPolling` is called
 	 */
-	async function startPolling() {
+	function startPolling() {
 		if (_polling.value) {
 			// Already polling, nothing to do
 			return
@@ -72,13 +90,16 @@ export const useLogStore = defineStore('logreader-logs', () => {
 
 		const doPolling = async () => {
 			try {
-				const { data } = await pollLog({ lastReqId: lastEntry.value?.reqId || '' })
-				allEntries.value.push(...data.data)
+				const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
+				allEntries.value.splice(0, 0, ...data)
 			} catch (e) {
 				console.warn('Unexpected error while polling for new log entries', { exception: e })
 				const error = e as AxiosError
-				if ((error.status || 0) >= 500) showError(t('logreader', 'Could not fetch new log entries (server unavailable)'))
-				else showError(t('logreader', 'Could not fetch new entries'))
+				if ((error.status || 0) >= 500) {
+					showError(t('logreader', 'Could not fetch new log entries (server unavailable)'))
+				} else {
+					showError(t('logreader', 'Could not fetch new entries'))
+				}
 			} finally {
 				if (_polling.value) {
 					window.setTimeout(doPolling, POLLING_INTERVAL)
@@ -106,5 +127,5 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		}
 	}
 
-	return { allEntries, lastEntry, entries, query, startPolling, stopPolling, loadMore, searchLogs }
+	return { allEntries, entries, hasRemainingEntries, query, loadMore, startPolling, stopPolling, searchLogs }
 })

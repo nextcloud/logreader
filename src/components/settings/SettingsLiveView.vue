@@ -2,7 +2,7 @@
 	<div>
 		<NcCheckboxRadioSwitch :checked.sync="liveLog">
 			{{
-				t('logreader', 'Live view log (polling)')
+				t('logreader', 'Polling (live view)')
 			}}
 		</NcCheckboxRadioSwitch>
 	</div>

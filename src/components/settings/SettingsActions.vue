@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<NcButton>
+		<NcButton :href="downloadURL" download="">
 			<template #icon>
 				<IconDownload :size="20" />
 			</template>
@@ -31,8 +31,14 @@ import { useSettingsStore } from '../../store/settings.js'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import IconDownload from 'vue-material-design-icons/Download.vue'
 import IconUpload from 'vue-material-design-icons/Upload.vue'
+import { generateUrl } from '@nextcloud/router'
 
 const settingsStore = useSettingsStore()
+
+/**
+ * Logfile download URL
+ */
+const downloadURL = generateUrl('/settings/admin/log/download')
 
 /**
  * The file input used for loading local log files
@@ -52,3 +58,10 @@ const onFileSelected = () => {
 	}
 }
 </script>
+
+<style lang="scss" scoped>
+div {
+	display: flex;
+	gap: 12px;
+}
+</style>

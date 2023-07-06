@@ -1,12 +1,12 @@
 <!--
-    SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
-    SPDX-License-Identifier: AGPL-3.0-or-later
+	SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
+	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
 	<NcAppSettingsDialog :open="props.open"
 		:show-navigation="true"
 		name="Logreader settings"
-		@update:open="emit('update:open', true)">
+		@update:open="onUpdateOpen">
 		<NcAppSettingsSection id="logreader-settings-levels" :name="t('logreader', 'Filter log levels')">
 			<SettingsLogLevels />
 		</NcAppSettingsSection>
@@ -33,11 +33,13 @@ import NcAppSettingsDialog from '@nextcloud/vue/dist/Components/NcAppSettingsDia
 import NcAppSettingsSection from '@nextcloud/vue/dist/Components/NcAppSettingsSection.js'
 
 const props = defineProps<{
-    open: boolean
+	open: boolean
 }>()
 
 const emit = defineEmits<{
 	(e: 'update:open', state: boolean): void
 }>()
+
+const onUpdateOpen = (open: boolean) => emit('update:open', open)
 
 </script>

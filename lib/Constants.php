@@ -34,7 +34,7 @@ class Constants {
 	public const CONFIG_KEY_SHOWNLEVELS = 'shownLevels';
 	public const CONFIG_KEY_DATETIMEFORMAT = 'dateTimeFormat';
 	public const CONFIG_KEY_RELATIVEDATES = 'relativedates';
-	public const CONFIG_KEY_LIVELOG = 'live';
+	public const CONFIG_KEY_LIVELOG = 'liveLog';
 	public const CONFIG_KEYS = [
 		self::CONFIG_KEY_SHOWNLEVELS,
 		self::CONFIG_KEY_DATETIMEFORMAT,

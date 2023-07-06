@@ -1,6 +1,6 @@
 <!--
-    SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
-    SPDX-License-Identifier: AGPL-3.0-or-later
+	SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
+	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
 	<NcActions :force-menu="true"
@@ -37,9 +37,9 @@ import MagnifySvg from '@mdi/svg/svg/magnify.svg?raw'
 import { useLogStore } from '../store/logging'
 
 declare global {
-  interface Window {
-      OCP: Nextcloud.v27.OCP
-  }
+	interface Window {
+		OCP: Nextcloud.v27.OCP
+	}
 }
 
 const logStore = useLogStore()

@@ -15,7 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { AppSettings } from '../../types'
+import type { IAppSettings } from '../../interfaces'
+
 import { computed } from 'vue'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
@@ -33,7 +34,7 @@ const settingsStore = useSettingsStore()
 const shownLevels = computed(() => settingsStore.shownLevels.map(l => `${l}`))
 
 const setShowLevels = debounce((levels: string[]) => {
-	const numericLevels = levels.map(level => parseInt(level)) as AppSettings['shownLevels']
+	const numericLevels = levels.map(level => parseInt(level)) as IAppSettings['shownLevels']
 
 	settingsStore.setSetting('shownLevels', numericLevels)
 		.catch(() => showError(t('logreader', 'Could not set logging levels to show')))

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { LogEntry } from '../types'
+import type { ILogEntry } from '../interfaces'
 
 import { getCanonicalLocale, translate as t } from '@nextcloud/l10n'
 import { LOGGING_LEVEL_NAMES } from '../constants'
@@ -39,7 +39,7 @@ export const useLogFormatting = () => {
 	 * Format a log entry into a human readable text
 	 * @param entry
 	 */
-	const formatLogEntry = (entry: LogEntry) => {
+	const formatLogEntry = (entry: ILogEntry) => {
 		return (
 			`[${entry.app}] ${LOGGING_LEVEL_NAMES[entry.level]}: ${entry.message}\n`
 			+ (entry.method ? `\t${entry.method} ${entry.url}\n` : '')

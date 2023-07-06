@@ -1,4 +1,9 @@
-import type { AppSettings, LogEntry } from './types'
+/**
+ * SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <opensource@fthiessen.de>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import type { IAppSettings, IRawLogEntry } from './interfaces'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { generateUrl } from '@nextcloud/router'
@@ -16,10 +21,12 @@ interface ApiPollLog {
 
 interface ApiLogResult {
     /** New entries */
-    data: readonly LogEntry[]
+    data: readonly IRawLogEntry[]
     /** True if more entries are available */
     remain: boolean
 }
+
+type ApiPollLogResult = readonly IRawLogEntry[]
 
 interface ApiSetAppSetting {
     settingsKey: string
@@ -36,7 +43,7 @@ type ApiGetAppSettings = never
  * @return Array of fetched log entries
  * @throws AxiosError with HTTP status 424 if log type is not set to `file`
  */
-export const getLog = (data: ApiGetLog, config: AxiosRequestConfig<ApiGetLog> = {}) => axios.get<ApiLogResult, AxiosResponse<ApiLogResult, ApiGetLog>>(generateUrl('apps/logreader/api/log'), { ...config, data }) as Promise<AxiosResponse<ApiLogResult>>
+export const getLog = (data: ApiGetLog, config: AxiosRequestConfig<ApiGetLog> = {}) => axios.get<ApiLogResult, AxiosResponse<ApiLogResult, ApiGetLog>>(generateUrl('apps/logreader/api/log'), { ...config, params: data }) as Promise<AxiosResponse<ApiLogResult>>
 
 /**
  * Fetch log entries from server
@@ -46,7 +53,7 @@ export const getLog = (data: ApiGetLog, config: AxiosRequestConfig<ApiGetLog> = 
  * @return Array of fetched log entries
  * @throws AxiosError with HTTP status 424 if log type is not set to `file`
  */
-export const pollLog = (data: ApiPollLog, config: AxiosRequestConfig<ApiPollLog> = {}) => axios.get<ApiLogResult, AxiosResponse<ApiLogResult, ApiPollLog>>(generateUrl('apps/logreader/api/log'), { ...config, data }) as Promise<AxiosResponse<ApiLogResult>>
+export const pollLog = (data: ApiPollLog, config: AxiosRequestConfig<ApiPollLog> = {}) => axios.get<ApiPollLogResult, AxiosResponse<ApiPollLogResult, ApiPollLog>>(generateUrl('apps/logreader/api/poll'), { ...config, params: data }) as Promise<AxiosResponse<ApiPollLogResult>>
 
 /**
  * Change an app setting value
@@ -55,7 +62,7 @@ export const pollLog = (data: ApiPollLog, config: AxiosRequestConfig<ApiPollLog>
  * @param config Axios config for setting data
  * @return
  */
-export const setAppSetting = (data: ApiSetAppSetting, config: AxiosRequestConfig<ApiSetAppSetting> = {}) => axios.put<void, AxiosResponse<void, ApiSetAppSetting>>(generateUrl('apps/logreader/api/settings'), { ...config, data })
+export const setAppSetting = (data: ApiSetAppSetting, config: AxiosRequestConfig<ApiSetAppSetting> = {}) => axios.put<void, AxiosResponse<void, ApiSetAppSetting>>(generateUrl('apps/logreader/api/settings'), data, config)
 
 /**
  * Get current app settings
@@ -64,4 +71,4 @@ export const setAppSetting = (data: ApiSetAppSetting, config: AxiosRequestConfig
  * @param config Optional Axios request config
  * @return The current app config
  */
-export const getAppSettings = (data: ApiGetAppSettings, config: AxiosRequestConfig<ApiGetAppSettings> = {}) => axios.get<AppSettings, AxiosResponse<void, ApiGetAppSettings>>(generateUrl('apps/logreader/api/settings'), { ...config, data })
+export const getAppSettings = (data: ApiGetAppSettings, config: AxiosRequestConfig<ApiGetAppSettings> = {}) => axios.get<IAppSettings, AxiosResponse<void, ApiGetAppSettings>>(generateUrl('apps/logreader/api/settings'), { ...config, params: data })

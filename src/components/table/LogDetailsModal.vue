@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { LogEntry } from '../../types'
+import type { ILogEntry } from '../../interfaces'
 
 import { translate as t } from '@nextcloud/l10n'
 import { computed } from 'vue'
@@ -63,8 +63,8 @@ hljs.registerLanguage('json', json)
 
 const props = defineProps<{
 	open: boolean
-	currentEntry: LogEntry
-	logEntries: readonly LogEntry[]
+	currentEntry: ILogEntry
+	logEntries: readonly ILogEntry[]
 }>()
 
 const { formatTime, formatLogEntry } = useLogFormatting()

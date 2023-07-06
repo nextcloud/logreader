@@ -1,6 +1,6 @@
 <!--
-    SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
-    SPDX-License-Identifier: AGPL-3.0-or-later
+	SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <rpm@fthiessen.de>
+	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
 	<div class="logreader-container">
@@ -9,7 +9,7 @@
 		<NcButton :aria-label="t('logreader', 'Open settings')"
 			class="settings-toggle"
 			type="tertiary"
-			@click="areSettingsShown = !areSettingsShown">
+			@click="areSettingsShown = true">
 			<template #icon>
 				<IconCog :size="20" />
 			</template>
@@ -41,8 +41,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { subscribe, unsubscribe } from '@nextcloud/event-bus'
+import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
 import { useLogStore } from './store/logging'
 import { useSettingsStore } from './store/settings.js'
@@ -52,8 +51,8 @@ import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
 import IconCog from 'vue-material-design-icons/Cog.vue'
 import IconFormatList from 'vue-material-design-icons/FormatListBulletedSquare.vue'
-import AppSettingsDialog from './Components/AppSettingsDialog.vue'
-import LogTable from './Components/table/LogTable.vue'
+import AppSettingsDialog from './components/AppSettingsDialog.vue'
+import LogTable from './components/table/LogTable.vue'
 
 import '@nextcloud/dialogs/dist/index.css'
 
@@ -69,27 +68,22 @@ const loggingStore = useLogStore()
 const entries = computed(() => loggingStore.entries)
 
 /**
- * Set query string from unified search event
- *
- * @param param0 See unified search
- * @param param0.query The query string from the unified search
+ * Toggle polling if live log is dis- / enabled
  */
-const searchLogs = ({ query }: { query: string }) => loggingStore.searchLogs(query)
-/**
- * Reset query string
- */
-const resetSearch = () => loggingStore.searchLogs('')
+watchEffect(() => {
+	if (settingsStore.liveLog) {
+		loggingStore.startPolling()
+	} else {
+		loggingStore.stopPolling()
+	}
+})
 
 onMounted(() => {
 	loggingStore.loadMore()
-	subscribe('nextcloud:unified-search.search', searchLogs)
-	subscribe('nextcloud:unified-search.reset', resetSearch)
 })
 
 onUnmounted(() => {
 	loggingStore.stopPolling()
-	unsubscribe('nextcloud:unified-search.search', searchLogs)
-	unsubscribe('nextcloud:unified-search.reset', resetSearch)
 })
 
 /** Translated description what to check in case no log can be loaded */

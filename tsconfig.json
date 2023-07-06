@@ -1,6 +1,7 @@
 {
 	"extends": "@vue/tsconfig",
 	"compilerOptions": {
+		"moduleResolution": "Bundler",
 		"outDir": "./js/",
 		"lib": [
 			"DOM",

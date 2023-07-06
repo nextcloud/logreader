@@ -1,11 +1,16 @@
-import type { AppSettings } from '../types'
+/**
+ * SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <opensource@fthiessen.de>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import type { IAppSettings } from '../interfaces'
 
 import { setAppSetting } from '../api'
 import { loadState } from '@nextcloud/initial-state'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
-interface SettingsState extends AppSettings {
+interface SettingsState extends IAppSettings {
 	/**
 	 * Local logging file if loaded
 	 */
@@ -32,11 +37,11 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	 * @param setting The setting to change
 	 * @param value New value of setting
 	 */
-	async function setSetting<T extends keyof AppSettings>(this: SettingsState, setting: T, value: AppSettings[T]) {
+	async function setSetting<T extends keyof IAppSettings>(this: SettingsState, setting: T, value: IAppSettings[T]) {
 		await setAppSetting({ settingsKey: setting, settingsValue: value });
 
 		// set setting in state
-		(this as any)[setting] = value
+		(this as SettingsState)[setting] = value
 	}
 
 	return { shownLevels, dateTimeFormat, enabled, liveLog, localFile, localFileName, setSetting }
