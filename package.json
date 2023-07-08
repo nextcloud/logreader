@@ -38,7 +38,7 @@
     "npm": "^9.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.22.5",
+    "@babel/runtime": "^7.22.6",
     "@nextcloud/axios": "^2.3.0",
     "@nextcloud/moment": "^1.2.1",
     "@nextcloud/router": "^2.1.1",
