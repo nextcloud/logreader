@@ -16,10 +16,12 @@
 		</NcButton>
 		<!-- Show information / warning message -->
 		<NcNoteCard v-if="settingsStore.localFile" type="info" class="info-note">
-			<p>{{ t('logreader', 'Currently the logfile {file} is shown', { file: settingsStore.localFileName }) }}</p>
-			<NcButton type="secondary">
-				{{ t('logreader', 'Show server log') }}
-			</NcButton>
+			<div class="info-note__content">
+				<p>{{ t('logreader', 'Currently the logfile {file} is shown', { file: settingsStore.localFileName }) }}</p>
+				<NcButton type="secondary" @click="onShowServerLog">
+					{{ t('logreader', 'Show server log') }}
+				</NcButton>
+			</div>
 		</NcNoteCard>
 		<NcNoteCard v-else-if="!settingsStore.liveLog" type="info" class="info-note">
 			<p>{{ t('logreader', 'Live view is disabled') }}</p>
@@ -66,6 +68,11 @@ const settingsStore = useSettingsStore()
 const loggingStore = useLogStore()
 
 const entries = computed(() => loggingStore.entries)
+
+const onShowServerLog = () => {
+	settingsStore.localFile = undefined
+	loggingStore.loadMore()
+}
 
 /**
  * Toggle polling if live log is dis- / enabled
@@ -114,6 +121,13 @@ legend {
 		margin: 1rem;
 		margin-bottom: 0; // table header padding
 		margin-right: 56px; // 44px + 2x `right` of settings toggle
+
+		&__content {
+			display: flex;
+			gap: 12px;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 
 	.settings-toggle {

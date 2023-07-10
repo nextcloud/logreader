@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { IAppSettings, IRawLogEntry } from './interfaces'
+import type { IAppSettings, ILogEntry } from './interfaces'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { generateUrl } from '@nextcloud/router'
@@ -21,16 +21,18 @@ interface ApiPollLog {
 
 interface ApiLogResult {
     /** New entries */
-    data: readonly IRawLogEntry[]
+    data: readonly ILogEntry[]
     /** True if more entries are available */
     remain: boolean
 }
 
-type ApiPollLogResult = readonly IRawLogEntry[]
+type ApiPollLogResult = readonly ILogEntry[]
 
-interface ApiSetAppSetting {
-    settingsKey: string
-    settingsValue: any
+type IAppSettingsKey = keyof IAppSettings
+
+interface ApiSetAppSetting<I extends IAppSettingsKey> {
+    settingsKey: I
+    settingsValue: IAppSettings[I]
 }
 
 type ApiGetAppSettings = never
@@ -62,7 +64,7 @@ export const pollLog = (data: ApiPollLog, config: AxiosRequestConfig<ApiPollLog>
  * @param config Axios config for setting data
  * @return
  */
-export const setAppSetting = (data: ApiSetAppSetting, config: AxiosRequestConfig<ApiSetAppSetting> = {}) => axios.put<void, AxiosResponse<void, ApiSetAppSetting>>(generateUrl('apps/logreader/api/settings'), data, config)
+export const setAppSetting = <K extends IAppSettingsKey>(data: ApiSetAppSetting<K>, config: AxiosRequestConfig<ApiSetAppSetting<K>> = {}) => axios.put<void, AxiosResponse<void, ApiSetAppSetting<K>>>(generateUrl('apps/logreader/api/settings'), data, config)
 
 /**
  * Get current app settings
@@ -71,4 +73,4 @@ export const setAppSetting = (data: ApiSetAppSetting, config: AxiosRequestConfig
  * @param config Optional Axios request config
  * @return The current app config
  */
-export const getAppSettings = (data: ApiGetAppSettings, config: AxiosRequestConfig<ApiGetAppSettings> = {}) => axios.get<IAppSettings, AxiosResponse<void, ApiGetAppSettings>>(generateUrl('apps/logreader/api/settings'), { ...config, params: data })
+export const getAppSettings = (data?: ApiGetAppSettings, config: AxiosRequestConfig<ApiGetAppSettings> = {}) => axios.get<IAppSettings, AxiosResponse<IAppSettings, ApiGetAppSettings>>(generateUrl('apps/logreader/api/settings'), { ...config, params: data })

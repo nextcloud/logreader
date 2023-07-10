@@ -13,11 +13,16 @@ import { POLLING_INTERVAL } from '../constants'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
 import { debounce } from '../utils/debounce'
+import { useSettingsStore } from './settings'
+import { parseLogFile } from '../utils/logfile'
+import { logger } from '../utils/logger'
 
 /**
  * Store for handling log entries
  */
 export const useLogStore = defineStore('logreader-logs', () => {
+	const _settings = useSettingsStore()
+
 	/**
 	 * List of all log entries
 	 */
@@ -54,6 +59,9 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	 * @param older Load older entries (default: true)
 	 */
 	async function loadMore(older = true) {
+		// Nothing to do if local file
+		if (_settings.localFile) return
+
 		// Only load any entries if there is no previous unfinished request
 		if (!(_loading.value = !_loading.value)) return
 
@@ -70,6 +78,19 @@ export const useLogStore = defineStore('logreader-logs', () => {
 			// Handle any error to prevent a dead lock of the _loading property
 			_loading.value = false
 		}
+	}
+
+	/**
+	 * Load entries from log file
+	 */
+	async function loadFile() {
+		if (!_settings.localFile) {
+			logger.debug('Can not read file, no file was uploaded')
+			return
+		}
+
+		allEntries.value = await parseLogFile(_settings.localFile)
+		hasRemainingEntries.value = false
 	}
 
 	/**
@@ -90,10 +111,13 @@ export const useLogStore = defineStore('logreader-logs', () => {
 
 		const doPolling = async () => {
 			try {
-				const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
-				allEntries.value.splice(0, 0, ...data)
+				// Only poll if not using a local file
+				if (!_settings.localFile) {
+					const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
+					allEntries.value.splice(0, 0, ...data)
+				}
 			} catch (e) {
-				console.warn('Unexpected error while polling for new log entries', { exception: e })
+				logger.warn('Unexpected error while polling for new log entries', { error: e })
 				const error = e as AxiosError
 				if ((error.status || 0) >= 500) {
 					showError(t('logreader', 'Could not fetch new log entries (server unavailable)'))
@@ -127,5 +151,5 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		}
 	}
 
-	return { allEntries, entries, hasRemainingEntries, query, loadMore, startPolling, stopPolling, searchLogs }
+	return { allEntries, entries, hasRemainingEntries, query, loadMore, loadFile, startPolling, stopPolling, searchLogs }
 })

@@ -54,7 +54,7 @@ interface IBaseLogEntry {
 	/** User agent (if applicable – empty on occ calls) */
 	userAgent?: string
 	/** Additional structured data (if applicable) */
-	data?: Record<string, unknown>
+	data?: string // if parsed: Record<string, unknown>
 }
 
 /**
