@@ -14,5 +14,6 @@ declare module '@nextcloud/vue/dist/Components/*.js' {
 }
 
 declare module 'json-string-splitter' {
-	export default function splitter(input: string): { jsons: string[], remainder: string }
+	function splitter(input: string): { jsons: string[], remainder: string }
+  export = splitter
 }

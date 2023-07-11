@@ -24,7 +24,7 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	/**
 	 * Saved setting loaded from server
 	 */
-	const _loadedSettings = loadState<SettingsState>('logreader', 'settings') as SettingsState
+	const _loadedSettings = loadState<SettingsState>('logreader', 'settings', { enabled: false, liveLog: false, dateTimeFormat: 'raw', shownLevels: [] })
 
 	/**
 	 * Is file logging enabled on server
@@ -49,7 +49,7 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	 */
 	const dateTimeFormat = computed({
 		// In case of a local file we do not know the datetime format of the logfile so we can only display the raw format
-		get: () => localFile.value ? 'raw' : _dateTimeFormat.value,
+		get: () => localFile.value !== undefined ? 'raw' : _dateTimeFormat.value,
 		set: (v) => {
 			_dateTimeFormat.value = v
 		},

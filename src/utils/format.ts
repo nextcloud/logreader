@@ -3,14 +3,15 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+import type { Pinia } from 'pinia'
 import type { ILogEntry } from '../interfaces'
 
 import { getCanonicalLocale, translate as t } from '@nextcloud/l10n'
 import { LOGGING_LEVEL_NAMES } from '../constants'
 import { useSettingsStore } from '../store/settings'
 
-export const useLogFormatting = () => {
-	const settingsStore = useSettingsStore()
+export const useLogFormatting = (pinia?: Pinia) => {
+	const settingsStore = useSettingsStore(pinia)
 
 	/**
 	 * Format time according to current time format
@@ -37,7 +38,8 @@ export const useLogFormatting = () => {
 
 	/**
 	 * Format a log entry into a human readable text
-	 * @param entry
+	 *
+	 * @param entry The log entry to format
 	 */
 	const formatLogEntry = (entry: ILogEntry) => {
 		return (
@@ -46,7 +48,7 @@ export const useLogFormatting = () => {
 			+ t('logreader', '\tfrom {address} by {user} at {time}\n', {
 				address: entry.remoteAddr || '?',
 				user: entry.user || '?',
-				time: entry.time,
+				time: formatTime(entry.time),
 			})
 		)
 	}
