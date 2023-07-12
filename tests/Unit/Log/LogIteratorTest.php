@@ -19,7 +19,7 @@
  *
  */
 
-namespace OCA\LogReader\Tests\Log;
+namespace OCA\LogReader\Tests\Unit\Log;
 
 use OCA\LogReader\Log\LogIterator;
 use Test\TestCase;
