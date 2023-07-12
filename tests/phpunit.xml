@@ -9,7 +9,14 @@
 	<testsuite name='Nextcloud - Logreader App Tests'>
 		<directory suffix='.php'>./Unit</directory>
 	</testsuite>
-	<logging>
-		<log type="coverage-clover" target="./clover.xml"/>
-	</logging>
+	<coverage>
+		<!-- filters for code coverage -->
+		<include>
+			<directory suffix=".php">../lib</directory>
+		</include>
+		<report>
+			<!-- and this is where your report will be written -->
+			<clover outputFile="./clover.unit.xml"/>
+		</report>
+	</coverage>
 </phpunit>
