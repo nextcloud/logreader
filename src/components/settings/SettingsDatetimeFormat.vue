@@ -27,7 +27,7 @@
 	</fieldset>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { IAppSettings } from '../../interfaces'
 
 import { computed } from 'vue'

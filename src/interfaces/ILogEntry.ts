@@ -7,10 +7,29 @@
  * Trace entry for exceptions
  */
 export interface ITraceLine {
+	/**
+	 * The file in which the function was called
+	 */
 	file: string
-	line: number
+	/**
+	 * Line that was currently parsed when the exception occured
+	 */
+	line?: number
+	/**
+	 * Called function name
+	 */
 	function: string
+	/**
+	 * Class of the function that was called
+	 */
 	class: string
+	/**
+	 * Function arguments (might be a placeholder when sensitive value)
+	 */
+	args?: readonly string[]
+	/**
+	 * Type of function access, e.g. '->' or '::'
+	 */
 	type: string
 }
 
@@ -24,7 +43,8 @@ export interface IException {
 	File: string,
 	Line: number,
 	Message: string
-	Trance: readonly ITraceLine[]
+	Trace: readonly ITraceLine[]
+	Previous?: this
 }
 
 /**
@@ -60,7 +80,7 @@ interface IBaseLogEntry {
 /**
  * Nextcloud 14 version of a log entry, previously the exception was simply a string within the `message` property
  */
-interface INextcloud14LogEntry extends Omit<IBaseLogEntry, 'message'> {
+export interface INextcloud14LogEntry extends Omit<IBaseLogEntry, 'message'> {
 	/** Event information message or exception */
 	message: string | IException
 }
@@ -68,7 +88,7 @@ interface INextcloud14LogEntry extends Omit<IBaseLogEntry, 'message'> {
 /**
  * Format of a log entry introduced with Nextcloud 22
  */
-interface INextcloud22LogEntry extends IBaseLogEntry {
+export interface INextcloud22LogEntry extends IBaseLogEntry {
 	/** Full exception with trace (if applicable) */
 	exception?: string | IException
 }
@@ -79,6 +99,9 @@ interface INextcloud22LogEntry extends IBaseLogEntry {
 export type IRawLogEntry = INextcloud14LogEntry | INextcloud22LogEntry
 
 /**
- * Fixed version of the log entry where the exception has its own field
+ * Fixed version of the log entry where the exception has its own field of type IException
  */
-export type ILogEntry = INextcloud22LogEntry
+export interface ILogEntry extends Omit<INextcloud22LogEntry, 'exception'> {
+	/** Full exception with trace (if applicable) */
+	exception?: IException
+}

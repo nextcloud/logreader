@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { IAppSettings, ILogEntry } from './interfaces'
+import type { IAppSettings, ILogEntry, INextcloud22LogEntry } from './interfaces'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { generateUrl } from '@nextcloud/router'
@@ -21,12 +21,12 @@ interface ApiPollLog {
 
 interface ApiLogResult {
     /** New entries */
-    data: readonly ILogEntry[]
+    data: readonly INextcloud22LogEntry[]
     /** True if more entries are available */
     remain: boolean
 }
 
-type ApiPollLogResult = readonly ILogEntry[]
+type ApiPollLogResult = readonly INextcloud22LogEntry[]
 
 type IAppSettingsKey = keyof IAppSettings
 

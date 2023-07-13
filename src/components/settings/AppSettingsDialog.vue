@@ -22,12 +22,12 @@
 	</NcAppSettingsDialog>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { translate as t } from '@nextcloud/l10n'
-import SettingsActions from './settings/SettingsActions.vue'
-import SettingsLiveView from './settings/SettingsLiveView.vue'
-import SettingsLogLevels from './settings/SettingsLogLevels.vue'
-import SettingsDatetimeFormat from './settings/SettingsDatetimeFormat.vue'
+import SettingsActions from './SettingsActions.vue'
+import SettingsLiveView from './SettingsLiveView.vue'
+import SettingsLogLevels from './SettingsLogLevels.vue'
+import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
 
 import NcAppSettingsDialog from '@nextcloud/vue/dist/Components/NcAppSettingsDialog.js'
 import NcAppSettingsSection from '@nextcloud/vue/dist/Components/NcAppSettingsSection.js'

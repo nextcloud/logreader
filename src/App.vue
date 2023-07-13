@@ -53,7 +53,7 @@ import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
 import IconCog from 'vue-material-design-icons/Cog.vue'
 import IconFormatList from 'vue-material-design-icons/FormatListBulletedSquare.vue'
-import AppSettingsDialog from './components/AppSettingsDialog.vue'
+import AppSettingsDialog from './components/settings/AppSettingsDialog.vue'
 import LogTable from './components/table/LogTable.vue'
 
 import '@nextcloud/dialogs/dist/index.css'

@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { IRawLogEntry } from '../interfaces'
+import type { ILogEntry, IRawLogEntry } from '../interfaces'
+import { parseException } from './exception'
 import { logger } from './logger'
 
 /**
@@ -12,7 +13,7 @@ import { logger } from './logger'
  * @param file The log file
  * @return Log entries
  */
-export async function parseLogFile(file: File): Promise<IRawLogEntry[]> {
+export async function parseLogFile(file: File): Promise<ILogEntry[]> {
 	return parseLogString(await file.text())
 }
 
@@ -22,18 +23,31 @@ export async function parseLogFile(file: File): Promise<IRawLogEntry[]> {
  * @param raw The raw log file content
  * @return Log entries
  */
-export async function parseLogString(raw: string): Promise<IRawLogEntry[]> {
+export async function parseLogString(raw: string): Promise<ILogEntry[]> {
+	let entries: IRawLogEntry[]
 	try {
 		const lines = raw.split('\n')
-		return lines.map(tryParseJSON)
+		entries = lines.map(tryParseJSON)
 	} catch (e) {
 		logger.debug('falling back to json splitter')
 
 		const splitter = (await import('json-string-splitter')).default
 		// the input might have had its data reformatted, breaking the original newline separated json
 		const lines = splitter(raw).jsons
-		return lines.map(tryParseJSON)
+		entries = lines.map(tryParseJSON)
 	}
+	return entries.map(parseRawLogEntry)
+}
+
+/**
+ * Parse a raw (unknown type of) log entry into a modern log entry
+ * @param entry The raw log entry
+ */
+export function parseRawLogEntry(entry: IRawLogEntry): ILogEntry {
+	return {
+		...entry,
+		exception: parseException((entry as any).exception || entry.message),
+	} as ILogEntry
 }
 
 /**

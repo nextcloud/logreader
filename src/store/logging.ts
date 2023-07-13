@@ -12,9 +12,8 @@ import { getLog, pollLog } from '../api'
 import { POLLING_INTERVAL } from '../constants'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import { debounce } from '../utils/debounce'
 import { useSettingsStore } from './settings'
-import { parseLogFile } from '../utils/logfile'
+import { parseLogFile, parseRawLogEntry } from '../utils/logfile'
 import { logger } from '../utils/logger'
 
 /**
@@ -36,7 +35,13 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	/**
 	 * List of filtered log entries (search query)
 	 */
-	const entries = computed(() => query.value ? allEntries.value.filter(entry => JSON.stringify(entry).includes(query.value)) : allEntries.value)
+	const entries = computed(() => {
+		if (query.value) {
+			const text = query.value.toLowerCase()
+			return allEntries.value.filter((entry) => JSON.stringify(entry).toLowerCase().includes(text))
+		}
+		return allEntries.value
+	})
 
 	/**
 	 * Whether there are more remaining (older) log entries on the server
@@ -67,12 +72,12 @@ export const useLogStore = defineStore('logreader-logs', () => {
 
 		try {
 			if (older) {
-				const { data } = await getLog({ offset: allEntries.value.length })
-				allEntries.value.push(...data.data)
+				const { data } = await getLog({ offset: allEntries.value.length, query: query.value })
+				allEntries.value.push(...data.data.map(parseRawLogEntry))
 				hasRemainingEntries.value = data.remain
 			} else {
 				const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
-				allEntries.value.splice(0, 0, ...data)
+				allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 			}
 		} finally {
 			// Handle any error to prevent a dead lock of the _loading property
@@ -112,9 +117,9 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		const doPolling = async () => {
 			try {
 				// Only poll if not using a local file
-				if (!_settings.localFile) {
+				if (!_settings.localFile && query.value === '') {
 					const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
-					allEntries.value.splice(0, 0, ...data)
+					allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 				}
 			} catch (e) {
 				logger.warn('Unexpected error while polling for new log entries', { error: e })
@@ -143,11 +148,21 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	 *
 	 * @param search The query string
 	 */
-	function searchLogs(search = '') {
+	async function searchLogs(search = '') {
+		const oldQuery = query.value
 		query.value = search
-		if (search !== '') {
-			// Actual server side search
-			debounce(() => loadMore(), 500)
+
+		// if query changed and we are not reading from local file, request new entries
+		if (search !== oldQuery && _settings.localFile === undefined) {
+			_loading.value = true
+
+			try {
+				const { data } = await getLog({ offset: 0, query: search })
+				allEntries.value = [...data.data.map(parseRawLogEntry)]
+				hasRemainingEntries.value = data.remain
+			} finally {
+				_loading.value = false
+			}
 		}
 	}
 

@@ -8,6 +8,7 @@
 	<version>2.13.0</version>
 	<licence>agpl</licence>
 	<author>Robin Appelman</author>
+	<author>Ferdinand Thiessen</author>
 	<namespace>LogReader</namespace>
 	<default_enable/>
 

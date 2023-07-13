@@ -19,10 +19,22 @@
 					<dt>{{ t('logreader', 'Time') }}</dt>
 					<dd>{{ timeString }}</dd>
 				</dl>
+				<template v-if="currentEntry.exception">
+					<NcButton class="log-details__btn"
+						@click="isExceptionExpanded = !isExceptionExpanded">
+						{{ isExceptionExpanded ? t('logreader', 'Hide exception details') : t('logreader', 'View exception details') }}
+					</NcButton>
+					<LogException :exception="currentEntry.exception" class="log-details__exception" :is-expanded="isExceptionExpanded" />
+					<hr>
+				</template>
+				<NcButton class="log-details__btn"
+					@click="isRawExpanded = !isRawExpanded">
+					{{ isRawExpanded ? t('logreader', 'Hide raw log entry') : t('logreader', 'View raw log entry') }}
+				</NcButton>
 				<figure class="log-details__raw">
 					<figcaption>{{ t('logreader', 'Raw log entry') }}</figcaption>
 					<!-- eslint-disable-next-line vue/no-v-html -->
-					<pre><code class="hljs language-json" v-html="code" /></pre>
+					<pre><code v-show="isRawExpanded" class="hljs language-json" v-html="code" /></pre>
 				</figure>
 			</div>
 		</template>
@@ -43,21 +55,24 @@
 	</NcModal>
 </template>
 
-<script lang="ts" setup>
-import type { ILogEntry } from '../../interfaces'
+<script setup lang="ts">
+import type { ILogEntry } from '../interfaces'
 
 import { translate as t } from '@nextcloud/l10n'
-import { computed } from 'vue'
-import { useLogFormatting } from '../../utils/format'
-import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../../constants'
+import { computed, ref, watchEffect } from 'vue'
+import { copyToCipboard } from '../utils/clipboard'
+import { useLogFormatting } from '../utils/format'
+import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'
 
 import NcActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
+
 import 'highlight.js/styles/base16/material-darker.css'
-import { copyToCipboard } from '../../utils/clipboard'
+import LogException from './exception/LogException.vue'
 
 hljs.registerLanguage('json', json)
 
@@ -68,6 +83,24 @@ const props = defineProps<{
 }>()
 
 const { formatTime, formatLogEntry } = useLogFormatting()
+
+/**
+ * Whether to show the full exception
+ */
+const isExceptionExpanded = ref(!!props.currentEntry.exception)
+
+/**
+ * Whether to show the raw log entry
+ */
+const isRawExpanded = ref(!props.currentEntry.exception)
+
+/**
+ * Hide exception is current entry is changes
+ */
+watchEffect(() => {
+	isExceptionExpanded.value = !!props.currentEntry.exception
+	isRawExpanded.value = !props.currentEntry.exception
+})
 
 /**
  * Index of the current entry within all entries
@@ -111,33 +144,44 @@ const copyFormatted = () => copyToCipboard(formatLogEntry(props.currentEntry))
 .log-details {
 	padding: 12px;
 
-	&__raw {
-		padding-top: 12px;
+	&__raw, &__exception {
+		padding-block-start: 12px;
+	}
+
+	&__btn {
+		margin-inline-start: auto;
 	}
 
 	&__info {
-		padding-right: 50px;
-		padding-top: 13px;
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 4px solid;
-		padding-bottom: 4px;
+		border-block-end: 4px solid;
+		padding-inline-end: 50px;
+		padding-block: 13px 4px;
+		margin-block-end: 13px;
+
+		dt, dd {
+			padding: 0;
+		}
 
 		dt {
 			font-weight: bold;
+			&::after {
+				content: ':';
+			}
 		}
 
 		&--debug {
-			border-bottom-color: var(--color-text-maxcontrast);
+			border-block-end-color: var(--color-text-maxcontrast);
 		}
 		&--info {
-			border-bottom-color: var(--color-info);
+			border-block-end-color: var(--color-info);
 		}
 		&--warning {
-			border-bottom-color: var(--color-warning);
+			border-block-end-color: var(--color-warning);
 		}
 		&--error {
-			border-bottom-color: var(--color-error);
+			border-block-end-color: var(--color-error);
 		}
 	}
 }

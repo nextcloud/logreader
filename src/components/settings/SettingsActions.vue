@@ -23,16 +23,16 @@
 	</div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
+import { generateUrl } from '@nextcloud/router'
+import { useLogStore } from '../../store/logging'
 import { useSettingsStore } from '../../store/settings.js'
 
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import IconDownload from 'vue-material-design-icons/Download.vue'
 import IconUpload from 'vue-material-design-icons/Upload.vue'
-import { generateUrl } from '@nextcloud/router'
-import { useLogStore } from '../../store/logging'
 
 const settingsStore = useSettingsStore()
 const logStore = useLogStore()

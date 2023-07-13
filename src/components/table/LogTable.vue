@@ -55,7 +55,7 @@
 	</div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { ILogEntry, ISortingOptions } from '../../interfaces'
 
 import { computed, nextTick, ref } from 'vue'
@@ -64,7 +64,7 @@ import { useSettingsStore } from '../../store/settings'
 import { useLogStore } from '../../store/logging'
 
 import IntersectionObserver from '../IntersectionObserver.vue'
-import LogDetailsModal from './LogDetailsModal.vue'
+import LogDetailsModal from '../LogDetailsModal.vue'
 import LogTableHeader from './LogTableHeader.vue'
 import LogTableRow from './LogTableRow.vue'
 import LogSearch from '../LogSearch.vue'

@@ -8,7 +8,7 @@
 		:aria-label="t('logreader', 'Search log entries')"
 		type="tertiary-no-background">
 		<template #icon>
-			<NcIconSvgWrapper :svg="TextSearchSvg" />
+			<IconTextSearch :size="20" />
 		</template>
 		<template #default>
 			<NcActionInput :value="currentQuery"
@@ -18,23 +18,22 @@
 				@input="onSearchInput">
 				{{ t('logreader', 'Search log entries') }}
 				<template #icon>
-					<NcIconSvgWrapper :svg="MagnifySvg" />
+					<IconMagnify :size="20" />
 				</template>
 			</NcActionInput>
 		</template>
 	</NcActions>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
+import { useLogStore } from '../store/logging'
 
 import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
 import NcActionInput from '@nextcloud/vue/dist/Components/NcActionInput.js'
-import NcIconSvgWrapper from '@nextcloud/vue/dist/Components/NcIconSvgWrapper.js'
-import TextSearchSvg from '@mdi/svg/svg/text-search.svg?raw'
-import MagnifySvg from '@mdi/svg/svg/magnify.svg?raw'
-import { useLogStore } from '../store/logging'
+import IconTextSearch from 'vue-material-design-icons/TextSearch.vue'
+import IconMagnify from 'vue-material-design-icons/Magnify.vue'
 
 declare global {
 	interface Window {

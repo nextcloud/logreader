@@ -11,9 +11,13 @@
 			<span>{{ row.app }}</span>
 		</td>
 		<td class="row-message" @click="isExpanded = !isExpanded">
-			<div class="row-message__container">
-				<div class="row-message__text" :class="{ 'row-message__text--expanded': isExpanded }" :title="row.message">
-					{{ row.exception }}, {{ row.message }}
+			<div class="row-message__container" :class="{ 'row-message__container--expanded': isExpanded }">
+				<div class="row-message__text">
+					<LogException v-if="row.exception" :exception="row.exception" />
+					<!-- Show log message if either there is no exception or a custom message was added -->
+					<div v-if="!row.exception || row.message !== row.exception.Message" class="row-message__text_message" :title="row.message">
+						{{ row.message }}
+					</div>
 				</div>
 				<div class="row-message__action">
 					<NcButton type="tertiary-no-background"
@@ -31,7 +35,9 @@
 				</div>
 			</div>
 		</td>
-		<td>{{ timeString }}</td>
+		<td :title="timeString">
+			{{ timeString }}
+		</td>
 		<td>
 			<NcActions placement="left-start">
 				<NcActionButton close-after-click @click="$emit('show-details', row)">
@@ -60,6 +66,7 @@
 <script setup lang="ts">
 import type { ILogEntry } from '../../interfaces'
 
+import { showSuccess } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
 import { computed, ref, nextTick, watch, onUpdated } from 'vue'
 import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../../constants'
@@ -73,7 +80,7 @@ import IconChevronDown from 'vue-material-design-icons/ChevronDown.vue'
 import IconChevronUp from 'vue-material-design-icons/ChevronUp.vue'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import IconViewList from 'vue-material-design-icons/ViewList.vue'
-import { showSuccess } from '@nextcloud/dialogs'
+import LogException from '../exception/LogException.vue'
 
 const props = withDefaults(
 	defineProps<{
@@ -168,16 +175,26 @@ td {
 		display: flex;
 		justify-content: space-between;
 		justify-items: start;
-	}
-
-	&__text {
-		overflow: hidden;
-		text-overflow: ellipsis;
 
 		&--expanded {
 			margin-block-end: 0.5rem;
 		}
 	}
+
+	// The text container (exception / message)
+	&__text {
+		display: flex;
+		flex-direction: column;
+		width: calc(100% - 48px); // 100% - 44px action - 2*4px action padding
+
+		// The real message
+		&_message {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 100%;
+		}
+	}
+
 	&__action {
 		// Ensure outline is show when focus-visible
 		padding: 2px;
@@ -187,10 +204,10 @@ td {
 tr {
 	display: table-row;
 	&.expanded {
-		white-space: break-spaces;
+		white-space: normal;
 
 		.row-message--text {
-			white-space: break-spaces;
+			white-space: normal;
 		}
 	}
 }
