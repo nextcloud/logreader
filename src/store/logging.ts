@@ -76,7 +76,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 				allEntries.value.push(...data.data.map(parseRawLogEntry))
 				hasRemainingEntries.value = data.remain
 			} else {
-				const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
+				const { data } = await pollLog({ lastReqId: allEntries.value[0]?.reqId || '' })
 				allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 			}
 		} finally {
@@ -118,7 +118,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 			try {
 				// Only poll if not using a local file
 				if (!_settings.localFile && query.value === '') {
-					const { data } = await pollLog({ lastReqId: allEntries.value?.[0]?.reqId || '' })
+					const { data } = await pollLog({ lastReqId: allEntries.value[0]?.reqId || '' })
 					allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 				}
 			} catch (e) {

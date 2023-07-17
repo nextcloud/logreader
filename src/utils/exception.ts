@@ -43,8 +43,8 @@ export function parseException(logException: IException | string): IException | 
 	// Handle old exceptions (up to nextcloud)
 	if (isOldStyleException(logException)) {
 		const data = tryParseJSON(logException.slice(10))
-		const traceLines = data.Trace.split('\n')
-		data.Trace = traceLines.map(parseTraceLine)
+		const traceLines = data.Trace?.split('\n')
+		data.Trace = traceLines?.map(parseTraceLine)
 		return data
 	}
 
@@ -101,15 +101,15 @@ function parseTraceLine(line: string) {
 	if (parts.length > 1) {
 		let file: ITraceLine['file']
 		let line: ITraceLine['line']
-		const fileAndLine = parts.shift()
+		const fileAndLine = parts.shift() as string
 		const call = parts.join(' ')
-		if (fileAndLine?.[0] === '[') {
-			line = -1
+		if (fileAndLine[0] === '[') {
 			file = fileAndLine
 		} else {
-			const filePaths = fileAndLine?.split('(', 2)
-			file = filePaths?.[0] || '?'
-			line = parseInt(filePaths?.[1]?.slice(0, filePaths[1].length - 1) || '')
+			const filePaths = fileAndLine.split('(', 2)
+			file = filePaths[0]
+			const lineNumber = filePaths[1]?.slice(0, filePaths[1].length - 1)
+			line = lineNumber ? parseInt(lineNumber) : undefined
 		}
 		return {
 			function: call,
@@ -122,7 +122,6 @@ function parseTraceLine(line: string) {
 			function: traceData,
 			number,
 			file: false,
-			line: false,
 		}
 	}
 }

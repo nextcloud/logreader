@@ -3,27 +3,27 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { IAppSettings, ILogEntry, INextcloud22LogEntry } from './interfaces'
+import type { IAppSettings, INextcloud22LogEntry } from './interfaces'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
 
 interface ApiGetLog {
-    offset?: number
-    count?: number
-    query?: string
+	offset?: number
+	count?: number
+	query?: string
 }
 
 interface ApiPollLog {
-    lastReqId: string
+	lastReqId: string
 }
 
 interface ApiLogResult {
-    /** New entries */
-    data: readonly INextcloud22LogEntry[]
-    /** True if more entries are available */
-    remain: boolean
+	/** New entries */
+	data: readonly INextcloud22LogEntry[]
+	/** True if more entries are available */
+	remain: boolean
 }
 
 type ApiPollLogResult = readonly INextcloud22LogEntry[]
@@ -31,8 +31,8 @@ type ApiPollLogResult = readonly INextcloud22LogEntry[]
 type IAppSettingsKey = keyof IAppSettings
 
 interface ApiSetAppSetting<I extends IAppSettingsKey> {
-    settingsKey: I
-    settingsValue: IAppSettings[I]
+	settingsKey: I
+	settingsValue: IAppSettings[I]
 }
 
 type ApiGetAppSettings = never

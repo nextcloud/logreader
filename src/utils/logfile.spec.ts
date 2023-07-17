@@ -2,7 +2,7 @@
  * SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <opensource@fthiessen.de>
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-import { expect, describe, it, vi, afterAll } from 'vitest'
+import { expect, describe, it } from 'vitest'
 import { parseLogFile, parseLogString } from './logfile'
 
 describe('utils:logfile', () => {

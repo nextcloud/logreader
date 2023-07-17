@@ -10,7 +10,6 @@ const config = createAppConfig({
 	config: {
 		test: {
 			coverage: {
-				all: true,
 				include: ['src/**'],
 				provider: 'istanbul',
 				reporter: ['lcov', 'text'],
