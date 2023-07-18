@@ -20,10 +20,9 @@
 		"@vue/test-utils": "^1.3.6",
 		"@vue/tsconfig": "^0.4.0",
 		"eslint-plugin-chai-friendly": "^0.7.2",
-		"happy-dom": "^10.1.1",
-		"rollup-plugin-visualizer": "^5.9.2",
+		"happy-dom": "^10.5.2",
 		"typescript": "^5.1.6",
-		"vite": "^4.3.9",
+		"vite": "^4.4.5",
 		"vitest": "^0.33.0"
 	},
 	"engines": {
@@ -42,7 +41,6 @@
 		"@nextcloud/typings": "^1.7.0",
 		"@nextcloud/vue": "^8.0.0-beta.2",
 		"axios": "^1.4.0",
-		"core-js": "^3.30.2",
 		"date-fns": "^2.30.0",
 		"highlight.js": "^11.8.0",
 		"json-string-splitter": "^1.0.0",
