@@ -28,10 +28,11 @@ use OCP\Settings\IDelegatedSettings;
 use OCP\Util;
 
 class Admin implements IDelegatedSettings {
-	private IInitialState $initialState;
-	private SettingsService $settingsService;
 
-	public function __construct(IInitialState $initialState, SettingsService $settingsService) {
+	public function __construct(
+		private IInitialState $initialState,
+		private SettingsService $settingsService,
+	) {
 		$this->initialState = $initialState;
 		$this->settingsService = $settingsService;
 	}

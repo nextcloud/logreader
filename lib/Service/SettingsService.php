@@ -25,9 +25,9 @@ use OCA\LogReader\Constants;
 use OCP\IConfig;
 
 class SettingsService {
-	private IConfig $config;
-
-	public function __construct(IConfig $config) {
+	public function __construct(
+		private IConfig $config,
+	) {
 		$this->config = $config;
 	}
 

@@ -33,12 +33,11 @@ use OCP\Util;
  * @package OCA\LogReader\Controller
  */
 class PageController extends Controller {
-	private IInitialState $initialState;
-	private SettingsService $settingsService;
 
-	public function __construct(IInitialState $initialState, SettingsService $settingsService) {
-		$this->initialState = $initialState;
-		$this->settingsService = $settingsService;
+	public function __construct(
+		private IInitialState $initialState,
+		private SettingsService $settingsService,
+	) {
 	}
 
 	/**

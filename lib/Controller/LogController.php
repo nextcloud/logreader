@@ -37,20 +37,14 @@ use Psr\Log\LoggerInterface;
  * @package OCA\LogReader\Controller
  */
 class LogController extends Controller {
-	private LogIteratorFactory $logIteratorFactory;
-	private SettingsService $settings;
-	private LoggerInterface $logger;
 
 	public function __construct($appName,
 		IRequest $request,
-		LogIteratorFactory $logIteratorFactory,
-		SettingsService $settingsService,
-		LoggerInterface $logger
+		private LogIteratorFactory $logIteratorFactory,
+		private SettingsService $settingsService,
+		private LoggerInterface $logger,
 	) {
 		parent::__construct($appName, $request);
-		$this->logIteratorFactory = $logIteratorFactory;
-		$this->settings = $settingsService;
-		$this->logger = $logger;
 	}
 
 	/**
@@ -61,14 +55,14 @@ class LogController extends Controller {
 	 * @return JSONResponse
 	 */
 	public function get($query = '', $count = 50, $offset = 0): JSONResponse {
-		$logType = $this->settings->getLoggingType();
+		$logType = $this->settingsService->getLoggingType();
 		// we only support web access when `log_type` is set to `file` (the default)
 		if ($logType !== 'file') {
 			$this->logger->debug('File-based logging must be enabled to access logs from the Web UI.');
 			return new JSONResponse([], Http::STATUS_FAILED_DEPENDENCY);
 		}
 
-		$iterator = $this->logIteratorFactory->getLogIterator($this->settings->getShownLevels());
+		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 
 		if ($query !== '') {
 			$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
@@ -86,7 +80,7 @@ class LogController extends Controller {
 	 * @return mixed
 	 */
 	private function getLastItem() {
-		$iterator = $this->logIteratorFactory->getLogIterator($this->settings->getShownLevels());
+		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 		$iterator->next();
 		return $iterator->current();
 	}
@@ -106,7 +100,7 @@ class LogController extends Controller {
 	 *  request.
 	 */
 	public function poll(string $lastReqId): JSONResponse {
-		$logType = $this->settings->getLoggingType();
+		$logType = $this->settingsService->getLoggingType();
 		// we only support web access when `log_type` is set to `file` (the default)
 		if ($logType !== 'file') {
 			$this->logger->debug('File-based logging must be enabled to access logs from the Web UI.');
@@ -118,7 +112,7 @@ class LogController extends Controller {
 			return new JSONResponse([]);
 		}
 
-		$iterator = $this->logIteratorFactory->getLogIterator($this->settings->getShownLevels());
+		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 		$iterator->next();
 
 		$data = [];
