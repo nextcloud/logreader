@@ -33,6 +33,7 @@ import type { IAppSettings } from '../../interfaces'
 import { computed } from 'vue'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
+import { logger } from '../../utils/logger'
 import { useSettingsStore } from '../../store/settings'
 
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
@@ -43,7 +44,7 @@ const settingsStore = useSettingsStore()
  * Text describing the datetime formatting options fieldset
  */
 const fieldsetLegend = computed(() => {
-	let message = t('logreader', 'Time format')
+	let message = t('logreader', 'Time format used for displaying the timestamp')
 	if (settingsStore.localFile) {
 		// We do not know the datetime format of the logfile so we can only display the raw format
 		message += ' ' + t('logreader', '(Local log files only support the "raw" time format)')
@@ -65,7 +66,7 @@ const setDateTimeFormat = (v: IAppSettings['dateTimeFormat']) =>
 	settingsStore
 		.setSetting('dateTimeFormat', v)
 		.catch((e) => {
-			console.debug(e)
+			logger.debug(e)
 			showError(t('logreader', 'Could not change date time format.'))
 		})
 </script>

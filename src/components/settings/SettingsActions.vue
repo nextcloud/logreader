@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<NcButton :href="downloadURL" download="">
+		<NcButton :href="settingsStore.enabled ? downloadURL : null" :disabled="!settingsStore.enabled" download="nextcloud.log">
 			<template #icon>
 				<IconDownload :size="20" />
 			</template>

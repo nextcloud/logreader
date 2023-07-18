@@ -155,7 +155,7 @@ const sortedRows = computed(() => {
 
 	&__table {
 		width: calc(100% - 12px);
-		margin: 6px;
+		margin-inline: 6px;
 		table-layout: fixed;
 	}
 
@@ -194,9 +194,8 @@ const sortedRows = computed(() => {
 			position: sticky;
 			top: 0;
 			z-index: 99;
-			padding-top: 1rem;
 			background-color: var(--color-main-background);
-			border-bottom: 2px solid var(--color-text-maxcontrast);
+			border-bottom: 2px solid var(--color-border-dark);
 		}
 	}
 

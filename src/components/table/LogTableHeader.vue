@@ -3,20 +3,20 @@
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
-	<th>
-		<div class="log-table__header-wrapper">
+	<th :aria-sort="ariaSort">
+		<div class="log-table-header__wrapper">
 			<NcButton v-if="sortable"
-				type="tertiary-no-background"
+				:type="props.sorted ? 'secondary' : 'tertiary-no-background'"
 				:aria-label="name"
-				:aria-sort="ariaSort"
+				:aria-pressed="!!props.sorted"
 				:wide="true"
-				@click="changeSortMode">
+				@click.stop="changeSortMode">
 				<template #icon>
 					<component :is="sortIcon" :size="20" />
 				</template>
 				{{ name }}
 			</NcButton>
-			<span v-else :title="name" class="log-table__header--text">
+			<span v-else :title="name" class="log-table-header__text">
 				{{ name }}
 			</span>
 			<!-- Allow to add content -->
@@ -95,30 +95,28 @@ const changeSortMode = () => {
 </script>
 
 <style lang="scss" scoped>
-.log-table {
-	&__header-wrapper {
+.log-table-header {
+	&__wrapper {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
-	&__header--text {
+
+	&__text {
 		// Fake a button icon style
 		padding-inline-start: 12px;
 	}
 }
 
 th {
-	:deep(.button-vue__wrapper) {
-		justify-content: left;
+	:deep() {
+		.button-vue__wrapper {
+			justify-content: left;
+		}
 	}
 
 	&> * {
 		padding-inline: 6px 2px;
-	}
-
-	&:last-of-type {
-		// the sidebar toggle must not overlap the text
-		padding-inline-end: 44px;
 	}
 }
 </style>

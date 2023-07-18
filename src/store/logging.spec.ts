@@ -5,7 +5,7 @@
 import { createTestingPinia } from '@pinia/testing'
 import { expect, describe, it, vi, beforeAll, afterEach, afterAll } from 'vitest'
 
-import type { ILogEntry } from '../interfaces'
+import type { IAppSettings, ILogEntry } from '../interfaces'
 import { useSettingsStore } from '../store/settings'
 import { useLogStore } from './logging'
 import { POLLING_INTERVAL } from '../constants'
@@ -30,6 +30,14 @@ class ServerError extends Error {
 
 }
 
+const mockInitialState = (state: IAppSettings) => {
+	const input = document.createElement('input')
+	input.setAttribute('type', 'hidden')
+	input.setAttribute('id', 'initial-state-logreader-settings')
+	input.setAttribute('value', btoa(JSON.stringify(state)))
+	return document.body.appendChild(input)
+}
+
 describe('store:logging', () => {
 	afterEach(() => {
 		vi.restoreAllMocks()
@@ -41,6 +49,15 @@ describe('store:logging', () => {
 	})
 	beforeAll(() => {
 		vi.useFakeTimers()
+
+		// Mock server settings
+		mockInitialState({
+			dateTimeFormat: 'local',
+			enabled: true,
+			liveLog: true,
+			shownLevels: [2, 4],
+		})
+
 		createTestingPinia({
 			fakeApp: true,
 			createSpy: vi.fn,

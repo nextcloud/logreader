@@ -30,19 +30,29 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	 * Is file logging enabled on server
 	 */
 	const enabled = ref(_loadedSettings.enabled)
+
+	/**
+	 * Wether we should load log entries from server
+	 * This checks if file logging is enabled and if a local file is currently shown
+	 */
+	const isEnabled = computed(() => enabled.value && localFile.value === undefined)
+
 	/**
 	 * Is live log aka polling enabled
 	 */
 	const liveLog = ref(_loadedSettings.liveLog)
+
 	/**
 	 * Array of logging levels enabled to show
 	 */
 	const shownLevels = ref(_loadedSettings.shownLevels)
+
 	/**
 	 * The datetime format to used for displaying times
 	 * This is the internal property used for the computed getter
 	 */
 	const _dateTimeFormat = ref(_loadedSettings.dateTimeFormat)
+
 	/**
 	 * The datetime format to use for showing times to the user
 	 * Will always be 'raw' for local files
@@ -92,5 +102,5 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 		return settings.data
 	}
 
-	return { shownLevels, dateTimeFormat, enabled, liveLog, localFile, localFileName, setSetting, getSettings }
+	return { shownLevels, dateTimeFormat, enabled, isEnabled, liveLog, localFile, localFileName, setSetting, getSettings }
 })

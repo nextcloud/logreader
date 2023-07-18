@@ -216,7 +216,7 @@ tr {
 	border-inline-start: 4px solid;
 
 	&--debug {
-		border-inline-start-color: var(--color-text-maxcontrast);
+		border-inline-start-color: var(--color-border-maxcontrast);
 	}
 	&--info {
 		border-inline-start-color: var(--color-info);
@@ -224,7 +224,7 @@ tr {
 	&--warning {
 		border-inline-start-color: var(--color-warning);
 	}
-	&--error {
+	&--error, &--fatal {
 		border-inline-start-color: var(--color-error);
 	}
 }

@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<NcCheckboxRadioSwitch :checked.sync="liveLog">
+		<NcNoteCard v-if="!settingsStore.enabled" type="info">{{ t('logreader', 'Polling is disabled because server is not configured to log to file') }}</NcNoteCard>
+		<NcCheckboxRadioSwitch :checked.sync="liveLog" :disabled="!settingsStore.enabled">
 			{{
 				t('logreader', 'Polling (live view)')
 			}}
@@ -16,10 +17,11 @@ import { logger } from '../../utils/logger'
 import { useSettingsStore } from '../../store/settings.js'
 
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
 
 const settingsStore = useSettingsStore()
 const liveLog = computed({
-	get: () => settingsStore.liveLog,
+	get: () => settingsStore.enabled ? settingsStore.liveLog : false,
 	set: (v: boolean) =>
 		settingsStore
 			.setSetting('liveLog', v)

@@ -6,7 +6,7 @@
 	<NcActions :force-menu="true"
 		:open.sync="isOpen"
 		:aria-label="t('logreader', 'Search log entries')"
-		type="tertiary-no-background">
+		:type="buttonType">
 		<template #icon>
 			<IconTextSearch :size="20" />
 		</template>
@@ -47,6 +47,11 @@ const logStore = useLogStore()
  * State of the search input popover
  */
 const isOpen = ref(false)
+
+/**
+ * The button type, forced to `primary` when filter is active
+ */
+const buttonType = computed(() => logStore.query ? 'primary' : 'tertiary-no-background')
 
 /**
  * Current active search query

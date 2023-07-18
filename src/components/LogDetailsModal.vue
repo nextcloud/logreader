@@ -1,7 +1,6 @@
 <template>
 	<NcModal :show="open"
 		size="large"
-		:name="t('logreader', 'Log entry details')"
 		:has-previous="index > 0"
 		:has-next="index < logEntries.length - 1"
 		@next="$emit('update:currentEntry', logEntries[index + 1])"
@@ -19,38 +18,35 @@
 					<dt>{{ t('logreader', 'Time') }}</dt>
 					<dd>{{ timeString }}</dd>
 				</dl>
-				<template v-if="currentEntry.exception">
-					<NcButton class="log-details__btn"
+				<div class="log-details__actions">
+					<NcButton :aria-label="t('logreader', 'Copy raw entry')" type="tertiary" @click="copyRaw">
+						<template #icon>
+							<IconContentCopy />
+						</template>
+						{{ t('logreader', 'Copy raw entry') }}
+					</NcButton>
+					<NcButton :aria-label="t('logreader', 'Copy formatted entry')" type="tertiary" @click="copyFormatted">
+						<template #icon>
+							<IconContentCopy />
+						</template>
+						{{ t('logreader', 'Copy formatted entry') }}
+					</NcButton>
+					<NcButton v-if="currentEntry.exception"
+						class="log-details__btn"
 						@click="isExceptionExpanded = !isExceptionExpanded">
 						{{ isExceptionExpanded ? t('logreader', 'Hide exception details') : t('logreader', 'View exception details') }}
 					</NcButton>
+				</div>
+				<template v-if="currentEntry.exception">
 					<LogException :exception="currentEntry.exception" class="log-details__exception" :is-expanded="isExceptionExpanded" />
 					<hr>
 				</template>
-				<NcButton class="log-details__btn"
-					@click="isRawExpanded = !isRawExpanded">
-					{{ isRawExpanded ? t('logreader', 'Hide raw log entry') : t('logreader', 'View raw log entry') }}
-				</NcButton>
 				<figure class="log-details__raw">
 					<figcaption>{{ t('logreader', 'Raw log entry') }}</figcaption>
 					<!-- eslint-disable-next-line vue/no-v-html -->
-					<pre><code v-show="isRawExpanded" class="hljs language-json" v-html="code" /></pre>
+					<pre><code class="hljs language-json" v-html="code" /></pre>
 				</figure>
 			</div>
-		</template>
-		<template #actions>
-			<NcActionButton close-after-click @click="copyRaw">
-				<template #icon>
-					<IconContentCopy />
-				</template>
-				{{ t('logreader', 'Copy raw entry') }}
-			</NcActionButton>
-			<NcActionButton close-after-click @click="copyFormatted">
-				<template #icon>
-					<IconContentCopy />
-				</template>
-				{{ t('logreader', 'Copy formatted entry') }}
-			</NcActionButton>
 		</template>
 	</NcModal>
 </template>
@@ -59,12 +55,12 @@
 import type { ILogEntry } from '../interfaces'
 
 import { translate as t } from '@nextcloud/l10n'
+import { showSuccess } from '@nextcloud/dialogs'
 import { computed, ref, watchEffect } from 'vue'
 import { copyToCipboard } from '../utils/clipboard'
 import { useLogFormatting } from '../utils/format'
 import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'
 
-import NcActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
@@ -90,16 +86,10 @@ const { formatTime, formatLogEntry } = useLogFormatting()
 const isExceptionExpanded = ref(!!props.currentEntry.exception)
 
 /**
- * Whether to show the raw log entry
- */
-const isRawExpanded = ref(!props.currentEntry.exception)
-
-/**
  * Hide exception is current entry is changes
  */
 watchEffect(() => {
 	isExceptionExpanded.value = !!props.currentEntry.exception
-	isRawExpanded.value = !props.currentEntry.exception
 })
 
 /**
@@ -136,8 +126,23 @@ const cssLevelClass = computed(() => [
 	`log-details__info--${LOGGING_LEVEL[props.currentEntry.level]}`,
 ])
 
-const copyRaw = () => copyToCipboard(JSON.stringify(props.currentEntry))
-const copyFormatted = () => copyToCipboard(formatLogEntry(props.currentEntry))
+/**
+ * Copy the raw log entry as json
+ */
+const copyRaw = async () => {
+	if (await copyToCipboard(JSON.stringify(props.currentEntry))) {
+		showSuccess(t('logreader', 'Log entry sucessfully copied'))
+	}
+}
+
+/**
+ * Copy the log entry formatted to be human readable
+ */
+const copyFormatted = async () => {
+	if (await copyToCipboard(formatLogEntry(props.currentEntry))) {
+		showSuccess(t('logreader', 'Log entry sucessfully copied'))
+	}
+}
 </script>
 
 <style lang="scss" scoped>
@@ -146,10 +151,6 @@ const copyFormatted = () => copyToCipboard(formatLogEntry(props.currentEntry))
 
 	&__raw, &__exception {
 		padding-block-start: 12px;
-	}
-
-	&__btn {
-		margin-inline-start: auto;
 	}
 
 	&__info {
@@ -172,7 +173,7 @@ const copyFormatted = () => copyToCipboard(formatLogEntry(props.currentEntry))
 		}
 
 		&--debug {
-			border-block-end-color: var(--color-text-maxcontrast);
+			border-block-end-color: var(--color-border-maxcontrast);
 		}
 		&--info {
 			border-block-end-color: var(--color-info);
@@ -180,12 +181,38 @@ const copyFormatted = () => copyToCipboard(formatLogEntry(props.currentEntry))
 		&--warning {
 			border-block-end-color: var(--color-warning);
 		}
-		&--error {
+		&--error, &--fatal {
 			border-block-end-color: var(--color-error);
 		}
 	}
+
+	&__actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: end;
+		gap: 9px;
+		margin-block: 9px;
+	}
+
+	hr {
+		color: var(--color-border-dark);
+	}
 }
 .hljs {
-	background-color: var(--color-main-background);
+	background-color: var(--color-background-dark);
+	border-radius: var(--border-radius-large);
+}
+
+// For mobile we need to show the details as a vertical list
+@media only screen and (max-width: 399px) {
+	.log-details {
+		&__info {
+			display: block;
+		}
+		dd {
+			margin-inline-start: 12px;
+		}
+	}
 }
 </style>

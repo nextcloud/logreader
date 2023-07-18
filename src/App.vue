@@ -4,16 +4,19 @@
 -->
 <template>
 	<div class="logreader-container">
-		<AppSettingsDialog :open.sync="areSettingsShown" />
-		<!-- Setting toggle -->
-		<NcButton :aria-label="t('logreader', 'Open settings')"
-			class="settings-toggle"
-			type="tertiary"
-			@click="areSettingsShown = true">
-			<template #icon>
-				<IconCog :size="20" />
-			</template>
-		</NcButton>
+		<div class="logreader-container__header">
+			<h2>{{ t('logreader', 'Log reader') }}</h2>
+			<!-- Setting toggle -->
+			<NcButton :aria-label="t('logreader', 'Open log reader settings')"
+				class="settings-toggle"
+				type="tertiary"
+				@click="areSettingsShown = true">
+				<template #icon>
+					<IconCog :size="20" />
+				</template>
+				{{ t('logreader', 'Log reader settings') }}
+			</NcButton>
+		</div>
 		<!-- Show information / warning message -->
 		<NcNoteCard v-if="settingsStore.localFile" type="info" class="info-note">
 			<div class="info-note__content">
@@ -39,6 +42,8 @@
 				<span v-html="noLogDescription" />
 			</template>
 		</NcEmptyContent>
+		<!-- App settings dialog will be mounted on page body -->
+		<AppSettingsDialog :open.sync="areSettingsShown" />
 	</div>
 </template>
 
@@ -71,6 +76,8 @@ const entries = computed(() => loggingStore.entries)
 
 const onShowServerLog = () => {
 	settingsStore.localFile = undefined
+	// remove local entries
+	loggingStore.allEntries = []
 	loggingStore.loadMore()
 }
 
@@ -78,7 +85,7 @@ const onShowServerLog = () => {
  * Toggle polling if live log is dis- / enabled
  */
 watchEffect(() => {
-	if (settingsStore.liveLog) {
+	if (settingsStore.liveLog && settingsStore.isEnabled) {
 		loggingStore.startPolling()
 	} else {
 		loggingStore.stopPolling()
@@ -115,12 +122,14 @@ legend {
 }
 
 .logreader-container {
+	// Ensure max 100% is used and the table itself will be scrollable
+	display: flex;
+	flex-direction: column;
 	height: 100%;
 
 	.info-note {
-		margin: 1rem;
-		margin-bottom: 0; // table header padding
-		margin-right: 56px; // 44px + 2x `right` of settings toggle
+		margin-block: 4px;
+		margin-inline: 1rem;
 
 		&__content {
 			display: flex;
@@ -130,16 +139,33 @@ legend {
 		}
 	}
 
-	.settings-toggle {
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		// Make sure to be clickable even if overlaying a table header
-		z-index: 999;
+	&__header {
+		padding-inline-start: 1rem; // Align with info note
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		h2 {
+			// Handled by container
+			margin: 0;
+			padding: 0;
+		}
+
+		.settings-toggle {
+			// 2px to show outline when focus-visible
+			margin: 2px;
+		}
 	}
 }
 
 :deep(.empty-content) {
 	text-align: center;
+}
+
+@media only screen and (max-width: 1023px) {
+	.logreader-container__header {
+		padding-inline-start: 48px; // app sidebar toggle
+	}
 }
 </style>
