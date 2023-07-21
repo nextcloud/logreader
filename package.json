@@ -30,7 +30,7 @@
 		"npm": "^9.0.0"
 	},
 	"dependencies": {
-		"@highlightjs/vue-plugin": "^1.0.2",
+		"@highlightjs/vue-plugin": "^2.0.1",
 		"@mdi/svg": "^7.2.96",
 		"@nextcloud/axios": "^2.4.0",
 		"@nextcloud/dialogs": "^4.1.0",
