@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<phpunit bootstrap="bootstrap.php"
+<phpunit bootstrap="./bootstrap.php"
 		 timeoutForSmallTests="900"
 		 convertDeprecationsToExceptions="true"
 		 timeoutForMediumTests="900"
 		 timeoutForLargeTests="900"
+		 colors="true"
 >
 	<testsuite name='Nextcloud - Logreader App Tests'>
-		<directory suffix='.php'>.</directory>
+		<directory suffix='.php'>./Unit</directory>
 	</testsuite>
-	<filter>
-		<whitelist>
-			<directory suffix=".php">../</directory>
-			<exclude>
-				<directory suffix=".php">../tests
-				</directory>
-			</exclude>
-		</whitelist>
-	</filter>
-	<logging>
-		<log type="coverage-clover" target="./clover.xml"/>
-	</logging>
+	<coverage>
+		<!-- filters for code coverage -->
+		<include>
+			<directory suffix=".php">../lib</directory>
+		</include>
+		<report>
+			<!-- and this is where your report will be written -->
+			<clover outputFile="./clover.unit.xml"/>
+		</report>
+	</coverage>
 </phpunit>

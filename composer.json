@@ -1,8 +1,11 @@
 {
+	"name": "nextcloud/logreader",
+	"type": "project",
+	"license": "AGPLv3",
 	"require-dev": {
 		"nextcloud/coding-standard": "v1.1.1",
 		"nextcloud/ocp": "dev-master",
-		"phpunit/phpunit": "^8",
+		"phpunit/phpunit": "^9",
 		"vimeo/psalm": "^4.27"
 	},
 	"config": {

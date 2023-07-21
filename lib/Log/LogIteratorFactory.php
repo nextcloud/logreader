@@ -38,14 +38,10 @@ class LogIteratorFactory {
 
 	/**
 	 * @return \Iterator
-	 * @param string $levelsString
+	 * @param int[] $levels Array of levels to show
 	 * @throws \Exception
 	 */
-	public function getLogIterator($levelsString) {
-		$levels = str_split($levelsString);
-		$levels = array_map(function ($level) {
-			return $level === '1';
-		}, $levels);
+	public function getLogIterator(array $levels) {
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ATOM);
 		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
 		$log = $this->logFactory->get('file');
@@ -54,7 +50,7 @@ class LogIteratorFactory {
 			if ($handle) {
 				$iterator = new LogIterator($handle, $dateFormat, $timezone);
 				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
-					return $logItem && isset($levels[$logItem['level']]) && $levels[$logItem['level']];
+					return $logItem && in_array($logItem['level'], $levels);
 				});
 			} else {
 				throw new \Exception("Error while opening " . $log->getLogFilePath());

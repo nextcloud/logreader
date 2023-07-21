@@ -28,7 +28,7 @@ use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
-use OCP\AppFramework\IAppContainer;
+use Psr\Container\ContainerInterface;
 
 class Application extends App implements IBootstrap {
 	public function __construct(array $urlParams = []) {
@@ -36,11 +36,11 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerService(Formatter::class, function (ContainerInterface $c) {
+			return new Formatter(\OC::$SERVERROOT);
+		});
 	}
 
 	public function boot(IBootContext $context): void {
-		$context->getAppContainer()->registerService(Formatter::class, function (IAppContainer $c) {
-			return new Formatter(\OC::$SERVERROOT);
-		});
 	}
 }

@@ -1,6 +1,7 @@
 <?php
 /**
  * @author Robin Appelman <icewind@owncloud.com>
+ * @author Ferdinand Thiessen <opensource@fthiessen.de>
  *
  * @copyright Copyright (c) 2015, ownCloud, Inc.
  * @license AGPL-3.0
@@ -23,10 +24,12 @@ namespace OCA\LogReader\Controller;
 
 use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\Log\SearchFilter;
+use OCA\LogReader\Service\SettingsService;
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
-use OCP\IConfig;
 use OCP\IRequest;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class LogController
@@ -34,69 +37,57 @@ use OCP\IRequest;
  * @package OCA\LogReader\Controller
  */
 class LogController extends Controller {
-	private $logIteratorFactory;
-	private $config;
 
 	public function __construct($appName,
 		IRequest $request,
-		IConfig $config,
-		LogIteratorFactory $logIteratorFactory
+		private LogIteratorFactory $logIteratorFactory,
+		private SettingsService $settingsService,
+		private LoggerInterface $logger,
 	) {
 		parent::__construct($appName, $request);
-		$this->logIteratorFactory = $logIteratorFactory;
-		$this->config = $config;
 	}
 
 	/**
 	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
+	 * @param string $query
 	 * @param int $count
 	 * @param int $offset
-	 * @param string $levels
 	 * @return JSONResponse
 	 */
-	public function get($count = 50, $offset = 0, $levels = '11111'): JSONResponse {
-		$logType = $this->config->getSystemValue('log_type', 'file');
-		if ($logType === 'file') { // we only support web access when `log_type` is set to `file` (the default)
-			$iterator = $this->logIteratorFactory->getLogIterator($levels);
-			return $this->responseFromIterator($iterator, $count, $offset);
-		} else { // A log_type other than `file` seems to be configured so:
-			//     * Generate a dummy entry so we don't error out
-			//     * Use the dummy entry to inform the admin to look elsewhere and/or correct their configuration
-			$dummyLine["id"] = uniqid();
-			$dummyLine["reqid"] = "00000000000000000000"; // irrelevant
-			$dummyLine["level"] = 1; // INFO
-			$dummyLine["time"] = date(DATE_ATOM, time());
-			$dummyLine["remoteAddr"] = "0.0.0.0";
-			$dummyLine["user"] = "---";
-			$dummyLine["app"] = "Logreader";
-			$dummyLine["method"] = "---";
-			$dummyLine["url"] = "---";
-			$dummyLine["message"] =
-				'File-based logging must be enabled to access logs from the Web UI. Your `log_type` is currently '
-				. 'set to: [' . $logType . ']. If you feel this is an error, please verify `log_type` in your '
-				. 'config.php and check the Nextcloud Administration Manual. This is not an actual log entry.';
-			$dummyLine["userAgent"] = "---";
-			$dummyLine["version"] = "---";
-			return new JSONResponse(['data' => $dummyLine, 'remain' => false]);
+	public function get($query = '', $count = 50, $offset = 0): JSONResponse {
+		$logType = $this->settingsService->getLoggingType();
+		// we only support web access when `log_type` is set to `file` (the default)
+		if ($logType !== 'file') {
+			$this->logger->debug('File-based logging must be enabled to access logs from the Web UI.');
+			return new JSONResponse([], Http::STATUS_FAILED_DEPENDENCY);
 		}
-	}
 
+		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
+
+		if ($query !== '') {
+			$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
+			$iterator->rewind();
+			$iterator = new SearchFilter($iterator, $query);
+			$iterator->rewind();
+			return $this->responseFromIterator($iterator, $count, $offset);
+		}
+
+		return $this->responseFromIterator($iterator, $count, $offset);
+	}
 
 	/**
 	 * @brief Gets the last item in the log, bypassing any cache.
 	 * @return mixed
 	 */
-	private function getLastItem($levels) {
-		$iterator = $this->logIteratorFactory->getLogIterator($levels);
+	private function getLastItem() {
+		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 		$iterator->next();
 		return $iterator->current();
 	}
 
 	/**
 	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 * @brief polls for a new log message since $lastReqId.
-	 * This method will sleep for maximum 20 seconds before returning an empty
-	 * result.
+	 * @brief Use to poll for new log messages since $lastReqId.
 	 *
 	 * @note There is a possible race condition, when the user loads the
 	 * logging page when a request isn't finished and this specific request
@@ -108,26 +99,20 @@ class LogController extends Controller {
 	 *  will work in some cases but not when there are more than 50 messages of that
 	 *  request.
 	 */
-	public function poll(string $lastReqId, string $levels = '11111'): JSONResponse {
-		$cycles = 0;
-		$maxCycles = 20;
+	public function poll(string $lastReqId): JSONResponse {
+		$logType = $this->settingsService->getLoggingType();
+		// we only support web access when `log_type` is set to `file` (the default)
+		if ($logType !== 'file') {
+			$this->logger->debug('File-based logging must be enabled to access logs from the Web UI.');
+			return new JSONResponse([], Http::STATUS_FAILED_DEPENDENCY);
+		}
 
-		$logType = $this->config->getSystemValue('log_type', 'file');
-		if ($logType !== 'file') { // we only support access when `log_type` is set to `file` (the default)
-			// TODO: Don't even attempt polling in the front-end
-			sleep(20);
+		$lastItem = $this->getLastItem();
+		if ($lastItem === null || $lastItem['reqId'] === $lastReqId) {
 			return new JSONResponse([]);
 		}
-		$lastItem = $this->getLastItem($levels);
-		while ($lastItem === null || $lastItem['reqId'] === $lastReqId) {
-			sleep(1);
-			$cycles++;
-			if ($cycles === $maxCycles) {
-				return new JSONResponse([]);
-			}
-			$lastItem = $this->getLastItem($levels);
-		}
-		$iterator = $this->logIteratorFactory->getLogIterator($levels);
+
+		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 		$iterator->next();
 
 		$data = [];
@@ -147,77 +132,6 @@ class LogController extends Controller {
 		}
 
 		return new JSONResponse($data);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 * @param string $query
-	 * @param int $count
-	 * @param int $offset
-	 * @param string $levels
-	 * @return JSONResponse
-	 *
-	 * @NoCSRFRequired
-	 */
-	public function search($query = '', $count = 50, $offset = 0, $levels = '11111'): JSONResponse {
-		$iterator = $this->logIteratorFactory->getLogIterator($levels);
-		$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
-		$iterator->rewind();
-		$iterator = new SearchFilter($iterator, $query);
-		$iterator->rewind();
-		return $this->responseFromIterator($iterator, $count, $offset);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 */
-	public function getLevels(): JSONResponse {
-		return new JSONResponse($this->config->getAppValue('logreader', 'levels', '11111'));
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 */
-	public function getSettings(): JSONResponse {
-		return new JSONResponse([
-			'levels' => $this->config->getAppValue('logreader', 'levels', '11111'),
-			'dateformat' => $this->config->getSystemValue('logdateformat', \DateTime::ISO8601),
-			'timezone' => $this->config->getSystemValue('logtimezone', 'UTC'),
-			'relativedates' => (bool)$this->config->getAppValue('logreader', 'relativedates', false),
-			'live' => (bool)$this->config->getAppValue('logreader', 'live', true),
-		]);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 * @param bool $relative
-	 */
-	public function setRelative($relative) {
-		$this->config->setAppValue('logreader', 'relativedates', $relative);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 * @param bool $live
-	 */
-	public function setLive($live) {
-		$this->config->setAppValue('logreader', 'live', $live);
-	}
-
-	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
-	 */
-	public function setLevels(string $levels): int {
-		$intLevels = array_map('intval', str_split($levels));
-		$minLevel = 4;
-		foreach ($intLevels as $level => $log) {
-			if ($log) {
-				$minLevel = $level;
-				break;
-			}
-		}
-		$this->config->setAppValue('logreader', 'levels', $levels);
-		return $minLevel;
 	}
 
 	protected function responseFromIterator(\Iterator $iterator, $count, $offset): JSONResponse {

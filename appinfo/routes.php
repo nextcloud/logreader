@@ -11,12 +11,9 @@
 return ['routes' => [
 	// page
 	['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	['name' => 'log#get', 'url' => '/get', 'verb' => 'GET'],
-	['name' => 'log#poll', 'url' => '/poll', 'verb' => 'GET'],
-	['name' => 'log#search', 'url' => '/search', 'verb' => 'GET'],
-	['name' => 'log#getSettings', 'url' => '/settings', 'verb' => 'GET'],
-	['name' => 'log#getLevels', 'url' => '/levels', 'verb' => 'GET'],
-	['name' => 'log#setLevels', 'url' => '/levels', 'verb' => 'PUT'],
-	['name' => 'log#setRelative', 'url' => '/relative', 'verb' => 'PUT'],
-	['name' => 'log#setLive', 'url' => '/live', 'verb' => 'PUT'],
+	['name' => 'log#get', 'url' => '/api/log', 'verb' => 'GET'],
+	['name' => 'log#poll', 'url' => '/api/poll', 'verb' => 'GET'],
+	// app settings
+	['name' => 'settings#getAppConfig', 'url' => '/api/settings', 'verb' => 'GET'],
+	['name' => 'settings#updateAppConfig', 'url' => '/api/settings', 'verb' => 'PUT']
 ]];

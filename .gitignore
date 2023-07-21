@@ -1,4 +1,14 @@
+# Code coverge
+.nyc_output/
+coverage/
+
+# Test output
+cypress/screenshots/
+cypress/videos/
+
+# Locally installed packages
 node_modules/
-build/appstore/
-vendor
+vendor/
+
+build/
 *.cache
