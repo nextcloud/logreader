@@ -1,8 +1,8 @@
 { "translations": {
+    "Time" : "Tempore",
     "Info" : "Info",
     "Warning" : "Aviso",
     "Error" : "Error",
-    "Copy" : "Copiar",
-    "Time" : "Tempore"
+    "Copy" : "Copiar"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

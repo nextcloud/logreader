@@ -1,7 +1,7 @@
 { "translations": {
+    "Time" : "ۋاقىت",
     "Info" : "Info",
     "Warning" : "ئاگاھلاندۇرۇش",
-    "Error" : "خاتالىق",
-    "Time" : "ۋاقىت"
+    "Error" : "خاتالىق"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
