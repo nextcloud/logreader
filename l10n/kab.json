@@ -1,7 +1,8 @@
 { "translations": {
+    "Message" : "Izen",
+    "Show details" : "Sken talqayt",
     "Warning" : "Alɣu",
     "Error" : "Erreur",
-    "Copy" : "Nɣel",
-    "Message" : "Izen"
+    "Copy" : "Nɣel"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
