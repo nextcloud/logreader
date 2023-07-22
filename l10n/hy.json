@@ -1,8 +1,8 @@
 { "translations": {
+    "Time" : "Ժամ",
     "Info" : "Info",
     "Warning" : "Զգուշացում",
     "Error" : "Սխալ",
-    "Copy" : "պատճենահանել",
-    "Time" : "Ժամ"
+    "Copy" : "պատճենահանել"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
