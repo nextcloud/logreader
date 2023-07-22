@@ -1,10 +1,10 @@
 { "translations": {
+    "App" : "යෙදුම",
+    "Time" : "වේලාව",
+    "Message" : "පණිවිඩය",
     "Info" : "තොරතුරු",
     "Warning" : "අවවාදයයි",
     "Error" : "දෝෂය",
-    "Copy" : "පිටපත්",
-    "App" : "යෙදුම",
-    "Message" : "පණිවිඩය",
-    "Time" : "වේලාව"
+    "Copy" : "පිටපත්"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

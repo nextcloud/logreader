@@ -1,8 +1,8 @@
 { "translations": {
+    "Time" : "Vaxt",
     "Info" : "Info",
     "Warning" : "Xəbərdarlıq",
     "Error" : "Səhv",
-    "Copy" : "Kopyala",
-    "Time" : "Vaxt"
+    "Copy" : "Kopyala"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

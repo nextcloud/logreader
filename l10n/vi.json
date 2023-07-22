@@ -1,10 +1,10 @@
 { "translations": {
+    "Level" : "Cấp độ",
+    "App" : "Ứng dụng",
+    "Time" : "Thời gian",
     "Info" : "Thông tin",
     "Warning" : "Cảnh báo",
     "Error" : "Lỗi",
-    "Copy" : "Sao chép",
-    "Level" : "Cấp độ",
-    "App" : "Ứng dụng",
-    "Time" : "Thời gian"
+    "Copy" : "Sao chép"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
