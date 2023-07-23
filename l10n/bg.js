@@ -11,6 +11,7 @@ OC.L10N.register(
     "Download logs" : "Изтегляне на журнали",
     "Application" : "Приложение",
     "Message" : "Съобщение",
+    "Show details" : "Показване на подробности",
     "Debug" : "Отстраняване на грешки",
     "Info" : "Информация",
     "Warning" : "Внимание",
