@@ -1,8 +1,8 @@
-import "./index-46d64e17.mjs";
+import "./index-4199c008.mjs";
 /**
  * @name logreader
  * @license
- * @version  (generated 2023-07-21)
+ * @version  (generated 2023-07-24)
  *
  * Included dependencies:
  *
