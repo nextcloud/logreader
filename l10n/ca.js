@@ -11,6 +11,7 @@ OC.L10N.register(
     "Download logs" : "Baixa els registres",
     "Application" : "Aplicació",
     "Message" : "Missatge",
+    "Show details" : "Mostra els detalls",
     "Debug" : "Depuració",
     "Info" : "Informació",
     "Warning" : "Avís",

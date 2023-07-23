@@ -11,6 +11,7 @@ OC.L10N.register(
     "Download logs" : "Descargar bitácoras",
     "Application" : "Aplicación",
     "Message" : "Mensaje",
+    "Show details" : "Mostrar detalles",
     "Debug" : "Depuración",
     "Info" : "Info",
     "Warning" : "Advertencia",
