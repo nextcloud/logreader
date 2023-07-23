@@ -11,6 +11,7 @@ OC.L10N.register(
     "Download logs" : "Stáhnout si záznamy událostí",
     "Application" : "Aplikace",
     "Message" : "Zpráva",
+    "Show details" : "Zobrazit podrobnosti",
     "Debug" : "Ladící",
     "Info" : "Informace",
     "Warning" : "Varování",

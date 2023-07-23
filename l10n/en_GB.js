@@ -11,6 +11,7 @@ OC.L10N.register(
     "Download logs" : "Download logs",
     "Application" : "Application",
     "Message" : "Message",
+    "Show details" : "Show details",
     "Debug" : "Debug",
     "Info" : "Info",
     "Warning" : "Warning",

@@ -11,6 +11,7 @@ OC.L10N.register(
     "Download logs" : "Protokolldatei herunterladen",
     "Application" : "Anwendung",
     "Message" : "Nachricht",
+    "Show details" : "Details anzeigen",
     "Debug" : "Fehlersuche",
     "Info" : "Information",
     "Warning" : "Warnung",

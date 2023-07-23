@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "Show details" : "Diskouel ar munudoù",
     "Info" : "Titouroù",
     "Warning" : "Kemenadenn",
     "Error" : "Fazi",
