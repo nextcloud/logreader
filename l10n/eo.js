@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Dato",
     "Download logs" : "Elŝuti prokolon",
     "Message" : "Mesaĝo",
+    "Show details" : "Montri la detalojn",
     "Info" : "Info",
     "Warning" : "Averto",
     "Error" : "Eraro",

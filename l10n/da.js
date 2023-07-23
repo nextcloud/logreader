@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Tid",
     "Download logs" : "Hent logs",
     "Message" : "Besked",
+    "Show details" : "Vis detaljer",
     "Debug" : "Fejlfinding",
     "Info" : "Info",
     "Warning" : "Advarsler",
