@@ -39,7 +39,8 @@
 					:key="rowNumber"
 					:row="row"
 					@show-details="showDetailsForRow" />
-
+			</tbody>
+			<tfoot>
 				<tr v-if="sortedByTime !== 'ascending'">
 					<td colspan="5" class="log-table__load-more">
 						<IntersectionObserver v-if="logStore.hasRemainingEntries" @intersection="loadMore">
@@ -50,7 +51,7 @@
 						</span>
 					</td>
 				</tr>
-			</tbody>
+			</tfoot>
 		</table>
 	</div>
 </template>
