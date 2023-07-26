@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace OCA\LogReader\Command;
 
 use OC\Core\Command\Base;
+use OCA\LogReader\Log\FilterQuery;
 use OCA\LogReader\Log\Formatter;
 use OCA\LogReader\Log\LogIteratorFactory;
 use Symfony\Component\Console\Input\InputArgument;
@@ -51,7 +52,8 @@ class Tail extends Base {
 			->setDescription('Tail the nextcloud logfile')
 			->addArgument('lines', InputArgument::OPTIONAL, 'The number of log entries to print', "10")
 			->addOption('follow', 'f', InputOption::VALUE_NONE, 'Output new log entries as they appear')
-			->addOption('raw', 'r', InputOption::VALUE_NONE, 'Output raw log json instead of formatted log item');
+			->addOption('raw', 'r', InputOption::VALUE_NONE, 'Output raw log json instead of formatted log item')
+			->addOption('filter', null, InputOption::VALUE_REQUIRED, 'Filter log items according to the provided query');
 		parent::configure();
 	}
 
@@ -60,6 +62,10 @@ class Tail extends Base {
 		$count = (int)$input->getArgument('lines');
 		$io = new SymfonyStyle($input, $output);
 		$logIterator = $this->logIteratorFactory->getLogIterator('11111');
+		$filter = new FilterQuery((string)$input->getOption('filter'));
+		$logIterator = new \CallbackFilterIterator($logIterator, function(array $item) use ($filter) {
+			return $filter->matches($item);
+		});
 		$logIterator = new \LimitIterator($logIterator, 0, $count);
 		$logItems = iterator_to_array($logIterator);
 		$logItems = array_reverse($logItems);
