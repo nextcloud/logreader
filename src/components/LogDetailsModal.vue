@@ -131,7 +131,7 @@ const cssLevelClass = computed(() => [
  */
 const copyRaw = async () => {
 	if (await copyToCipboard(JSON.stringify(props.currentEntry))) {
-		showSuccess(t('logreader', 'Log entry sucessfully copied'))
+		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
 }
 
@@ -140,7 +140,7 @@ const copyRaw = async () => {
  */
 const copyFormatted = async () => {
 	if (await copyToCipboard(formatLogEntry(props.currentEntry))) {
-		showSuccess(t('logreader', 'Log entry sucessfully copied'))
+		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
 }
 </script>

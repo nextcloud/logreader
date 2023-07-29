@@ -127,7 +127,7 @@ const tableRowElement = ref<HTMLTableRowElement>()
  */
 const copyRaw = async () => {
 	if (await copyToCipboard(JSON.stringify(props.row))) {
-		showSuccess(t('logreader', 'Log entry sucessfully copied'))
+		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
 }
 
@@ -136,7 +136,7 @@ const copyRaw = async () => {
  */
 const copyFormatted = async () => {
 	if (await copyToCipboard(formatLogEntry(props.row))) {
-		showSuccess(t('logreader', 'Log entry sucessfully copied'))
+		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
 }
 
