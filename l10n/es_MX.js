@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Hora",
     "Download logs" : "Descargar bitácoras",
     "Message" : "Mensaje",
+    "Show details" : "Mostrar detalles",
     "Info" : "Info",
     "Warning" : "Advertencia",
     "Error" : "Error",
