@@ -21,7 +21,6 @@ OC.L10N.register(
     "Copy raw entry" : "Kopiatu sarrera gordina",
     "Copy formatted entry" : "Kopiatu formatudun sarrera",
     "Raw log entry" : "Log sarrera gordina",
-    "Log entry sucessfully copied" : "Log sarrera ondo kopiatu da",
     "Search log entries" : "Bilatu log sarrerak",
     "line {line}" : "{line} lerroa",
     "Filter log levels" : "Iragazi log mailak",

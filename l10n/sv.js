@@ -23,7 +23,6 @@ OC.L10N.register(
     "Hide exception details" : "Dölj undantagsdetaljer",
     "View exception details" : "Visa undantagsdetaljer",
     "Raw log entry" : "Oformaterad loggpost",
-    "Log entry sucessfully copied" : "Loggposten har kopierats",
     "Search log entries" : "Sök loggposter",
     "Caused by {exception}" : "Orsakad av {exception}",
     "line {line}" : "Rad {line}",

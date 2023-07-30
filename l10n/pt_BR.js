@@ -23,7 +23,6 @@ OC.L10N.register(
     "Hide exception details" : "Ocultar detalhes da exceção",
     "View exception details" : "Ver detalhes da exceção",
     "Raw log entry" : "Entrada de registro bruto",
-    "Log entry sucessfully copied" : "Entrada de registro copiada com sucesso",
     "Search log entries" : "Pesquisar entradas de registro",
     "Caused by {exception}" : "Causado por {exception}",
     "line {line}" : "linha {line}",
