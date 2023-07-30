@@ -10,7 +10,7 @@
 			<template #icon>
 				<IconUpload :size="20" />
 			</template>
-			{{ t('logreader', 'Show local logfile') }}
+			{{ t('logreader', 'Show local log file') }}
 		</NcButton>
 		<label class="hidden-visually">
 			{{ t('logreader', 'Upload local log file to be displayed') }}
