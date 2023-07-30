@@ -21,7 +21,6 @@
     "Hide exception details" : "Ausnahmedetails ausblenden",
     "View exception details" : "Ausnahmedetails anzeigen",
     "Raw log entry" : "Roh-Protokoll Eintrag",
-    "Log entry sucessfully copied" : "Protokolleintrag kopiert",
     "Search log entries" : "Protokolleinträge suchen",
     "Caused by {exception}" : "Verursacht von {exception}",
     "line {line}" : "Zeile {line}",
