@@ -23,7 +23,6 @@ OC.L10N.register(
     "Hide exception details" : "Sorun ayrıntılarını gizle",
     "View exception details" : "Sorun ayrıntılarını görüntüle",
     "Raw log entry" : "Ham günlük kaydı",
-    "Log entry sucessfully copied" : "Günlük kaydı kopyalandı",
     "Search log entries" : "Günlük kayıtlarını ara",
     "Caused by {exception}" : "{exception} nedeniyle",
     "line {line}" : "{line}. satır",

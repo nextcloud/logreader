@@ -23,7 +23,6 @@ OC.L10N.register(
     "Hide exception details" : "إخْفِ تفاصيل الاستثناء",
     "View exception details" : "أظهِر تفاصيل الاستثناء",
     "Raw log entry" : "الإدخال الخام للحركة",
-    "Log entry sucessfully copied" : "تمّ بنجاح نسخ الحركة",
     "Search log entries" : "البحث في سجل الحركات",
     "Caused by {exception}" : "ناتج عن {exception}",
     "line {line}" : "السطر {line}",
