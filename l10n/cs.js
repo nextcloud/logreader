@@ -23,6 +23,7 @@ OC.L10N.register(
     "Hide exception details" : "Skrýt podrobnosti výjimky",
     "View exception details" : "Zobrazit podrobnosti výjimky",
     "Raw log entry" : "Nezpracovaná položka záznamu událostí",
+    "Log entry successfully copied" : "Položka záznamu událostí úspěšně zkopírována",
     "Search log entries" : "Vyhledat v položkách záznamu událostí",
     "Caused by {exception}" : "Způsobeno {exception}",
     "line {line}" : "řádek {line}",
