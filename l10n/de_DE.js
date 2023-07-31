@@ -23,6 +23,7 @@ OC.L10N.register(
     "Hide exception details" : "Ausnahmedetails ausblenden",
     "View exception details" : "Ausnahmedetails anzeigen",
     "Raw log entry" : "Roh-Protokoll Eintrag",
+    "Log entry successfully copied" : "Protokolleintrag kopiert",
     "Search log entries" : "Protokolleinträge suchen",
     "Caused by {exception}" : "Verursacht von {exception}",
     "line {line}" : "Zeile {line}",
