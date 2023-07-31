@@ -23,6 +23,7 @@ OC.L10N.register(
     "Hide exception details" : "隱藏例外細節",
     "View exception details" : "檢視例外細節",
     "Raw log entry" : "原始的記錄條目",
+    "Log entry successfully copied" : "已成功複製記錄條目",
     "Search log entries" : "搜尋記錄條目",
     "Caused by {exception}" : "由 {exception} 造成",
     "line {line}" : "行 {line}",
