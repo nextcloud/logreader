@@ -20,7 +20,7 @@
 		<!-- Show information / warning message -->
 		<NcNoteCard v-if="settingsStore.localFile" type="info" class="info-note">
 			<div class="info-note__content">
-				<p>{{ t('logreader', 'Currently the logfile {file} is shown', { file: settingsStore.localFileName }) }}</p>
+				<p>{{ t('logreader', 'Currently the log file {file} is shown', { file: settingsStore.localFileName }) }}</p>
 				<NcButton type="secondary" @click="onShowServerLog">
 					{{ t('logreader', 'Show server log') }}
 				</NcButton>
