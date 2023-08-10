@@ -51,7 +51,7 @@ OC.L10N.register(
     "Loading older log entries" : "Cargando as entradas do rexistro máis antigas",
     "No older log entries available" : "Non hai entradas de rexistro máis antigas dispoñíbeis",
     "Collapse row" : "Contraer fila",
-    "Expand row" : "Expandir fila",
+    "Expand row" : "Estender a fila",
     "Show details" : "Amosar os detalles",
     "Debug" : "Depurar",
     "Info" : "Información",
