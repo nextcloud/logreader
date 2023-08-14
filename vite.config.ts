@@ -1,5 +1,5 @@
 import type { UserConfig } from 'vitest/config'
-import { createAppConfig } from '@susnux/nextcloud-vite-config'
+import { createAppConfig } from '@nextcloud/vite-config'
 
 const config = createAppConfig({
 	main: 'src/index.ts',
