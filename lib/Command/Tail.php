@@ -59,7 +59,7 @@ class Tail extends Base {
 		$raw = $input->getOption('raw');
 		$count = (int)$input->getArgument('lines');
 		$io = new SymfonyStyle($input, $output);
-		$logIterator = $this->logIteratorFactory->getLogIterator('11111');
+		$logIterator = $this->logIteratorFactory->getLogIterator(Watch::ALL_LEVELS);
 		$logIterator = new \LimitIterator($logIterator, 0, $count);
 		$logItems = iterator_to_array($logIterator);
 		$logItems = array_reverse($logItems);

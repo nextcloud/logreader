@@ -34,7 +34,7 @@ use Symfony\Component\Console\Terminal;
 
 class Watch extends Base {
 	public const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
-	public const ALL_LEVELS = '11111';
+	public const ALL_LEVELS = [0, 1, 2, 3, 4];
 
 	private $formatter;
 	private $logIteratorFactory;
