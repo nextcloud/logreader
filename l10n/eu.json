@@ -38,6 +38,8 @@
     "Time format used for displaying the timestamp" : "Denbora-zigilua erakusteko denbora formatua",
     "(Local log files only support the \"raw\" time format)" : "(Log fitxategi lokalek ordu formatu \"gordina\" bakarrik onartzen dute)",
     "Could not change date time format." : "Ezin izan da data ordu formatua aldatu.",
+    "Polling is disabled because server is not configured to log to file" : "Informazio eskaera desgaituta dago zerbitzaria ez dagoelako fitxategi batera erregistratzeko konfiguratuta",
+    "Polling (live view)" : "Informazio eskaera (zuzeneko ikuspegia)",
     "Could not change live view setting." : "Ezin izan da zuzeneko bistaratzearen ezarpena aldatu",
     "Filter logging levels" : "Iragazi erregistro mailak",
     "Could not set logging levels to show" : "Ezin izan dira erregistro mailak ezarri erakusteko",
