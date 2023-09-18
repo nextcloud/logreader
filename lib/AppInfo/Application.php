@@ -23,11 +23,13 @@ declare(strict_types=1);
 
 namespace OCA\LogReader\AppInfo;
 
+use OCA\LogReader\Listener\LogListener;
 use OCA\LogReader\Log\Formatter;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\Log\BeforeMessageLoggedEvent;
 use Psr\Container\ContainerInterface;
 
 class Application extends App implements IBootstrap {
@@ -36,6 +38,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(BeforeMessageLoggedEvent::class, LogListener::class);
 		$context->registerService(Formatter::class, function (ContainerInterface $c) {
 			return new Formatter(\OC::$SERVERROOT);
 		});

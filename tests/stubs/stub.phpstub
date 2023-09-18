@@ -32,3 +32,18 @@ namespace OC\Core\Command {
 	class InterruptedException extends \Exception {
 	}
 }
+
+namespace OC {
+	class SystemConfig {
+	}
+}
+
+namespace OC\Log {
+	use OC\SystemConfig;
+	class LogDetails {
+		public function __construct(SystemConfig $config) {
+		}
+		public function logDetails(string $app, $message, int $level): array {
+		}
+	}
+}
