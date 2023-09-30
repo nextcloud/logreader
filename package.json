@@ -16,7 +16,7 @@
 		"@nextcloud/eslint-config": "^8.3.0-beta.2",
 		"@nextcloud/vite-config": "^1.0.0-beta.19",
 		"@pinia/testing": "^0.1.3",
-		"@vitest/coverage-istanbul": "^0.34.5",
+		"@vitest/coverage-istanbul": "^0.34.6",
 		"@vue/test-utils": "^1.3.6",
 		"@vue/tsconfig": "^0.4.0",
 		"eslint-plugin-chai-friendly": "^0.7.2",
