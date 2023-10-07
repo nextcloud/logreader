@@ -89,7 +89,7 @@ version: 1.5.1
 license: MIT
 
 buffer
-version: 5.7.1
+version: 6.0.3
 license: MIT
 
 charenc
@@ -176,10 +176,6 @@ node-gettext
 version: 3.0.0
 license: (MIT)
 
-node-stdlib-browser
-version: 1.2.0
-license: MIT
-
 pinia
 version: 2.1.6
 license: MIT
@@ -210,6 +206,10 @@ license: MIT
 
 uuid
 version: 9.0.0
+license: MIT
+
+vite-plugin-node-polyfills
+version: 0.15.0
 license: MIT
 
 vue
