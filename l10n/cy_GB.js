@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "App" : "Ap",
     "Time" : "Amser",
     "Info" : "Info",
     "Warning" : "Rhybudd",
