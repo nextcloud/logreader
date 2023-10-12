@@ -25,6 +25,7 @@ namespace OCA\LogReader\AppInfo;
 
 use OCA\LogReader\Listener\LogListener;
 use OCA\LogReader\Log\Formatter;
+use OCA\LogReader\SetupChecks\LogErrors;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
@@ -42,6 +43,8 @@ class Application extends App implements IBootstrap {
 		$context->registerService(Formatter::class, function (ContainerInterface $c) {
 			return new Formatter(\OC::$SERVERROOT);
 		});
+
+		$context->registerSetupCheck(LogErrors::class);
 	}
 
 	public function boot(IBootContext $context): void {
