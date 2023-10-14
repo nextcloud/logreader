@@ -8,6 +8,7 @@ OC.L10N.register(
     "Level" : "Úroveň",
     "App" : "Aplikácia",
     "Time" : "Čas",
+    "Copy formatted entry" : "Kopírovať formátovanú položku",
     "Download logs" : "Prevziať logy",
     "Application" : "Aplikácia",
     "Message" : "Správa",
