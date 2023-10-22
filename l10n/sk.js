@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Čas",
     "Copy formatted entry" : "Kopírovať formátovanú položku",
     "Download logs" : "Prevziať logy",
+    "Local time" : "Miestny čas",
     "Application" : "Aplikácia",
     "Message" : "Správa",
     "Show details" : "Zobraziť podrobnosti",
