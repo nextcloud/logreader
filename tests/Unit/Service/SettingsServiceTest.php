@@ -27,7 +27,7 @@ namespace OCA\LogReader\Tests\Unit\Service;
 use OCA\LogReader\Constants;
 use OCA\LogReader\Service\SettingsService;
 use OCP\IConfig;
-
+use PHPUnit\Framework\MockObject\MockObject;
 use Test\TestCase;
 
 class SettingsServiceTest extends TestCase {
@@ -35,7 +35,7 @@ class SettingsServiceTest extends TestCase {
 	/** @var SettingsService */
 	private $settingsService;
 
-	/** @var IConfig */
+	/** @var IConfig|MockObject */
 	private $config;
 
 	public function setUp(): void {
@@ -134,6 +134,10 @@ class SettingsServiceTest extends TestCase {
 			->method('getSystemValueString')
 			->with($this->equalTo('log_type'), $this->anything())
 			->willReturn('file');
+		$this->config->expects($this->once())
+			->method('getSystemValueInt')
+			->with($this->equalTo('loglevel'), 0)
+			->willReturn(4);
 		$this->config->expects($this->any())
 			->method('getAppValue')
 			->willReturnCallback(function ($app, $key, $fallback) {
@@ -142,6 +146,7 @@ class SettingsServiceTest extends TestCase {
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
+			Constants::CONFIG_KEY_LOGLEVEL => 4,
 			Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 			Constants::CONFIG_KEY_RELATIVEDATES => false,
 			Constants::CONFIG_KEY_LIVELOG => true,
@@ -154,6 +159,10 @@ class SettingsServiceTest extends TestCase {
 			->method('getSystemValueString')
 			->with($this->equalTo('log_type'), $this->anything())
 			->willReturn('syslog');
+		$this->config->expects($this->once())
+			->method('getSystemValueInt')
+			->with($this->equalTo('loglevel'), 0)
+			->willReturn(2);
 		$this->config->expects($this->any())
 			->method('getAppValue')
 			->willReturnCallback(function ($app, $key, $fallback) {
@@ -162,6 +171,7 @@ class SettingsServiceTest extends TestCase {
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
+			Constants::CONFIG_KEY_LOGLEVEL => 2,
 			Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 			Constants::CONFIG_KEY_RELATIVEDATES => false,
 			Constants::CONFIG_KEY_LIVELOG => true,

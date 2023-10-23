@@ -42,7 +42,7 @@ class SettingsControllerTest extends TestCase {
 	/** @var SettingsController */
 	private $settingsController;
 
-	/** @var SettingsService */
+	/** @var SettingsService|MockObject */
 	private $settingsService;
 
 	/** @var IConfig|MockObject */
@@ -59,6 +59,7 @@ class SettingsControllerTest extends TestCase {
 
 		$this->settingsService = $this->createMock(SettingsService::class);
 		$this->config = $this->createMock(IConfig::class);
+		/** @var LoggerInterface */
 		$this->logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
 		$this->request = $this->createMock(IRequest::class);
 
@@ -76,6 +77,7 @@ class SettingsControllerTest extends TestCase {
 			->method('getAppSettings')
 			->willReturn([
 				Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
+				Constants::CONFIG_KEY_LOGLEVEL => 4,
 				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 				Constants::CONFIG_KEY_RELATIVEDATES => false,
 				Constants::CONFIG_KEY_LIVELOG => true,
@@ -84,6 +86,7 @@ class SettingsControllerTest extends TestCase {
 		
 		$this->assertEquals(new JSONResponse([
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
+			Constants::CONFIG_KEY_LOGLEVEL => 4,
 			Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 			Constants::CONFIG_KEY_RELATIVEDATES => false,
 			Constants::CONFIG_KEY_LIVELOG => true,
@@ -124,6 +127,7 @@ class SettingsControllerTest extends TestCase {
 			->method('getAppSettings')
 			->willReturn([
 				Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
+				Constants::CONFIG_KEY_LOGLEVEL => 3,
 				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 				Constants::CONFIG_KEY_RELATIVEDATES => false,
 				Constants::CONFIG_KEY_LIVELOG => true,
@@ -131,6 +135,28 @@ class SettingsControllerTest extends TestCase {
 			]);
 
 		$this->assertEquals(new JSONResponse(), $this->settingsController->updateAppConfig($configKey, $configValue));
+	}
+
+	public function testUpdateAppConfig_logLevel() {
+		$this->logger->expects($this->once())
+			->method('debug');
+		
+		$this->config->expects($this->once())
+			->method('setSystemValue')
+			->with('loglevel', 4);
+
+		$this->settingsService->expects($this->once())
+			->method('getAppSettings')
+			->willReturn([
+				Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
+				Constants::CONFIG_KEY_LOGLEVEL => 3,
+				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
+				Constants::CONFIG_KEY_RELATIVEDATES => false,
+				Constants::CONFIG_KEY_LIVELOG => true,
+				'enabled' => true,
+			]);
+
+		$this->assertEquals(new JSONResponse(), $this->settingsController->updateAppConfig(Constants::CONFIG_KEY_LOGLEVEL, 4));
 	}
 
 	public function testUpdateAppConfig_unknownKey() {

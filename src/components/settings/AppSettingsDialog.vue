@@ -10,6 +10,9 @@
 		<NcAppSettingsSection id="logreader-settings-levels" :name="t('logreader', 'Filter log levels')">
 			<SettingsLogLevels />
 		</NcAppSettingsSection>
+		<NcAppSettingsSection id="logreader-settings-set-level" :name="t('logreader', 'Set log level')">
+			<SettingsSetLogLevel />
+		</NcAppSettingsSection>
 		<NcAppSettingsSection id="logreader-settings-time" :name="t('logreader', 'Time format')">
 			<SettingsDatetimeFormat />
 		</NcAppSettingsSection>
@@ -27,6 +30,7 @@ import { translate as t } from '@nextcloud/l10n'
 import SettingsActions from './SettingsActions.vue'
 import SettingsLiveView from './SettingsLiveView.vue'
 import SettingsLogLevels from './SettingsLogLevels.vue'
+import SettingsSetLogLevel from './SettingsSetLogLevel.vue'
 import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
 
 import NcAppSettingsDialog from '@nextcloud/vue/dist/Components/NcAppSettingsDialog.js'

@@ -92,8 +92,13 @@ class SettingsController extends ApiController {
 			}
 		}
 
-		// Set on DB
-		$this->config->setAppValue($this->appName, $settingsKey, json_encode($settingsValue));
+		if ($settingsKey === Constants::CONFIG_KEY_LOGLEVEL) {
+			// Set backend loglevel directly via system value
+			$this->config->setSystemValue('loglevel', $settingsValue);
+		} else {
+			// Set on DB
+			$this->config->setAppValue($this->appName, $settingsKey, json_encode($settingsValue));
+		}
 
 		return new JSONResponse();
 	}
