@@ -40,7 +40,7 @@
 		"@nextcloud/router": "^2.1.2",
 		"@nextcloud/typings": "^1.7.0",
 		"@nextcloud/vue": "^8.0.0-beta.2",
-		"axios": "^1.4.0",
+		"axios": "^1.6.0",
 		"date-fns": "^2.30.0",
 		"highlight.js": "^11.8.0",
 		"json-string-splitter": "^1.0.0",
