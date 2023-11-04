@@ -17,7 +17,7 @@ version: 2.4.0
 license: GPL-3.0
 
 @nextcloud/browser-storage
-version: 0.2.0
+version: 0.3.0
 license: GPL-3.0-or-later
 
 @nextcloud/calendar-js
@@ -53,15 +53,11 @@ version: 2.1.2
 license: GPL-3.0-or-later
 
 @nextcloud/vue
-version: 8.0.0-beta.2
+version: 8.0.0
 license: AGPL-3.0
 
 @nextcloud/vue-select
-version: 3.23.0
-license: MIT
-
-@skjnldsv/sanitize-svg
-version: 1.0.2
+version: 3.24.0
 license: MIT
 
 @vue/devtools-api
@@ -97,7 +93,7 @@ version: 0.0.2
 license: BSD-3-Clause
 
 core-js
-version: 3.31.1
+version: 3.33.0
 license: MIT
 
 crypt
@@ -118,10 +114,6 @@ license: (MPL-2.0 OR Apache-2.0)
 
 escape-html
 version: 1.0.3
-license: MIT
-
-fast-xml-parser
-version: 4.2.6
 license: MIT
 
 floating-vue
@@ -146,10 +138,6 @@ license: BSD-3-Clause
 
 is-buffer
 version: 1.1.6
-license: MIT
-
-is-svg
-version: 4.4.0
 license: MIT
 
 json-string-splitter
@@ -192,10 +180,6 @@ striptags
 version: 3.2.0
 license: MIT
 
-strnum
-version: 1.0.5
-license: MIT
-
 tabbable
 version: 6.2.0
 license: MIT
@@ -213,7 +197,7 @@ version: 0.15.0
 license: MIT
 
 vue
-version: 2.7.14
+version: 2.7.15
 license: MIT
 
 vue-demi

@@ -39,13 +39,13 @@
 		"@nextcloud/logger": "^2.5.0",
 		"@nextcloud/router": "^2.1.2",
 		"@nextcloud/typings": "^1.7.0",
-		"@nextcloud/vue": "^8.0.0-beta.2",
+		"@nextcloud/vue": "^8.0.0",
 		"axios": "^1.4.0",
 		"date-fns": "^2.30.0",
 		"highlight.js": "^11.8.0",
 		"json-string-splitter": "^1.0.0",
 		"pinia": "^2.1.6",
-		"vue": "^2.7.14",
+		"vue": "^2.7.15",
 		"vue-material-design-icons": "^5.2.0"
 	},
 	"eslintConfig": {
