@@ -21,6 +21,9 @@
 
 namespace OCA\LogReader\Log;
 
+/**
+ * @template-extends \FilterIterator<int,array,\Iterator<int,array>>
+ */
 class SearchFilter extends \FilterIterator {
 	/**
 	 * @var string

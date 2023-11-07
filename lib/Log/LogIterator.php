@@ -21,6 +21,9 @@
 
 namespace OCA\LogReader\Log;
 
+/**
+ * @template-implements \Iterator<int,array>
+ */
 class LogIterator implements \Iterator {
 	/**
 	 * @var resource
@@ -73,7 +76,7 @@ class LogIterator implements \Iterator {
 	}
 
 	/**
-	 * @return mixed
+	 * @return array
 	 */
 	#[\ReturnTypeWillChange]
 	public function current() {
