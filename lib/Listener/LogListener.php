@@ -31,6 +31,9 @@ use OCP\EventDispatcher\IEventListener;
 use OCP\Log\BeforeMessageLoggedEvent;
 use Symfony\Component\Console\Terminal;
 
+/**
+ * @template-implements IEventListener<BeforeMessageLoggedEvent>
+ */
 class LogListener implements IEventListener {
 	private ?Console $console;
 
