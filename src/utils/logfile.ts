@@ -11,7 +11,6 @@ import { logger } from './logger'
  * Parse a given log file
  *
  * @param file The log file
- * @return Log entries
  */
 export async function parseLogFile(file: File): Promise<ILogEntry[]> {
 	return parseLogString(await file.text())
@@ -21,7 +20,6 @@ export async function parseLogFile(file: File): Promise<ILogEntry[]> {
  * Parse a given log file as string
  *
  * @param raw The raw log file content
- * @return Log entries
  */
 export async function parseLogString(raw: string): Promise<ILogEntry[]> {
 	let entries: IRawLogEntry[]
@@ -46,7 +44,7 @@ export async function parseLogString(raw: string): Promise<ILogEntry[]> {
 export function parseRawLogEntry(entry: IRawLogEntry): ILogEntry {
 	return {
 		...entry,
-		exception: parseException((entry as any).exception || entry.message),
+		exception: parseException((entry as ILogEntry).exception || entry.message),
 	} as ILogEntry
 }
 
