@@ -47,7 +47,7 @@ class PageController extends Controller {
 	 */
 	public function index() {
 		Util::addScript($this->appName, 'logreader-main');
-		Util::addStyle($this->appName, 'logreader-style');
+		Util::addStyle($this->appName, 'logreader-main');
 		$this->initialState->provideInitialState('settings', $this->settingsService->getAppSettings());
 
 		return new TemplateResponse($this->appName, 'index');
