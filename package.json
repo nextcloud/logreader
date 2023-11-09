@@ -44,7 +44,7 @@
 		"date-fns": "^2.30.0",
 		"highlight.js": "^11.9.0",
 		"json-string-splitter": "^1.0.0",
-		"pinia": "^2.1.6",
+		"pinia": "^2.1.7",
 		"vue": "^2.7.15",
 		"vue-material-design-icons": "^5.2.0"
 	},

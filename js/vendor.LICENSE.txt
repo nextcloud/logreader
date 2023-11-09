@@ -165,7 +165,7 @@ version: 3.0.0
 license: (MIT)
 
 pinia
-version: 2.1.6
+version: 2.1.7
 license: MIT
 
 process
