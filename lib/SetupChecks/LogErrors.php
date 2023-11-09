@@ -63,7 +63,7 @@ class LogErrors implements ISetupCheck {
 		$limit = new \DateTime('7 days ago');
 		foreach ($logIterator as $logItem) {
 			if (!isset($logItem['time'])) {
-				break;
+				continue;
 			}
 			$time = \DateTime::createFromFormat(\DateTime::ATOM, $logItem['time']);
 			if ($time < $limit) {
