@@ -61,7 +61,7 @@ import IconFormatList from 'vue-material-design-icons/FormatListBulletedSquare.v
 import AppSettingsDialog from './components/settings/AppSettingsDialog.vue'
 import LogTable from './components/table/LogTable.vue'
 
-import '@nextcloud/dialogs/dist/index.css'
+import '@nextcloud/dialogs/style.css'
 
 /** If currently showing the settings modal */
 const areSettingsShown = ref(false)
