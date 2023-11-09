@@ -6,7 +6,7 @@
 		"nextcloud/coding-standard": "v1.1.1",
 		"nextcloud/ocp": "dev-master",
 		"phpunit/phpunit": "^9",
-		"vimeo/psalm": "^5.9"
+		"vimeo/psalm": "^5.15"
 	},
 	"config": {
 		"optimize-autoloader": true,
