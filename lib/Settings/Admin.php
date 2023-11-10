@@ -30,23 +30,22 @@ use OCP\Util;
 class Admin implements IDelegatedSettings {
 
 	public function __construct(
+		private string $appName,
 		private IInitialState $initialState,
 		private SettingsService $settingsService,
 	) {
-		$this->initialState = $initialState;
-		$this->settingsService = $settingsService;
 	}
 
 	/**
 	 * @return TemplateResponse
 	 */
 	public function getForm() {
-		Util::addScript('logreader', 'logreader-main');
-		Util::addStyle('logreader', 'logreader-style');
+		Util::addScript($this->appName, 'logreader-main');
+		Util::addStyle($this->appName, 'logreader-main');
 
 		$this->initialState->provideInitialState('settings', $this->settingsService->getAppSettings());
 
-		return new TemplateResponse('logreader', 'index');
+		return new TemplateResponse($this->appName, 'index');
 	}
 
 	/**
