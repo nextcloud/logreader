@@ -1,5 +1,9 @@
 <template>
 	<div>
+		<NcNoteCard type="info" class="info-note">
+			<!-- eslint-disable-next-line vue/no-v-html -->
+			<p v-html="t('logreader', 'You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}', { keyboardShortcut: keyboardShortcutText }, undefined, { escape: false })" />
+		</NcNoteCard>
 		<NcButton :href="settingsStore.enabled ? downloadURL : null" :disabled="!settingsStore.enabled" download="nextcloud.log">
 			<template #icon>
 				<IconDownload :size="20" />
@@ -31,6 +35,7 @@ import { useLogStore } from '../../store/logging'
 import { useSettingsStore } from '../../store/settings.js'
 
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
 import IconDownload from 'vue-material-design-icons/Download.vue'
 import IconUpload from 'vue-material-design-icons/Upload.vue'
 import { logger } from '../../utils/logger'
@@ -38,6 +43,9 @@ import { showError } from '@nextcloud/dialogs'
 
 const settingsStore = useSettingsStore()
 const logStore = useLogStore()
+
+// TRANSLATORS The control key abbreviation
+const keyboardShortcutText = `<kbd>${t('logreader', 'Ctrl')}</kbd> + <kbd>v</kbd>`
 
 /**
  * Logfile download URL
@@ -71,6 +79,11 @@ const onFileSelected = async () => {
 <style lang="scss" scoped>
 div {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 12px;
+	padding-inline-end: 12px;
+}
+.info-note {
+	justify-self: stretch;
 }
 </style>

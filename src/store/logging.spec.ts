@@ -14,13 +14,27 @@ import { POLLING_INTERVAL } from '../constants'
 const mocks = vi.hoisted(() => {
 	return {
 		parseLogFile: vi.fn(),
+		parseLogString: vi.fn(),
 		logger: {
 			debug: vi.fn(),
 			warn: vi.fn(),
+			error: vi.fn(),
 		},
 		getLog: vi.fn(),
 		pollLog: vi.fn(),
 		showError: vi.fn(),
+	}
+})
+
+vi.mock('@nextcloud/dialogs', () => ({
+	showError: mocks.showError
+}))
+
+vi.mock('../utils/logfile.ts', () => {
+	return {
+		parseLogFile: mocks.parseLogFile,
+		parseLogString: mocks.parseLogString,
+		parseRawLogEntry: vi.fn((v) => v),
 	}
 })
 
@@ -162,13 +176,6 @@ describe('store:logging', () => {
 	})
 
 	it('loads entries from file', async () => {
-		vi.mock('../utils/logfile.ts', () => {
-			return {
-				parseLogFile: mocks.parseLogFile,
-				parseRawLogEntry: vi.fn((v) => v),
-			}
-		})
-
 		vi.mocked(mocks.parseLogFile).mockImplementation(async () => {
 			return [{ message: 'hello' }]
 		})
@@ -197,13 +204,6 @@ describe('store:logging', () => {
 	})
 
 	it('does not load file if no file was selected', async () => {
-		vi.mock('../utils/logfile.ts', () => {
-			return {
-				parseLogFile: mocks.parseLogFile,
-				parseRawLogEntry: vi.fn((v) => v),
-			}
-		})
-
 		vi.mock('../utils/logger.ts', () => {
 			return {
 				logger: mocks.logger,
@@ -225,6 +225,121 @@ describe('store:logging', () => {
 		// logs the error but does not call parseLogFile
 		expect(mocks.logger.debug).toBeCalled()
 		expect(mocks.parseLogFile).not.toBeCalled()
+	})
+
+	it('loads entries from clipboard', async () => {
+		mocks.parseLogString.mockImplementationOnce(() => [{ message: 'hello' }])
+
+		// clean pinia
+		createTestingPinia({
+			fakeApp: true,
+			createSpy: vi.fn,
+			stubActions: false,
+		})
+
+		const clipboard = '{message: "hello"}'
+		window.navigator.clipboard.readText = vi.fn(() => Promise.resolve(clipboard))
+
+		const store = useLogStore()
+		const settings = useSettingsStore()
+
+		store.hasRemainingEntries = true
+		expect(store.hasRemainingEntries).toBe(true)
+
+		await store.loadClipboard()
+
+		// File parsed, so there are no remaining entries
+		expect(store.hasRemainingEntries).toBe(false)
+		expect(window.navigator.clipboard.readText).toBeCalled()
+		expect(settings.localFileName).toBe('Clipboard')
+		expect(mocks.parseLogString).toBeCalledWith(clipboard)
+		expect(store.allEntries).toEqual([{ message: 'hello' }])
+	})
+
+	it('handles unsupported Clipboard API', async () => {
+		mocks.parseLogString.mockImplementationOnce(() => [{ message: 'hello' }])
+
+		// clean pinia
+		createTestingPinia({
+			fakeApp: true,
+			createSpy: vi.fn,
+			stubActions: false,
+		})
+
+		const clipboard = '{message: "hello"}'
+		window.navigator.clipboard.readText = vi.fn(() => Promise.reject(new Error()))
+		window.prompt = vi.fn(() => clipboard)
+
+		const store = useLogStore()
+		const settings = useSettingsStore()
+
+		store.hasRemainingEntries = true
+		expect(store.hasRemainingEntries).toBe(true)
+
+		await store.loadClipboard()
+
+		// File parsed, so there are no remaining entries
+		expect(store.hasRemainingEntries).toBe(false)
+		expect(window.navigator.clipboard.readText).toBeCalled()
+		expect(window.prompt).toBeCalled()
+		expect(settings.localFileName).toBe('Clipboard')
+		expect(mocks.parseLogString).toBeCalledWith(clipboard)
+		expect(store.allEntries).toEqual([{ message: 'hello' }])
+	})
+
+	it('handles empty clipboard paste', async () => {
+		// clean pinia
+		createTestingPinia({
+			fakeApp: true,
+			createSpy: vi.fn,
+			stubActions: false,
+		})
+
+		window.navigator.clipboard.readText = vi.fn(() => Promise.reject(new Error()))
+		window.prompt = vi.fn(() => null)
+
+		const store = useLogStore()
+		const settings = useSettingsStore()
+
+		store.hasRemainingEntries = true
+		expect(store.hasRemainingEntries).toBe(true)
+
+		await store.loadClipboard()
+
+		// File parsed, so there are no remaining entries
+		expect(store.hasRemainingEntries).toBe(true)
+		expect(window.navigator.clipboard.readText).toBeCalled()
+		expect(window.prompt).toBeCalled()
+		expect(settings.localFile).toBe(undefined)
+		expect(settings.localFileName).toBe('')
+	})
+
+	it('handles invalid clipboard paste', async () => {
+		// clean pinia
+		createTestingPinia({
+			fakeApp: true,
+			createSpy: vi.fn,
+			stubActions: false,
+		})
+
+		window.navigator.clipboard.readText = vi.fn(() => Promise.resolve('invalid'))
+		// throw an error
+		mocks.parseLogString.mockImplementationOnce(() => { throw new Error() })
+
+		const store = useLogStore()
+		const settings = useSettingsStore()
+
+		store.hasRemainingEntries = true
+		expect(store.hasRemainingEntries).toBe(true)
+
+		await store.loadClipboard()
+
+		// File parsed, so there are no remaining entries
+		expect(store.hasRemainingEntries).toBe(true)
+		expect(window.navigator.clipboard.readText).toBeCalled()
+		expect(mocks.showError).toBeCalled()
+		expect(settings.localFile).toBe(undefined)
+		expect(settings.localFileName).toBe('')
 	})
 
 	it('loads more from server', async () => {
@@ -547,11 +662,6 @@ describe('store:logging', () => {
 				logger: mocks.logger,
 			}
 		})
-		vi.mock('@nextcloud/dialogs', () => {
-			return {
-				showError: mocks.showError,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => { throw Error() })
 
 		// clean pinia
@@ -579,11 +689,6 @@ describe('store:logging', () => {
 		vi.mock('../utils/logger.ts', () => {
 			return {
 				logger: mocks.logger,
-			}
-		})
-		vi.mock('@nextcloud/dialogs', () => {
-			return {
-				showError: mocks.showError,
 			}
 		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => { throw new ServerError() })

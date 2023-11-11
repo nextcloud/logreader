@@ -13,7 +13,7 @@ import { POLLING_INTERVAL } from '../constants'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
 import { useSettingsStore } from './settings'
-import { parseLogFile, parseRawLogEntry } from '../utils/logfile'
+import { parseLogFile, parseLogString, parseRawLogEntry } from '../utils/logfile'
 import { logger } from '../utils/logger'
 
 /**
@@ -102,6 +102,36 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	}
 
 	/**
+	 * Load entries from clipboard
+	 */
+	async function loadClipboard() {
+		// try if the browser supports the async clipboard api, e.g. firefox does not.
+		let text = ''
+		try {
+			text = await window.navigator.clipboard.readText()
+		} catch (e) {
+			text = window.prompt(t('logreader', 'Your browser does not support pasting entries directly. Please paste the log entry manually.')) ?? ''
+		}
+
+		// Skip if aborted
+		if (text === '') {
+			return
+		}
+
+		try {
+			allEntries.value = await parseLogString(text)
+			// TRANSLATORS The clipboard used to paste stuff
+			_settings.localFile = new File([], t('logreader', 'Clipboard'))
+			// From clipboard so no more entries
+			hasRemainingEntries.value = false
+		} catch (e) {
+			// TRANSLATORS Error when the pasted content from the clipboard could not be parsed
+			showError(t('logreader', 'Could not parse clipboard content'))
+			logger.error(e as Error)
+		}
+	}
+
+	/**
 	 * Stop polling entries
 	 */
 	function stopPolling() {
@@ -169,5 +199,5 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		}
 	}
 
-	return { allEntries, entries, hasRemainingEntries, query, loadMore, loadFile, startPolling, stopPolling, searchLogs }
+	return { allEntries, entries, hasRemainingEntries, query, loadMore, loadClipboard, loadFile, startPolling, stopPolling, searchLogs }
 })
