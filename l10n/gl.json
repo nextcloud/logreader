@@ -1,5 +1,9 @@
 { "translations": {
     "Logging" : "Rexistrando",
+    "Errors in the log" : "Erros no rexistro",
+    "No errors in the logs since %s" : "Sen erros nos rexistros dende %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n erro nos rexistros dende %s","%n erros nos rexistros dende %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n advertencia nos rexistros dende %s","%n advertencias nos rexistros dende %s"],
     "Log Reader" : "Lector de rexistros",
     "A log reader for Nextcloud" : "Un lector de rexistros para Nextcloud",
     "Log reader for Nextcloud" : "Lector de rexistros para Nextcloud",

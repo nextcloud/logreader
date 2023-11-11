@@ -2,6 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Journalisation",
+    "Errors in the log" : "Erreurs dans le journal",
+    "No errors in the logs since %s" : "Aucune erreur dans les journaux depuis %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n erreur dans les journaux depuis %s","%n erreurs dans les journaux depuis %s","%n erreurs dans les journaux depuis %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n avertissement dans les journaux depuis %s","%n avertissements dans les journaux depuis %s","%n avertissements dans les journaux depuis %s"],
     "Log Reader" : "Lecteur du fichier journal",
     "A log reader for Nextcloud" : "Un lecteur du fichier journal pour Nextcloud",
     "Log reader for Nextcloud" : "Lecteur du fichier journal pour Nextcloud",
@@ -12,7 +16,7 @@ OC.L10N.register(
     "Level" : "Niveau",
     "App" : "App",
     "No app in context" : "Pas d'app dans le contexte",
-    "Time" : "Heure",
+    "Time" : "Date et heure",
     "Copy raw entry" : "Copier l'entrée brute",
     "Copy formatted entry" : "Copier l'entrée formatée",
     "Hide exception details" : "Masquer les détails de l'exception",
@@ -55,7 +59,7 @@ OC.L10N.register(
     "Everything is working fine" : "Tout fonctionne à merveille",
     "Load log file" : "Charger un fichier journal",
     "Invalid log file" : "Fichier journal invalide",
-    "Log levels" : "Niveaux du registre",
+    "Log levels" : "Niveaux de journalisation",
     "Log content" : "Contenu du registre",
     "Live update" : "Mise à jour en direct"
 },
