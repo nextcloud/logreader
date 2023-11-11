@@ -1,5 +1,9 @@
 { "translations": {
     "Logging" : "Уписивање у дневник",
+    "Errors in the log" : "Грешке у дневнику",
+    "No errors in the logs since %s" : "У дневнику нема грешака од %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["У дневнику има %n грешка од %s","У дневнику има %n грешке од %s","У дневнику има %n грешака од %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["У дневнику има %n упозорење од %s","У дневнику има %n упозорења од %s","У дневнику има %n упозорења од %s"],
     "Log Reader" : "Читач дневника",
     "A log reader for Nextcloud" : "Читач дневника за Некстклауд",
     "Log reader for Nextcloud" : "Читач дневника за Некстклауд",

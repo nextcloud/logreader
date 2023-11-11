@@ -1,5 +1,9 @@
 { "translations": {
     "Logging" : "Protokollierung",
+    "Errors in the log" : "Fehler im Protokoll\n \n \n ",
+    "No errors in the logs since %s" : "Keine Fehler in den Protokollen seit %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n Fehler in den Protokollen seit %s","%n Fehler in den Protokollen seit %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n Warnungen in den Protokollen seit %s","%n Warnungen in den Protokollen seit %s"],
     "Log Reader" : "Log-Datei-Leser",
     "A log reader for Nextcloud" : "Ein Log-Datei-Leser für Nextcloud",
     "Log reader for Nextcloud" : "Log-Datei-Leser für Nextcloud",

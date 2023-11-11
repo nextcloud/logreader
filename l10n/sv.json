@@ -1,5 +1,9 @@
 { "translations": {
     "Logging" : "Loggar",
+    "Errors in the log" : "Fel i loggen",
+    "No errors in the logs since %s" : "Inga fel i loggarna sedan %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n fel i loggarna sedan %s","%n fel i loggarna sedan %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n varning i loggarna sedan %s","%n varningar i loggarna sedan %s"],
     "Log Reader" : "Loggläsare",
     "A log reader for Nextcloud" : "En loggläsare för Nextcloud",
     "Log reader for Nextcloud" : "Loggläsare för Nextcloud",
