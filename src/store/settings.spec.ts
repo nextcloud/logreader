@@ -37,7 +37,6 @@ describe('store:settings', () => {
 	beforeAll(() => {
 		initialState = mockInitialState({
 			dateTimeFormat: 'local',
-			enabled: true,
 			liveLog: true,
 			shownLevels: [2, 4],
 		})
@@ -51,7 +50,6 @@ describe('store:settings', () => {
 
 	it('loads state from inital-state', () => {
 		const store = useSettingsStore()
-		expect(store.enabled).toBe(true)
 		expect(store.liveLog).toBe(true)
 		expect(store.shownLevels).toEqual([2, 4])
 		expect(store.dateTimeFormat).toBe('local')
@@ -73,16 +71,10 @@ describe('store:settings', () => {
 	it('only enable server logs if available', () => {
 		const store = useSettingsStore()
 		// should be enabled currently
-		expect(store.isEnabled).toBeTruthy()
-		// server is configured to not use file logs -> enabled=false -> it is disabled
-		store.enabled = false
-		expect(store.isEnabled).toBeFalsy()
+		expect(store.isServerLogShown).toBeTruthy()
 		// If a local file is used it is disabled too
 		store.localFile = new File([], 'log')
-		expect(store.isEnabled).toBeFalsy()
-		// Also if enabled but a local log file is used we should not fetch from server
-		store.enabled = true
-		expect(store.isEnabled).toBeFalsy()
+		expect(store.isServerLogShown).toBeFalsy()
 	})
 
 	it('sets the state when settings are changed', async () => {
@@ -128,7 +120,6 @@ describe('store:settings', () => {
 			return {
 				data: {
 					dateTimeFormat: 'utc',
-					enabled: false,
 					liveLog: false,
 					shownLevels: [1, 3],
 				},
@@ -141,12 +132,10 @@ describe('store:settings', () => {
 		expect(mocks.getAppSettings).toBeCalled()
 		expect(settings).toEqual({
 			dateTimeFormat: 'utc',
-			enabled: false,
 			liveLog: false,
 			shownLevels: [1, 3],
 		})
 		expect(store.dateTimeFormat).toBe('utc')
-		expect(store.enabled).toBe(false)
 		expect(store.liveLog).toBe(false)
 		expect(store.shownLevels).toEqual([1, 3])
 	})

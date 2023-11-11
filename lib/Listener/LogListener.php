@@ -26,6 +26,7 @@ namespace OCA\LogReader\Listener;
 use OC\SystemConfig;
 use OCA\LogReader\Log\Console;
 use OCA\LogReader\Log\Formatter;
+use OCA\LogReader\Log\LogProxy;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\Log\BeforeMessageLoggedEvent;
@@ -35,9 +36,14 @@ use Symfony\Component\Console\Terminal;
  * @template-implements IEventListener<BeforeMessageLoggedEvent>
  */
 class LogListener implements IEventListener {
-	private ?Console $console;
+	private ?Console $console = null;
+	private ?LogProxy $proxy = null;
 
-	public function __construct(Formatter $formatter, SystemConfig $config) {
+	public function __construct(
+		Formatter $formatter,
+		SystemConfig $config,
+		LogProxy $proxy,
+	) {
 		if (defined('OC_CONSOLE') && \OC_CONSOLE) {
 			$level = getenv('OCC_LOG');
 			if ($level) {
@@ -46,8 +52,11 @@ class LogListener implements IEventListener {
 			} else {
 				$this->console = null;
 			}
-		} else {
-			$this->console = null;
+		}
+
+		// Only create a proxy file if log type is not file
+		if ($config->getValue('log_type', 'file') !== 'file') {
+			$this->proxy = $proxy;
 		}
 	}
 
@@ -59,6 +68,9 @@ class LogListener implements IEventListener {
 
 		if ($this->console) {
 			$this->console->log($event->getLevel(), $event->getApp(), $event->getMessage());
+		}
+		if ($this->proxy) {
+			$this->proxy->log($event->getLevel(), $event->getApp(), $event->getMessage());
 		}
 	}
 }

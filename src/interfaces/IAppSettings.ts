@@ -23,8 +23,4 @@ export interface IAppSettings {
 	 * Wether the log should be polled
 	 */
 	liveLog: boolean
-	/**
-	 * Wether backend is enable = logging is set to file
-	 */
-	enabled: boolean
 }

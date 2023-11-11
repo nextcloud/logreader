@@ -18,7 +18,7 @@
 			</NcButton>
 		</div>
 		<!-- Show information / warning message -->
-		<NcNoteCard v-if="settingsStore.localFile" type="info" class="info-note">
+		<NcNoteCard v-if="!settingsStore.isServerLogShown" type="info" class="info-note">
 			<div class="info-note__content">
 				<p>{{ t('logreader', 'Currently the log file {file} is shown', { file: settingsStore.localFileName }) }}</p>
 				<NcButton type="secondary" @click="onShowServerLog">
@@ -30,16 +30,12 @@
 			<p>{{ t('logreader', 'Live view is disabled') }}</p>
 		</NcNoteCard>
 		<!-- Show the log file table -->
-		<LogTable v-if="settingsStore.enabled" :rows="entries" />
-		<NcEmptyContent v-else :name="t('logreader', 'No log file')">
+		<LogTable v-if="hasEntries" :rows="entries" />
+		<NcEmptyContent v-else
+			:name="t('logreader', 'No log entries')"
+			:description="t('logreader', 'The log is currently empty. Try to select a different logging level.')">
 			<template #icon>
 				<IconFormatList :size="20" />
-			</template>
-			<template #description>
-				{{ t('logreader', 'File-based logging must be enabled to access logs from the Web UI.') }}
-				<br>
-				<!-- eslint-disable-next-line vue/no-v-html -->
-				<span v-html="noLogDescription" />
 			</template>
 		</NcEmptyContent>
 		<!-- App settings dialog will be mounted on page body -->
@@ -74,6 +70,8 @@ const loggingStore = useLogStore()
 
 const entries = computed(() => loggingStore.entries)
 
+const hasEntries = computed(() => loggingStore.allEntries.length > 0)
+
 const onShowServerLog = () => {
 	settingsStore.localFile = undefined
 	// remove local entries
@@ -99,21 +97,6 @@ onMounted(() => {
 onUnmounted(() => {
 	loggingStore.stopPolling()
 })
-
-/** Translated description what to check in case no log can be loaded */
-const noLogDescription = t(
-	'logreader',
-	'If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual.',
-	{
-		setting: '<code>log_type</code>',
-		config: '<code>config.php</code>',
-	},
-	0,
-	{
-		sanitize: false,
-		escape: false,
-	},
-)
 </script>
 
 <style lang="scss" scoped>

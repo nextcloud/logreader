@@ -68,7 +68,6 @@ class SettingsService {
 			Constants::CONFIG_KEY_DATETIMEFORMAT => $this->getDateTimeFormat(),
 			Constants::CONFIG_KEY_RELATIVEDATES => $this->getRelativeDates(),
 			Constants::CONFIG_KEY_LIVELOG => $this->getLiveLog(),
-			'enabled' => $this->getLoggingType() === 'file',
 		];
 	}
 
