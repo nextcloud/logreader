@@ -13,7 +13,9 @@
 		<directory name="vendor/nextcloud/ocp"/>
 	</extraFiles>
 	<stubs>
-		<file name="tests/stubs/stub.phpstub" preloadClasses="true"/>
+		<file name="tests/stubs/oc_core_command.php" preloadClasses="true"/>
+		<file name="tests/stubs/oc_log_LogDetails.php"/>
+		<file name="tests/stubs/oc_SystemConfig.php" preloadClasses="true"/>
 	</stubs>
 	<issueHandlers>
 		<UndefinedClass>

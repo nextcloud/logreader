@@ -21,29 +21,15 @@ declare(strict_types=1);
  *
  */
 
-namespace OC\Core\Command {
-	use Symfony\Component\Console\Command\Command;
-
-	class Base  extends Command {
-		protected function abortIfInterrupted(){
-		}
-	}
-
-	class InterruptedException extends \Exception {
-	}
-}
-
-namespace OC {
-	class SystemConfig {
-	}
-}
-
 namespace OC\Log {
 	use OC\SystemConfig;
+
 	class LogDetails {
 		public function __construct(SystemConfig $config) {
 		}
 		public function logDetails(string $app, $message, int $level): array {
+		}
+		public function logDetailsAsJSON(string $app, $message, int $level): string {
 		}
 	}
 }
