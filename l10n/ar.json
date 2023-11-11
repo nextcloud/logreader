@@ -1,5 +1,9 @@
 { "translations": {
     "Logging" : "تسجيل الحركات Logging",
+    "Errors in the log" : "أخطاء في تسجيل الحركات",
+    "No errors in the logs since %s" : "لم تُسجَّل أيّ أخطاء منذ %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%nخطأً تمّ تسجيله منذ %s","%n خطأً تمّ تسجيله منذ %s","%n خطأً تمّ تسجيله منذ %s","%n أخطاء تمّ تسجيلها منذ %s","%n خطأً تمّ تسجيله منذ %s","%n خطأً تمّ تسجيله منذ %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n تحذيراً تمّ تسجيله منذ %s","%n تحذيراً تمّ تسجيله منذ %s","%n تحذيراً تمّ تسجيله منذ %s","%n تحذيرات تمّ تسجيلها منذ %s","%n تحذيراُ تمّ تسجيله منذ %s","%nتحذيراً تمّ تسجيله منذ %s"],
     "Log Reader" : "قارئ سجل الحركات Log Reader",
     "A log reader for Nextcloud" : "تطبيق لقراءة سجل الحركات في نكست كلاود",
     "Log reader for Nextcloud" : "قارئ سجل الحركات في نكست كلاود",

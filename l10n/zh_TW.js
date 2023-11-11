@@ -2,6 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "記錄",
+    "Errors in the log" : "紀錄檔中的錯誤",
+    "No errors in the logs since %s" : "從 %s 開始，紀錄檔中沒有錯誤",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["從 %s 開始，紀錄檔中有 %n 個錯誤"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["從 %s 開始，紀錄檔中有 %n 個警告"],
     "Log Reader" : "Log Reader",
     "A log reader for Nextcloud" : "Nextcloud 的紀錄檔閱讀程式",
     "Log reader for Nextcloud" : "Nextcloud 的紀錄檔閱讀程式",
