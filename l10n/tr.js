@@ -2,6 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Günlük kaydı",
+    "Errors in the log" : "Günlükteki hatalar",
+    "No errors in the logs since %s" : "%s zamanından beri günlükte bir hata yok",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%s zamanından beri günlükte %n hata var","%s zamanından beri günlükte %n hata var"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%s zamanından beri günlükte %n uyarı var","%s zamanından beri günlükte %n uyarı var"],
     "Log Reader" : "Günlük okuyucu",
     "A log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
     "Log reader for Nextcloud" : "Nextcloud günlük okuyucusu",
