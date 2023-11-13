@@ -64,7 +64,7 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin({filename: "[name].css"}),
+		new MiniCssExtractPlugin({filename: "../css/[name].css"}),
 		new webpack.DefinePlugin({
 			__CLIENT__: true,
 			__SERVER__: false,
