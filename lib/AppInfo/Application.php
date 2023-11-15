@@ -23,12 +23,14 @@ declare(strict_types=1);
 
 namespace OCA\LogReader\AppInfo;
 
+use OCA\LogReader\Listener\LogListener;
 use OCA\LogReader\Log\Formatter;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
-use OCP\AppFramework\IAppContainer;
+use OCP\Log\BeforeMessageLoggedEvent;
+use Psr\Container\ContainerInterface;
 
 class Application extends App implements IBootstrap {
 	public function __construct(array $urlParams = []) {
@@ -36,11 +38,12 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerService(Formatter::class, function (ContainerInterface $c) {
+			return new Formatter(\OC::$SERVERROOT);
+		});
+		$context->registerEventListener(BeforeMessageLoggedEvent::class, LogListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
-		$context->getAppContainer()->registerService(Formatter::class, function (IAppContainer $c) {
-			return new Formatter(\OC::$SERVERROOT);
-		});
 	}
 }
