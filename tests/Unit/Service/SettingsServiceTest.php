@@ -130,10 +130,6 @@ class SettingsServiceTest extends TestCase {
 	}
 
 	public function testGetAppSettings() {
-		$this->config->expects($this->once())
-			->method('getSystemValueString')
-			->with($this->equalTo('log_type'), $this->anything())
-			->willReturn('file');
 		$this->config->expects($this->any())
 			->method('getAppValue')
 			->willReturnCallback(function ($app, $key, $fallback) {
@@ -145,15 +141,10 @@ class SettingsServiceTest extends TestCase {
 			Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 			Constants::CONFIG_KEY_RELATIVEDATES => false,
 			Constants::CONFIG_KEY_LIVELOG => true,
-			'enabled' => true,
 		]);
 	}
 
 	public function testGetAppSettings_nonfile() {
-		$this->config->expects($this->once())
-			->method('getSystemValueString')
-			->with($this->equalTo('log_type'), $this->anything())
-			->willReturn('syslog');
 		$this->config->expects($this->any())
 			->method('getAppValue')
 			->willReturnCallback(function ($app, $key, $fallback) {
@@ -165,7 +156,6 @@ class SettingsServiceTest extends TestCase {
 			Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 			Constants::CONFIG_KEY_RELATIVEDATES => false,
 			Constants::CONFIG_KEY_LIVELOG => true,
-			'enabled' => false,
 		]);
 	}
 }

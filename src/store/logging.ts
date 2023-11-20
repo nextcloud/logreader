@@ -65,7 +65,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	 */
 	async function loadMore(older = true) {
 		// Nothing to do if server logging is disabled
-		if (!_settings.isEnabled) return
+		if (!_settings.isServerLogShown) return
 
 		// Only load any entries if there is no previous unfinished request
 		if (!(_loading.value = !_loading.value)) return
@@ -117,7 +117,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		const doPolling = async () => {
 			try {
 				// Only poll if not using a local file
-				if (_settings.isEnabled && query.value === '') {
+				if (_settings.isServerLogShown && query.value === '') {
 					const { data } = await pollLog({ lastReqId: allEntries.value[0]?.reqId || '' })
 					allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 				}
@@ -153,7 +153,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		query.value = search
 
 		// if query changed and server logging is enabled, request new entries
-		if (search !== oldQuery && _settings.isEnabled) {
+		if (search !== oldQuery && _settings.isServerLogShown) {
 			_loading.value = true
 
 			try {

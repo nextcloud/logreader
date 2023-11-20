@@ -24,18 +24,13 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	/**
 	 * Saved setting loaded from server
 	 */
-	const _loadedSettings = loadState<SettingsState>('logreader', 'settings', { enabled: false, liveLog: false, dateTimeFormat: 'raw', shownLevels: [] })
-
-	/**
-	 * Is file logging enabled on server
-	 */
-	const enabled = ref(_loadedSettings.enabled)
+	const _loadedSettings = loadState<SettingsState>('logreader', 'settings', { liveLog: false, dateTimeFormat: 'raw', shownLevels: [] })
 
 	/**
 	 * Wether we should load log entries from server
-	 * This checks if file logging is enabled and if a local file is currently shown
+	 * This checks if a local file is currently shown
 	 */
-	const isEnabled = computed(() => enabled.value && localFile.value === undefined)
+	const isServerLogShown = computed(() => localFile.value === undefined)
 
 	/**
 	 * Is live log aka polling enabled
@@ -102,5 +97,5 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 		return settings.data
 	}
 
-	return { shownLevels, dateTimeFormat, enabled, isEnabled, liveLog, localFile, localFileName, setSetting, getSettings }
+	return { shownLevels, dateTimeFormat, isServerLogShown, liveLog, localFile, localFileName, setSetting, getSettings }
 })

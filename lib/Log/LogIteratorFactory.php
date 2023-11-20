@@ -23,17 +23,19 @@ declare(strict_types=1);
 
 namespace OCA\LogReader\Log;
 
+use OCP\Files\IAppData;
+use OCP\Files\NotFoundException;
 use OCP\IConfig;
 use OCP\Log\IFileBased;
 use OCP\Log\ILogFactory;
 
 class LogIteratorFactory {
-	private $config;
-	private $logFactory;
 
-	public function __construct(IConfig $config, ILogFactory $logFactory) {
-		$this->config = $config;
-		$this->logFactory = $logFactory;
+	public function __construct(
+		private IConfig $config,
+		private ILogFactory $logFactory,
+		private IAppData $appData,
+	) {
 	}
 
 	/**
@@ -44,18 +46,39 @@ class LogIteratorFactory {
 	public function getLogIterator(array $levels) {
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ATOM);
 		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
-		$log = $this->logFactory->get('file');
-		if ($log instanceof IFileBased) {
-			$handle = fopen($log->getLogFilePath(), 'rb');
-			if ($handle) {
-				$iterator = new LogIterator($handle, $dateFormat, $timezone);
-				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
-					return $logItem && in_array($logItem['level'], $levels);
-				});
+
+		if ($this->config->getSystemValue('log_type', 'file') !== 'file') {
+			try {
+				$folder = $this->appData->getFolder('logreader');
+			} catch (NotFoundException $e) {
+				$folder = $this->appData->newFolder('logreader');
+			}
+
+			try {
+				$logfile = $folder->getFile('nextcloud.log');
+			} catch (NotFoundException $e) {
+				$logfile = $folder->newFile('nextcloud.log');
+			}
+
+			$handle = $logfile->read();
+			if (!$handle) {
+				throw new \Exception('Error while opening internal logfile');
+			}
+		} else {
+			$logfile = $this->logFactory->get('file');
+			if ($logfile instanceof IFileBased) {
+				$handle = fopen($logfile->getLogFilePath(), 'rb');
+				if (!$handle) {
+					throw new \Exception("Error while opening " . $logfile->getLogFilePath());
+				}
 			} else {
-				throw new \Exception("Error while opening " . $log->getLogFilePath());
+				throw new \Exception('Can\'t find log class');
 			}
 		}
-		throw new \Exception('Can\'t find log class');
+
+		$iterator = new LogIterator($handle, $dateFormat, $timezone);
+		return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
+			return $logItem && in_array($logItem['level'], $levels);
+		});
 	}
 }

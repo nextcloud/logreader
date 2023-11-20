@@ -26,7 +26,6 @@ use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\Log\SearchFilter;
 use OCA\LogReader\Service\SettingsService;
 use OCP\AppFramework\Controller;
-use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
 use Psr\Log\LoggerInterface;
@@ -55,13 +54,6 @@ class LogController extends Controller {
 	 * @return JSONResponse
 	 */
 	public function get($query = '', $count = 50, $offset = 0): JSONResponse {
-		$logType = $this->settingsService->getLoggingType();
-		// we only support web access when `log_type` is set to `file` (the default)
-		if ($logType !== 'file') {
-			$this->logger->debug('File-based logging must be enabled to access logs from the Web UI.');
-			return new JSONResponse([], Http::STATUS_FAILED_DEPENDENCY);
-		}
-
 		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 
 		if ($query !== '') {
@@ -100,13 +92,6 @@ class LogController extends Controller {
 	 *  request.
 	 */
 	public function poll(string $lastReqId): JSONResponse {
-		$logType = $this->settingsService->getLoggingType();
-		// we only support web access when `log_type` is set to `file` (the default)
-		if ($logType !== 'file') {
-			$this->logger->debug('File-based logging must be enabled to access logs from the Web UI.');
-			return new JSONResponse([], Http::STATUS_FAILED_DEPENDENCY);
-		}
-
 		$lastItem = $this->getLastItem();
 		if ($lastItem === null || $lastItem['reqId'] === $lastReqId) {
 			return new JSONResponse([]);

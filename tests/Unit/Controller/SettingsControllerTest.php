@@ -79,7 +79,6 @@ class SettingsControllerTest extends TestCase {
 				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 				Constants::CONFIG_KEY_RELATIVEDATES => false,
 				Constants::CONFIG_KEY_LIVELOG => true,
-				'enabled' => true,
 			]);
 		
 		$this->assertEquals(new JSONResponse([
@@ -87,7 +86,6 @@ class SettingsControllerTest extends TestCase {
 			Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 			Constants::CONFIG_KEY_RELATIVEDATES => false,
 			Constants::CONFIG_KEY_LIVELOG => true,
-			'enabled' => true,
 		]), $this->settingsController->getAppConfig());
 	}
 
@@ -127,7 +125,6 @@ class SettingsControllerTest extends TestCase {
 				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 				Constants::CONFIG_KEY_RELATIVEDATES => false,
 				Constants::CONFIG_KEY_LIVELOG => true,
-				'enabled' => true,
 			]);
 
 		$this->assertEquals(new JSONResponse(), $this->settingsController->updateAppConfig($configKey, $configValue));
@@ -155,7 +152,6 @@ class SettingsControllerTest extends TestCase {
 				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 				Constants::CONFIG_KEY_RELATIVEDATES => false,
 				Constants::CONFIG_KEY_LIVELOG => true,
-				'enabled' => true,
 			]);
 		$this->assertEquals(new JSONResponse([], Http::STATUS_BAD_REQUEST), $this->settingsController->updateAppConfig(Constants::CONFIG_KEY_SHOWNLEVELS, 'debug'));
 	}
@@ -173,7 +169,6 @@ class SettingsControllerTest extends TestCase {
 				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
 				Constants::CONFIG_KEY_RELATIVEDATES => false,
 				Constants::CONFIG_KEY_LIVELOG => true,
-				'enabled' => true,
 			]);
 
 		$this->assertEquals(new JSONResponse([], Http::STATUS_BAD_REQUEST), $this->settingsController->updateAppConfig(Constants::CONFIG_KEY_SHOWNLEVELS, ['debug']));

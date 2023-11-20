@@ -53,7 +53,6 @@ describe('store:logging', () => {
 		// Mock server settings
 		mockInitialState({
 			dateTimeFormat: 'local',
-			enabled: true,
 			liveLog: true,
 			shownLevels: [2, 4],
 		})
