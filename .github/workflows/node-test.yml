@@ -2,11 +2,8 @@ name: Node tests
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
-      - master
-      - stable*
+  schedule:
+    - cron: "0 3 * * *"
 
 permissions:
   contents: read
