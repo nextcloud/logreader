@@ -79,6 +79,9 @@ export const useLogStore = defineStore('logreader-logs', () => {
 				const { data } = await pollLog({ lastReqId: allEntries.value[0]?.reqId || '' })
 				allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 			}
+		} catch (e) {
+			logger.debug(e as Error)
+			showError(t('logreader', 'Could not load log entries'))
 		} finally {
 			// Handle any error to prevent a dead lock of the _loading property
 			_loading.value = false
