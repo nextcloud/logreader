@@ -91,5 +91,6 @@
 	},
 	"browserslist": [
 		"extends @nextcloud/browserslist-config"
-	]
+	],
+	"version": "2.14.0"
 }
