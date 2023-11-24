@@ -60,6 +60,7 @@
     "Warning" : "Uyarı",
     "Error" : "Hata",
     "Fatal" : "Kritik",
+    "Could not load log entries" : "Günlük kayıtları yüklenemedi",
     "Could not fetch new log entries (server unavailable)" : "Yeni günlük kayıtları alınamadı (sunucuya erişilemedi)",
     "Could not fetch new entries" : "Yeni kayıtlar alınamadı",
     "Could not copy to clipboard, please copy manually:" : "Panoya kopyalanamadı. Lütfen el ile kopyalayın:",

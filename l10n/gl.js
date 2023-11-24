@@ -62,6 +62,7 @@ OC.L10N.register(
     "Warning" : "Advertencia",
     "Error" : "Erro",
     "Fatal" : "Fatal",
+    "Could not load log entries" : "Non foi posíbel cargar as entradas do rexistro",
     "Could not fetch new log entries (server unavailable)" : "Non foi posíbel recuperar as novas entradas do rexistro (o servidor non está dispoñíbel)",
     "Could not fetch new entries" : "Non foi posíbel recuperar as novas entradas",
     "Could not copy to clipboard, please copy manually:" : "Non foi posíbel copialo no portapapeis, cópieo manualmente:",

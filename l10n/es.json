@@ -1,5 +1,9 @@
 { "translations": {
     "Logging" : "Registros",
+    "Errors in the log" : "Errores en los registros",
+    "No errors in the logs since %s" : "No hay errores en los registros desde %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n error en los registros desde %s","%n errores en los registros desde %s","%n errores en los registros desde %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n advertencia en los registros desde %s","%n advertencias en los registros desde %s","%n advertencias en los registros desde %s"],
     "Log Reader" : "Lector del registro",
     "A log reader for Nextcloud" : "Un lector del registro para Nextcloud",
     "Log reader for Nextcloud" : "Lector del registro de Nextcloud",
@@ -56,6 +60,7 @@
     "Warning" : "Advertencia",
     "Error" : "Error",
     "Fatal" : "Fatal",
+    "Could not load log entries" : "No se pudieron cargar entradas del registro",
     "Could not fetch new log entries (server unavailable)" : "No fue posible obtener nuevas entradas del registro (el servidor no está disponible)",
     "Could not fetch new entries" : "No fue posible obtener nuevas entradas",
     "Could not copy to clipboard, please copy manually:" : "No fue posible copiar al portapapeles, por favor, copie manualmente:",

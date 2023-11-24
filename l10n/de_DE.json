@@ -60,6 +60,7 @@
     "Warning" : "Warnung",
     "Error" : "Fehler",
     "Fatal" : "Fatal",
+    "Could not load log entries" : "Protokolleinträge konnten nicht geladen werden",
     "Could not fetch new log entries (server unavailable)" : "Neue Protokolleinträge konnten nicht abgerufen werden (Server nicht verfügbar)",
     "Could not fetch new entries" : "Neue Einträge konnten nicht abgerufen werden",
     "Could not copy to clipboard, please copy manually:" : "Konnte nicht in die Zwischenablage kopieren, bitte manuell kopieren:",
