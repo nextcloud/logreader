@@ -45,6 +45,7 @@ OC.L10N.register(
     "Warning" : "Avertissement",
     "Error" : "Erreur",
     "Fatal" : "Fatal",
+    "Could not load log entries" : "Impossible de charger les entrées du journal",
     "Could not fetch new log entries (server unavailable)" : "Impossible de récupérer les nouvelles entrées du journal (serveur indisponible)",
     "Could not fetch new entries" : "Impossible de récupérer les nouvelles entrées",
     "Could not copy to clipboard, please copy manually:" : "Impossible de copier dans le presse-papiers, veuillez copier manuellement :",
