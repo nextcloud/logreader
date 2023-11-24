@@ -62,6 +62,7 @@ OC.L10N.register(
     "Warning" : "Упозорење",
     "Error" : "Грешка",
     "Fatal" : "Фатално",
+    "Could not load log entries" : "Нису могле да се учитају ставке дневника",
     "Could not fetch new log entries (server unavailable)" : "Не могу да се прибаве нове ставке дневника (сервер није доступан)",
     "Could not fetch new entries" : "Не могу да се добаве нове ставке",
     "Could not copy to clipboard, please copy manually:" : "Не може да се копира у клипборд, молимо вас да ручно копирате:",

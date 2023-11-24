@@ -2,6 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Logging",
+    "Errors in the log" : "Errors in the log",
+    "No errors in the logs since %s" : "No errors in the logs since %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n error in the logs since %s","%n errors in the logs since %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n warning in the logs since %s","%n warnings in the logs since %s"],
     "Log Reader" : "Log Reader",
     "A log reader for Nextcloud" : "A log reader for Nextcloud",
     "Log reader for Nextcloud" : "Log reader for Nextcloud",
@@ -58,6 +62,7 @@ OC.L10N.register(
     "Warning" : "Warning",
     "Error" : "Error",
     "Fatal" : "Fatal",
+    "Could not load log entries" : "Could not load log entries",
     "Could not fetch new log entries (server unavailable)" : "Could not fetch new log entries (server unavailable)",
     "Could not fetch new entries" : "Could not fetch new entries",
     "Could not copy to clipboard, please copy manually:" : "Could not copy to clipboard, please copy manually:",

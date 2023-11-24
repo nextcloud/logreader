@@ -62,6 +62,7 @@ OC.L10N.register(
     "Warning" : "تحذير",
     "Error" : "خطأ",
     "Fatal" : "خطأ فادح",
+    "Could not load log entries" : "تعذّر رفع سجلات الحركة",
     "Could not fetch new log entries (server unavailable)" : "تعذّر جلب حركات جديدة (الخادوم غير متاح)",
     "Could not fetch new entries" : "تعذّر جلب حركات جديدة",
     "Could not copy to clipboard, please copy manually:" : "تعذّر النسخ إلى الحافظة. إنسَخ يدويّاً رجاءً:",
