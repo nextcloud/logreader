@@ -62,6 +62,7 @@ OC.L10N.register(
     "Warning" : "Varování",
     "Error" : "Chyba",
     "Fatal" : "Fatální",
+    "Could not load log entries" : "Nepodařilo se načíst položky záznamu událostí",
     "Could not fetch new log entries (server unavailable)" : "Nepodařilo se získat nové položky záznamu událostí (server není k dispozici)",
     "Could not fetch new entries" : "Nepodařilo se získat nové položky",
     "Could not copy to clipboard, please copy manually:" : "Nepodařilo se zkopírovat do schránky – zkopírujte ručně:",

@@ -62,6 +62,7 @@ OC.L10N.register(
     "Warning" : "Warning",
     "Error" : "Error",
     "Fatal" : "Fatal",
+    "Could not load log entries" : "無法載入紀錄檔條目",
     "Could not fetch new log entries (server unavailable)" : "無法擷取新紀錄項目（伺服器不可用）",
     "Could not fetch new entries" : "無法擷取新項目",
     "Could not copy to clipboard, please copy manually:" : "無法複製到剪貼簿，請手動複製：",
