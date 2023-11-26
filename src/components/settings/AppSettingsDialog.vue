@@ -16,7 +16,7 @@
 		<NcAppSettingsSection id="logreader-settings-live-view" :name="t('logreader', 'Live view')">
 			<SettingsLiveView />
 		</NcAppSettingsSection>
-		<NcAppSettingsSection id="logreader-settings-actions" :name="t('logreader', 'Download / Upload logs')">
+		<NcAppSettingsSection id="logreader-settings-actions" :name="t('logreader', 'Download/Upload logs')">
 			<SettingsActions />
 		</NcAppSettingsSection>
 	</NcAppSettingsDialog>
