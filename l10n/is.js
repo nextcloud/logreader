@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Forrit",
     "Time" : "Tími",
     "Download logs" : "Sækja annála",
+    "Application" : "Forrit",
     "Message" : "Skilaboð",
     "Show details" : "Birta nánari upplýsingar",
     "Info" : "Upplýsingar",
