@@ -3,7 +3,7 @@
 		<div class="trace__position">
 			<span class="trace__file">{{ line.file }}</span>
 			<span v-if="line.line" class="trace__line">{{
-				t('logreader', 'line {line}', { line: line.line })
+				t('logreader', 'Line {line}', { line: line.line })
 			}}</span>
 		</div>
 		<pre class="trace__function"><code class="trace__function_name" v-text="functionText" /><code class="trace__function_arguments" v-text="argumentText" /></pre>
