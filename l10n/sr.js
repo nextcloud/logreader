@@ -30,11 +30,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "Успешно је копирана ставка дневника",
     "Search log entries" : "Претражи ставке дневника",
     "Caused by {exception}" : "Изазвао је {exception}",
-    "line {line}" : "линија {line}",
+    "Line {line}" : "Линија {line}",
     "Filter log levels" : "Филтрирај нивое дневника",
     "Time format" : "Формат времена",
     "Live view" : "Приказ уживо",
-    "Download / Upload logs" : "Преузми / Отпреми дневнике",
     "Download logs" : "Скини дневнике",
     "Show local log file" : "Прикажи локални фајл дневника",
     "Upload local log file to be displayed" : "Отпреми локални фајл дневника који треба да се прикаже",
@@ -79,6 +78,8 @@ OC.L10N.register(
     "Invalid log file" : "Неисправан фајл дневника",
     "Log levels" : "Нивои логовања",
     "Log content" : "Садржај дневника",
-    "Live update" : "Ажурирање уживо"
+    "Live update" : "Ажурирање уживо",
+    "line {line}" : "линија {line}",
+    "Download / Upload logs" : "Преузми / Отпреми дневнике"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

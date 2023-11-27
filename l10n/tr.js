@@ -30,11 +30,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "Günlük kaydı kopyalandı",
     "Search log entries" : "Günlük kayıtlarını ara",
     "Caused by {exception}" : "{exception} nedeniyle",
-    "line {line}" : "{line}. satır",
+    "Line {line}" : "{line}. satır",
     "Filter log levels" : "Günlük düzeylerini süz",
     "Time format" : "Saat biçimi",
     "Live view" : "Canlı görünüm",
-    "Download / Upload logs" : "Günlüğü indir / yükle",
     "Download logs" : "Günlüğü indir",
     "Show local log file" : "Yerel günlük dosyasını görüntüle",
     "Upload local log file to be displayed" : "Görüntülenecek yerel günlük dosyasını yükleyin",
@@ -79,6 +78,8 @@ OC.L10N.register(
     "Invalid log file" : "Günlük dosyası geçersiz",
     "Log levels" : "Günlük düzeyleri",
     "Log content" : "Günlük içeriği",
-    "Live update" : "Canlı güncelleme"
+    "Live update" : "Canlı güncelleme",
+    "line {line}" : "{line}. satır",
+    "Download / Upload logs" : "Günlüğü indir / yükle"
 },
 "nplurals=2; plural=(n > 1);");

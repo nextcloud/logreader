@@ -30,11 +30,9 @@ OC.L10N.register(
     "Log entry successfully copied" : "تمّ بنجاح نسخ تسجيلة الحركة",
     "Search log entries" : "البحث في سجل الحركات",
     "Caused by {exception}" : "ناتج عن {exception}",
-    "line {line}" : "السطر {line}",
     "Filter log levels" : "فلترة مستويات الحركات",
     "Time format" : "تنسيق الوقت",
     "Live view" : "العرض الحي",
-    "Download / Upload logs" : "سجل حركات الرفع و التنزيل",
     "Download logs" : "تنزيل سجلات الحركات",
     "Show local log file" : "أعرِض ملف سجل الحركات المحلي",
     "Upload local log file to be displayed" : "إرفَع سجل الحركات المحلي لعرضه",
@@ -79,6 +77,8 @@ OC.L10N.register(
     "Invalid log file" : "ملف سجل حركات غير سليم",
     "Log levels" : "مستويات تسجيلات الحركات",
     "Log content" : "محتوى سجل الحركات",
-    "Live update" : "تحديث مُباشر"
+    "Live update" : "تحديث مُباشر",
+    "line {line}" : "السطر {line}",
+    "Download / Upload logs" : "سجل حركات الرفع و التنزيل"
 },
 "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;");

@@ -26,11 +26,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "Protokolleintrag erfolgreich kopiert",
     "Search log entries" : "Protokolleinträge suchen",
     "Caused by {exception}" : "Verursacht von {exception}",
-    "line {line}" : "Zeile {line}",
+    "Line {line}" : "Zeile {line}",
     "Filter log levels" : "Protokollebenen filtern",
     "Time format" : "Zeitformat",
     "Live view" : "Echtzeitansicht",
-    "Download / Upload logs" : "Protokolle herunter- / hochladen",
     "Download logs" : "Protokolldatei herunterladen",
     "Show local log file" : "Lokale Protokolldatei anzeigen",
     "Upload local log file to be displayed" : "Lokale Protokoll-Datei, die angezeigt werden soll, hochladen",
@@ -74,6 +73,8 @@ OC.L10N.register(
     "Invalid log file" : "Ungültige Protokolldatei",
     "Log levels" : "Log-Level",
     "Log content" : "Log-Inhalt",
-    "Live update" : "Live-Aktualisierung"
+    "Live update" : "Live-Aktualisierung",
+    "line {line}" : "Zeile {line}",
+    "Download / Upload logs" : "Protokolle herunter- / hochladen"
 },
 "nplurals=2; plural=(n != 1);");

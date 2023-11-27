@@ -30,11 +30,9 @@ OC.L10N.register(
     "Log entry successfully copied" : "Loggposten har kopierats",
     "Search log entries" : "Sök loggposter",
     "Caused by {exception}" : "Orsakad av {exception}",
-    "line {line}" : "Rad {line}",
     "Filter log levels" : "Filtrera loggnivåer",
     "Time format" : "Tidsformat",
     "Live view" : "Live-uppdatering",
-    "Download / Upload logs" : "Ladda ner / ladda upp loggar",
     "Download logs" : "Hämta loggar",
     "Show local log file" : "Visa lokal loggfil",
     "Upload local log file to be displayed" : "Ladda upp lokal loggfil som ska visas",
@@ -79,6 +77,8 @@ OC.L10N.register(
     "Invalid log file" : "Ogiltig loggfil",
     "Log levels" : "Loggnivåer",
     "Log content" : "Logginnehåll",
-    "Live update" : "Live-uppdatering"
+    "Live update" : "Live-uppdatering",
+    "line {line}" : "Rad {line}",
+    "Download / Upload logs" : "Ladda ner / ladda upp loggar"
 },
 "nplurals=2; plural=(n != 1);");

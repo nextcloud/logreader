@@ -8,6 +8,7 @@ OC.L10N.register(
     "Level" : "级别",
     "App" : "应用",
     "Time" : "时间",
+    "Line {line}" : "行{line}",
     "Download logs" : "下载日志",
     "Message" : "消息",
     "Show details" : "显示详情",
