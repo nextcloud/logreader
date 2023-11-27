@@ -30,11 +30,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "成功複製紀錄檔條目",
     "Search log entries" : "搜尋紀錄項目",
     "Caused by {exception}" : "由 {exception} 造成",
-    "line {line}" : "行 {line}",
+    "Line {line}" : "行 {line}",
     "Filter log levels" : "過濾紀錄層級",
     "Time format" : "時間格式",
     "Live view" : "即時檢視",
-    "Download / Upload logs" : "下載 / 上傳紀錄檔",
     "Download logs" : "下載紀錄檔",
     "Show local log file" : "顯示本機紀錄檔",
     "Upload local log file to be displayed" : "上傳要顯示的本機紀錄檔",
@@ -79,6 +78,8 @@ OC.L10N.register(
     "Invalid log file" : "無效的紀錄檔",
     "Log levels" : "記錄層級",
     "Log content" : "記錄內容",
-    "Live update" : "記錄更新"
+    "Live update" : "記錄更新",
+    "line {line}" : "行 {line}",
+    "Download / Upload logs" : "下載 / 上傳紀錄檔"
 },
 "nplurals=1; plural=0;");

@@ -8,6 +8,7 @@ OC.L10N.register(
     "Level" : "Nivel",
     "App" : "Aplicación",
     "Time" : "Hora",
+    "Line {line}" : "Línea {line}",
     "Download logs" : "Descargar bitácoras",
     "Application" : "Aplicación",
     "Message" : "Mensaje",

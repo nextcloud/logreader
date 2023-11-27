@@ -24,11 +24,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "Naplóbejegyzés másolása sikeres",
     "Search log entries" : "Naplóbejegyzés keresése",
     "Caused by {exception}" : "Okozta: {exception}",
-    "line {line}" : "{line} sor",
+    "Line {line}" : "{line}. sor",
     "Filter log levels" : "Naplószintek szűrése",
     "Time format" : "Időformátum",
     "Live view" : "Élő nézet",
-    "Download / Upload logs" : "Naplók feltöltése/letöltése",
     "Download logs" : "Naplók letöltése",
     "Show local log file" : "Mutassa a helyi naplófájlokat",
     "Upload local log file to be displayed" : "Töltse fel a helyi naplófájlt a megjelenítéshez",
@@ -72,6 +71,8 @@ OC.L10N.register(
     "Invalid log file" : "Érvénytelen naplófájl",
     "Log levels" : "Naplózási szintek",
     "Log content" : "Naplótartalom",
-    "Live update" : "Élő frissítés"
+    "Live update" : "Élő frissítés",
+    "line {line}" : "{line} sor",
+    "Download / Upload logs" : "Naplók feltöltése/letöltése"
 },
 "nplurals=2; plural=(n != 1);");

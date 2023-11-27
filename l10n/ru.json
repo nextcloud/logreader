@@ -24,11 +24,9 @@
     "Log entry successfully copied" : "Запись в журнале успешно скопирована",
     "Search log entries" : "Поиск записей в журнале",
     "Caused by {exception}" : "Вызвано {exception}",
-    "line {line}" : "строка {line}",
     "Filter log levels" : "Фильтр по уровню логирования",
     "Time format" : "Формат времени",
     "Live view" : "Просмотр в реальном времени",
-    "Download / Upload logs" : "Загрузка / Выгрузка журналов",
     "Download logs" : "Скачать журналы",
     "Show local log file" : "Показать локальный файл журнала",
     "Upload local log file to be displayed" : "Загрузите локальный файл журнала для отображения",
@@ -72,6 +70,8 @@
     "Invalid log file" : "Неверный файл журнала",
     "Log levels" : "Уровни журналирования",
     "Log content" : "Записи журнала",
-    "Live update" : "Живое обновление"
+    "Live update" : "Живое обновление",
+    "line {line}" : "строка {line}",
+    "Download / Upload logs" : "Загрузка / Выгрузка журналов"
 },"pluralForm" :"nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);"
 }

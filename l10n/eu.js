@@ -26,11 +26,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "Log sarrera ondo kopiatuta",
     "Search log entries" : "Bilatu log sarrerak",
     "Caused by {exception}" : "{exception} sortua",
-    "line {line}" : "{line} lerroa",
+    "Line {line}" : "{line}. lerroa",
     "Filter log levels" : "Iragazi log mailak",
     "Time format" : "Ordu formatua",
     "Live view" : "Zuzeneko bistaratzea",
-    "Download / Upload logs" : "Deskargatu / Igo erregistroak",
     "Download logs" : "Deskargatu log fitxategiak",
     "Show local log file" : "Erakutsi log fitxategi lokala",
     "Upload local log file to be displayed" : "Igo lokaleko log fitxategia, bistaratzeko",
@@ -74,6 +73,8 @@ OC.L10N.register(
     "Invalid log file" : "Log fitxategi baliogabea",
     "Log levels" : "Log mailak",
     "Log content" : "Log edukia",
-    "Live update" : "Etengabeko eguneraketa "
+    "Live update" : "Etengabeko eguneraketa ",
+    "line {line}" : "{line} lerroa",
+    "Download / Upload logs" : "Deskargatu / Igo erregistroak"
 },
 "nplurals=2; plural=(n != 1);");

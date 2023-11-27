@@ -1,5 +1,9 @@
 { "translations": {
     "Logging" : "記錄",
+    "Errors in the log" : "紀錄檔中的錯誤",
+    "No errors in the logs since %s" : "從 %s 開始，紀錄檔中沒有錯誤",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["從 %s 開始，紀錄檔中有 %n 個錯誤"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["從 %s 開始，紀錄檔中有 %n 個警告"],
     "Log Reader" : "記錄日誌閱讀程式",
     "A log reader for Nextcloud" : "Nextcloud 的記錄日誌閱讀程式",
     "Log reader for Nextcloud" : "Nextcloud 的記錄日誌閱讀程式",
@@ -24,11 +28,10 @@
     "Log entry successfully copied" : "已成功複製記錄條目",
     "Search log entries" : "搜尋記錄條目",
     "Caused by {exception}" : "由 {exception} 造成",
-    "line {line}" : "行 {line}",
+    "Line {line}" : "行 {line}",
     "Filter log levels" : "過濾記錄層級",
     "Time format" : "時間格式",
     "Live view" : "實時檢視",
-    "Download / Upload logs" : "下載 / 上傳記錄",
     "Download logs" : "下載記錄檔",
     "Show local log file" : "顯示近端記錄檔案",
     "Upload local log file to be displayed" : "上傳近端記錄檔案進行顯示",
@@ -56,6 +59,7 @@
     "Warning" : "警告",
     "Error" : "錯誤",
     "Fatal" : "致命",
+    "Could not load log entries" : "無法載入紀錄檔條目",
     "Could not fetch new log entries (server unavailable)" : "無法獲取新的記錄條目（伺服器不可用）",
     "Could not fetch new entries" : "無法擷取新條目",
     "Could not copy to clipboard, please copy manually:" : "無法複製到剪貼板，請手動複製：",
@@ -72,6 +76,8 @@
     "Invalid log file" : "無效的紀錄檔案",
     "Log levels" : "記錄層級",
     "Log content" : "記錄內容",
-    "Live update" : "實時更新"
+    "Live update" : "實時更新",
+    "line {line}" : "行 {line}",
+    "Download / Upload logs" : "下載 / 上傳記錄"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

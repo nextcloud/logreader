@@ -26,11 +26,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "Log entry successfully copied",
     "Search log entries" : "Search log entries",
     "Caused by {exception}" : "Caused by {exception}",
-    "line {line}" : "line {line}",
+    "Line {line}" : "Line {line}",
     "Filter log levels" : "Filter log levels",
     "Time format" : "Time format",
     "Live view" : "Live view",
-    "Download / Upload logs" : "Download / Upload logs",
     "Download logs" : "بارگیری لگاریتم",
     "Show local log file" : "Show local log file",
     "Upload local log file to be displayed" : "Upload local log file to be displayed",
@@ -74,6 +73,8 @@ OC.L10N.register(
     "Invalid log file" : "فایل لاگ نامعتبر است.",
     "Log levels" : "سطح ورود به سیستم",
     "Log content" : "محتوا را وارد کنید",
-    "Live update" : "به روز رسانی زنده"
+    "Live update" : "به روز رسانی زنده",
+    "line {line}" : "line {line}",
+    "Download / Upload logs" : "Download / Upload logs"
 },
 "nplurals=2; plural=(n > 1);");
