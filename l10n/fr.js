@@ -25,10 +25,9 @@ OC.L10N.register(
     "Log entry successfully copied" : "Copie réussie de l'entrée du journal",
     "Search log entries" : "Rechercher des entrées dans le journal",
     "Caused by {exception}" : "Causé par {exception}",
-    "line {line}" : "Ligne {line}",
+    "Line {line}" : "Ligne {line}",
     "Time format" : "Format de l'heure",
     "Live view" : "Vue en direct",
-    "Download / Upload logs" : "Télécharger / Téléverser les journaux",
     "Download logs" : "Télécharger les journaux",
     "Show local log file" : "Afficher le fichier journal local",
     "Upload local log file to be displayed" : "Téléversement le fichier journal local à afficher",
@@ -62,6 +61,8 @@ OC.L10N.register(
     "Invalid log file" : "Fichier journal invalide",
     "Log levels" : "Niveaux de journalisation",
     "Log content" : "Contenu du registre",
-    "Live update" : "Mise à jour en direct"
+    "Live update" : "Mise à jour en direct",
+    "line {line}" : "Ligne {line}",
+    "Download / Upload logs" : "Télécharger / Téléverser les journaux"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

@@ -26,11 +26,9 @@ OC.L10N.register(
     "Log entry successfully copied" : "L'entrada del registre s'ha copiat correctament",
     "Search log entries" : "Cerca entrades de registre",
     "Caused by {exception}" : "Causat per {exception}",
-    "line {line}" : "línia {line}",
     "Filter log levels" : "Filtre els nivells de registre",
     "Time format" : "Format d'hora",
     "Live view" : "Visualització en directe",
-    "Download / Upload logs" : "Baixar/pujar registres",
     "Download logs" : "Baixa els registres",
     "Show local log file" : "Mostra el fitxer de registre local",
     "Upload local log file to be displayed" : "Pujada del fitxer de registre local que es mostrarà",
@@ -74,6 +72,8 @@ OC.L10N.register(
     "Invalid log file" : "El fitxer de registre no és vàlid",
     "Log levels" : "Nivells de registre",
     "Log content" : "Contingut del registre",
-    "Live update" : "Actualització en directe"
+    "Live update" : "Actualització en directe",
+    "line {line}" : "línia {line}",
+    "Download / Upload logs" : "Baixar/pujar registres"
 },
 "nplurals=2; plural=(n != 1);");

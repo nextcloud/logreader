@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "App" : "Apl",
     "Time" : "Waktu",
+    "Line {line}" : "Baris {line}",
     "Message" : "Pesan",
     "Show details" : "Tampilkan detail",
     "Info" : "Info",

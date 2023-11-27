@@ -30,11 +30,10 @@ OC.L10N.register(
     "Log entry successfully copied" : "Entrada de registro copiada com sucesso",
     "Search log entries" : "Pesquisar entradas de registro",
     "Caused by {exception}" : "Causado por {exception}",
-    "line {line}" : "linha {line}",
+    "Line {line}" : "Linha {line}",
     "Filter log levels" : "Filtrar níveis de registro",
     "Time format" : "Formato de hora",
     "Live view" : "Visualização ao vivo",
-    "Download / Upload logs" : "Baixar/carregar registros",
     "Download logs" : "Registro de downloads",
     "Show local log file" : "Mostrar arquivo de log local",
     "Upload local log file to be displayed" : "Carregue o arquivo de log local a ser exibido",
@@ -79,6 +78,8 @@ OC.L10N.register(
     "Invalid log file" : "Arquivo de log inválido ",
     "Log levels" : "Níveis de registro",
     "Log content" : "Conteúdo do registro",
-    "Live update" : "Atualização ao vivo"
+    "Live update" : "Atualização ao vivo",
+    "line {line}" : "linha {line}",
+    "Download / Upload logs" : "Baixar/carregar registros"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
