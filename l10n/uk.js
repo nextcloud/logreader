@@ -26,11 +26,9 @@ OC.L10N.register(
     "Log entry successfully copied" : "Запис журналу скопійовано",
     "Search log entries" : "Пошук в журналі",
     "Caused by {exception}" : "Викликано {exception}",
-    "line {line}" : "рядок {line}",
     "Filter log levels" : "Фільтр рівня журналу",
     "Time format" : "Формат часу",
     "Live view" : "Наживо",
-    "Download / Upload logs" : "Звантажити/завантажити журнал",
     "Download logs" : "Звантажити журнали",
     "Show local log file" : "Показати файл журналу на пристрої",
     "Upload local log file to be displayed" : "Завантажити файл журналу на пристрої для показу",
@@ -74,6 +72,8 @@ OC.L10N.register(
     "Invalid log file" : "Недійсний файл журналу",
     "Log levels" : "Рівні журналу",
     "Log content" : "Вміст журналу",
-    "Live update" : "В реальному часі"
+    "Live update" : "В реальному часі",
+    "line {line}" : "рядок {line}",
+    "Download / Upload logs" : "Звантажити/завантажити журнал"
 },
 "nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);");

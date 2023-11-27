@@ -26,11 +26,9 @@ OC.L10N.register(
     "Log entry successfully copied" : "ログが正常にコピーされました",
     "Search log entries" : "ログの検索",
     "Caused by {exception}" : "{exception} が原因",
-    "line {line}" : "行 {line}",
     "Filter log levels" : "ログレベルのフィルタ",
     "Time format" : "時間形式",
     "Live view" : "ライブビュー",
-    "Download / Upload logs" : "Download / Upload logs",
     "Download logs" : "ログのダウンロード",
     "Show local log file" : "ローカルのログファイルを表示する",
     "Upload local log file to be displayed" : "表示するローカルログファイルをアップロードする",
@@ -74,6 +72,8 @@ OC.L10N.register(
     "Invalid log file" : "不正なログファイルです",
     "Log levels" : "ログレベル",
     "Log content" : "ログ情報",
-    "Live update" : "ライブアップデート"
+    "Live update" : "ライブアップデート",
+    "line {line}" : "行 {line}",
+    "Download / Upload logs" : "Download / Upload logs"
 },
 "nplurals=1; plural=0;");
