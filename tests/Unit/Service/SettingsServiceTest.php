@@ -136,7 +136,7 @@ class SettingsServiceTest extends TestCase {
 			->willReturn('file');
 		$this->config->expects($this->once())
 			->method('getSystemValueInt')
-			->with($this->equalTo('loglevel'), 0)
+			->with($this->equalTo('loglevel'), 2)
 			->willReturn(4);
 		$this->config->expects($this->any())
 			->method('getAppValue')
@@ -161,7 +161,7 @@ class SettingsServiceTest extends TestCase {
 			->willReturn('syslog');
 		$this->config->expects($this->once())
 			->method('getSystemValueInt')
-			->with($this->equalTo('loglevel'), 0)
+			->with($this->equalTo('loglevel'), 2)
 			->willReturn(2);
 		$this->config->expects($this->any())
 			->method('getAppValue')

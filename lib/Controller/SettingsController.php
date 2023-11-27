@@ -93,6 +93,11 @@ class SettingsController extends ApiController {
 		}
 
 		if ($settingsKey === Constants::CONFIG_KEY_LOGLEVEL) {
+			// Validate loglevel value
+			if (!is_int($settingsValue) || $settingsValue < 0 || $settingsValue > 4) {
+				$this->logger->debug('Cannot set {settingsValue} as loglevel', ['settingsValue' => $settingsValue ]);
+				return new JSONResponse([], Http::STATUS_BAD_REQUEST);
+			}
 			// Set backend loglevel directly via system value
 			$this->config->setSystemValue('loglevel', $settingsValue);
 		} else {

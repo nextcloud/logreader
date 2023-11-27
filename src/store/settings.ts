@@ -24,7 +24,7 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	/**
 	 * Saved setting loaded from server
 	 */
-	const _loadedSettings = loadState<SettingsState>('logreader', 'settings', { enabled: false, liveLog: false, dateTimeFormat: 'raw', shownLevels: [], logLevel: 0 })
+	const _loadedSettings = loadState<SettingsState>('logreader', 'settings', { enabled: false, liveLog: false, dateTimeFormat: 'raw', shownLevels: [], logLevel: 2 })
 
 	/**
 	 * Is file logging enabled on server
