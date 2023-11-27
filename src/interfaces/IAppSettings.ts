@@ -27,4 +27,8 @@ export interface IAppSettings {
 	 * Wether backend is enable = logging is set to file
 	 */
 	enabled: boolean
+	/**
+	 * The loglevel which is currently set on the server
+	 */
+	logLevel: 0 | 1 | 2 | 3 | 4
 }

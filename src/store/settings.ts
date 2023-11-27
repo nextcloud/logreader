@@ -24,7 +24,7 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	/**
 	 * Saved setting loaded from server
 	 */
-	const _loadedSettings = loadState<SettingsState>('logreader', 'settings', { enabled: false, liveLog: false, dateTimeFormat: 'raw', shownLevels: [] })
+	const _loadedSettings = loadState<SettingsState>('logreader', 'settings', { enabled: false, liveLog: false, dateTimeFormat: 'raw', shownLevels: [], logLevel: 2 })
 
 	/**
 	 * Is file logging enabled on server
@@ -46,6 +46,11 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 	 * Array of logging levels enabled to show
 	 */
 	const shownLevels = ref(_loadedSettings.shownLevels)
+
+	/**
+	 * The current log level set on the server
+	 */
+	const logLevel = ref(_loadedSettings.logLevel)
 
 	/**
 	 * The datetime format to used for displaying times
@@ -102,5 +107,5 @@ export const useSettingsStore = defineStore('logreader-settings', () => {
 		return settings.data
 	}
 
-	return { shownLevels, dateTimeFormat, enabled, isEnabled, liveLog, localFile, localFileName, setSetting, getSettings }
+	return { shownLevels, logLevel, dateTimeFormat, enabled, isEnabled, liveLog, localFile, localFileName, setSetting, getSettings }
 })

@@ -32,11 +32,13 @@ class Constants {
 	 * Used AppConfig Keys
 	 */
 	public const CONFIG_KEY_SHOWNLEVELS = 'shownLevels';
+	public const CONFIG_KEY_LOGLEVEL = 'logLevel';
 	public const CONFIG_KEY_DATETIMEFORMAT = 'dateTimeFormat';
 	public const CONFIG_KEY_RELATIVEDATES = 'relativedates';
 	public const CONFIG_KEY_LIVELOG = 'liveLog';
 	public const CONFIG_KEYS = [
 		self::CONFIG_KEY_SHOWNLEVELS,
+		self::CONFIG_KEY_LOGLEVEL,
 		self::CONFIG_KEY_DATETIMEFORMAT,
 		self::CONFIG_KEY_RELATIVEDATES,
 		self::CONFIG_KEY_LIVELOG

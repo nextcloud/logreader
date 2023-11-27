@@ -65,6 +65,7 @@ class SettingsService {
 	public function getAppSettings(): array {
 		return [
 			Constants::CONFIG_KEY_SHOWNLEVELS => $this->getShownLevels(),
+			Constants::CONFIG_KEY_LOGLEVEL => $this->config->getSystemValueInt('loglevel', 2),
 			Constants::CONFIG_KEY_DATETIMEFORMAT => $this->getDateTimeFormat(),
 			Constants::CONFIG_KEY_RELATIVEDATES => $this->getRelativeDates(),
 			Constants::CONFIG_KEY_LIVELOG => $this->getLiveLog(),
