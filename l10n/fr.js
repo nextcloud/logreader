@@ -28,6 +28,7 @@ OC.L10N.register(
     "Line {line}" : "Ligne {line}",
     "Time format" : "Format de l'heure",
     "Live view" : "Vue en direct",
+    "Download/Upload logs" : "Télécharger/Téléverser les journaux",
     "Download logs" : "Télécharger les journaux",
     "Show local log file" : "Afficher le fichier journal local",
     "Upload local log file to be displayed" : "Téléversement le fichier journal local à afficher",

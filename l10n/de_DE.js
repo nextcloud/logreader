@@ -34,6 +34,7 @@ OC.L10N.register(
     "Filter log levels" : "Protokollebenen filtern",
     "Time format" : "Zeitformat",
     "Live view" : "Echtzeitansicht",
+    "Download/Upload logs" : "Protokolle herunter-/hochladen",
     "Download logs" : "Protokolldatei herunterladen",
     "Show local log file" : "Lokale Protokolldatei anzeigen",
     "Upload local log file to be displayed" : "Lokale Protokolldatei zur Anzeige hochladen",

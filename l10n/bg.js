@@ -8,6 +8,7 @@ OC.L10N.register(
     "Level" : "Ниво",
     "App" : "Приложение",
     "Time" : "Време",
+    "Line {line}" : "Ред {line}",
     "Download logs" : "Изтегляне на журнали",
     "Application" : "Приложение",
     "Message" : "Съобщение",
