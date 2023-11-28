@@ -34,6 +34,7 @@ OC.L10N.register(
     "Filter log levels" : "Filtrar os niveis do rexistro",
     "Time format" : "Formato horario",
     "Live view" : "Vista en directo",
+    "Download/Upload logs" : "Descargar/enviar rexistros",
     "Download logs" : "Descargar rexistros",
     "Show local log file" : "Amosar o ficheiro de rexistro local",
     "Upload local log file to be displayed" : "Enviar  o ficheiro de rexistro local para amosalo",
