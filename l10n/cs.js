@@ -34,6 +34,7 @@ OC.L10N.register(
     "Filter log levels" : "Filtrovat podle stupně závažnosti",
     "Time format" : "Formát času",
     "Live view" : "Živé zobrazení",
+    "Download/Upload logs" : "Stáhnout si / nahrát záznamy událostí",
     "Download logs" : "Stáhnout si záznamy událostí",
     "Show local log file" : "Zobrazit místní soubor se záznamem událostí",
     "Upload local log file to be displayed" : "Nahrajte místní soubor se záznamem událostí, který chcete zobrazit",
