@@ -34,6 +34,7 @@ OC.L10N.register(
     "Filter log levels" : "Филтрирај нивое дневника",
     "Time format" : "Формат времена",
     "Live view" : "Приказ уживо",
+    "Download/Upload logs" : "Преузми/Отпреми дневнике",
     "Download logs" : "Скини дневнике",
     "Show local log file" : "Прикажи локални фајл дневника",
     "Upload local log file to be displayed" : "Отпреми локални фајл дневника који треба да се прикаже",
