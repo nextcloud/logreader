@@ -2,6 +2,10 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Журналювання",
+    "Errors in the log" : "Помилки в журналі",
+    "No errors in the logs since %s" : "Жодних помилок в журналі, починаючи з %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : [" %n помилка в журналах, починаючи з %s","%n помилки в журналах, починаючи з %s","%nпомилок в журналах, починаючи з %s"," %nпомилок в журналах, починаючи з %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n попередження в журналах, починаючи з %s","%nпопередження в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s"],
     "Log Reader" : "Читач журналів",
     "A log reader for Nextcloud" : "Програма для читання журналів для Nextcloud",
     "Log reader for Nextcloud" : "Читач журналів для Nextcloud",
@@ -61,6 +65,7 @@ OC.L10N.register(
     "Warning" : "Увага",
     "Error" : "Помилка",
     "Fatal" : "Фатальний",
+    "Could not load log entries" : "Не вдалося завантажити записи журналу",
     "Could not fetch new log entries (server unavailable)" : "Не вдалося отримати нові записи журналу (сервер не відповідає)",
     "Could not fetch new entries" : "Не вдалося отримати нові записи журналу",
     "Could not copy to clipboard, please copy manually:" : "Не вдалося скопіювати до буферу обміну. Будь ласка, скопіюйте вручну:",
