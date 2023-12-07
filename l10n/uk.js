@@ -62,7 +62,7 @@ OC.L10N.register(
     "Show details" : "Показати деталі",
     "Debug" : "Зневадження",
     "Info" : "Info",
-    "Warning" : "Увага",
+    "Warning" : "Попередження",
     "Error" : "Помилка",
     "Fatal" : "Фатальний",
     "Could not load log entries" : "Не вдалося завантажити записи журналу",
