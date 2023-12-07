@@ -60,10 +60,10 @@ class LogErrorsTest extends TestCase {
 		$tooOld = (new \DateTime('1 month ago'))->format(\DateTime::ATOM);
 		return [
 			[[], 'success'],
-			[[['level' => 2, 'time' => $now]], 'warning'],
-			[[['level' => 3, 'time' => $now]], 'error'],
-			[[['level' => 2, 'time' => $now],['level' => 3, 'time' => $now]], 'error'],
-			[[['level' => 2, 'time' => $now],['level' => 3, 'time' => $tooOld]], 'warning'],
+			[[['level' => 2, 'time' => $now]], 'info'],
+			[[['level' => 3, 'time' => $now]], 'warning'],
+			[[['level' => 2, 'time' => $now],['level' => 3, 'time' => $now]], 'warning'],
+			[[['level' => 2, 'time' => $now],['level' => 3, 'time' => $tooOld]], 'info'],
 			[[['level' => 2, 'time' => $tooOld],['level' => 3, 'time' => $tooOld]], 'success'],
 		];
 	}

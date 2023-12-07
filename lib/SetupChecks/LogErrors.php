@@ -74,7 +74,7 @@ class LogErrors implements ISetupCheck {
 		if (array_sum($count) === 0) {
 			return SetupResult::success($this->l10n->t('No errors in the logs since %s', $this->dateFormatter->formatDate($limit)));
 		} elseif ($count[self::LEVEL_ERROR] + $count[self::LEVEL_FATAL] > 0) {
-			return SetupResult::error(
+			return SetupResult::warning(
 				$this->l10n->n(
 					'%n error in the logs since %s',
 					'%n errors in the logs since %s',
@@ -83,7 +83,7 @@ class LogErrors implements ISetupCheck {
 				)
 			);
 		} else {
-			return SetupResult::warning(
+			return SetupResult::info(
 				$this->l10n->n(
 					'%n warning in the logs since %s',
 					'%n warnings in the logs since %s'.json_encode($count),
