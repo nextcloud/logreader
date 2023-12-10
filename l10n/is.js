@@ -16,6 +16,7 @@ OC.L10N.register(
     "Show server log" : "Sýna atvikaskrá fyrir þjón",
     "Live view is disabled" : "Rauntímasýn er óvirk",
     "No log file" : "Engin atvikaskrá",
+    "File-based logging must be enabled to access logs from the Web UI." : "Skráning atvika í skrá verður að vera virk til að hægt sé að skoða þau í vefviðmótinu.",
     "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "Ef þú heldur að þetta sé villa, skaltu athuga {setting} í {config} og skoða handbókina Nextcloud Administration Manual.",
     "Level" : "Stig",
     "App" : "Forrit",
