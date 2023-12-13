@@ -49,7 +49,7 @@ class SettingsService {
 	 * Load app config if dates should be displayed as relative dates
 	 */
 	public function getRelativeDates(): bool {
-		return json_decode($this->config->getAppValue('logreader', Constants::CONFIG_KEY_RELATIVEDATES, 'false'), flags: JSON_THROW_ON_ERROR);
+		return json_decode($this->config->getAppValue('logreader', Constants::CONFIG_KEY_RELATIVEDATES, 'false') ?: 'false', flags: JSON_THROW_ON_ERROR);
 	}
 
 	/**
