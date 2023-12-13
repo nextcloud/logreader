@@ -10,6 +10,7 @@ OC.L10N.register(
     "A log reader for Nextcloud" : "Un lecteur du fichier journal pour Nextcloud",
     "Log reader for Nextcloud" : "Lecteur du fichier journal pour Nextcloud",
     "Currently the log file {file} is shown" : "Le fichier journal {file} est actuellement affiché",
+    "Show server log" : "Afficher le journal du serveur",
     "Live view is disabled" : "La vue en direct est désactivée",
     "No log file" : "Pas de fichier journal",
     "File-based logging must be enabled to access logs from the Web UI." : "La journalisation par fichier doit être activée pour accéder aux journaux à partir de l'interface Web.",
