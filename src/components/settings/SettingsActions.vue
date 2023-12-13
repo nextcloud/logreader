@@ -33,6 +33,8 @@ import { useSettingsStore } from '../../store/settings.js'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import IconDownload from 'vue-material-design-icons/Download.vue'
 import IconUpload from 'vue-material-design-icons/Upload.vue'
+import { logger } from '../../utils/logger'
+import { showError } from '@nextcloud/dialogs'
 
 const settingsStore = useSettingsStore()
 const logStore = useLogStore()
@@ -50,14 +52,17 @@ const fileinput = ref<HTMLInputElement>()
 /**
  * Called when an user selected a local file
  */
-const onFileSelected = () => {
-	const files = fileinput.value?.files
-	if (files) {
-		const file = files.item(0)
-		if (file) {
+const onFileSelected = async () => {
+	const file = fileinput.value?.files?.item?.(0)
+	if (file) {
+		try {
 			settingsStore.localFile = file
 			// enforce parsing the file
-			logStore.loadFile()
+			await logStore.loadFile()
+		} catch (error) {
+			settingsStore.localFile = undefined
+			showError(t('logreader', 'Could not parse local log file'))
+			logger.debug(error as Error)
 		}
 	}
 }
