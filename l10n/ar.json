@@ -37,6 +37,7 @@
     "Download logs" : "تنزيل سجلات الحركات",
     "Show local log file" : "أعرِض ملف سجل الحركات المحلي",
     "Upload local log file to be displayed" : "إرفَع سجل الحركات المحلي لعرضه",
+    "Could not parse local log file" : "تعذّر تحليل ملف سجل الحركات المحلي",
     "Raw data" : "البيانات الخام",
     "Local time" : "الوقت المحلي",
     "UTC time" : "التوقيت العالمي الموحد UTC",
