@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Protokolldatei herunterladen",
     "Show local log file" : "Lokale Protokolldatei anzeigen",
     "Upload local log file to be displayed" : "Lokale Protokolldatei zur Anzeige hochladen",
+    "Could not parse local log file" : "Lokale Protokolldatei konnte nicht verarbeitet werden",
     "Raw data" : "Rohdaten",
     "Local time" : "Lokale Zeit",
     "UTC time" : "UTC-Zeit",
