@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "下載記錄檔",
     "Show local log file" : "顯示近端記錄檔案",
     "Upload local log file to be displayed" : "上傳近端記錄檔案進行顯示",
+    "Could not parse local log file" : "無法剖析近端記錄檔案",
     "Raw data" : "原始數據",
     "Local time" : "本地時間",
     "UTC time" : "UTC 時間",

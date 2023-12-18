@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Günlüğü indir",
     "Show local log file" : "Yerel günlük dosyasını görüntüle",
     "Upload local log file to be displayed" : "Görüntülenecek yerel günlük dosyasını yükleyin",
+    "Could not parse local log file" : "Yerel günlük dosyası işlenemedi",
     "Raw data" : "Ham veriler",
     "Local time" : "Yerel saat",
     "UTC time" : "UTC saati",
