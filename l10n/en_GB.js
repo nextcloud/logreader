@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Download logs",
     "Show local log file" : "Show local log file",
     "Upload local log file to be displayed" : "Upload local log file to be displayed",
+    "Could not parse local log file" : "Could not parse local log file",
     "Raw data" : "Raw data",
     "Local time" : "Local time",
     "UTC time" : "UTC time",
