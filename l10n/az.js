@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "App" : "Tətbiq",
     "Time" : "Vaxt",
     "Info" : "Info",
     "Warning" : "Xəbərdarlıq",
