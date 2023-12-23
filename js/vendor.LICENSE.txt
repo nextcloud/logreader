@@ -197,7 +197,7 @@ version: 9.0.0
 license: MIT
 
 vite-plugin-node-polyfills
-version: 0.15.0
+version: 0.17.0
 license: MIT
 
 vue
