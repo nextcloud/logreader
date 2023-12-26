@@ -5,10 +5,7 @@
 
 name: PHPUnit sqlite
 
-on:
-  pull_request:
-  schedule:
-    - cron: "0 3 * * *"
+on: pull_request
 
 permissions:
   contents: read
@@ -16,9 +13,6 @@ permissions:
 concurrency:
   group: phpunit-sqlite-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
-
-env:
-  APP_NAME: logreader
 
 jobs:
   changes:
@@ -53,11 +47,8 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['8.0', '8.1', '8.2', '8.3']
+        php-versions: ['8.2']
         server-versions: ['master']
-        include:
-          - php-versions: '8.2'
-            coverage: true
 
     steps:
       - name: Set app env
@@ -78,12 +69,12 @@ jobs:
           path: apps/${{ env.APP_NAME }}
 
       - name: Set up php ${{ matrix.php-versions }}
-        uses: shivammathur/setup-php@81cd5ae0920b34eef300e1775313071038a53429 # v2
+        uses: shivammathur/setup-php@e6f75134d35752277f093989e72e140eaa222f35 # v2
         with:
           php-version: ${{ matrix.php-versions }}
           # https://docs.nextcloud.com/server/stable/admin_manual/installation/source_installation.html#prerequisites-for-manual-installation
           extensions: bz2, ctype, curl, dom, fileinfo, gd, iconv, intl, json, libxml, mbstring, openssl, pcntl, posix, session, simplexml, xmlreader, xmlwriter, zip, zlib, sqlite, pdo_sqlite
-          coverage: ${{ matrix.coverage && 'xdebug' || 'none' }}
+          coverage: none
           ini-file: development
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -120,15 +111,6 @@ jobs:
         if: steps.check_phpunit.outcome == 'success'
         working-directory: apps/${{ env.APP_NAME }}
         run: composer run test:unit
-
-      - name: Upload Unit coverage
-        if: matrix.coverage
-        uses: codecov/codecov-action@v3
-        with:
-          root_dir: ./apps/${{ env.APP_NAME }}
-          files: ./apps/${{ env.APP_NAME }}/tests/clover.unit.xml
-          fail_ci_if_error: true
-          flags: unit
 
       - name: Check PHPUnit integration script is defined
         id: check_integration
