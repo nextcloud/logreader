@@ -53,7 +53,7 @@ OC.L10N.register(
     "Could not set logging levels to show" : "Não foi possível definir os níveis de registro para mostrar",
     "Set backend loglevel" : "Definir nível de log de back-end",
     "Could not set logging level" : "Não foi possível definir o nível de registro",
-    "Application" : "Inscrição",
+    "Application" : "Aplicativo",
     "Message" : "Mensagem",
     "Log entry actions" : "Ações de entrada de registro",
     "Loading older log entries" : "Carregando entradas de log mais antigas",
