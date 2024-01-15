@@ -17,7 +17,7 @@ OC.L10N.register(
     "Live view is disabled" : "Echtzeitanzeige ist deaktiviert.",
     "No log file" : "Keine Protokolldatei",
     "File-based logging must be enabled to access logs from the Web UI." : "Für den Zugriff auf Protokolle über die Web-Benutzeroberfläche muss die dateibasierte Protokollierung aktiviert sein.",
-    "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "Wenn du der Meinung bist, dass dies ein Fehler ist, überprüfe bitte {setting} in deiner {config} und lese das Nextcloud-Administrationshandbuch.",
+    "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "Wenn du der Meinung bist, dass dies ein Fehler ist, überprüfe bitte {setting} in deiner {config} und lies das Nextcloud-Administrationshandbuch.",
     "Level" : "Level",
     "App" : "App",
     "No app in context" : "Keine App im Kontext",
