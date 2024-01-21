@@ -7,7 +7,7 @@ OC.L10N.register(
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : [" %n помилка в журналах, починаючи з %s","%n помилки в журналах, починаючи з %s","%nпомилок в журналах, починаючи з %s"," %n помилок в журналах, починаючи з %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n попередження в журналах, починаючи з %s","%nпопередження в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s"],
     "Log Reader" : "Читач журналів",
-    "A log reader for Nextcloud" : "Програма для читання журналів для Nextcloud",
+    "A log reader for Nextcloud" : "Застосунок для перегляду системних журналів для Nextcloud",
     "Log reader for Nextcloud" : "Читач журналів для Nextcloud",
     "Log reader" : "Перегляд журналу",
     "Open log reader settings" : "Відкрити налаштування перегляду журнау",
