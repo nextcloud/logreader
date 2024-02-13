@@ -1,7 +1,7 @@
 { "translations": {
     "Logging" : "로그",
-    "No errors in the logs since %s" : "%s이래로 로그에 아무런 오류가 기록되지 않았습니다",
-    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["로그에 %s이래로 %n개의 오류가 기록되었습니다"],
+    "No errors in the logs since %s" : "%s 이래로 로그에 아무런 오류가 기록되지 않았습니다",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["로그에 %s 이래로 %n개의 오류가 기록되었습니다"],
     "Log Reader" : "로그 리더",
     "A log reader for Nextcloud" : "Nextcloud 로그 리더",
     "Log reader for Nextcloud" : "Nextcloud 로그 리더",
