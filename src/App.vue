@@ -82,19 +82,21 @@ const onShowServerLog = () => {
 }
 
 /**
- * Handle pressing ctrl + v to paste log entries
+ * Handle paste events with log entries
  * @param event The keyboard event
  */
-const onHandlePaste = (event: KeyboardEvent) => {
-	// Check Ctrl + v (be tolerant: ignore caps lock) and only intercept if target is no input for pasting
-	if ((event.key === 'v' || event.key === 'V') && event.ctrlKey && (event.target as HTMLElement)?.tagName !== 'INPUT') {
-		loggingStore.loadClipboard()
-		event.stopPropagation()
+const onHandlePaste = (event: ClipboardEvent) => {
+	event.preventDefault()
+
+	if (event.clipboardData) {
+		const paste = event.clipboardData.getData('text')
+		loggingStore.loadText(paste)
 	}
+
 }
 // Add / remove event listeners
-onMounted(() => window.addEventListener('keyup', onHandlePaste))
-onUnmounted(() => window.removeEventListener('keyup', onHandlePaste))
+onMounted(() => window.addEventListener('paste', onHandlePaste))
+onUnmounted(() => window.removeEventListener('paste', onHandlePaste))
 
 /**
  * Toggle polling if live log is dis- / enabled

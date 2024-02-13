@@ -238,7 +238,6 @@ describe('store:logging', () => {
 		})
 
 		const clipboard = '{message: "hello"}'
-		window.navigator.clipboard.readText = vi.fn(() => Promise.resolve(clipboard))
 
 		const store = useLogStore()
 		const settings = useSettingsStore()
@@ -246,42 +245,10 @@ describe('store:logging', () => {
 		store.hasRemainingEntries = true
 		expect(store.hasRemainingEntries).toBe(true)
 
-		await store.loadClipboard()
+		await store.loadText(clipboard)
 
 		// File parsed, so there are no remaining entries
 		expect(store.hasRemainingEntries).toBe(false)
-		expect(window.navigator.clipboard.readText).toBeCalled()
-		expect(settings.localFileName).toBe('Clipboard')
-		expect(mocks.parseLogString).toBeCalledWith(clipboard)
-		expect(store.allEntries).toEqual([{ message: 'hello' }])
-	})
-
-	it('handles unsupported Clipboard API', async () => {
-		mocks.parseLogString.mockImplementationOnce(() => [{ message: 'hello' }])
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
-		const clipboard = '{message: "hello"}'
-		window.navigator.clipboard.readText = vi.fn(() => Promise.reject(new Error()))
-		window.prompt = vi.fn(() => clipboard)
-
-		const store = useLogStore()
-		const settings = useSettingsStore()
-
-		store.hasRemainingEntries = true
-		expect(store.hasRemainingEntries).toBe(true)
-
-		await store.loadClipboard()
-
-		// File parsed, so there are no remaining entries
-		expect(store.hasRemainingEntries).toBe(false)
-		expect(window.navigator.clipboard.readText).toBeCalled()
-		expect(window.prompt).toBeCalled()
 		expect(settings.localFileName).toBe('Clipboard')
 		expect(mocks.parseLogString).toBeCalledWith(clipboard)
 		expect(store.allEntries).toEqual([{ message: 'hello' }])
@@ -295,21 +262,16 @@ describe('store:logging', () => {
 			stubActions: false,
 		})
 
-		window.navigator.clipboard.readText = vi.fn(() => Promise.reject(new Error()))
-		window.prompt = vi.fn(() => null)
-
 		const store = useLogStore()
 		const settings = useSettingsStore()
 
 		store.hasRemainingEntries = true
 		expect(store.hasRemainingEntries).toBe(true)
 
-		await store.loadClipboard()
+		await store.loadText('')
 
 		// File parsed, so there are no remaining entries
 		expect(store.hasRemainingEntries).toBe(true)
-		expect(window.navigator.clipboard.readText).toBeCalled()
-		expect(window.prompt).toBeCalled()
 		expect(settings.localFile).toBe(undefined)
 		expect(settings.localFileName).toBe('')
 	})
@@ -322,7 +284,6 @@ describe('store:logging', () => {
 			stubActions: false,
 		})
 
-		window.navigator.clipboard.readText = vi.fn(() => Promise.resolve('invalid'))
 		// throw an error
 		mocks.parseLogString.mockImplementationOnce(() => { throw new Error() })
 
@@ -332,11 +293,10 @@ describe('store:logging', () => {
 		store.hasRemainingEntries = true
 		expect(store.hasRemainingEntries).toBe(true)
 
-		await store.loadClipboard()
+		await store.loadText('invalid')
 
 		// File parsed, so there are no remaining entries
 		expect(store.hasRemainingEntries).toBe(true)
-		expect(window.navigator.clipboard.readText).toBeCalled()
 		expect(mocks.showError).toBeCalled()
 		expect(settings.localFile).toBe(undefined)
 		expect(settings.localFileName).toBe('')

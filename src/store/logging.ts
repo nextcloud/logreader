@@ -102,17 +102,9 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	}
 
 	/**
-	 * Load entries from clipboard
+	 * Load entries from string
 	 */
-	async function loadClipboard() {
-		// try if the browser supports the async clipboard api, e.g. firefox does not.
-		let text = ''
-		try {
-			text = await window.navigator.clipboard.readText()
-		} catch (e) {
-			text = window.prompt(t('logreader', 'Your browser does not support pasting entries directly. Please paste the log entry manually.')) ?? ''
-		}
-
+	async function loadText(text: string) {
 		// Skip if aborted
 		if (text === '') {
 			return
@@ -199,5 +191,5 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		}
 	}
 
-	return { allEntries, entries, hasRemainingEntries, query, loadMore, loadClipboard, loadFile, startPolling, stopPolling, searchLogs }
+	return { allEntries, entries, hasRemainingEntries, query, loadMore, loadText, loadFile, startPolling, stopPolling, searchLogs }
 })
