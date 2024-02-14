@@ -82,6 +82,23 @@ const onShowServerLog = () => {
 }
 
 /**
+ * Handle paste events with log entries
+ * @param event The keyboard event
+ */
+const onHandlePaste = (event: ClipboardEvent) => {
+	event.preventDefault()
+
+	if (event.clipboardData) {
+		const paste = event.clipboardData.getData('text')
+		loggingStore.loadText(paste)
+	}
+
+}
+// Add / remove event listeners
+onMounted(() => window.addEventListener('paste', onHandlePaste))
+onUnmounted(() => window.removeEventListener('paste', onHandlePaste))
+
+/**
  * Toggle polling if live log is dis- / enabled
  */
 watchEffect(() => {
