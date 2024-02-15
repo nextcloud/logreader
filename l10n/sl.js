@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Program",
     "Time" : "Čas",
     "Download logs" : "Prejem dnevnikov",
+    "Ctrl" : "CTRL",
     "Message" : "Sporočilo",
     "Show details" : "Pokaži podrobnosti",
     "Debug" : "Razhroščevanje",

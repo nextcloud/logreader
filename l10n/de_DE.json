@@ -37,6 +37,7 @@
     "Download logs" : "Protokolldatei herunterladen",
     "Show local log file" : "Lokale Protokolldatei anzeigen",
     "Upload local log file to be displayed" : "Lokale Protokolldatei zur Anzeige hochladen",
+    "Ctrl" : "Strg",
     "Could not parse local log file" : "Lokale Protokolldatei konnte nicht verarbeitet werden",
     "Raw data" : "Rohdaten",
     "Local time" : "Lokale Zeit",

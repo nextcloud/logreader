@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Εφαρμογή",
     "Time" : "Ώρα",
     "Download logs" : "Λήψη αρχείων καταγραφής",
+    "Ctrl" : "Ctrl",
     "Message" : "Μήνυμα",
     "Show details" : "Εμφάνιση λεπτομερειών",
     "Debug" : "Αποσφαλμάτωση",

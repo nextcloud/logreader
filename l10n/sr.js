@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Скини дневнике",
     "Show local log file" : "Прикажи локални фајл дневника",
     "Upload local log file to be displayed" : "Отпреми локални фајл дневника који треба да се прикаже",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Не може да се парсира фајл локалног дневника",
     "Raw data" : "Сирови подаци",
     "Local time" : "Локално време",

@@ -38,6 +38,7 @@ OC.L10N.register(
     "Download logs" : "Télécharger les journaux",
     "Show local log file" : "Afficher le fichier journal local",
     "Upload local log file to be displayed" : "Téléversement le fichier journal local à afficher",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Impossible de parser le fichier de journalisation local",
     "Raw data" : "Données brutes",
     "Local time" : "Heure locale",

@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Programėlė",
     "Time" : "Laikas",
     "Download logs" : "Atsisiųsti žurnalus",
+    "Ctrl" : "Vald",
     "Message" : "Žinutė",
     "Show details" : "Rodyti išsamiau",
     "Debug" : "Derinimas",

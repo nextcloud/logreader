@@ -37,6 +37,7 @@
     "Download logs" : "Download logs",
     "Show local log file" : "Show local log file",
     "Upload local log file to be displayed" : "Upload local log file to be displayed",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Could not parse local log file",
     "Raw data" : "Raw data",
     "Local time" : "Local time",

@@ -6,6 +6,7 @@ OC.L10N.register(
     "App" : "Aplicação",
     "Time" : "Tempo",
     "Download logs" : "Transferir registos",
+    "Ctrl" : "Ctrl",
     "Message" : "Mensagem",
     "Show details" : "Mostrar detalhes",
     "Info" : "Informação",
