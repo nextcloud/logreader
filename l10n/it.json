@@ -37,6 +37,7 @@
     "Download logs" : "Scarica i log",
     "Show local log file" : "Mostra file di log locale",
     "Upload local log file to be displayed" : "Carica file di log locale da mostrare",
+    "Ctrl" : "Ctrl",
     "Raw data" : "Dati grezzi",
     "Local time" : "Ora locale",
     "UTC time" : "Ora UTC",

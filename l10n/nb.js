@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Last ned logger",
     "Show local log file" : "Vis lokal loggfil",
     "Upload local log file to be displayed" : "Last opp lokal loggfil som skal vises",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Kunne ikke analysere lokal loggfil",
     "Raw data" : "Rå data",
     "Local time" : "Lokal tid",

@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Апликација",
     "Time" : "Време",
     "Download logs" : "Преземи записи",
+    "Ctrl" : "Ctrl",
     "Message" : "Порака",
     "Show details" : "Прикажи детали",
     "Debug" : "Дебаг",

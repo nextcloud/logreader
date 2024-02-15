@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "下載紀錄檔",
     "Show local log file" : "顯示本機紀錄檔",
     "Upload local log file to be displayed" : "上傳要顯示的本機紀錄檔",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "無法解析本機紀錄檔",
     "Raw data" : "原始資料",
     "Local time" : "本地時間",

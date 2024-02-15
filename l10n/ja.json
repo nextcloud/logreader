@@ -37,6 +37,7 @@
     "Download logs" : "ログのダウンロード",
     "Show local log file" : "ローカルのログファイルを表示する",
     "Upload local log file to be displayed" : "表示するローカルログファイルをアップロードする",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "ローカルログファイルを解析できませんでした",
     "Raw data" : "未加工データ",
     "Local time" : "ローカル時間",

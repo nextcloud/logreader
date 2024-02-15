@@ -4,6 +4,7 @@ OC.L10N.register(
     "Level" : "Cấp độ",
     "App" : "Ứng dụng",
     "Time" : "Thời gian",
+    "Ctrl" : "Ctrl",
     "Show details" : "Hiển thị chi tiết",
     "Info" : "Thông tin",
     "Warning" : "Cảnh báo",

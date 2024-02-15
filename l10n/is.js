@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Sækja atvikaskrár",
     "Show local log file" : "Birta staðværa atvikaskrá",
     "Upload local log file to be displayed" : "Sendu inn staðværa atvikaskrá sem á að birta",
+    "Ctrl" : "Ctrl",
     "Raw data" : "Hrá gögn",
     "Local time" : "Staðartími",
     "UTC time" : "UTC-tími",
