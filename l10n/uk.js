@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Звантажити журнали",
     "Show local log file" : "Показати файл журналу на пристрої",
     "Upload local log file to be displayed" : "Завантажити файл журналу на пристрої для показу",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Не вдалося розібрати локальний файл журналу",
     "Raw data" : "Неформатовані дані",
     "Local time" : "Місцевий час",
