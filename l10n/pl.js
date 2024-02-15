@@ -38,6 +38,7 @@ OC.L10N.register(
     "Download logs" : "Pobierz dziennik",
     "Show local log file" : "Pokaż lokalny plik dziennika",
     "Upload local log file to be displayed" : "Wyślij lokalny plik dziennika, który ma zostać wyświetlony",
+    "Ctrl" : "Ctrl",
     "Raw data" : "Nieprzetworzone dane",
     "Local time" : "Czas lokalny",
     "UTC time" : "Czas UTC",

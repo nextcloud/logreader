@@ -11,6 +11,7 @@ OC.L10N.register(
     "Copy formatted entry" : "Kopírovať formátovanú položku",
     "Search log entries" : "Hľadať položky denníka",
     "Download logs" : "Prevziať logy",
+    "Ctrl" : "Ctrl",
     "Local time" : "Miestny čas",
     "Application" : "Aplikácia",
     "Message" : "Správa",

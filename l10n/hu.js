@@ -31,6 +31,7 @@ OC.L10N.register(
     "Download logs" : "Naplók letöltése",
     "Show local log file" : "Mutassa a helyi naplófájlokat",
     "Upload local log file to be displayed" : "Töltse fel a helyi naplófájlt a megjelenítéshez",
+    "Ctrl" : "Ctrl",
     "Raw data" : "Nyers adat",
     "Local time" : "Helyi idő",
     "UTC time" : "UTC idő",

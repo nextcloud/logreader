@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Deskargatu log fitxategiak",
     "Show local log file" : "Erakutsi log fitxategi lokala",
     "Upload local log file to be displayed" : "Igo lokaleko log fitxategia, bistaratzeko",
+    "Ctrl" : "Ctrl",
     "Raw data" : "Datu gordinak",
     "Local time" : "Ordu lokala",
     "UTC time" : "UTC ordua",

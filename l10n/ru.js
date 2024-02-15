@@ -34,6 +34,7 @@ OC.L10N.register(
     "Download logs" : "Скачать журналы",
     "Show local log file" : "Показать локальный файл журнала",
     "Upload local log file to be displayed" : "Загрузите локальный файл журнала для отображения",
+    "Ctrl" : "Ctrl",
     "Raw data" : "Сырые данные",
     "Local time" : "Местное время",
     "UTC time" : "Всемирное координированное время",
