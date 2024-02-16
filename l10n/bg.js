@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Време",
     "Line {line}" : "Ред {line}",
     "Download logs" : "Изтегляне на журнали",
+    "Ctrl" : "Ctrl /бутон/",
     "Application" : "Приложение",
     "Message" : "Съобщение",
     "Show details" : "Показване на подробности",
