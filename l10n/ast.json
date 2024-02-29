@@ -1,0 +1,8 @@
+{ "translations": {
+    "Level" : "Nivel",
+    "App" : "Aplicación",
+    "Info" : "Información",
+    "Error" : "Error",
+    "Copy" : "Copiar"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
