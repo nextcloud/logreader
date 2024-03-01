@@ -1,6 +1,7 @@
 { "translations": {
     "Level" : "Nivel",
     "App" : "Aplicación",
+    "Show details" : "Amosar los detalles",
     "Info" : "Información",
     "Error" : "Error",
     "Copy" : "Copiar"
