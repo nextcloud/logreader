@@ -37,6 +37,7 @@
     "Download logs" : "Baixa els registres",
     "Show local log file" : "Mostra el fitxer de registre local",
     "Upload local log file to be displayed" : "Pujada del fitxer de registre local que es mostrarà",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "No s'ha pogut analitzar el fitxer de registre local",
     "Raw data" : "Dades sense format",
     "Local time" : "Hora local",
