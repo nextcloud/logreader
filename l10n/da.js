@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "App",
     "Time" : "Tid",
     "Download logs" : "Hent logs",
+    "Ctrl" : "Ctrl",
     "Message" : "Besked",
     "Show details" : "Vis detaljer",
     "Debug" : "Fejlfinding",

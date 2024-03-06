@@ -39,6 +39,7 @@ OC.L10N.register(
     "Download logs" : "Stáhnout si záznamy událostí",
     "Show local log file" : "Zobrazit místní soubor se záznamem událostí",
     "Upload local log file to be displayed" : "Nahrajte místní soubor se záznamem událostí, který chcete zobrazit",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Nepodařilo se zpracovat soubor se záznamem událostí",
     "Raw data" : "Nezpracovaná data",
     "Local time" : "Místní čas",
