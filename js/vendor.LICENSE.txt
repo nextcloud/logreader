@@ -21,7 +21,7 @@ version: 0.3.0
 license: GPL-3.0-or-later
 
 @nextcloud/calendar-js
-version: 6.0.1
+version: 6.1.0
 license: AGPL-3.0-or-later
 
 @nextcloud/capabilities
@@ -53,11 +53,11 @@ version: 2.2.0
 license: GPL-3.0-or-later
 
 @nextcloud/vue
-version: 8.4.0
+version: 8.9.1
 license: AGPL-3.0
 
 @nextcloud/vue-select
-version: 3.24.0
+version: 3.25.0
 license: MIT
 
 @vue/devtools-api
@@ -65,15 +65,15 @@ version: 6.5.0
 license: MIT
 
 @vueuse/components
-version: 10.2.1
+version: 10.9.0
 license: MIT
 
 @vueuse/core
-version: 10.2.1
+version: 10.9.0
 license: MIT
 
 @vueuse/shared
-version: 10.2.1
+version: 10.9.0
 license: MIT
 
 axios
@@ -177,7 +177,7 @@ version: 1.12.0
 license: MIT
 
 uuid
-version: 9.0.0
+version: 9.0.1
 license: MIT
 
 vite-plugin-node-polyfills
