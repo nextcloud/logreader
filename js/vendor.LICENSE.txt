@@ -77,7 +77,7 @@ version: 10.2.1
 license: MIT
 
 axios
-version: 1.6.5
+version: 1.6.7
 license: MIT
 
 base64-js
