@@ -209,7 +209,7 @@ version: 0.14.5
 license: MIT
 
 vue-material-design-icons
-version: 5.2.0
+version: 5.3.0
 license: MIT
 
 vue2-datepicker
