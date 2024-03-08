@@ -21,6 +21,10 @@ vi.mock('@nextcloud/axios', () => {
 	}
 })
 
+vi.mock('@nextcloud/router', () => ({
+	generateUrl: (path: string) => `/index.php/${path}`,
+}))
+
 describe('api', () => {
 	afterEach(() => {
 		vi.restoreAllMocks()
