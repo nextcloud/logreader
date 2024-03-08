@@ -35,8 +35,13 @@
 				</div>
 			</div>
 		</td>
-		<td :title="timeString">
-			{{ timeString }}
+		<td>
+			<span v-if="isRawDate">{{ row.time }}</span>
+			<NcDateTime v-else
+				:key="settingsStore.dateTimeFormat"
+				:timestamp="timestamp"
+				:relative-time="isRelativeDate && 'long'"
+				:format="dateTimeFormat" />
 		</td>
 		<td>
 			<NcActions placement="left-start">
@@ -76,11 +81,13 @@ import { useLogFormatting } from '../../utils/format'
 import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
 import NcActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcDateTime from '@nextcloud/vue/dist/Components/NcDateTime.js'
 import IconChevronDown from 'vue-material-design-icons/ChevronDown.vue'
 import IconChevronUp from 'vue-material-design-icons/ChevronUp.vue'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import IconViewList from 'vue-material-design-icons/ViewList.vue'
 import LogException from '../exception/LogException.vue'
+import { useSettingsStore } from '../../store/settings'
 
 const props = withDefaults(
 	defineProps<{
@@ -92,7 +99,18 @@ const props = withDefaults(
 	},
 )
 
-const { formatTime, formatLogEntry } = useLogFormatting()
+const settingsStore = useSettingsStore()
+const isRawDate = computed(() => settingsStore.dateTimeFormat === 'raw')
+const isRelativeDate = computed(() => settingsStore.dateTimeFormat === 'relative')
+const dateTimeFormat = computed(() => ({
+	dateStyle: 'medium',
+	timeStyle: 'medium',
+	timeZone: settingsStore.dateTimeFormat === 'utc' ? 'UTC' : undefined,
+}))
+
+const { formatLogEntry } = useLogFormatting()
+
+const timestamp = computed(() => Date.parse(props.row.time))
 
 /**
  * Whether the row is expanded to show an overflowing log message
@@ -111,11 +129,6 @@ const cssLevelClass = computed(() => [
 	'logging-level',
 	`logging-level--${LOGGING_LEVEL[props.row.level]}`,
 ])
-
-/**
- * Formatted / human readable time stamp of the log entry
- */
-const timeString = computed(() => formatTime(props.row.time))
 
 /**
  * Reference to the current table row element (`tr`)

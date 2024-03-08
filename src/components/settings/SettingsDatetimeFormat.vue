@@ -24,6 +24,14 @@
 			@update:checked="setDateTimeFormat">
 			{{ t('logreader', 'UTC time') }}
 		</NcCheckboxRadioSwitch>
+		<NcCheckboxRadioSwitch :checked="dateTimeFormat"
+			:disabled="isLocalLogfile"
+			value="relative"
+			name="timestamp_format"
+			type="radio"
+			@update:checked="setDateTimeFormat">
+			{{ t('logreader', 'Relative') }}
+		</NcCheckboxRadioSwitch>
 	</fieldset>
 </template>
 
