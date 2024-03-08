@@ -13,29 +13,14 @@ import { useSettingsStore } from '../store/settings'
 export const useLogFormatting = (pinia?: Pinia) => {
 	const settingsStore = useSettingsStore(pinia)
 
-	/**
-	 * Format time according to current time format
-	 *
-	 * @param time Raw time string
-	 */
 	const formatTime = (time: string) => {
-		if (settingsStore.dateTimeFormat === 'local') {
-			const dateFormat = Intl.DateTimeFormat(getCanonicalLocale(), {
-				dateStyle: 'medium',
-				timeStyle: 'medium',
-			})
-			return dateFormat.format(new Date(time))
-		} else if (settingsStore.dateTimeFormat === 'utc') {
-			const dateFormat = Intl.DateTimeFormat(getCanonicalLocale(), {
-				dateStyle: 'medium',
-				timeStyle: 'medium',
-				timeZone: 'UTC',
-			})
-			return dateFormat.format(new Date(time))
-		}
-		return time
+		const dateFormat = Intl.DateTimeFormat(getCanonicalLocale(), {
+			dateStyle: 'medium',
+			timeStyle: 'medium',
+			timeZone: settingsStore.dateTimeFormat === 'utc' ? 'UTC' : undefined,
+		})
+		return dateFormat.format(new Date(time))
 	}
-
 	/**
 	 * Format a log entry into a human readable text
 	 *
@@ -53,7 +38,6 @@ export const useLogFormatting = (pinia?: Pinia) => {
 		)
 	}
 	return {
-		formatTime,
 		formatLogEntry,
 	}
 }
