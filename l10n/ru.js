@@ -38,6 +38,7 @@ OC.L10N.register(
     "Raw data" : "Сырые данные",
     "Local time" : "Местное время",
     "UTC time" : "Всемирное координированное время",
+    "Relative" : "Относительно",
     "Time format used for displaying the timestamp" : "Формат времени, используемый для отображения временной метки",
     "(Local log files only support the \"raw\" time format)" : "(Локальные файлы журналов поддерживают только \"необработанный\" формат времени)",
     "Could not change date time format." : "Не удалось изменить формат даты и времени.",

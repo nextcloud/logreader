@@ -11,6 +11,7 @@ OC.L10N.register(
     "Line {line}" : "Línea {line}",
     "Download logs" : "Descargar bitácoras",
     "Ctrl" : "Ctrl",
+    "Relative" : "Relativo",
     "Application" : "Aplicación",
     "Message" : "Mensaje",
     "Show details" : "Mostrar detalles",

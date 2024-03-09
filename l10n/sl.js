@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Čas",
     "Download logs" : "Prejem dnevnikov",
     "Ctrl" : "CTRL",
+    "Relative" : "Relativno",
     "Message" : "Sporočilo",
     "Show details" : "Pokaži podrobnosti",
     "Debug" : "Razhroščevanje",

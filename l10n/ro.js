@@ -4,6 +4,7 @@ OC.L10N.register(
     "Level" : "Nivel",
     "App" : "Aplicație",
     "Time" : "Timp",
+    "Relative" : "Relativ",
     "Message" : "Mesaj",
     "Show details" : "Arată detaliile",
     "Info" : "Info",

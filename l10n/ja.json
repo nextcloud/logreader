@@ -42,6 +42,7 @@
     "Raw data" : "未加工データ",
     "Local time" : "ローカル時間",
     "UTC time" : "UTC時間",
+    "Relative" : "相対指定",
     "Time format used for displaying the timestamp" : "タイムスタンプの表示に使用される時間形式",
     "(Local log files only support the \"raw\" time format)" : "(ローカルログファイルは「未加工」の時間形式のみサポート)",
     "Could not change date time format." : "日付と時刻のフォーマットを変更できませんでした。",

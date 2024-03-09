@@ -42,6 +42,7 @@
     "Raw data" : "Datos en crudo",
     "Local time" : "Hora local",
     "UTC time" : "Hora UTC",
+    "Relative" : "Relativo",
     "Time format used for displaying the timestamp" : "Formato horario a utilizar para mostrar la marca de tiempo",
     "(Local log files only support the \"raw\" time format)" : "(Los archivos de registro local sólo soportan el formato horario \"crudo\")",
     "Could not change date time format." : "No fue posible cambiar el formato horario.",

@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Aplikacija",
     "Time" : "Vrijeme",
     "Download logs" : "Preuzmi zapise",
+    "Relative" : "Relativno",
     "Message" : "Poruka",
     "Show details" : "Prikaži pojedinosti",
     "Debug" : "Otklanjanje pogrešaka",

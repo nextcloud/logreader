@@ -35,6 +35,7 @@ OC.L10N.register(
     "Raw data" : "Nyers adat",
     "Local time" : "Helyi idő",
     "UTC time" : "UTC idő",
+    "Relative" : "Relatív",
     "Time format used for displaying the timestamp" : "Időformátum, amiben az időbélyegek megjelennek",
     "(Local log files only support the \"raw\" time format)" : "(A helyi naplófájlok csak a \"nyers\" időformátumot támogatják)",
     "Could not change date time format." : "Nem lehet módosítani a dátum és idő formátumot.",

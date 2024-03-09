@@ -45,6 +45,7 @@ OC.L10N.register(
     "Raw data" : "Сирови подаци",
     "Local time" : "Локално време",
     "UTC time" : "UTC време",
+    "Relative" : "Релативно",
     "Time format used for displaying the timestamp" : "Формат времена који се користи за приказ временске ознаке",
     "(Local log files only support the \"raw\" time format)" : "(Локални фајлови дневника подржавају само „raw” формат времена)",
     "Could not change date time format." : "Не може да се промени формат датума и времена.",
