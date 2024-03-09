@@ -42,6 +42,7 @@ OC.L10N.register(
     "Raw data" : "Nieprzetworzone dane",
     "Local time" : "Czas lokalny",
     "UTC time" : "Czas UTC",
+    "Relative" : "Pokrewny",
     "Time format used for displaying the timestamp" : "Format czasu używany do wyświetlania znacznika czasu",
     "(Local log files only support the \"raw\" time format)" : "(Lokalne pliki dziennika obsługują tylko \"nieprzetworzony\" format czasu)",
     "Could not change date time format." : "Nie można zmienić formatu daty i godziny.",

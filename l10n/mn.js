@@ -4,6 +4,7 @@ OC.L10N.register(
     "Level" : "түвшин",
     "App" : "Аппликэйшин",
     "Time" : "Цаг",
+    "Relative" : "Хамаарал",
     "Info" : "Info",
     "Warning" : "Warning",
     "Error" : "Алдаа",

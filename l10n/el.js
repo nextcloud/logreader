@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Ώρα",
     "Download logs" : "Λήψη αρχείων καταγραφής",
     "Ctrl" : "Ctrl",
+    "Relative" : "Σχετικό",
     "Message" : "Μήνυμα",
     "Show details" : "Εμφάνιση λεπτομερειών",
     "Debug" : "Αποσφαλμάτωση",

@@ -45,6 +45,7 @@ OC.L10N.register(
     "Raw data" : "Oformaterad data",
     "Local time" : "Lokal tid",
     "UTC time" : "UTC-tid",
+    "Relative" : "Relativ",
     "Time format used for displaying the timestamp" : "Tidsformat som används för att visa tidsstämpeln",
     "(Local log files only support the \"raw\" time format)" : "(Lokala loggfiler stöder endast \"oformaterat\" tidsformat)",
     "Could not change date time format." : "Kunde inte ändra formatet för datum och tid.",

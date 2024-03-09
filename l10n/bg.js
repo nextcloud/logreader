@@ -11,6 +11,7 @@ OC.L10N.register(
     "Line {line}" : "Ред {line}",
     "Download logs" : "Изтегляне на журнали",
     "Ctrl" : "Ctrl /бутон/",
+    "Relative" : "Относително",
     "Application" : "Приложение",
     "Message" : "Съобщение",
     "Show details" : "Показване на подробности",

@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Sovellus",
     "Time" : "Aika",
     "Download logs" : "Lataa lokit",
+    "Relative" : "Suhteellinen",
     "Application" : "Sovellus",
     "Message" : "Viesti",
     "Show details" : "Näytä lisätiedot",

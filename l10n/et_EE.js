@@ -7,6 +7,7 @@ OC.L10N.register(
     "App" : "Rakendus",
     "Time" : "Aeg",
     "Download logs" : "Lae logid alla",
+    "Relative" : "Suhteline",
     "Message" : "Sõnum",
     "Show details" : "Näita üksikasju",
     "Info" : "Info",

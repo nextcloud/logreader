@@ -41,6 +41,7 @@
     "Raw data" : "Rohdaten",
     "Local time" : "Lokale Zeit",
     "UTC time" : "UTC-Zeit",
+    "Relative" : "Relativ",
     "Time format used for displaying the timestamp" : "Format für Zeitangaben, das zur Anzeige des Zeitstempels verwendet wird",
     "(Local log files only support the \"raw\" time format)" : "(Lokale Protokolldateien unterstützen nur das „rohe“ Zeitformat).",
     "Could not change date time format." : "Das Format für Datum-Uhrzeit konnte nicht geändert werden.",

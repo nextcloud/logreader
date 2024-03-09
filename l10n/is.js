@@ -43,6 +43,7 @@ OC.L10N.register(
     "Raw data" : "Hrá gögn",
     "Local time" : "Staðartími",
     "UTC time" : "UTC-tími",
+    "Relative" : "Hlutfallslegt",
     "Time format used for displaying the timestamp" : "Tímasnið sem er notað til að birta tímamerki",
     "(Local log files only support the \"raw\" time format)" : "(Staðværar atvikaskrár styðja einungis \"hrátt\" tímasnið)",
     "Could not change date time format." : "Gat ekki breytt sniði dagsetningar/tíma.",

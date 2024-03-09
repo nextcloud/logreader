@@ -7,6 +7,7 @@ OC.L10N.register(
     "App" : "აპლიკაცია",
     "Time" : "დრო",
     "Download logs" : "ლოგების გადმოწერა",
+    "Relative" : "ფარდობითი",
     "Message" : "წერილი",
     "Info" : "ინფორმაცია",
     "Warning" : "გაფრთხილება",

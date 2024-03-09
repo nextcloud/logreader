@@ -43,6 +43,7 @@ OC.L10N.register(
     "Raw data" : "Datu gordinak",
     "Local time" : "Ordu lokala",
     "UTC time" : "UTC ordua",
+    "Relative" : "Erlatiboa",
     "Time format used for displaying the timestamp" : "Denbora-zigilua erakusteko denbora formatua",
     "(Local log files only support the \"raw\" time format)" : "(Log fitxategi lokalek ordu formatu \"gordina\" bakarrik onartzen dute)",
     "Could not change date time format." : "Ezin izan da data ordu formatua aldatu.",

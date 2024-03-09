@@ -7,6 +7,7 @@ OC.L10N.register(
     "App" : "Aplikacion",
     "Time" : "Kohë",
     "Download logs" : "Regjistrimet e shkarkuara",
+    "Relative" : "Relative",
     "Message" : "Mesazh",
     "Info" : "Info",
     "Warning" : "Kujdes",
