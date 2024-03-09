@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "App" : "Ap",
     "Time" : "Amser",
+    "Relative" : "Perthynas",
     "Info" : "Info",
     "Warning" : "Rhybudd",
     "Error" : "Gwall",

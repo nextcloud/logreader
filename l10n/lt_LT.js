@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Laikas",
     "Download logs" : "Atsisiųsti žurnalus",
     "Ctrl" : "Vald",
+    "Relative" : "Santykinis laikas",
     "Message" : "Žinutė",
     "Show details" : "Rodyti išsamiau",
     "Debug" : "Derinimas",

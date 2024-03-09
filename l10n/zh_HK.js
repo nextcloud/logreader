@@ -45,6 +45,7 @@ OC.L10N.register(
     "Raw data" : "原始數據",
     "Local time" : "本地時間",
     "UTC time" : "UTC 時間",
+    "Relative" : "相對",
     "Time format used for displaying the timestamp" : "用於顯示時間戳的時間格式",
     "(Local log files only support the \"raw\" time format)" : "（近端記錄檔案僅支持「原始」時間格式）",
     "Could not change date time format." : "無法更改日期時間格式。",

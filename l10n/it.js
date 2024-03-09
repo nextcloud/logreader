@@ -43,6 +43,7 @@ OC.L10N.register(
     "Raw data" : "Dati grezzi",
     "Local time" : "Ora locale",
     "UTC time" : "Ora UTC",
+    "Relative" : "Relativo",
     "Time format used for displaying the timestamp" : "Formato da usare per data e ora",
     "(Local log files only support the \"raw\" time format)" : "(I file di log locali supportano solo il formato orario \"grezzo\")",
     "Could not change date time format." : "Impossibile modificare il formato di data e ora.",

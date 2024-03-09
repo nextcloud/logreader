@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "יישומון",
     "Time" : "זמן",
     "Download logs" : "הורדת רישומים",
+    "Relative" : "יחסי",
     "Message" : "הודעה",
     "Show details" : "הצגת פרטים",
     "Info" : "פרטים",

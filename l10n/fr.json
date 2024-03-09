@@ -41,6 +41,7 @@
     "Raw data" : "Données brutes",
     "Local time" : "Heure locale",
     "UTC time" : "Heure UTC",
+    "Relative" : "Relatif",
     "Time format used for displaying the timestamp" : "Format de l'heure utilisée pour afficher l'horodatage",
     "Could not change date time format." : "Impossible de changer le format de l'heure.",
     "Polling is disabled because server is not configured to log to file" : "L'interrogation est désactivée car le serveur n'est pas configuré pour journaliser dans un fichier",

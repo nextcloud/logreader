@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Време",
     "Download logs" : "Преземи записи",
     "Ctrl" : "Ctrl",
+    "Relative" : "Релативно",
     "Message" : "Порака",
     "Show details" : "Прикажи детали",
     "Debug" : "Дебаг",

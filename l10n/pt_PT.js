@@ -7,6 +7,7 @@ OC.L10N.register(
     "Time" : "Tempo",
     "Download logs" : "Transferir registos",
     "Ctrl" : "Ctrl",
+    "Relative" : "Relativo",
     "Message" : "Mensagem",
     "Show details" : "Mostrar detalhes",
     "Info" : "Informação",

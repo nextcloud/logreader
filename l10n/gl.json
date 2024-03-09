@@ -42,6 +42,7 @@
     "Raw data" : "Datos sen procesar",
     "Local time" : "Hora local",
     "UTC time" : "Hora UTC",
+    "Relative" : "Relativo",
     "Time format used for displaying the timestamp" : "Formato de hora usado para amosar a marca de tempo",
     "(Local log files only support the \"raw\" time format)" : "(Os ficheiros de rexistro locais só admiten o formato de hora «sen procesar»).",
     "Could not change date time format." : "Non foi posíbel cambiar o formato da data e hora.",

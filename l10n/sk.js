@@ -13,6 +13,7 @@ OC.L10N.register(
     "Download logs" : "Prevziať logy",
     "Ctrl" : "Ctrl",
     "Local time" : "Miestny čas",
+    "Relative" : "Relatívny",
     "Application" : "Aplikácia",
     "Message" : "Správa",
     "Show details" : "Zobraziť podrobnosti",

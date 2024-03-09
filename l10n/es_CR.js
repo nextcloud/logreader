@@ -7,6 +7,7 @@ OC.L10N.register(
     "App" : "Aplicación",
     "Time" : "Hora",
     "Download logs" : "Descargar bitácoras",
+    "Relative" : "Relativo",
     "Message" : "Mensaje",
     "Info" : "Info",
     "Warning" : "Advertencia",

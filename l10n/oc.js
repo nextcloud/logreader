@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Time" : "Ora",
+    "Relative" : "Relatiu",
     "Show details" : "Mostrar detalhs",
     "Info" : "Info",
     "Warning" : "Avertiment",

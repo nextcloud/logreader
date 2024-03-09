@@ -23,6 +23,7 @@ OC.L10N.register(
     "Upload local log file to be displayed" : "표시할 로컬 로그 파일 업로드",
     "Local time" : "로컬 시간 형식",
     "UTC time" : "UTC 시간 형식",
+    "Relative" : "상대적",
     "Time format used for displaying the timestamp" : "타임스탬프 표시에 사용되는 시간 형식",
     "(Local log files only support the \"raw\" time format)" : "(로컬 로그 파일은 \"raw\" 형식만 지원합니다)",
     "Could not change date time format." : "시간 형식을 변경할 수 없음",

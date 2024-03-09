@@ -10,6 +10,7 @@ OC.L10N.register(
     "Time" : "Tijd",
     "Download logs" : "Logboek downloaden",
     "Ctrl" : "Ctrl",
+    "Relative" : "Relatief",
     "Message" : "Bericht",
     "Show details" : "Tonen details",
     "Debug" : "Debug",
