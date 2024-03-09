@@ -11,6 +11,7 @@ OC.L10N.register(
     "Line {line}" : "行{line}",
     "Download logs" : "下载日志",
     "Ctrl" : "Ctrl",
+    "Relative" : "相对",
     "Message" : "消息",
     "Show details" : "显示详情",
     "Debug" : "调试",

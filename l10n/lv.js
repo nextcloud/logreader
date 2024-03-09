@@ -6,6 +6,7 @@ OC.L10N.register(
     "App" : "Lietotne",
     "Time" : "Laiks",
     "Download logs" : "Lejupielādēt žurnālierakstu",
+    "Relative" : "Relatīvs",
     "Message" : "Ziņojums",
     "Show details" : "Rādīt detaļas",
     "Info" : "Info",

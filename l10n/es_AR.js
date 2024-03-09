@@ -9,6 +9,7 @@ OC.L10N.register(
     "App" : "Aplicación",
     "Time" : "Hora",
     "Download logs" : "Descargar registros",
+    "Relative" : "Relativo",
     "Message" : "Mensaje",
     "Show details" : "Mostrar detalles",
     "Info" : "Info",

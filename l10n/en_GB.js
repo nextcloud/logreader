@@ -45,6 +45,7 @@ OC.L10N.register(
     "Raw data" : "Raw data",
     "Local time" : "Local time",
     "UTC time" : "UTC time",
+    "Relative" : "Relative",
     "Time format used for displaying the timestamp" : "Time format used for displaying the timestamp",
     "(Local log files only support the \"raw\" time format)" : "(Local log files only support the \"raw\" time format)",
     "Could not change date time format." : "Could not change date time format.",

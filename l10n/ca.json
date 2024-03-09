@@ -42,6 +42,7 @@
     "Raw data" : "Dades sense format",
     "Local time" : "Hora local",
     "UTC time" : "Hora UTC",
+    "Relative" : "Relativa",
     "Time format used for displaying the timestamp" : "Format d'hora utilitzat per mostrar la marca de temps",
     "(Local log files only support the \"raw\" time format)" : "(Els fitxers de registre locals només admeten el format d'hora \"en brut\")",
     "Could not change date time format." : "No s'ha pogut canviar el format de data i hora.",

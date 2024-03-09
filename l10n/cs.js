@@ -44,6 +44,7 @@ OC.L10N.register(
     "Raw data" : "Nezpracovaná data",
     "Local time" : "Místní čas",
     "UTC time" : "Univerzální (UTC) čas",
+    "Relative" : "Relativní",
     "Time format used for displaying the timestamp" : "Formát času sloužící pro zobrazování časového razítka",
     "(Local log files only support the \"raw\" time format)" : "(Místní soubory se záznamy událostí podporují pouze formát času \"raw\")",
     "Could not change date time format." : "Nepodařilo se změnit formát data a času.",
