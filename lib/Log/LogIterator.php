@@ -54,7 +54,7 @@ class LogIterator implements \Iterator {
 
 	private $timezone;
 
-	public const CHUNK_SIZE = 100; // how many chars do we try at once to find a new line
+	public const CHUNK_SIZE = 8192; // how many chars do we try at once to find a new line
 
 	/**
 	 * @param resource $handle
