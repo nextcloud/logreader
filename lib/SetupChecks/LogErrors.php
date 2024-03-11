@@ -72,9 +72,6 @@ class LogErrors implements ISetupCheck {
 			}
 			$count[$logItem['level']]++;
 			if (microtime(true) > $startTime + 5) {
-				echo $logItem['time']."\n";
-				echo $this->dateFormatter->formatDate($time)."\n";
-				echo $this->dateFormatter->formatDateTime($time)."\n";
 				$limit = $time;
 				break;
 			}
