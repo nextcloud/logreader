@@ -61,6 +61,7 @@ class LogErrors implements ISetupCheck {
 			self::LEVEL_FATAL => 0,
 		];
 		$limit = new \DateTime('7 days ago');
+		$startTime = microtime(true);
 		foreach ($logIterator as $logItem) {
 			if (!isset($logItem['time'])) {
 				continue;
@@ -70,16 +71,23 @@ class LogErrors implements ISetupCheck {
 				break;
 			}
 			$count[$logItem['level']]++;
+			if (microtime(true) > $startTime + 5) {
+				echo $logItem['time']."\n";
+				echo $this->dateFormatter->formatDate($time)."\n";
+				echo $this->dateFormatter->formatDateTime($time)."\n";
+				$limit = $time;
+				break;
+			}
 		}
 		if (array_sum($count) === 0) {
-			return SetupResult::success($this->l10n->t('No errors in the logs since %s', $this->dateFormatter->formatDate($limit)));
+			return SetupResult::success($this->l10n->t('No errors in the logs since %s', $this->dateFormatter->formatDateTime($limit)));
 		} elseif ($count[self::LEVEL_ERROR] + $count[self::LEVEL_FATAL] > 0) {
 			return SetupResult::warning(
 				$this->l10n->n(
 					'%n error in the logs since %s',
 					'%n errors in the logs since %s',
 					$count[self::LEVEL_ERROR] + $count[self::LEVEL_FATAL],
-					[$this->dateFormatter->formatDate($limit)],
+					[$this->dateFormatter->formatDateTime($limit)],
 				)
 			);
 		} else {
@@ -88,7 +96,7 @@ class LogErrors implements ISetupCheck {
 					'%n warning in the logs since %s',
 					'%n warnings in the logs since %s'.json_encode($count),
 					$count[self::LEVEL_WARNING],
-					[$this->dateFormatter->formatDate($limit)],
+					[$this->dateFormatter->formatDateTime($limit)],
 				)
 			);
 		}
