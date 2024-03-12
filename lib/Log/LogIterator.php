@@ -29,39 +29,22 @@ class LogIterator implements \Iterator {
 	 * @var resource
 	 */
 	private $handle;
+	private string $buffer = '';
+	private int $position = 0;
+	private string $lastLine;
 
-	/**
-	 * @var int
-	 */
-	private $position = 0;
+	private int $currentKey = -1;
+	private string $dateFormat;
+	private \DateTimeZone $timezone;
 
-	/**
-	 * @var string
-	 */
-	private $lastLine;
-
-	/**
-	 * @var string
-	 */
-	private $currentLine = '';
-
-	private $currentKey = -1;
-
-	/**
-	 * @var string
-	 */
-	private $dateFormat;
-
-	private $timezone;
-
-	public const CHUNK_SIZE = 100; // how many chars do we try at once to find a new line
+	public const CHUNK_SIZE = 8192; // how many chars do we try at once to find a new line
 
 	/**
 	 * @param resource $handle
 	 * @param string $dateFormat
 	 * @param string $timezone
 	 */
-	public function __construct($handle, $dateFormat, $timezone) {
+	public function __construct($handle, string $dateFormat, string $timezone) {
 		$this->handle = $handle;
 		$this->dateFormat = $dateFormat;
 		$this->timezone = new \DateTimeZone($timezone);
@@ -71,7 +54,7 @@ class LogIterator implements \Iterator {
 
 	public function rewind(): void {
 		fseek($this->handle, 0, SEEK_END);
-		$this->position = ftell($this->handle) - self::CHUNK_SIZE;
+		$this->position = ftell($this->handle);
 		$this->currentKey = 0;
 	}
 
@@ -96,32 +79,29 @@ class LogIterator implements \Iterator {
 		return $this->currentKey;
 	}
 
-	public function next(): void {
-		$this->currentLine = '';
+	private function fillBuffer(): void {
+		$chunkSize = min($this->position, self::CHUNK_SIZE);
+		$this->position -= $chunkSize;
+		fseek($this->handle, $this->position);
+		$chunk = fread($this->handle, $chunkSize);
+		$this->buffer = $chunk . $this->buffer;
+	}
 
+	public function next(): void {
 		// Loop through each character of the file looking for new lines
-		while ($this->position > 0) {
-			fseek($this->handle, $this->position);
-			$chars = fread($this->handle, self::CHUNK_SIZE);
-			$newlinePos = strrpos($chars, "\n");
+		while ($this->position >= 0) {
+			$newlinePos = strrpos($this->buffer, "\n");
 			if ($newlinePos !== false) {
-				$this->currentLine = substr($chars, $newlinePos + 1) . $this->currentLine;
-				$this->lastLine = $this->currentLine;
+				$this->lastLine = substr($this->buffer, $newlinePos + 1);
+				$this->buffer = substr($this->buffer, 0, $newlinePos);
 				$this->currentKey++;
-				$this->position -= (self::CHUNK_SIZE - $newlinePos);
+				return;
+			} elseif ($this->position === 0) {
+				$this->lastLine = $this->buffer;
+				$this->buffer = '';
 				return;
 			} else {
-				$this->currentLine = $chars . $this->currentLine;
-				if ($this->position >= self::CHUNK_SIZE) {
-					$this->position -= self::CHUNK_SIZE;
-				} else {
-					$remaining = $this->position;
-					fseek($this->handle, 0);
-					$chars = fread($this->handle, $remaining);
-					$this->currentLine = $chars . $this->currentLine;
-					$this->lastLine = $this->currentLine;
-					$this->position = 0;
-				}
+				$this->fillBuffer();
 			}
 		}
 	}
@@ -135,7 +115,7 @@ class LogIterator implements \Iterator {
 			return true;
 		}
 
-		if ($this->currentLine === '') {
+		if ($this->lastLine === '') {
 			return false;
 		}
 
