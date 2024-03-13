@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "App" : "Toep",
     "Time" : "Tyd",
+    "Relative" : "Relatief",
     "Info" : "Inligting",
     "Warning" : "Waarskuwing",
     "Error" : "Fout",
