@@ -45,6 +45,7 @@ OC.L10N.register(
     "Raw data" : "البيانات الخام",
     "Local time" : "الوقت المحلي",
     "UTC time" : "التوقيت العالمي الموحد UTC",
+    "Relative" : "مرتبط",
     "Time format used for displaying the timestamp" : "تنسيق الوقت المستخدم لعرض الطابع الزمني timestamp",
     "(Local log files only support the \"raw\" time format)" : "(تدعم ملفات السجل المحلي تنسيق الوقت \"الخام\" فقط)",
     "Could not change date time format." : "لا يمكن تغيير تنسيق الوقت و التاريخ",
