@@ -22,6 +22,7 @@ OC.L10N.register(
     "Raw data" : "Datos en bruto",
     "Local time" : "Hora llocal",
     "UTC time" : "Hora UTC",
+    "Relative" : "Relativu",
     "Could not change date time format." : "Nun se pudo camudar el formatu de la data",
     "Could not change live view setting." : "Nun se pudo camudar la opción de la visualización en direuto.",
     "Application" : "Aplicación",
