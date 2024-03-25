@@ -28,12 +28,10 @@ use OCP\Log\IFileBased;
 use OCP\Log\ILogFactory;
 
 class LogIteratorFactory {
-	private $config;
-	private $logFactory;
-
-	public function __construct(IConfig $config, ILogFactory $logFactory) {
-		$this->config = $config;
-		$this->logFactory = $logFactory;
+	public function __construct(
+		private IConfig $config,
+		private ILogFactory $logFactory,
+	) {
 	}
 
 	/**
@@ -41,9 +39,13 @@ class LogIteratorFactory {
 	 * @param int[] $levels Array of levels to show
 	 * @throws \Exception
 	 */
-	public function getLogIterator(array $levels) {
+	public function getLogIterator(array $levels): \Iterator {
 		$dateFormat = $this->config->getSystemValue('logdateformat', \DateTime::ATOM);
 		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
+		$logType = $this->config->getSystemValue('log_type', 'file');
+		if ($logType !== 'file') {
+			throw new \Exception('Logreader application only supports "file" log_type');
+		}
 		$log = $this->logFactory->get('file');
 		if ($log instanceof IFileBased) {
 			$handle = fopen($log->getLogFilePath(), 'rb');
