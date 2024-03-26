@@ -45,7 +45,7 @@ OC.L10N.register(
     "Raw data" : "Ham veriler",
     "Local time" : "Yerel saat",
     "UTC time" : "UTC saati",
-    "Relative" : "Göreceli",
+    "Relative" : "Göreli",
     "Time format used for displaying the timestamp" : "Zaman damgasının görüntüleneceği saat biçimi",
     "(Local log files only support the \"raw\" time format)" : "(Yerel günlük dosyaları yalnızca \"raw\" zaman biçimini destekler)",
     "Could not change date time format." : "Tarih ve saat biçimi değiştirilemedi.",
