@@ -77,7 +77,7 @@ version: 10.9.0
 license: MIT
 
 axios
-version: 1.6.7
+version: 1.6.8
 license: MIT
 
 charenc
