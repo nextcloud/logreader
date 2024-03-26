@@ -54,7 +54,13 @@ class LogErrors implements ISetupCheck {
 	}
 
 	public function run(): SetupResult {
-		$logIterator = $this->logIteratorFactory->getLogIterator([self::LEVEL_WARNING,self::LEVEL_ERROR,self::LEVEL_FATAL]);
+		try {
+			$logIterator = $this->logIteratorFactory->getLogIterator([self::LEVEL_WARNING,self::LEVEL_ERROR,self::LEVEL_FATAL]);
+		} catch (\Exception $e) {
+			return SetupResult::error(
+				$this->l10n->t('Failed to get an iterator for log entries: %s', [$e->getMessage()])
+			);
+		}
 		$count = [
 			self::LEVEL_WARNING => 0,
 			self::LEVEL_ERROR => 0,
