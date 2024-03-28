@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Logging" : "Уписивање у дневник",
     "Errors in the log" : "Грешке у дневнику",
+    "Failed to get an iterator for log entries: %s" : "Није успело преузимање итератора за ставке дневника: %s",
     "No errors in the logs since %s" : "У дневнику нема грешака од %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["У дневнику има %n грешка од %s","У дневнику има %n грешке од %s","У дневнику има %n грешака од %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["У дневнику има %n упозорење од %s","У дневнику има %n упозорења од %s","У дневнику има %n упозорења од %s"],

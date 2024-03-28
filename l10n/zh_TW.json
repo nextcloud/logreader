@@ -1,6 +1,7 @@
 { "translations": {
     "Logging" : "記錄",
     "Errors in the log" : "紀錄檔中的錯誤",
+    "Failed to get an iterator for log entries: %s" : "無法取得日誌條目的迭代器：%s",
     "No errors in the logs since %s" : "從 %s 開始，紀錄檔中沒有錯誤",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["從 %s 開始，紀錄檔中有 %n 個錯誤"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["從 %s 開始，紀錄檔中有 %n 個警告"],
