@@ -4,7 +4,7 @@
 	"license": "AGPLv3",
 	"require-dev": {
 		"nextcloud/coding-standard": "v1.1.1",
-		"nextcloud/ocp": "dev-master",
+		"nextcloud/ocp": "dev-stable29",
 		"phpunit/phpunit": "^9",
 		"vimeo/psalm": "^5.15"
 	},
