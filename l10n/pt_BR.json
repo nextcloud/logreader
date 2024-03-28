@@ -1,6 +1,7 @@
 { "translations": {
     "Logging" : "Registro",
     "Errors in the log" : "Erros no log",
+    "Failed to get an iterator for log entries: %s" : "Falha ao obter um iterador para entradas de log: %s",
     "No errors in the logs since %s" : "Sem erros no logo desde %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n erro nos logs desde %s","%n erros nos logs desde %s","%n erros nos logs desde %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n alerta nos logs desde %s","%n alertas nos logs desde %s","%n alertas nos logs desde %s"],

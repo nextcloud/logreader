@@ -1,6 +1,7 @@
 { "translations": {
     "Logging" : "Protokollierung",
     "Errors in the log" : "Fehler im Protokoll\n \n \n ",
+    "Failed to get an iterator for log entries: %s" : "Es konnte kein Iterator für Protokolleinträge abgerufen werden: %s",
     "No errors in the logs since %s" : "Keine Fehler in den Protokollen seit %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n Fehler in den Protokollen seit %s","%n Fehler in den Protokollen seit %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n Warnungen in den Protokollen seit %s","%n Warnungen in den Protokollen seit %s"],
