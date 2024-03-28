@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Logging" : "Loggar",
     "Errors in the log" : "Fel i loggen",
+    "Failed to get an iterator for log entries: %s" : "Kunde inte hämta en iterator för loggposter: %s",
     "No errors in the logs since %s" : "Inga fel i loggarna sedan %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n fel i loggarna sedan %s","%n fel i loggarna sedan %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n varning i loggarna sedan %s","%n varningar i loggarna sedan %s"],
