@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Logging" : "Logging",
     "Errors in the log" : "Errors in the log",
+    "Failed to get an iterator for log entries: %s" : "Failed to get an iterator for log entries: %s",
     "No errors in the logs since %s" : "No errors in the logs since %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n error in the logs since %s","%n errors in the logs since %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n warning in the logs since %s","%n warnings in the logs since %s"],
