@@ -1,6 +1,7 @@
 { "translations": {
     "Logging" : "Logging",
     "Errors in the log" : "Feil i loggen",
+    "Failed to get an iterator for log entries: %s" : "Kan ikke få en iterator for loggoppføringer: %s",
     "No errors in the logs since %s" : "Ingen feil i loggene siden %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n feil i loggene siden %s","%n feil i loggene siden %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n advarsel i loggene siden %s","%n advarsler i loggene siden %s"],
