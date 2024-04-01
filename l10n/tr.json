@@ -1,6 +1,7 @@
 { "translations": {
     "Logging" : "Günlük kaydı",
     "Errors in the log" : "Günlükteki hatalar",
+    "Failed to get an iterator for log entries: %s" : "Günlük kayıtları için bir yineleyici alınamadı: %s",
     "No errors in the logs since %s" : "%s zamanından beri günlükte bir hata yok",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%s zamanından beri günlükte %n hata var","%s zamanından beri günlükte %n hata var"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%s zamanından beri günlükte %n uyarı var","%s zamanından beri günlükte %n uyarı var"],
