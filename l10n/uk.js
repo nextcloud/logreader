@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Logging" : "Журналювання",
     "Errors in the log" : "Помилки в журналі",
+    "Failed to get an iterator for log entries: %s" : "Не вдалося отримати повторення для записів журналу: %s",
     "No errors in the logs since %s" : "Жодних помилок в журналі, починаючи з %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : [" %n помилка в журналах, починаючи з %s","%n помилки в журналах, починаючи з %s","%nпомилок в журналах, починаючи з %s"," %n помилок в журналах, починаючи з %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n попередження в журналах, починаючи з %s","%nпопередження в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s"],
@@ -45,6 +46,7 @@ OC.L10N.register(
     "Raw data" : "Невідформатовані дані",
     "Local time" : "Місцевий час",
     "UTC time" : "Час UTC",
+    "Relative" : "Відносно",
     "Time format used for displaying the timestamp" : "Формат часу для показу часового відбитку",
     "(Local log files only support the \"raw\" time format)" : "(Файли журналів на пристрої підтримують тільки невідформатований формат часу)",
     "Could not change date time format." : "Не вдалося змінити формат часу.",
