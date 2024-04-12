@@ -3,6 +3,7 @@
     "Relative" : "Relativ",
     "Info" : "Info",
     "Warning" : "Warnung",
-    "Error" : "Fehler"
+    "Error" : "Fehler",
+    "Copy" : "Kopie"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
