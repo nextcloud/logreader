@@ -21,7 +21,7 @@
     "@vue/tsconfig": "^0.5.1",
     "eslint-plugin-chai-friendly": "^0.7.4",
     "happy-dom": "^14.7.1",
-    "typescript": "^5.4.4",
+    "typescript": "^5.4.5",
     "vite": "^5.2.6",
     "vitest": "^1.2.2"
   },
