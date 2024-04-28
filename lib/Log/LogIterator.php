@@ -29,13 +29,13 @@ class LogIterator implements \Iterator {
 	 * @var resource
 	 */
 	private $handle;
-	private string $buffer = '';
-	private int $position = 0;
-	private string $lastLine;
-
-	private int $currentKey = -1;
 	private string $dateFormat;
 	private \DateTimeZone $timezone;
+
+	private string $buffer = '';
+	private string $lastLine = '';
+	private int $position = 0;
+	private int $currentKey = -1;
 
 	public const CHUNK_SIZE = 8192; // how many chars do we try at once to find a new line
 
@@ -48,8 +48,6 @@ class LogIterator implements \Iterator {
 		$this->handle = $handle;
 		$this->dateFormat = $dateFormat;
 		$this->timezone = new \DateTimeZone($timezone);
-		$this->rewind();
-		$this->next();
 	}
 
 	public function rewind(): void {
@@ -92,6 +90,11 @@ class LogIterator implements \Iterator {
 		while ($this->position >= 0) {
 			$newlinePos = strrpos($this->buffer, "\n");
 			if ($newlinePos !== false) {
+				if ($newlinePos + 1 === strlen($this->buffer)) {
+					// try again with truncated buffer if it ends with newline, i.e. on first call
+					$this->buffer = substr($this->buffer, 0, $newlinePos);
+					continue;
+				}
 				$this->lastLine = substr($this->buffer, $newlinePos + 1);
 				$this->buffer = substr($this->buffer, 0, $newlinePos);
 				$this->currentKey++;
@@ -99,6 +102,7 @@ class LogIterator implements \Iterator {
 			} elseif ($this->position === 0) {
 				$this->lastLine = $this->buffer;
 				$this->buffer = '';
+				$this->currentKey++;
 				return;
 			} else {
 				$this->fillBuffer();
@@ -111,11 +115,7 @@ class LogIterator implements \Iterator {
 			return false;
 		}
 
-		if ($this->position > 0) {
-			return true;
-		}
-
-		if ($this->lastLine === '') {
+		if ($this->lastLine === '' && $this->position === 0) {
 			return false;
 		}
 
