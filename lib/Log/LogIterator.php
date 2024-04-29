@@ -48,12 +48,16 @@ class LogIterator implements \Iterator {
 		$this->handle = $handle;
 		$this->dateFormat = $dateFormat;
 		$this->timezone = new \DateTimeZone($timezone);
+		$this->rewind();
 	}
 
 	public function rewind(): void {
 		fseek($this->handle, 0, SEEK_END);
 		$this->position = ftell($this->handle);
-		$this->currentKey = 0;
+		$this->lastLine = '';
+		$this->buffer = '';
+		$this->currentKey = -1;
+		$this->next();
 	}
 
 	/**
