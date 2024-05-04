@@ -32,7 +32,7 @@
   "dependencies": {
     "@highlightjs/vue-plugin": "^1.0.2",
     "@mdi/svg": "^7.4.47",
-    "@nextcloud/axios": "^2.4.0",
+    "@nextcloud/axios": "^2.5.0",
     "@nextcloud/dialogs": "^5.3.1",
     "@nextcloud/initial-state": "^2.1.0",
     "@nextcloud/l10n": "^2.2.0",
