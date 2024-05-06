@@ -1,4 +1,8 @@
 <?php
+/**
+ * SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: CC0-1.0
+ */
 
 if (!defined('PHPUNIT_RUN')) {
 	define('PHPUNIT_RUN', 1);
