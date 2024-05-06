@@ -23,3 +23,8 @@ Help us to maximize the effort we can spend fixing issues and adding new feature
 
 ### Contribute Code and translations
 Please check [server's contribution guidelines](https://github.com/nextcloud/server/blob/master/CONTRIBUTING.md#contributing-to-source-code) for further information about contributing code and translations.
+
+<!--
+ - SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+ - SPDX-License-Identifier: CC0-1.0
+-->

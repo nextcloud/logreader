@@ -1,8 +1,7 @@
 /**
- * SPDX-FileCopyrightText: 2023 Ferdinand Thiessen <opensource@fthiessen.de>
+ * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-
 import type { ILogEntry, IRawLogEntry } from '../interfaces'
 import { parseException } from './exception'
 import { logger } from './logger'

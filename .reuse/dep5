@@ -1,0 +1,24 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: logreader
+Upstream-Contact: Nextcloud <info@nextcloud.com>
+Source: https://github.com/nextcloud/logreader
+
+Files: .github/issue_template.md .github/CODEOWNERS package-lock.json package.json composer.json composer.lock */composer.json */composer.lock .jshintrc .l10nignore .tx/config  tsconfig.json js/vendor.LICENSE.txt krankerl.toml .nextcloudignore .devcontainer/devcontainer.json .scrutinizer.yml .tx/backport
+Copyright: none
+License: CC0-1.0
+
+Files: l10n/*.js l10n/*.json
+Copyright: 2016 Nextcloud contributors
+License: AGPL-3.0-or-later
+
+Files: js/*.js.map js/*.js js/*.mjs js/*.mjs.map js/templates/*.handlebars emptyTemplates/* css/logreader-main.css
+Copyright: 2016 Nextcloud GmbH and Nextcloud contributors
+License: AGPL-3.0-or-later
+
+Files: screenshots/reader.png
+Copyright: 2016 Nextcloud GmbH and Nextcloud contributors
+License: CC0-1.0
+
+Files:img/app-dark.svg img/app.svg
+Copyright: 2018-2024 Google LLC
+License: Apache-2.0

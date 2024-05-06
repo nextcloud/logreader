@@ -1,4 +1,11 @@
+<!--
+  - SPDX-FileCopyrightText: 2016-2024 Nextcloud GmbH and Nextcloud contributors
+  - SPDX-FileCopyrightText: 2015-2016 ownCloud, Inc.
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 # Log Reader
+
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud/logreader)](https://api.reuse.software/info/github.com/nextcloud/logreader)
 
 ![screenshot](https://i.imgur.com/0Y9G8lS.png)
 
