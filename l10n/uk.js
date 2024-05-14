@@ -6,7 +6,7 @@ OC.L10N.register(
     "Failed to get an iterator for log entries: %s" : "Не вдалося отримати повторення для записів журналу: %s",
     "No errors in the logs since %s" : "Жодних помилок в журналі, починаючи з %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["Знайдено %n помилку в журналах, починаючи з %s","Знайдено %n помилки в журналах, починаючи з %s","Знайдено %n помилок в журналах, починаючи з %s","Знайдено %n помилок в журналах, починаючи з %s"],
-    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n попередження в журналах, починаючи з %s","%nпопередження в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n попередження в журналах, починаючи з %s","%n попередження в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s","%n попереджень в журналах, починаючи з %s"],
     "Log Reader" : "Читач журналів",
     "A log reader for Nextcloud" : "Застосунок для перегляду системних журналів для Nextcloud",
     "Log reader for Nextcloud" : "Читач журналів для Nextcloud",
