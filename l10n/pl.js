@@ -64,7 +64,7 @@ OC.L10N.register(
     "Warning" : "Warning",
     "Error" : "Error",
     "Fatal" : "Fatal",
-    "Could not load log entries" : "Nie można załadować wpisów dziennika",
+    "Could not load log entries" : "Nie można wczytać wpisów dziennika",
     "Could not fetch new log entries (server unavailable)" : "Nie można pobrać nowych wpisów dziennika (serwer niedostępny)",
     "Could not fetch new entries" : "Nie udało się pobrać nowych wpisów",
     "Could not copy to clipboard, please copy manually:" : "Nie można skopiować do schowka, skopiuj ręcznie:",
