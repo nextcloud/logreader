@@ -12,6 +12,7 @@ OC.L10N.register(
     "Info" : "Info",
     "Warning" : "Brīdinājums",
     "Error" : "Kļūda",
+    "Could not fetch new log entries (server unavailable)" : "Neizdevās izgūt jaunus žurnāla ierakstus (serveris nav pieejams)",
     "Error parsing log" : "Kļūda analizējot žurnālus",
     "Copy" : "Kopēt",
     "No server logs" : "Nav servera žurnālierakstu",
