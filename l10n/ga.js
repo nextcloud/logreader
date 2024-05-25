@@ -2,7 +2,9 @@ OC.L10N.register(
     "logreader",
     {
     "Level" : "Leibhéal",
+    "Ctrl" : "Ctrl",
     "Show details" : "Sonraí a thaispeáint",
+    "Info" : "Eolas",
     "Warning" : "Rabhadh",
     "Error" : "Earráid",
     "Copy" : "Cóipeáil"
