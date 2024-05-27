@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Level" : "Leibhéal",
+    "Time" : "Am",
     "Ctrl" : "Ctrl",
     "Show details" : "Sonraí a thaispeáint",
     "Info" : "Eolas",
