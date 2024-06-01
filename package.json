@@ -22,7 +22,7 @@
     "eslint-plugin-chai-friendly": "^0.8.0",
     "happy-dom": "^14.11.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.11",
+    "vite": "^5.2.12",
     "vitest": "^1.2.2"
   },
   "engines": {
