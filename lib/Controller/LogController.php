@@ -38,9 +38,9 @@ class LogController extends Controller {
 	private $config;
 
 	public function __construct($appName,
-								IRequest $request,
-								IConfig $config,
-								LogIteratorFactory $logIteratorFactory
+		IRequest $request,
+		IConfig $config,
+		LogIteratorFactory $logIteratorFactory
 	) {
 		parent::__construct($appName, $request);
 		$this->logIteratorFactory = $logIteratorFactory;
