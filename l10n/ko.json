@@ -19,6 +19,7 @@
     "Download logs" : "로그 다운로드",
     "Show local log file" : "로컬 로그 파일 보기",
     "Upload local log file to be displayed" : "표시할 로컬 로그 파일 업로드",
+    "Ctrl" : "Ctrl",
     "Local time" : "로컬 시간 형식",
     "UTC time" : "UTC 시간 형식",
     "Relative" : "상대적",
