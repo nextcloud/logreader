@@ -1,15 +1,15 @@
 {
 	"require-dev": {
-		"nextcloud/coding-standard": "^0.4.0",
-		"nextcloud/ocp": "dev-master",
-		"phpunit/phpunit": "^8",
+		"nextcloud/coding-standard": "^1.2",
+		"nextcloud/ocp": "dev-stable27",
+		"phpunit/phpunit": "^9.6",
 		"vimeo/psalm": "^4.27"
 	},
 	"config": {
 		"optimize-autoloader": true,
 		"classmap-authoritative": true,
 		"platform": {
-			"php": "7.4"
+			"php": "8.0.2"
 		},
 		"sort-packages": true
 	},
