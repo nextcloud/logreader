@@ -41,7 +41,7 @@ version: 3.1.0
 license: GPL-3.0-or-later
 
 @nextcloud/logger
-version: 2.7.0
+version: 3.0.2
 license: GPL-3.0-or-later
 
 @nextcloud/router
@@ -83,10 +83,6 @@ license: MIT
 charenc
 version: 0.0.2
 license: BSD-3-Clause
-
-core-js
-version: 3.37.0
-license: MIT
 
 crypt
 version: 0.0.2
