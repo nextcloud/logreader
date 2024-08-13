@@ -61,7 +61,7 @@ version: 3.25.0
 license: MIT
 
 @vue/devtools-api
-version: 6.5.0
+version: 6.6.3
 license: MIT
 
 @vueuse/components
@@ -153,7 +153,7 @@ version: 1.0.1
 license: MIT
 
 pinia
-version: 2.1.7
+version: 2.2.1
 license: MIT
 
 semver
@@ -173,7 +173,7 @@ version: 1.12.0
 license: MIT
 
 vite-plugin-node-polyfills
-version: 0.19.0
+version: 0.22.0
 license: MIT
 
 vue
@@ -181,7 +181,7 @@ version: 2.7.16
 license: MIT
 
 vue-demi
-version: 0.14.5
+version: 0.14.10
 license: MIT
 
 vue-material-design-icons
