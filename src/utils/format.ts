@@ -38,6 +38,7 @@ export const useLogFormatting = (pinia?: Pinia) => {
 		)
 	}
 	return {
+		formatTime,
 		formatLogEntry,
 	}
 }
