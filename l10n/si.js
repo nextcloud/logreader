@@ -6,7 +6,6 @@ OC.L10N.register(
     "Message" : "පණිවිඩය",
     "Info" : "තොරතුරු",
     "Warning" : "අවවාදයයි",
-    "Error" : "දෝෂය",
-    "Copy" : "පිටපත්"
+    "Error" : "දෝෂය"
 },
 "nplurals=2; plural=(n != 1);");

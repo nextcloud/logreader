@@ -5,7 +5,6 @@ OC.L10N.register(
     "Time" : "Tid",
     "Info" : "Info",
     "Warning" : "Åtvaring",
-    "Error" : "Feil",
-    "Copy" : "Kopier"
+    "Error" : "Feil"
 },
 "nplurals=2; plural=(n != 1);");
