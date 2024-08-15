@@ -18,11 +18,6 @@ OC.L10N.register(
     "Warning" : "Brīdinājums",
     "Error" : "Kļūda",
     "Could not load log entries" : "Nevarēja ielādēt žurnāla ierakstus",
-    "Could not fetch new log entries (server unavailable)" : "Neizdevās izgūt jaunus žurnāla ierakstus (serveris nav pieejams)",
-    "Error parsing log" : "Kļūda analizējot žurnālus",
-    "Copy" : "Kopēt",
-    "No server logs" : "Nav servera žurnālierakstu",
-    "One or more entries are hidden by the log level filter" : "Vēl viens ieraksts ir slēpts žurnālierakstu līmeņa filtrā",
-    "Everything is working fine" : "Viss darbojas labi"
+    "Could not fetch new log entries (server unavailable)" : "Neizdevās izgūt jaunus žurnāla ierakstus (serveris nav pieejams)"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

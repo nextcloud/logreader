@@ -12,17 +12,6 @@
     "Show details" : "הצגת פרטים",
     "Info" : "פרטים",
     "Warning" : "אזהרה",
-    "Error" : "שגיאה",
-    "Error parsing log" : "שגיאה בפענוח הרישום",
-    "Caused by " : "נגרם על ידי",
-    "Copy" : "העתק",
-    "Copy raw" : "העתקה גולמית",
-    "Copy formatted" : "העתקה עם עיצוב",
-    "No server logs" : "אין רישומי שרת",
-    "One or more entries are hidden by the log level filter" : "רשומה אחת או יותר מוסתרות עקב השימוש במסנן רמת רישום",
-    "Everything is working fine" : "הכל תקין",
-    "Log levels" : "רמות רישום",
-    "Log content" : "תוכן הרישום",
-    "Live update" : "עדכון חי"
+    "Error" : "שגיאה"
 },"pluralForm" :"nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;"
 }

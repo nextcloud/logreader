@@ -5,7 +5,6 @@ OC.L10N.register(
     "Time" : "Vaxt",
     "Info" : "Info",
     "Warning" : "Xəbərdarlıq",
-    "Error" : "Səhv",
-    "Copy" : "Kopyala"
+    "Error" : "Səhv"
 },
 "nplurals=2; plural=(n != 1);");

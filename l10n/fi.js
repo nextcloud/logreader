@@ -17,19 +17,6 @@ OC.L10N.register(
     "Info" : "Tietoa",
     "Warning" : "Varoitus",
     "Error" : "Virhe",
-    "Fatal" : "Kriittinen",
-    "Error parsing log" : "Virhe jäsentäessä lokia",
-    "Caused by " : "Aiheuttanut",
-    "Copy" : "Kopioi",
-    "Copy raw" : "Kopioi raakatekstinä",
-    "Copy formatted" : "Kopioi muotoiltuna",
-    "No server logs" : "Ei palvelinlokeja",
-    "One or more entries are hidden by the log level filter" : "Yksi tai useampi kirjaus on piilotettu lokitason valitsimella",
-    "Everything is working fine" : "Kaikki toimii hyvin",
-    "Load log file" : "Lataa lokitiedosto",
-    "Invalid log file" : "Virheellinen lokitiedosto",
-    "Log levels" : "Lokitasot",
-    "Log content" : "Lokin sisältö",
-    "Live update" : "Live-päivitys"
+    "Fatal" : "Kriittinen"
 },
 "nplurals=2; plural=(n != 1);");

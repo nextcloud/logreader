@@ -3,7 +3,6 @@
     "Time" : "Tid",
     "Info" : "Info",
     "Warning" : "Åtvaring",
-    "Error" : "Feil",
-    "Copy" : "Kopier"
+    "Error" : "Feil"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
