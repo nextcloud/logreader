@@ -5,7 +5,6 @@ OC.L10N.register(
     "Relative" : "Հարաբերական",
     "Info" : "Info",
     "Warning" : "Զգուշացում",
-    "Error" : "Սխալ",
-    "Copy" : "պատճենահանել"
+    "Error" : "Սխալ"
 },
 "nplurals=2; plural=(n != 1);");

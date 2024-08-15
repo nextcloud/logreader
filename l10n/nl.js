@@ -17,19 +17,6 @@ OC.L10N.register(
     "Info" : "Info",
     "Warning" : "Waarschuwing",
     "Error" : "Fout",
-    "Fatal" : "Fataal",
-    "Error parsing log" : "Fout verwerken logboek",
-    "Caused by " : "Veroorzaakt door",
-    "Copy" : "Kopiëren",
-    "Copy raw" : "Onbewerkt kopiëren",
-    "Copy formatted" : "Kopiëren geformatteerd",
-    "No server logs" : "Geen server logboek",
-    "One or more entries are hidden by the log level filter" : "Een of meer waarden zijn verborgen door de logfilter",
-    "Everything is working fine" : "Alles werkt prima",
-    "Load log file" : "Laden logbestand",
-    "Invalid log file" : "Ongeldig logbestand",
-    "Log levels" : "Niveau logboek",
-    "Log content" : "Inhoud logboek",
-    "Live update" : "Live bijgewerkt"
+    "Fatal" : "Fataal"
 },
 "nplurals=2; plural=(n != 1);");

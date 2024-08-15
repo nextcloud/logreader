@@ -4,7 +4,6 @@ OC.L10N.register(
     "Time" : "ಸಮಯ",
     "Info" : "Info",
     "Warning" : "﻿ಎಚ್ಚರಿಕೆ",
-    "Error" : "﻿ತಪ್ಪಾಗಿದೆ",
-    "Copy" : "ನಕಲಿಸಿ"
+    "Error" : "﻿ತಪ್ಪಾಗಿದೆ"
 },
 "nplurals=2; plural=(n > 1);");

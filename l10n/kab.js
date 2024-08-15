@@ -4,7 +4,6 @@ OC.L10N.register(
     "Message" : "Izen",
     "Show details" : "Sken talqayt",
     "Warning" : "Alɣu",
-    "Error" : "Erreur",
-    "Copy" : "Nɣel"
+    "Error" : "Erreur"
 },
 "nplurals=2; plural=(n != 1);");

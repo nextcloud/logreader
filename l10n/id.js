@@ -8,7 +8,6 @@ OC.L10N.register(
     "Show details" : "Tampilkan detail",
     "Info" : "Info",
     "Warning" : "Peringatan",
-    "Error" : "Galat",
-    "Copy" : "Salin"
+    "Error" : "Galat"
 },
 "nplurals=1; plural=0;");
