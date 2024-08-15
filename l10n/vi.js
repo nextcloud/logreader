@@ -9,7 +9,6 @@ OC.L10N.register(
     "Show details" : "Hiển thị chi tiết",
     "Info" : "Thông tin",
     "Warning" : "Cảnh báo",
-    "Error" : "Lỗi",
-    "Copy" : "Sao chép"
+    "Error" : "Lỗi"
 },
 "nplurals=1; plural=0;");

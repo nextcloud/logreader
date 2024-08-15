@@ -4,7 +4,6 @@ OC.L10N.register(
     "Show details" : "ສະແດງລາຍລະອຽດ",
     "Info" : "ຂໍ້ມຸນ",
     "Warning" : "ແຈ້ງເຕືອນ",
-    "Error" : "ຜິດພາດ",
-    "Copy" : "ສຳເນົາ"
+    "Error" : "ຜິດພາດ"
 },
 "nplurals=1; plural=0;");

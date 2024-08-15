@@ -3,7 +3,6 @@
     "Time" : "Vaxt",
     "Info" : "Info",
     "Warning" : "Xəbərdarlıq",
-    "Error" : "Səhv",
-    "Copy" : "Kopyala"
+    "Error" : "Səhv"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

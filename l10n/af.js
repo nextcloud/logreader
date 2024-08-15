@@ -6,7 +6,6 @@ OC.L10N.register(
     "Relative" : "Relatief",
     "Info" : "Inligting",
     "Warning" : "Waarskuwing",
-    "Error" : "Fout",
-    "Copy" : "Kopieer"
+    "Error" : "Fout"
 },
 "nplurals=2; plural=(n != 1);");

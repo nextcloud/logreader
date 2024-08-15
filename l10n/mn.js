@@ -7,7 +7,6 @@ OC.L10N.register(
     "Relative" : "Хамаарал",
     "Info" : "Info",
     "Warning" : "Warning",
-    "Error" : "Алдаа",
-    "Copy" : "Хуулах"
+    "Error" : "Алдаа"
 },
 "nplurals=2; plural=(n != 1);");

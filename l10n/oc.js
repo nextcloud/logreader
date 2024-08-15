@@ -6,9 +6,6 @@ OC.L10N.register(
     "Show details" : "Mostrar detalhs",
     "Info" : "Info",
     "Warning" : "Avertiment",
-    "Error" : "Error",
-    "Copy" : "Copiar",
-    "Copy raw" : "Còpia bruta",
-    "Copy formatted" : "Còpia formatada"
+    "Error" : "Error"
 },
 "nplurals=2; plural=(n > 1);");

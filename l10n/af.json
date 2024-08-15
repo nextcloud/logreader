@@ -4,7 +4,6 @@
     "Relative" : "Relatief",
     "Info" : "Inligting",
     "Warning" : "Waarskuwing",
-    "Error" : "Fout",
-    "Copy" : "Kopieer"
+    "Error" : "Fout"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -5,7 +5,6 @@ OC.L10N.register(
     "Relative" : "Relative",
     "Info" : "Info",
     "Warning" : "Aviso",
-    "Error" : "Error",
-    "Copy" : "Copiar"
+    "Error" : "Error"
 },
 "nplurals=2; plural=(n != 1);");
