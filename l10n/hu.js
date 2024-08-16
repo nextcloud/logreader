@@ -2,6 +2,8 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Naplózás",
+    "Errors in the log" : "Hiba a naplózásban",
+    "No errors in the logs since %s" : "Nincs hiba a naplóban %s óta",
     "Log Reader" : "Naplóolvasó",
     "A log reader for Nextcloud" : "Egy naplóolvasó a Nextcloudhoz",
     "Log reader for Nextcloud" : "Naplóolvasó a Nextcloudhoz",
