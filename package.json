@@ -39,7 +39,7 @@
     "@nextcloud/logger": "^3.0.2",
     "@nextcloud/router": "^3.0.0",
     "@nextcloud/typings": "^1.9.1",
-    "@nextcloud/vue": "^8.17.0",
+    "@nextcloud/vue": "^8.18.0",
     "axios": "^1.7.5",
     "date-fns": "^3.6.0",
     "highlight.js": "^11.10.0",
