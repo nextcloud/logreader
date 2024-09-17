@@ -4,7 +4,7 @@ OC.L10N.register(
     "Logging" : "Záznam událostí",
     "Errors in the log" : "Chyby v záznamu událostí",
     "No errors in the logs since %s" : "Žádné chyby v záznamech událostí od %s",
-    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%nchyba v záznamech událostí od %s","%nchyby v záznamech událostí od %s","%nchyby v záznamech událostí od %s","%nchyby v záznamech událostí od %s"],
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n chyba v záznamech událostí od %s","%n chyby v záznamech událostí od %s","%n chyb v záznamech událostí od %s","%n chyb v záznamech událostí od %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n varování v záznamech událostí od %s","%n varování v záznamech událostí od %s","%n varování v záznamech událostí od %s","%n varování v záznamech událostí od %s"],
     "Log Reader" : "Čtečka záznamů událostí (log)",
     "A log reader for Nextcloud" : "Čtečka záznamů událostí (log) pro Nextcloud",
