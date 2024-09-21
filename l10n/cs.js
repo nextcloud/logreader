@@ -58,7 +58,7 @@ OC.L10N.register(
     "Application" : "Aplikace",
     "Message" : "Zpráva",
     "Log entry actions" : "Akce ohledně položky záznamu událostí",
-    "Loading older log entries" : "Načítání starčích položek záznamu událostí",
+    "Loading older log entries" : "Načítání starších položek záznamu událostí",
     "No older log entries available" : "Nejsou k dispozici žádné položky záznamu událostí",
     "Collapse row" : "Sbalit řádek",
     "Expand row" : "Rozbalit řádek",
