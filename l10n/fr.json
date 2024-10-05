@@ -38,14 +38,14 @@
     "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Vous pouvez aussi afficher les entrées du journal copiées depuis votre presse-papiers en les collant dans la visionneuse de journaux en utilisant : {keyboardShortcut}",
     "Download logs" : "Télécharger les journaux",
     "Show local log file" : "Afficher le fichier journal local",
-    "Upload local log file to be displayed" : "Téléversement le fichier journal local à afficher",
+    "Upload local log file to be displayed" : "Téléverser le fichier journal local à afficher",
     "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Impossible de parser le fichier de journalisation local",
     "Raw data" : "Données brutes",
     "Local time" : "Heure locale",
     "UTC time" : "Heure UTC",
     "Relative" : "Relatif",
-    "Time format used for displaying the timestamp" : "Format de l'heure utilisée pour afficher l'horodatage",
+    "Time format used for displaying the timestamp" : "Format de l'heure utilisé pour afficher l'horodatage",
     "(Local log files only support the \"raw\" time format)" : "(Les fichiers journaux locaux ne prennent en charge que le format horaire \"brut\")",
     "Could not change date time format." : "Impossible de changer le format de l'heure.",
     "Polling is disabled because server is not configured to log to file" : "L'interrogation est désactivée car le serveur n'est pas configuré pour journaliser dans un fichier",
@@ -75,7 +75,7 @@
     "Could not fetch new entries" : "Impossible de récupérer les nouvelles entrées",
     "Could not copy to clipboard, please copy manually:" : "Impossible de copier dans le presse-papiers, veuillez copier manuellement :",
     "\tfrom {address} by {user} at {time}\n" : "\tde {address} par {user} à {time}\n",
-    "line {line}" : "Ligne {line}",
+    "line {line}" : "ligne {line}",
     "Download / Upload logs" : "Téléchargement / Téléversement des journaux"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
