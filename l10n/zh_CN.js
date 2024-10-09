@@ -40,6 +40,7 @@ OC.L10N.register(
     "Download logs" : "下载日志",
     "Ctrl" : "Ctrl",
     "Relative" : "相对",
+    "Application" : "应用",
     "Message" : "消息",
     "Show details" : "显示详情",
     "Debug" : "调试",
