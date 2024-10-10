@@ -9,8 +9,10 @@ namespace OCA\LogReader\Controller;
 use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\Log\SearchFilter;
 use OCA\LogReader\Service\SettingsService;
+use OCA\LogReader\Settings\Admin;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
+use OCP\AppFramework\Http\Attribute\AuthorizedAdminSetting;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
 use Psr\Log\LoggerInterface;
@@ -32,12 +34,12 @@ class LogController extends Controller {
 	}
 
 	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
 	 * @param string $query
 	 * @param int $count
 	 * @param int $offset
 	 * @return JSONResponse
 	 */
+	#[AuthorizedAdminSetting(settings: Admin::class)]
 	public function get($query = '', $count = 50, $offset = 0): JSONResponse {
 		$logType = $this->settingsService->getLoggingType();
 		// we only support web access when `log_type` is set to `file` (the default)
@@ -70,7 +72,6 @@ class LogController extends Controller {
 	}
 
 	/**
-	 * @AuthorizedAdminSetting(settings=OCA\LogReader\Settings\Admin)
 	 * @brief Use to poll for new log messages since $lastReqId.
 	 *
 	 * @note There is a possible race condition, when the user loads the
@@ -83,6 +84,7 @@ class LogController extends Controller {
 	 *  will work in some cases but not when there are more than 50 messages of that
 	 *  request.
 	 */
+	#[AuthorizedAdminSetting(settings: Admin::class)]
 	public function poll(string $lastReqId): JSONResponse {
 		$logType = $this->settingsService->getLoggingType();
 		// we only support web access when `log_type` is set to `file` (the default)
