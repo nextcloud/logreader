@@ -38,7 +38,7 @@ OC.L10N.register(
     "Live view" : "Оновлення в реальному часі",
     "Download/Upload logs" : "Отримати/надіслати журнал",
     "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Ви також можете переглянути записи журналу, для цього скопіюйте їх з буфера обміну та вставте у журналі за допомогою: {keyboardShortcut}",
-    "Download logs" : "Отримати",
+    "Download logs" : "Звантажити журнали",
     "Show local log file" : "Надіслати файл журналу",
     "Upload local log file to be displayed" : "Завантажити файл журналу на пристрої для показу",
     "Ctrl" : "Ctrl",
