@@ -14,7 +14,7 @@ OC.L10N.register(
     "Open log reader settings" : "إفتَح إعدادات قارئ سجل الحركات",
     "Log reader settings" : "إعدادات قارئ سجل الحركات",
     "Currently the log file {file} is shown" : "ملف سجل الحركات {file} يٌعرَض حاليّاً",
-    "Show server log" : "عرض سجل حركات الخادوم",
+    "Show server log" : "عرض سجل أحداث الخادم",
     "Live view is disabled" : "العرض الحي مُعطّل",
     "No log file" : "لا يوجد سجل للحركات log file",
     "File-based logging must be enabled to access logs from the Web UI." : "يجب تمكين تسجيل الحركات في ملفات للوصول إلى السجلات من واجهة مستخدم الويب.",
