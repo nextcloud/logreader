@@ -16,7 +16,7 @@
     "Live view is disabled" : "العرض الحي مُعطّل",
     "No log file" : "لا يوجد سجل للأحداث",
     "File-based logging must be enabled to access logs from the Web UI." : "يجب تمكين تسجيل الأحداث في ملفات للوصول إلى السجلات من واجهة مستخدم الويب.",
-    "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "إذا كنت تشعر أن هذا خطأ، فيُرجى التحقُّق من {setting} في {config} و مراحعة دليل التشغيل لمشرفي نكست كلاود.",
+    "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "إذا كنت تشعر أن هذا خطأ، فيُرجى التحقُّق من {setting} في {config} و مراحعة دليل التشغيل لمسؤول النظام في نكست كلاود.",
     "Level" : "الدرجة",
     "App" : "التطبيق",
     "No app in context" : "لا تطبيقات في السياق",
