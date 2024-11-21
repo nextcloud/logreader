@@ -54,7 +54,7 @@ OC.L10N.register(
     "Application" : "Aplikacja",
     "Message" : "Komunikat",
     "Log entry actions" : "Akcje z wpisami dziennika",
-    "Loading older log entries" : "Ładowanie starszych wpisów dziennika",
+    "Loading older log entries" : "Wczytywanie starszych wpisów dziennika",
     "No older log entries available" : "Brak dostępnych starszych wpisów dziennika",
     "Collapse row" : "Zwiń wiersz",
     "Expand row" : "Rozwiń wiersz",
