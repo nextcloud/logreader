@@ -80,7 +80,7 @@ class LogErrors implements ISetupCheck {
 			return SetupResult::info(
 				$this->l10n->n(
 					'%n warning in the logs since %s',
-					'%n warnings in the logs since %s'.json_encode($count),
+					'%n warnings in the logs since %s',
 					$count[self::LEVEL_WARNING],
 					[$this->dateFormatter->formatDateTime($limit)],
 				)
