@@ -9,7 +9,7 @@ version: 0.1.10
 license: MIT
 
 @nextcloud/auth
-version: 2.3.0
+version: 2.4.0
 license: GPL-3.0-or-later
 
 @nextcloud/axios
@@ -53,11 +53,11 @@ version: 0.1.1
 license: AGPL-3.0-or-later
 
 @nextcloud/vue
-version: 8.17.0
+version: 8.21.0
 license: AGPL-3.0-or-later
 
 @nextcloud/vue-select
-version: 3.25.0
+version: 3.25.1
 license: MIT
 
 @vue/devtools-api
@@ -77,7 +77,7 @@ version: 11.0.3
 license: MIT
 
 axios
-version: 1.7.5
+version: 1.7.9
 license: MIT
 
 charenc
@@ -93,7 +93,7 @@ version: 0.2.7
 license: MIT
 
 debounce
-version: 2.1.0
+version: 2.2.0
 license: MIT
 
 dompurify
