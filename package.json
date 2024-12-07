@@ -46,7 +46,7 @@
     "json-string-splitter": "^1.0.0",
     "pinia": "^2.2.8",
     "vue": "^2.7.15",
-    "vue-material-design-icons": "^5.3.0"
+    "vue-material-design-icons": "^5.3.1"
   },
   "eslintConfig": {
     "ignorePatterns": [
