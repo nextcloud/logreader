@@ -11,6 +11,7 @@ OC.L10N.register(
     "Download logs" : "Logboek downloaden",
     "Ctrl" : "Ctrl",
     "Relative" : "Relatief",
+    "Application" : "Applicatie",
     "Message" : "Bericht",
     "Show details" : "Tonen details",
     "Debug" : "Debug",
