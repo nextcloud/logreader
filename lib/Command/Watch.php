@@ -93,7 +93,7 @@ class Watch extends Base {
 						$output->writeln(json_encode($line));
 					} else {
 						$this->printItem($line, $output, $messageWidth);
-						$output->writeln("");
+						$output->writeln('');
 					}
 				}
 

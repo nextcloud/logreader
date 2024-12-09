@@ -34,7 +34,7 @@ class Tail extends Base {
 		$this
 			->setName('log:tail')
 			->setDescription('Tail the nextcloud logfile')
-			->addArgument('lines', InputArgument::OPTIONAL, 'The number of log entries to print', "10")
+			->addArgument('lines', InputArgument::OPTIONAL, 'The number of log entries to print', '10')
 			->addOption('follow', 'f', InputOption::VALUE_NONE, 'Output new log entries as they appear')
 			->addOption('raw', 'r', InputOption::VALUE_NONE, 'Output raw log json instead of formatted log item');
 		parent::configure();

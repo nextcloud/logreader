@@ -62,7 +62,7 @@ class SettingsController extends ApiController {
 		// Check type of value
 		if (gettype($settingsValue) !== gettype($this->settingsService->getAppSettings()[$settingsKey])) {
 			// Invalid type
-			$this->logger->debug('Incorrect value type for appConfig key', ['settingsKey' => $settingsKey, "valueType" => gettype($settingsValue)]);
+			$this->logger->debug('Incorrect value type for appConfig key', ['settingsKey' => $settingsKey, 'valueType' => gettype($settingsValue)]);
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 

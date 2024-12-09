@@ -61,7 +61,7 @@ class Formatter {
 				implode(",\n", array_map(function ($argumentLine) use ($argumentWhiteSpace) {
 					return $argumentWhiteSpace . '  ' . trim($argumentLine);
 				}, $arguments)) . "\n" .
-				$argumentWhiteSpace . ")";
+				$argumentWhiteSpace . ')';
 		}
 	}
 

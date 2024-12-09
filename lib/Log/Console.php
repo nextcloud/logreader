@@ -55,15 +55,15 @@ class Console extends LogDetails {
 		}
 
 		switch (strtoupper($level)) {
-			case "DEBUG":
+			case 'DEBUG':
 				return 0;
-			case "INFO":
+			case 'INFO':
 				return 1;
-			case "WARN":
+			case 'WARN':
 				return 2;
-			case "ERROR":
+			case 'ERROR':
 				return 3;
-			case "FATAL":
+			case 'FATAL':
 				return 4;
 			default:
 				throw new \Exception("Unknown log level $level");
