@@ -40,7 +40,7 @@ class LogIteratorFactory {
 					return $logItem && in_array($logItem['level'], $levels);
 				});
 			} else {
-				throw new \Exception("Error while opening " . $log->getLogFilePath());
+				throw new \Exception('Error while opening ' . $log->getLogFilePath());
 			}
 		}
 		throw new \Exception('Can\'t find log class');

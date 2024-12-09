@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SPDX-FileCopyrightText: 2016-2023 Nextcloud GmbH and Nextcloud contributors
  * SPDX-FileCopyrightText: 2015 ownCloud, Inc.
@@ -24,7 +25,8 @@ use Psr\Log\LoggerInterface;
  */
 class LogController extends Controller {
 
-	public function __construct($appName,
+	public function __construct(
+		$appName,
 		IRequest $request,
 		private LogIteratorFactory $logIteratorFactory,
 		private SettingsService $settingsService,
@@ -129,7 +131,7 @@ class LogController extends Controller {
 		for ($i = 0; $i < $count && $iterator->valid(); $i++) {
 			$line = $iterator->current();
 			if (!is_null($line)) {
-				$line["id"] = uniqid();
+				$line['id'] = uniqid();
 				$data[] = $line;
 			}
 			$iterator->next();
