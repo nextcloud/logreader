@@ -42,7 +42,7 @@
     "@nextcloud/vue": "^8.21.0",
     "axios": "^1.7.9",
     "date-fns": "^3.6.0",
-    "highlight.js": "^11.11.0",
+    "highlight.js": "^11.11.1",
     "json-string-splitter": "^1.0.0",
     "pinia": "^2.3.0",
     "vue": "^2.7.15",
