@@ -8,6 +8,7 @@ declare(strict_types=1);
  */
 namespace OCA\LogReader\SetupChecks;
 
+use OCA\LogReader\Exception\UnsupportedLogTypeException;
 use OCA\LogReader\Log\LogIteratorFactory;
 use OCP\IConfig;
 use OCP\IDateTimeFormatter;
@@ -40,6 +41,10 @@ class LogErrors implements ISetupCheck {
 		try {
 			$logIterator = $this->logIteratorFactory->getLogIterator([self::LEVEL_WARNING,self::LEVEL_ERROR,self::LEVEL_FATAL]);
 		} catch (\Exception $e) {
+			if ($e instanceof UnsupportedLogTypeException) {
+				return SetupResult::info($e->getMessage());
+			}
+
 			return SetupResult::error(
 				$this->l10n->t('Failed to get an iterator for log entries: %s', [$e->getMessage()])
 			);
