@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace OCA\LogReader\Log;
 
+use OCA\LogReader\Exception\UnsupportedLogTypeException;
 use OCP\IConfig;
 use OCP\Log\IFileBased;
 use OCP\Log\ILogFactory;
@@ -29,7 +30,7 @@ class LogIteratorFactory {
 		$timezone = $this->config->getSystemValue('logtimezone', 'UTC');
 		$logType = $this->config->getSystemValue('log_type', 'file');
 		if ($logType !== 'file') {
-			throw new \Exception('Logreader application only supports "file" log_type');
+			throw new UnsupportedLogTypeException();
 		}
 		$log = $this->logFactory->get('file');
 		if ($log instanceof IFileBased) {
