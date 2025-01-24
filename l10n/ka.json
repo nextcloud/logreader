@@ -69,8 +69,6 @@
     "Could not fetch new log entries (server unavailable)" : "Could not fetch new log entries (server unavailable)",
     "Could not fetch new entries" : "Could not fetch new entries",
     "Could not copy to clipboard, please copy manually:" : "Could not copy to clipboard, please copy manually:",
-    "\tfrom {address} by {user} at {time}\n" : "\tfrom {address} by {user} at {time}\n",
-    "line {line}" : "line {line}",
-    "Download / Upload logs" : "Download / Upload logs"
+    "\tfrom {address} by {user} at {time}\n" : "\tfrom {address} by {user} at {time}\n"
 },"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

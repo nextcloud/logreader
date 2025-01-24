@@ -71,8 +71,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Gat ekki sótt nýjar atvikaskrárfærslur (netþjónn ekki tiltækur)",
     "Could not fetch new entries" : "Gat ekki sótt nýjar færslur",
     "Could not copy to clipboard, please copy manually:" : "Tókst ekki að afrita á klippispjald, afritaðu handvirkt:",
-    "\tfrom {address} by {user} at {time}\n" : "\tfrá {address} af {user} kl. {time}\n",
-    "line {line}" : "lína {line}",
-    "Download / Upload logs" : "Atvikaskráning fyrir Sækja / Senda inn"
+    "\tfrom {address} by {user} at {time}\n" : "\tfrá {address} af {user} kl. {time}\n"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

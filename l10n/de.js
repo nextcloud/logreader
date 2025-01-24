@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Neue Protokolleinträge konnten nicht abgerufen werden (Server nicht verfügbar).",
     "Could not fetch new entries" : "Neue Einträge konnten nicht abgerufen werden.",
     "Could not copy to clipboard, please copy manually:" : "Konnte nicht in die Zwischenablage kopieren, bitte manuell kopieren:",
-    "\tfrom {address} by {user} at {time}\n" : "\tvon {address} von {user} um {time}\n",
-    "line {line}" : "Zeile {line}",
-    "Download / Upload logs" : "Protokolle herunter- / hochladen"
+    "\tfrom {address} by {user} at {time}\n" : "\tvon {address} von {user} um {time}\n"
 },
 "nplurals=2; plural=(n != 1);");

@@ -74,8 +74,6 @@
     "Could not fetch new log entries (server unavailable)" : "Nepodařilo se získat nové položky záznamu událostí (server není k dispozici)",
     "Could not fetch new entries" : "Nepodařilo se získat nové položky",
     "Could not copy to clipboard, please copy manually:" : "Nepodařilo se zkopírovat do schránky – zkopírujte ručně:",
-    "\tfrom {address} by {user} at {time}\n" : "\tz {address} od {user} v {time}\n",
-    "line {line}" : "řádek {line}",
-    "Download / Upload logs" : "Stáhnout si / nahrát záznamy událostí"
+    "\tfrom {address} by {user} at {time}\n" : "\tz {address} od {user} v {time}\n"
 },"pluralForm" :"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"
 }
