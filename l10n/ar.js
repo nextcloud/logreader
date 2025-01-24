@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "تعذّر جلب أحداث جديدة (الخادم غير متاح)",
     "Could not fetch new entries" : "تعذّر جلب أحداث جديدة",
     "Could not copy to clipboard, please copy manually:" : "تعذّر النسخ إلى الحافظة. إنسَخ يدويّاً رجاءً:",
-    "\tfrom {address} by {user} at {time}\n" : "\tمن {address} من قِبَل {user} في {time}\n",
-    "line {line}" : "السطر {line}",
-    "Download / Upload logs" : "سجل أحداث الرفع و التنزيل"
+    "\tfrom {address} by {user} at {time}\n" : "\tمن {address} من قِبَل {user} في {time}\n"
 },
 "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;");

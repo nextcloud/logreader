@@ -62,8 +62,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Az új naplóbejegyzések nem elérhetőek (kiszolgáló nem elérhető)",
     "Could not fetch new entries" : "Nem sikerült lekérni az új bejegyzéseket",
     "Could not copy to clipboard, please copy manually:" : "Nem lehet a vágólapra másolni. Másolja át kézileg.",
-    "\tfrom {address} by {user} at {time}\n" : "\terről a címről: {address} , {user} által ebben az időben: {time}\n",
-    "line {line}" : "{line} sor",
-    "Download / Upload logs" : "Naplók feltöltése/letöltése"
+    "\tfrom {address} by {user} at {time}\n" : "\terről a címről: {address} , {user} által ebben az időben: {time}\n"
 },
 "nplurals=2; plural=(n != 1);");

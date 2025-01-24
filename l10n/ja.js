@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "新しいログエントリを取得できませんでした（サーバーが使用できません）",
     "Could not fetch new entries" : "新しいエントリーを取得できませんでした",
     "Could not copy to clipboard, please copy manually:" : "クリップボードにコピーできませんでした。手動でコピーしてください：",
-    "\tfrom {address} by {user} at {time}\n" : "\tfrom {address} by {user} at {time}\n",
-    "line {line}" : "行 {line}",
-    "Download / Upload logs" : "Download / Upload logs"
+    "\tfrom {address} by {user} at {time}\n" : "\tfrom {address} by {user} at {time}\n"
 },
 "nplurals=1; plural=0;");

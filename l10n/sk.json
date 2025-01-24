@@ -48,6 +48,8 @@
     "Time format used for displaying the timestamp" : "Formát času používaný pre zobrazenie časovej pečiatky",
     "(Local log files only support the \"raw\" time format)" : "(Lokálne súbory protokolu podporujú iba „nespracovaný“ formát času)",
     "Could not change date time format." : "Nemožno zmeniť formát dátumu a času.",
+    "Polling is disabled because server is not configured to log to file" : "Dopytovanie je zakázané, pretože server nie je nakonfigurovaný na prihlásenie do súboru",
+    "Polling (live view)" : "Dopytovanie (živé zobrazenie)",
     "Could not change live view setting." : "Nepodarilo sa zmeniť nastavenie živého náhľadu.",
     "Filter logging levels" : "Filtrovať úrovne záznamu do protokolu",
     "Could not set logging levels to show" : "Nepodarilo sa nastaviť úroveň logovania pre zobrazenie",
@@ -72,8 +74,6 @@
     "Could not fetch new log entries (server unavailable)" : "Nepodarilo sa načítať nové záznamy protokolu (server nedostupný)",
     "Could not fetch new entries" : "Nepodarilo sa načítať nové záznamy",
     "Could not copy to clipboard, please copy manually:" : "Nepodarilo sa skopírovať zo schránky, prosím skopírujte manuálne:",
-    "\tfrom {address} by {user} at {time}\n" : "\tod {address} užívateľom {user} o {time}\n",
-    "line {line}" : "riadok {line}",
-    "Download / Upload logs" : "Stiahnuť / Nahrať protokoly"
+    "\tfrom {address} by {user} at {time}\n" : "\tod {address} užívateľom {user} o {time}\n"
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
 }

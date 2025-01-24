@@ -74,8 +74,6 @@
     "Could not fetch new log entries (server unavailable)" : "无法获取新的日志条目（服务器不可用）",
     "Could not fetch new entries" : "无法获取新条目",
     "Could not copy to clipboard, please copy manually:" : "无法复制到剪贴板，请手动复制：",
-    "\tfrom {address} by {user} at {time}\n" : "\t来自 {address} 由 {user} 在 {time}\n",
-    "line {line}" : "行 {line}",
-    "Download / Upload logs" : "下载 / 上传日志"
+    "\tfrom {address} by {user} at {time}\n" : "\t来自 {address} 由 {user} 在 {time}\n"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
