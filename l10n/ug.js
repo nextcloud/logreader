@@ -74,8 +74,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "يېڭى خاتىرە تۈرلىرىنى ئېلىپ كېتەلمىدى (مۇلازىمېتىرنى ئىشلەتكىلى بولمايدۇ)",
     "Could not fetch new entries" : "يېڭى تۈرلەرنى ئېلىپ كېلەلمىدى",
     "Could not copy to clipboard, please copy manually:" : "چاپلاش تاختىسىغا كۆچۈرگىلى بولمايدۇ ، قولدا كۆچۈرۈڭ:",
-    "\tfrom {address} by {user} at {time}\n" : "\t{address} from دىن {user} تەرىپىدىن {time}\n",
-    "line {line}" : "line {line}",
-    "Download / Upload logs" : "خاتىرە چۈشۈرۈش / يۈكلەش"
+    "\tfrom {address} by {user} at {time}\n" : "\t{address} from دىن {user} تەرىپىدىن {time}\n"
 },
 "nplurals=2; plural=(n != 1);");

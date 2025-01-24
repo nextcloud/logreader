@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Nie można pobrać nowych wpisów dziennika (serwer niedostępny)",
     "Could not fetch new entries" : "Nie udało się pobrać nowych wpisów",
     "Could not copy to clipboard, please copy manually:" : "Nie można skopiować do schowka, skopiuj ręcznie:",
-    "\tfrom {address} by {user} at {time}\n" : "\tz {address} przez: {user} o {time}\n",
-    "line {line}" : "linia {line}",
-    "Download / Upload logs" : "Pobierz/prześlij logi"
+    "\tfrom {address} by {user} at {time}\n" : "\tz {address} przez: {user} o {time}\n"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

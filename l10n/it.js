@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Impossibile recuperare nuove voci del log (server non disponibile)",
     "Could not fetch new entries" : "Impossibile recuperare nuove voci",
     "Could not copy to clipboard, please copy manually:" : "Impossibile copiare negli appunti, copialo a mano:",
-    "\tfrom {address} by {user} at {time}\n" : "\tdal {address} da {user} alle {time}\n",
-    "line {line}" : "riga {line}",
-    "Download / Upload logs" : "Log di download / upload"
+    "\tfrom {address} by {user} at {time}\n" : "\tdal {address} da {user} alle {time}\n"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

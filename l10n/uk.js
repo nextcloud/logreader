@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Не вдалося отримати нові записи журналу (сервер не відповідає)",
     "Could not fetch new entries" : "Не вдалося отримати нові записи журналу",
     "Could not copy to clipboard, please copy manually:" : "Не вдалося скопіювати до буферу обміну. Будь ласка, скопіюйте вручну:",
-    "\tfrom {address} by {user} at {time}\n" : "\tвід {address} користувач {user} о {time}\n",
-    "line {line}" : "рядок {line}",
-    "Download / Upload logs" : "Отримати/надіслати журнал"
+    "\tfrom {address} by {user} at {time}\n" : "\tвід {address} користувач {user} о {time}\n"
 },
 "nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);");

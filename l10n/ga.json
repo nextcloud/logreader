@@ -74,8 +74,6 @@
     "Could not fetch new log entries (server unavailable)" : "Níorbh fhéidir iontrálacha loga nua a fháil (níl an freastalaí ar fáil)",
     "Could not fetch new entries" : "Níorbh fhéidir iontrálacha nua a fháil",
     "Could not copy to clipboard, please copy manually:" : "Níorbh fhéidir cóip a dhéanamh chuig an ngearrthaisce, cóipeáil de láimh le do thoil:",
-    "\tfrom {address} by {user} at {time}\n" : "\t ó {seoladh} le {úsáideoir} ag {time}\n",
-    "line {line}" : "líne {line}",
-    "Download / Upload logs" : "Íoslódáil / Uaslódáil logaí"
+    "\tfrom {address} by {user} at {time}\n" : "\t ó {seoladh} le {úsáideoir} ag {time}\n"
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
 }

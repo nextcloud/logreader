@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Non foi posíbel recuperar as novas entradas do rexistro (o servidor non está dispoñíbel)",
     "Could not fetch new entries" : "Non foi posíbel recuperar as novas entradas",
     "Could not copy to clipboard, please copy manually:" : "Non foi posíbel copialo no portapapeis, cópieo manualmente:",
-    "\tfrom {address} by {user} at {time}\n" : "\tdnde {address} por {user} ás {time}\n",
-    "line {line}" : "liña {line}",
-    "Download / Upload logs" : "Descargar / enviar rexistros"
+    "\tfrom {address} by {user} at {time}\n" : "\tdnde {address} por {user} ás {time}\n"
 },
 "nplurals=2; plural=(n != 1);");

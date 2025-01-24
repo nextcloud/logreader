@@ -44,8 +44,6 @@
     "Could not fetch new log entries (server unavailable)" : "Ni mogoče pridobiti novih vnosov (strežnik ni na voljo)",
     "Could not fetch new entries" : "Ni mogoče pridobiti novih vnosov",
     "Could not copy to clipboard, please copy manually:" : "Kopiranje v odložišče ni mogoče, poskusite kopirati ročno:",
-    "\tfrom {address} by {user} at {time}\n" : "\tz naslova {address}, uporabnik {user} ob {time}\n",
-    "line {line}" : "vrstica {line}",
-    "Download / Upload logs" : "Prejmi / Pošlji dnevniške zapise"
+    "\tfrom {address} by {user} at {time}\n" : "\tz naslova {address}, uporabnik {user} ob {time}\n"
 },"pluralForm" :"nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);"
 }

@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Kan ikke hente nye loggoppføringer (server utilgjengelig)",
     "Could not fetch new entries" : "Kunne ikke hente nye oppføringer",
     "Could not copy to clipboard, please copy manually:" : "Kunne ikke kopiere til utklippstavlen, vennligst kopier manuelt:",
-    "\tfrom {address} by {user} at {time}\n" : "\tfra {address} av {user} kl. {time}\n",
-    "line {line}" : "linje {line}",
-    "Download / Upload logs" : "Last ned / last opp logger"
+    "\tfrom {address} by {user} at {time}\n" : "\tfra {address} av {user} kl. {time}\n"
 },
 "nplurals=2; plural=(n != 1);");

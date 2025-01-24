@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "無法擷取新紀錄項目（伺服器不可用）",
     "Could not fetch new entries" : "無法擷取新項目",
     "Could not copy to clipboard, please copy manually:" : "無法複製到剪貼簿，請手動複製：",
-    "\tfrom {address} by {user} at {time}\n" : "\t來自 {address} 由 {user} 於 {time}\n",
-    "line {line}" : "行 {line}",
-    "Download / Upload logs" : "下載 / 上傳紀錄檔"
+    "\tfrom {address} by {user} at {time}\n" : "\t來自 {address} 由 {user} 於 {time}\n"
 },
 "nplurals=1; plural=0;");
