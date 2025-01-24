@@ -71,8 +71,6 @@
     "Could not fetch new log entries (server unavailable)" : "No s'han pogut obtenir entrades de registre noves (servidor no disponible)",
     "Could not fetch new entries" : "No s'han pogut obtenir entrades noves",
     "Could not copy to clipboard, please copy manually:" : "No s'ha pogut copiar al porta-retalls, copieu-lo manualment:",
-    "\tfrom {address} by {user} at {time}\n" : "\tde {address} per {user} a les {time}\n",
-    "line {line}" : "línia {line}",
-    "Download / Upload logs" : "Baixada/pujada de registres"
+    "\tfrom {address} by {user} at {time}\n" : "\tde {address} per {user} a les {time}\n"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

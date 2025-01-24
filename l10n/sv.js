@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Kunde inte hämta nya loggposter (servern är inte tillgänglig)",
     "Could not fetch new entries" : "Kunde inte hämta nya poster",
     "Could not copy to clipboard, please copy manually:" : "Kunde inte kopiera till urklipp, kopiera manuellt:",
-    "\tfrom {address} by {user} at {time}\n" : "\tfrån {address} av {user} vid {time}\n",
-    "line {line}" : "Rad {line}",
-    "Download / Upload logs" : "Ladda ner / ladda upp loggar"
+    "\tfrom {address} by {user} at {time}\n" : "\tfrån {address} av {user} vid {time}\n"
 },
 "nplurals=2; plural=(n != 1);");

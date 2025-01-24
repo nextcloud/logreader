@@ -74,8 +74,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Nun se pudo dir en cata de les entraes nueves (el sirvidor nun ta disponible)",
     "Could not fetch new entries" : "Nun se pudo dir en cata de les entraes nueves",
     "Could not copy to clipboard, please copy manually:" : "Nun se pudo copiar nel cartafueyu, copia manualmente:",
-    "\tfrom {address} by {user} at {time}\n" : "\tde {address} por {user} a la hora: {time}\n",
-    "line {line}" : "llinia {line}",
-    "Download / Upload logs" : "Rexistros de descarga/xuba"
+    "\tfrom {address} by {user} at {time}\n" : "\tde {address} por {user} a la hora: {time}\n"
 },
 "nplurals=2; plural=(n != 1);");

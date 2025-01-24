@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Ezin izan da log sarrera berririk eskuratu (zerbitzaria ez dago erabilgarri)",
     "Could not fetch new entries" : "Ezin izan da sarrera berririk eskuratu",
     "Could not copy to clipboard, please copy manually:" : "Ezin izan da arbelera kopiatu, mesedez kopiatu eskuz:",
-    "\tfrom {address} by {user} at {time}\n" : "\t{address}(e)tik {user}(r)engatik {time} unean\n",
-    "line {line}" : "{line} lerroa",
-    "Download / Upload logs" : "Deskargatu / Igo erregistroak"
+    "\tfrom {address} by {user} at {time}\n" : "\t{address}(e)tik {user}(r)engatik {time} unean\n"
 },
 "nplurals=2; plural=(n != 1);");

@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Yeni günlük kayıtları alınamadı (sunucuya erişilemedi)",
     "Could not fetch new entries" : "Yeni kayıtlar alınamadı",
     "Could not copy to clipboard, please copy manually:" : "Panoya kopyalanamadı. Lütfen el ile kopyalayın:",
-    "\tfrom {address} by {user} at {time}\n" : "\t{address} adresinden {user} tarafından {time} saatinde\n",
-    "line {line}" : "{line}. satır",
-    "Download / Upload logs" : "Günlüğü indir / yükle"
+    "\tfrom {address} by {user} at {time}\n" : "\t{address} adresinden {user} tarafından {time} saatinde\n"
 },
 "nplurals=2; plural=(n > 1);");

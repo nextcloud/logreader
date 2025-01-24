@@ -76,8 +76,6 @@ OC.L10N.register(
     "Could not fetch new log entries (server unavailable)" : "Impossible de récupérer les nouvelles entrées du journal (serveur indisponible)",
     "Could not fetch new entries" : "Impossible de récupérer les nouvelles entrées",
     "Could not copy to clipboard, please copy manually:" : "Impossible de copier dans le presse-papiers, veuillez copier manuellement :",
-    "\tfrom {address} by {user} at {time}\n" : "\tde {address} par {user} à {time}\n",
-    "line {line}" : "ligne {line}",
-    "Download / Upload logs" : "Téléchargement / Téléversement des journaux"
+    "\tfrom {address} by {user} at {time}\n" : "\tde {address} par {user} à {time}\n"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
