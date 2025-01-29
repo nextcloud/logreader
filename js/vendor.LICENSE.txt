@@ -9,35 +9,31 @@ version: 0.1.10
 license: MIT
 
 @nextcloud/auth
-version: 2.2.1
+version: 2.4.0
 license: GPL-3.0-or-later
 
 @nextcloud/axios
-version: 2.4.0
-license: GPL-3.0
-
-@nextcloud/browser-storage
-version: 0.3.0
+version: 2.5.1
 license: GPL-3.0-or-later
 
-@nextcloud/calendar-js
-version: 6.0.1
-license: AGPL-3.0-or-later
+@nextcloud/browser-storage
+version: 0.4.0
+license: GPL-3.0-or-later
 
 @nextcloud/capabilities
-version: 1.1.0
+version: 1.2.0
 license: GPL-3.0-or-later
 
 @nextcloud/dialogs
-version: 5.0.3
-license: GPL-3.0-or-later
+version: 5.3.8
+license: AGPL-3.0-or-later
 
 @nextcloud/event-bus
-version: 3.1.0
+version: 3.3.1
 license: GPL-3.0-or-later
 
 @nextcloud/initial-state
-version: 2.1.0
+version: 2.2.0
 license: GPL-3.0-or-later
 
 @nextcloud/l10n
@@ -52,40 +48,48 @@ license: GPL-3.0-or-later
 version: 2.2.0
 license: GPL-3.0-or-later
 
+@nextcloud/timezones
+version: 0.1.1
+license: AGPL-3.0-or-later
+
 @nextcloud/vue
-version: 8.3.0
-license: AGPL-3.0
+version: 8.22.0
+license: AGPL-3.0-or-later
 
 @nextcloud/vue-select
-version: 3.24.0
+version: 3.25.1
 license: MIT
 
 @vue/devtools-api
 version: 6.5.0
 license: MIT
 
+@vue/reactivity
+version: 3.5.13
+license: MIT
+
+@vue/runtime-core
+version: 3.5.13
+license: MIT
+
+@vue/shared
+version: 3.5.13
+license: MIT
+
 @vueuse/components
-version: 10.2.1
+version: 11.3.0
 license: MIT
 
 @vueuse/core
-version: 10.2.1
+version: 11.3.0
 license: MIT
 
 @vueuse/shared
-version: 10.2.1
+version: 11.3.0
 license: MIT
 
 axios
-version: 1.6.2
-license: MIT
-
-base64-js
-version: 1.5.1
-license: MIT
-
-buffer
-version: 6.0.3
+version: 1.7.9
 license: MIT
 
 charenc
@@ -93,7 +97,7 @@ version: 0.0.2
 license: BSD-3-Clause
 
 core-js
-version: 3.33.0
+version: 3.37.0
 license: MIT
 
 crypt
@@ -105,11 +109,11 @@ version: 0.2.7
 license: MIT
 
 debounce
-version: 2.0.0
+version: 2.2.0
 license: MIT
 
 dompurify
-version: 3.0.5
+version: 3.2.3
 license: (MPL-2.0 OR Apache-2.0)
 
 escape-html
@@ -125,16 +129,12 @@ version: 7.5.2
 license: MIT
 
 highlight.js
-version: 11.9.0
+version: 11.11.1
 license: BSD-3-Clause
 
 ical.js
-version: 1.5.0
+version: 2.1.0
 license: MPL-2.0
-
-ieee754
-version: 1.2.1
-license: BSD-3-Clause
 
 is-buffer
 version: 1.1.6
@@ -172,12 +172,8 @@ pinia
 version: 2.1.7
 license: MIT
 
-process
-version: 0.11.10
-license: MIT
-
 semver
-version: 7.5.4
+version: 7.6.3
 license: ISC
 
 striptags
@@ -192,16 +188,12 @@ toastify-js
 version: 1.12.0
 license: MIT
 
-uuid
-version: 9.0.0
-license: MIT
-
 vite-plugin-node-polyfills
-version: 0.15.0
+version: 0.22.0
 license: MIT
 
 vue
-version: 2.7.15
+version: 2.7.16
 license: MIT
 
 vue-demi
