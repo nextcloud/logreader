@@ -13,6 +13,9 @@ on:
   schedule:
     - cron: "5 2 * * 0"
 
+permissions:
+  contents: read
+
 jobs:
   update-nextcloud-ocp:
     runs-on: ubuntu-latest
@@ -20,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        branches: ['main', 'master', 'stable30', 'stable29', 'stable28']
+        branches: ['main', 'master', 'stable31', 'stable30', 'stable29']
 
     name: update-nextcloud-ocp-${{ matrix.branches }}
 
@@ -28,6 +31,7 @@ jobs:
       - id: checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          persist-credentials: false
           ref: ${{ matrix.branches }}
           submodules: true
         continue-on-error: true
