@@ -48,7 +48,7 @@ OC.L10N.register(
     "UTC time" : "UTC-Zeit",
     "Relative" : "Relativ",
     "Time format used for displaying the timestamp" : "Zeitformat, das zur Anzeige des Zeitstempels verwendet wird",
-    "(Local log files only support the \"raw\" time format)" : "(Lokale Protokolldateien unterstützen nur das „rohe“ Zeitformat)",
+    "(Local log files only support the \"raw\" time format)" : "(Lokale Protokolldateien unterstützen nur das \"rohe\" Zeitformat)",
     "Could not change date time format." : "Das Datum-Uhrzeit-Format konnte nicht geändert werden.",
     "Polling is disabled because server is not configured to log to file" : "Die Abfrage ist deaktiviert, da der Server nicht für die Protokollierung in eine Datei konfiguriert ist",
     "Polling (live view)" : "Abfrage (Echtzeitansicht)",
