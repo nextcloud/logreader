@@ -3,7 +3,7 @@
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
-	<div class="log-table">
+	<div ref="table" class="log-table" @scroll="debouncedHandleScrollPosition">
 		<LogDetailsModal v-if="currentRow"
 			:open.sync="isModalOpen"
 			:current-entry.sync="currentRow"
@@ -35,10 +35,17 @@
 					</td>
 				</tr>
 
-				<LogTableRow v-for="row, rowNumber in sortedRows"
-					:key="rowNumber"
-					:row="row"
-					@show-details="showDetailsForRow" />
+				<template v-for="(row, rowNumber) in sortedRows">
+					<tr v-if="checkIfDummy(rowNumber)" :key="rowNumber" class="dummy">
+						<td colspan="5" class="log-table__load-more">
+							{{ t('logreader', 'Loading older log entries') }}
+						</td>
+					</tr>
+					<LogTableRow v-else
+						:key="rowNumber"
+						:row="row"
+						@show-details="showDetailsForRow" />
+				</template>
 			</tbody>
 			<tfoot>
 				<tr v-if="sortedByTime !== 'ascending'">
@@ -59,10 +66,11 @@
 <script setup lang="ts">
 import type { ILogEntry, ISortingOptions } from '../../interfaces'
 
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
 import { useSettingsStore } from '../../store/settings'
 import { useLogStore } from '../../store/logging'
+import { debounce } from '../../utils/debounce'
 
 import IntersectionObserver from '../IntersectionObserver.vue'
 import LogDetailsModal from '../LogDetailsModal.vue'
@@ -110,6 +118,10 @@ const showDetailsForRow = (row: ILogEntry) => {
 }
 
 /**
+ * Reference to the table container, used to track current scroll position
+ */
+const table = ref<HTMLElement>()
+/**
  * Reference to the table body, used for keeping scroll position on loading more entries
  */
 const tableBody = ref<HTMLElement>()
@@ -146,6 +158,28 @@ const sortedRows = computed(() => {
 	sorted.sort((a, b) => order(byLevel, sortedByLevel.value, a, b) || order(byApp, sortedByApp.value, a, b) || order(byTime, sortedByTime.value, a, b))
 	return sorted
 })
+
+const debouncedHandleScrollPosition = debounce(handleScrollPosition, 200)
+
+const topLineIndex = ref(0)
+/**
+ * Track current scroll position
+ */
+function handleScrollPosition() {
+	topLineIndex.value = (table.value?.scrollTop ?? 0) / 42
+}
+
+/**
+ * Check how far is the row from current scroll position
+ * @param index row number
+ */
+function checkIfDummy(index) {
+	return index > topLineIndex.value + 100 || index < topLineIndex.value - 100
+}
+
+watch(sortedRows, () => {
+	handleScrollPosition()
+})
 </script>
 
 <style lang="scss" scoped>
@@ -158,6 +192,10 @@ const sortedRows = computed(() => {
 		width: calc(100% - 12px);
 		margin-inline: 6px;
 		table-layout: fixed;
+	}
+
+	.dummy {
+		height: 42px;
 	}
 
 	&__load-more {
