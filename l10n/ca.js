@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Logging" : "Registre",
     "Errors in the log" : "Errors en el registre",
+    "Failed to get an iterator for log entries: %s" : "No s'ha pogut obtenir un iterador per a les entrades de registre: %s",
     "No errors in the logs since %s" : "No hi ha errors als registres des del dia %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n error als registres des del dia %s","%n errors als registres des del dia %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n advertència als registres des del dia %s","%n avisos als registres des del dia %s"],
@@ -36,6 +37,7 @@ OC.L10N.register(
     "Time format" : "Format d'hora",
     "Live view" : "Visualització en directe",
     "Download/Upload logs" : "Baixada/pujada de registres",
+    "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "També podeu mostrar les entrades de registre copiades del porta-retalls enganxant-les a la vista de registre mitjançant: {keyboardShortcut}",
     "Download logs" : "Baixa els registres",
     "Show local log file" : "Mostra el fitxer de registre local",
     "Upload local log file to be displayed" : "Pujada del fitxer de registre local que es mostrarà",
@@ -70,6 +72,7 @@ OC.L10N.register(
     "Fatal" : "Crític",
     "Could not load log entries" : "No s'han pogut carregar les entrades de registre",
     "Clipboard" : "Porta-retalls",
+    "Could not parse clipboard content" : "No s'ha pogut analitzar el contingut del porta-retalls",
     "Could not fetch new log entries (server unavailable)" : "No s'han pogut obtenir entrades de registre noves (servidor no disponible)",
     "Could not fetch new entries" : "No s'han pogut obtenir entrades noves",
     "Could not copy to clipboard, please copy manually:" : "No s'ha pogut copiar al porta-retalls, copieu-lo manualment:",
