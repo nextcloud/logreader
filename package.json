@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.0.1",
-    "@nextcloud/eslint-config": "^8.4.1",
+    "@nextcloud/eslint-config": "^8.4.2",
     "@nextcloud/vite-config": "^1.5.2",
     "@pinia/testing": "^0.1.7",
     "@vitest/coverage-istanbul": "^3.0.6",
