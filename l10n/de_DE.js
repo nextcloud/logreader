@@ -14,7 +14,7 @@ OC.L10N.register(
     "Open log reader settings" : "Protokoll-Anzeigeeinstellungen öffnen",
     "Log reader settings" : "Protokoll-Anzeigeeinstellungen",
     "Currently the log file {file} is shown" : "Derzeit wird die Protokolldatei {file} angezeigt.",
-    "Show server log" : "Server-Protokoll anzeigen",
+    "Show server log" : "Serverprotokoll anzeigen",
     "Live view is disabled" : "Echtzeitanzeige ist deaktiviert",
     "No log file" : "Keine Protokolldatei",
     "File-based logging must be enabled to access logs from the Web UI." : "Für den Zugriff auf Protokolle über die Web-Benutzeroberfläche muss die dateibasierte Protokollierung aktiviert sein.",
