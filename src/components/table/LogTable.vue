@@ -3,7 +3,7 @@
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <template>
-	<div class="log-table">
+	<div ref="table" class="log-table" @scroll="debouncedHandleScrollPosition">
 		<LogDetailsModal v-if="currentRow"
 			:open.sync="isModalOpen"
 			:current-entry.sync="currentRow"
@@ -35,10 +35,13 @@
 					</td>
 				</tr>
 
-				<LogTableRow v-for="row, rowNumber in sortedRows"
-					:key="rowNumber"
-					:row="row"
-					@show-details="showDetailsForRow" />
+				<template v-for="(row, rowNumber) in sortedRows">
+					<tr v-if="row.showDummy" :key="rowNumber" class="log-table__dummy-row" />
+					<LogTableRow v-else
+						:key="rowNumber"
+						:row="row"
+						@show-details="showDetailsForRow" />
+				</template>
 			</tbody>
 			<tfoot>
 				<tr v-if="sortedByTime !== 'ascending'">
@@ -59,10 +62,11 @@
 <script setup lang="ts">
 import type { ILogEntry, ISortingOptions } from '../../interfaces'
 
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
 import { useSettingsStore } from '../../store/settings'
 import { useLogStore } from '../../store/logging'
+import { debounce } from '../../utils/debounce'
 
 import IntersectionObserver from '../IntersectionObserver.vue'
 import LogDetailsModal from '../LogDetailsModal.vue'
@@ -110,9 +114,25 @@ const showDetailsForRow = (row: ILogEntry) => {
 }
 
 /**
+ * Reference to the table container, used to track current scroll position
+ */
+const table = ref<HTMLElement>()
+/**
  * Reference to the table body, used for keeping scroll position on loading more entries
  */
 const tableBody = ref<HTMLElement>()
+
+/**
+ * Get index of the first visible row, to define visible scope around it
+ * Rest entries should be rendered as dummy nodes, to reduce load while render
+ */
+const firstVisibleRowIndex = ref(0)
+
+const handleScrollPosition = () => {
+	firstVisibleRowIndex.value = Math.floor((table.value?.scrollTop ?? 0) / 42)
+}
+
+const debouncedHandleScrollPosition = debounce(handleScrollPosition, 100)
 
 /**
  * Load older log entries and ensure that the view sticks at the previous top element
@@ -144,7 +164,17 @@ const sortedRows = computed(() => {
 	const order = (fn: SortLogFunction, type: string, a: ILogEntry, b: ILogEntry) => type === 'ascending' ? fn(a, b) : (type === 'descending' ? fn(b, a) : 0)
 
 	sorted.sort((a, b) => order(byLevel, sortedByLevel.value, a, b) || order(byApp, sortedByApp.value, a, b) || order(byTime, sortedByTime.value, a, b))
-	return sorted
+	return sorted.map((row, index) => ({
+		...row,
+		showDummy: index > firstVisibleRowIndex.value + 50 || index < firstVisibleRowIndex.value - 50,
+	}))
+})
+
+/**
+ * Recalculate the visible scope of log entries on list update
+ */
+watch(sortedRows, () => {
+	handleScrollPosition()
 })
 </script>
 
@@ -158,6 +188,10 @@ const sortedRows = computed(() => {
 		width: calc(100% - 12px);
 		margin-inline: 6px;
 		table-layout: fixed;
+	}
+
+	&__dummy-row {
+		height: 42px;
 	}
 
 	&__load-more {
