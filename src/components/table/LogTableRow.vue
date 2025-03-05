@@ -15,7 +15,8 @@
 				<div class="row-message__text">
 					<LogException v-if="row.exception" :exception="row.exception" />
 					<!-- Show log message if either there is no exception or a custom message was added -->
-					<div v-if="!row.exception || row.message !== row.exception.Message" class="row-message__text_message" :title="row.message">
+					<div v-if="!row.exception || (isExpanded && row.message !== row.exception.Message)"
+						 class="row-message__text_message" :title="row.message">
 						{{ row.message }}
 					</div>
 				</div>
@@ -117,6 +118,11 @@ const timestamp = computed(() => Date.parse(props.row.time))
  */
 const isExpanded = ref(false)
 
+// FIXME: as components reused, another row will be expanded during scroll, so should close on prop change
+watch(() => props.row, () => {
+	isExpanded.value = false
+})
+
 /**
  * Human readable and localized level name
  */
@@ -175,10 +181,10 @@ watch(isExpanded, () => resizeTabeRow)
 
 <style lang="scss" scoped>
 td {
-	display: table-cell;
+	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	vertical-align: top;
+	min-height: 42px;
 	padding-block-start: 4px;
 	padding-inline: 18px 0;
 }
@@ -215,7 +221,7 @@ td {
 }
 
 tr {
-	display: table-row;
+	display: flex;
 	&.expanded {
 		white-space: normal;
 
