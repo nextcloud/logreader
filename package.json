@@ -41,7 +41,6 @@
     "@nextcloud/typings": "^1.9.1",
     "@nextcloud/vue": "^8.23.1",
     "axios": "^1.8.1",
-    "date-fns": "^3.6.0",
     "highlight.js": "^11.11.1",
     "json-string-splitter": "^1.0.0",
     "pinia": "^2.3.1",
