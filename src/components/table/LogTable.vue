@@ -211,7 +211,7 @@ function onScroll() {
 .log-table {
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+	overflow: hidden;
 
 	&__table {
 		width: calc(100% - 12px);
@@ -248,6 +248,8 @@ function onScroll() {
 
 		:deep(th),
 		:deep(td) {
+			flex-shrink: 0;
+
 			// level column
 			&:nth-child(1) {
 				width: 108px;
@@ -263,7 +265,7 @@ function onScroll() {
 			}
 			// time column
 			&:nth-child(4) {
-				width: 168px;
+				width: 25ch; // "Mar 10, 2025, 12:00:00 PM" length
 			}
 			// actions column
 			&:last-child {
