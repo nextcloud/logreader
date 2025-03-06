@@ -16,7 +16,8 @@
 					<LogException v-if="row.exception" :exception="row.exception" />
 					<!-- Show log message if either there is no exception or a custom message was added -->
 					<div v-if="!row.exception || (isExpanded && row.message !== row.exception.Message)"
-						 class="row-message__text_message" :title="row.message">
+						class="row-message__text_message"
+						:title="row.message">
 						{{ row.message }}
 					</div>
 				</div>

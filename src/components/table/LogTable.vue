@@ -199,8 +199,10 @@ onBeforeUnmount(() => {
 	}
 })
 
+/**
+ * Update the first visible row index on scroll (max 0 to prevent negative index)
+ */
 function onScroll() {
-	// Max 0 to prevent negative index
 	firstVisibleRowIndex.value = Math.max(0, Math.round(tableRoot.value!.scrollTop / tableRowHeight.value))
 }
 </script>
