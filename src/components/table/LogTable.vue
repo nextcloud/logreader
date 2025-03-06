@@ -38,6 +38,7 @@
 				<LogTableRow v-for="(row, rowNumber) in renderedItems"
 					:key="rowNumber"
 					:row="row"
+					class="log-table__row"
 					@show-details="showDetailsForRow" />
 			</tbody>
 			<tfoot role="rowgroup" class="log-table__footer">
@@ -74,10 +75,6 @@ import LogSearch from '../LogSearch.vue'
 
 // Items to render before and after the visible area
 const bufferItems = 3
-// Fixed height of LogTableRow
-const itemHeight = 42
-// Fixed height of LogTableHeader
-const theadHeight = 44
 
 const settingsStore = useSettingsStore()
 const logStore = useLogStore()
@@ -165,8 +162,10 @@ const resizeObserver = ref<ResizeObserver | null>(null)
 const firstVisibleRowIndex = ref(0)
 const startIndex = computed(() => Math.max(0, firstVisibleRowIndex.value - bufferItems))
 
-const tableHeight = ref(0)
-const itemsInViewport = computed(() => Math.ceil((tableHeight.value - theadHeight) / itemHeight) + bufferItems * 2)
+const tableRootHeight = ref(0)
+const tableHeadHeight = ref(44)
+const tableRowHeight = ref(42)
+const itemsInViewport = computed(() => Math.ceil((tableRootHeight.value - tableHeadHeight.value) / tableRowHeight.value) + bufferItems * 2)
 
 const renderedItems = computed(() => sortedRows.value.slice(startIndex.value, startIndex.value + itemsInViewport.value))
 
@@ -176,14 +175,16 @@ const tbodyStyle = computed(() => {
 	const hiddenAfterItems = Math.min(sortedRows.value.length - startIndex.value, lastIndex)
 
 	return {
-		paddingTop: `${startIndex.value * itemHeight}px`,
-		paddingBottom: isOverScrolled ? 0 : `${hiddenAfterItems * itemHeight}px`,
+		paddingTop: `${startIndex.value * tableRowHeight.value}px`,
+		paddingBottom: isOverScrolled ? 0 : `${hiddenAfterItems * tableRowHeight.value}px`,
 	}
 })
 
 onMounted(() => {
 	resizeObserver.value = new ResizeObserver(debounce(() => {
-		tableHeight.value = tableRoot.value?.clientHeight ?? 0
+		tableRootHeight.value = tableRoot.value?.clientHeight ?? 0
+		tableHeadHeight.value = tableRoot.value?.querySelector('thead.log-table__header')?.clientHeight ?? 44
+		tableRowHeight.value = tableRoot.value?.querySelector('tr.log-table__row:not(.expanded)')?.clientHeight ?? 42
 		logger.debug('VirtualList resizeObserver updated')
 		onScroll()
 	}, 100))
@@ -200,7 +201,7 @@ onBeforeUnmount(() => {
 
 function onScroll() {
 	// Max 0 to prevent negative index
-	firstVisibleRowIndex.value = Math.max(0, Math.round(tableRoot.value!.scrollTop / itemHeight))
+	firstVisibleRowIndex.value = Math.max(0, Math.round(tableRoot.value!.scrollTop / tableRowHeight.value))
 }
 </script>
 
@@ -294,5 +295,8 @@ function onScroll() {
 		}
 	}
 
+	&__row {
+		min-height: 42px;
+	}
 }
 </style>
