@@ -52,7 +52,7 @@ OC.L10N.register(
     "Relative" : "Відносно",
     "Could not change live view setting." : "Не вдалося змінити налаштування перегляду оновлення в реальному часі.",
     "Polling is disabled because server is not configured to log to file" : "Надсилання запитів вимкнено, оскільки сервер не налаштовано зберігати журнал у файл.",
-    "Polling (live view)" : "Оновлення в рельному часі",
+    "Polling (live view)" : "Оновлення в реальному часі",
     "Could not set logging levels to show" : "Не вдалося встановити рівні показу журналу",
     "Filter logging levels" : "Фільтрувати журналювання за встановленим рівнем",
     "Could not set logging level" : "Не вдалося встановити рівень журналювання",
