@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+import type { AxiosRequestConfig, AxiosResponse } from '@nextcloud/axios'
 import type { IAppSettings, INextcloud22LogEntry } from './interfaces'
-import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
