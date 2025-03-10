@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { AxiosError } from 'axios'
+import type { AxiosError } from '@nextcloud/axios'
 import type { ILogEntry } from '../interfaces'
 
 import { defineStore } from 'pinia'
