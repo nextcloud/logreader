@@ -22,6 +22,7 @@ OC.L10N.register(
     "Upload local log file to be displayed" : "Laadi kohalik logifail kuvamiseks üles",
     "Time format used for displaying the timestamp" : "Ajavorming ajatempli kuvamisel",
     "Relative" : "Suhteline",
+    "Application" : "Rakendus",
     "Message" : "Sõnum",
     "Show details" : "Näita üksikasju",
     "Info" : "Info",
