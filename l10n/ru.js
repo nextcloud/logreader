@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Logging" : "Журналирование",
+    "Logging" : "Системный журнал",
     "Errors in the log" : "Ошибки в журнале",
     "Failed to get an iterator for log entries: %s" : "Не удалось получить итератор для записей журнала: %s",
     "No errors in the logs since %s" : "Журнал не содержит записей об произошедших ошибках начиная с %s",
