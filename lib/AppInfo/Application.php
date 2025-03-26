@@ -24,7 +24,9 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
-		$context->registerEventListener(BeforeMessageLoggedEvent::class, LogListener::class);
+		if (defined('OC_CONSOLE') && \OC_CONSOLE) {
+			$context->registerEventListener(BeforeMessageLoggedEvent::class, LogListener::class);
+		}
 		$context->registerService(Formatter::class, function (ContainerInterface $c) {
 			return new Formatter(\OC::$SERVERROOT);
 		});
