@@ -38,14 +38,10 @@ class LogListener implements IEventListener {
 	private ?Console $console;
 
 	public function __construct(Formatter $formatter, SystemConfig $config) {
-		if (defined('OC_CONSOLE') && \OC_CONSOLE) {
-			$level = getenv('OCC_LOG');
-			if ($level) {
-				$terminal = new Terminal();
-				$this->console = new Console($formatter, $config, $level, $terminal->getWidth());
-			} else {
-				$this->console = null;
-			}
+		$level = getenv('OCC_LOG');
+		if ($level) {
+			$terminal = new Terminal();
+			$this->console = new Console($formatter, $config, $level, $terminal->getWidth());
 		} else {
 			$this->console = null;
 		}
