@@ -34,7 +34,7 @@
     "Set log level" : "ログレベルをセット",
     "Time format" : "時間形式",
     "Live view" : "ライブビュー",
-    "Download/Upload logs" : "Download/Upload logs",
+    "Download/Upload logs" : "ダウロード/アップロードログ",
     "Ctrl" : "Ctrl",
     "Could not parse local log file" : "ローカルログファイルを解析できませんでした",
     "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "クリップボードからコピーしたログエントリを表示するには、{keyboardShortcut}を使用してログビューに貼り付けます",
