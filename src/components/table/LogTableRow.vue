@@ -14,8 +14,7 @@
 			<div class="row-message__container" :class="{ 'row-message__container--expanded': isExpanded }">
 				<div class="row-message__text">
 					<LogException v-if="row.exception" :exception="row.exception" />
-					<!-- Show log message if either there is no exception or a custom message was added -->
-					<div v-if="!row.exception || row.message !== row.exception.Message" class="row-message__text_message" :title="row.message">
+					<div v-if="showLogMessage" class="row-message__text_message" :title="row.message">
 						{{ row.message }}
 					</div>
 				</div>
@@ -116,6 +115,13 @@ const timestamp = computed(() => Date.parse(props.row.time))
  * Whether the row is expanded to show an overflowing log message
  */
 const isExpanded = ref(false)
+
+/**
+ * Show log message if either there is no exception or a custom message was added (at expanded view)
+ */
+const showLogMessage = computed(() => {
+	return !props.row.exception || (props.row.message !== props.row.exception.Message && isExpanded.value)
+})
 
 /**
  * Human readable and localized level name
