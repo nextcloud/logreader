@@ -8,8 +8,8 @@
 			:open.sync="isModalOpen"
 			:current-entry.sync="currentRow"
 			:log-entries="sortedRows" />
-		<table class="log-table__table">
-			<thead>
+		<table ref="tableRoot" class="log-table__table">
+			<thead role="rowgroup" class="log-table__header">
 				<tr>
 					<LogTableHeader :name="t('logreader', 'Level')"
 						:sorted.sync="sortedByLevel" />
@@ -23,7 +23,7 @@
 					<th><span class="hidden-visually">{{ t('logreader', 'Log entry actions') }}</span></th>
 				</tr>
 			</thead>
-			<tbody ref="tableBody">
+			<tbody ref="tableBody" :style="tbodyStyle" class="log-table__body">
 				<tr v-if="sortedByTime === 'ascending'">
 					<td colspan="5" class="log-table__load-more">
 						<IntersectionObserver v-if="logStore.hasRemainingEntries" @intersection="loadMore">
@@ -35,12 +35,13 @@
 					</td>
 				</tr>
 
-				<LogTableRow v-for="row in sortedRows"
+				<LogTableRow v-for="row in renderedItems"
 					:key="row.id"
 					:row="row"
+					class="log-table__row"
 					@show-details="showDetailsForRow" />
 			</tbody>
-			<tfoot>
+			<tfoot role="rowgroup" class="log-table__footer">
 				<tr v-if="sortedByTime !== 'ascending'">
 					<td colspan="5" class="log-table__load-more">
 						<IntersectionObserver v-if="logStore.hasRemainingEntries" @intersection="loadMore">
@@ -59,16 +60,21 @@
 <script setup lang="ts">
 import type { ILogEntry, ISortingOptions } from '../../interfaces'
 
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, onMounted, onBeforeUnmount, ref } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
 import { useSettingsStore } from '../../store/settings'
 import { useLogStore } from '../../store/logging'
+import { debounce } from '../../utils/debounce'
+import { logger } from '../../utils/logger'
 
 import IntersectionObserver from '../IntersectionObserver.vue'
 import LogDetailsModal from '../LogDetailsModal.vue'
 import LogTableHeader from './LogTableHeader.vue'
 import LogTableRow from './LogTableRow.vue'
 import LogSearch from '../LogSearch.vue'
+
+// Items to render before and after the visible area
+const bufferItems = 3
 
 const settingsStore = useSettingsStore()
 const logStore = useLogStore()
@@ -110,8 +116,9 @@ const showDetailsForRow = (row: ILogEntry) => {
 }
 
 /**
- * Reference to the table body, used for keeping scroll position on loading more entries
+ * Reference to the table elements, used for keeping scroll position on loading more entries
  */
+const tableRoot = ref<HTMLElement>()
 const tableBody = ref<HTMLElement>()
 
 /**
@@ -146,18 +153,76 @@ const sortedRows = computed(() => {
 	sorted.sort((a, b) => order(byLevel, sortedByLevel.value, a, b) || order(byApp, sortedByApp.value, a, b) || order(byTime, sortedByTime.value, a, b))
 	return sorted
 })
+
+/**
+ * Virtual scrolling logic
+ */
+const resizeObserver = ref<ResizeObserver | null>(null)
+
+const firstVisibleRowIndex = ref(0)
+const startIndex = computed(() => Math.max(0, firstVisibleRowIndex.value - bufferItems))
+
+const tableRootHeight = ref(0)
+const tableHeadHeight = ref(44)
+const tableRowHeight = ref(42)
+const itemsInViewport = computed(() => Math.ceil((tableRootHeight.value - tableHeadHeight.value) / tableRowHeight.value) + bufferItems * 2)
+
+const renderedItems = computed(() => sortedRows.value.slice(startIndex.value, startIndex.value + itemsInViewport.value))
+
+const tbodyStyle = computed(() => {
+	const isOverScrolled = startIndex.value + itemsInViewport.value > sortedRows.value.length
+	const lastIndex = sortedRows.value.length - startIndex.value - itemsInViewport.value
+	const hiddenAfterItems = Math.min(sortedRows.value.length - startIndex.value, lastIndex)
+
+	return {
+		paddingTop: `${startIndex.value * tableRowHeight.value}px`,
+		paddingBottom: isOverScrolled ? 0 : `${hiddenAfterItems * tableRowHeight.value}px`,
+	}
+})
+
+onMounted(() => {
+	resizeObserver.value = new ResizeObserver(debounce(() => {
+		tableRootHeight.value = tableRoot.value?.clientHeight ?? 0
+		tableHeadHeight.value = tableRoot.value?.querySelector('thead.log-table__header')?.clientHeight ?? 44
+		tableRowHeight.value = tableRoot.value?.querySelector('tr.log-table__row:not(.expanded)')?.clientHeight ?? 42
+		logger.debug('ResizeObserver for virtual list updated', { rendered: renderedItems.value.length, total: filteredRows.value.length })
+		onScroll()
+	}, 100))
+
+	resizeObserver.value.observe(tableRoot.value!)
+	tableRoot.value!.addEventListener('scroll', onScroll)
+})
+
+onBeforeUnmount(() => {
+	if (resizeObserver.value) {
+		resizeObserver.value.disconnect()
+	}
+})
+
+/**
+ * Update the first visible row index on scroll (max 0 to prevent negative index)
+ */
+function onScroll() {
+	firstVisibleRowIndex.value = Math.max(0, Math.round(tableRoot.value!.scrollTop / tableRowHeight.value))
+}
 </script>
 
 <style lang="scss" scoped>
 .log-table {
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+	overflow: hidden;
 
 	&__table {
 		width: calc(100% - 12px);
 		margin-inline: 6px;
 		table-layout: fixed;
+
+		// Necessary for virtual scroll optimized rendering
+		display: block;
+		overflow: auto;
+		height: 100%;
+		will-change: scroll-position;
 	}
 
 	&__load-more {
@@ -165,30 +230,49 @@ const sortedRows = computed(() => {
 		padding-block: 4px;
 	}
 
-	th, td {
-		// level column
-		&:nth-child(1) {
-			width: 108px;
+	&__header,
+	&__body,
+	&__footer {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		:deep(tr) {
+			display: flex;
 		}
-		// app column
-		&:nth-child(2) {
-			width: 168px;
-		}
-		// message column
-		&:nth-child(3) {
-			width: 418px;
-		}
-		// time column
-		&:nth-child(4) {
-			width: 168px;
-		}
-		// actions column
-		&:last-child {
-			width: 62px; // 44px button + 18px padding
+
+		:deep(th),
+		:deep(td) {
+			flex-shrink: 0;
+
+			// level column
+			&:nth-child(1) {
+				width: 108px;
+			}
+			// app column
+			&:nth-child(2) {
+				width: 168px;
+			}
+			// message column
+			&:nth-child(3) {
+				width: 418px;
+				flex-grow: 1;
+			}
+			// time column
+			&:nth-child(4) {
+				width: 25ch; // "Mar 10, 2025, 12:00:00 PM" length
+			}
+			// actions column
+			&:last-child {
+				width: 62px; // 44px button + 18px padding
+			}
 		}
 	}
 
-	thead {
+	&__header {
+		position: sticky;
+		top: 0;
+		z-index: 1;
 		min-height: 44px;
 
 		:deep(th) {
@@ -200,7 +284,7 @@ const sortedRows = computed(() => {
 		}
 	}
 
-	tbody {
+	&__body {
 		// Some spacing for first row
 		&:before {
 			content: '\200c';
@@ -210,5 +294,8 @@ const sortedRows = computed(() => {
 		}
 	}
 
+	&__row {
+		min-height: 42px;
+	}
 }
 </style>

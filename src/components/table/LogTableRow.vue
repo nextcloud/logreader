@@ -181,10 +181,10 @@ watch(isExpanded, () => resizeTabeRow)
 
 <style lang="scss" scoped>
 td {
-	display: table-cell;
+	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	vertical-align: top;
+	min-height: 42px;
 	padding-block-start: 4px;
 	padding-inline: 18px 0;
 }
@@ -221,7 +221,7 @@ td {
 }
 
 tr {
-	display: table-row;
+	display: flex;
 	&.expanded {
 		white-space: normal;
 
