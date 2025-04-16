@@ -24,8 +24,8 @@
 				</tr>
 			</thead>
 			<tbody ref="tableBody" :style="tbodyStyle" class="log-table__body">
-				<tr v-if="sortedByTime === 'ascending'">
-					<td colspan="5" class="log-table__load-more">
+				<tr v-if="sortedByTime === 'ascending'" class="log-table__load-more">
+					<td>
 						<IntersectionObserver v-if="logStore.hasRemainingEntries" @intersection="loadMore">
 							{{ t('logreader', 'Loading older log entries') }}
 						</IntersectionObserver>
@@ -42,8 +42,8 @@
 					@show-details="showDetailsForRow" />
 			</tbody>
 			<tfoot role="rowgroup" class="log-table__footer">
-				<tr v-if="sortedByTime !== 'ascending'">
-					<td colspan="5" class="log-table__load-more">
+				<tr v-if="sortedByTime !== 'ascending'" class="log-table__load-more">
+					<td>
 						<IntersectionObserver v-if="logStore.hasRemainingEntries" @intersection="loadMore">
 							{{ t('logreader', 'Loading older log entries') }}
 						</IntersectionObserver>
@@ -226,8 +226,13 @@ function onScroll() {
 	}
 
 	&__load-more {
-		text-align: center;
-		padding-block: 4px;
+		display: flex;
+
+		:deep(td) {
+			flex-basis: 100%;
+			text-align: center;
+			padding-block: 4px;
+		}
 	}
 
 	&__header,
