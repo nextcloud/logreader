@@ -35,8 +35,8 @@
 					</td>
 				</tr>
 
-				<LogTableRow v-for="row, rowNumber in sortedRows"
-					:key="rowNumber"
+				<LogTableRow v-for="row in sortedRows"
+					:key="row.id"
 					:row="row"
 					@show-details="showDetailsForRow" />
 			</tbody>
