@@ -102,6 +102,8 @@ export type IRawLogEntry = INextcloud14LogEntry | INextcloud22LogEntry
  * Fixed version of the log entry where the exception has its own field of type IException
  */
 export interface ILogEntry extends Omit<INextcloud22LogEntry, 'exception'> {
+	/** Unique ID, appended to each iterator element (see LogController#poll) */
+	id: string
 	/** Full exception with trace (if applicable) */
 	exception?: IException
 }
