@@ -23,7 +23,7 @@
     "happy-dom": "^17.4.4",
     "typescript": "^5.8.3",
     "vite": "^6.3.2",
-    "vitest": "^3.0.2"
+    "vitest": "^3.1.2"
   },
   "engines": {
     "node": "^20.0.0",
