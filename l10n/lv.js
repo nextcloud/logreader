@@ -4,6 +4,7 @@ OC.L10N.register(
     "Logging" : "Žurnalēšana",
     "Log Reader" : "Žurnālierakstu lasītājs",
     "Open log reader settings" : "Atvērt žurnālu lasītāja iestatījumus",
+    "Log reader settings" : "Žurnālu lasītāja iestatījumi",
     "Show server log" : "Skatīt servera žurnālu",
     "Level" : "Līmenis",
     "App" : "Lietotne",
