@@ -33,7 +33,7 @@
     "@highlightjs/vue-plugin": "^1.0.2",
     "@mdi/svg": "^7.4.47",
     "@nextcloud/axios": "^2.5.0",
-    "@nextcloud/dialogs": "^6.2.0",
+    "@nextcloud/dialogs": "^6.3.0",
     "@nextcloud/initial-state": "^2.2.0",
     "@nextcloud/l10n": "^3.2.0",
     "@nextcloud/logger": "^3.0.2",
