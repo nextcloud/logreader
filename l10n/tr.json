@@ -16,7 +16,7 @@
     "Show server log" : "Sunucu günlüğünü görüntüle",
     "Live view is disabled" : "Canlı görünüm kapalı",
     "No log file" : "Herhangi bir günlük dosyası yok",
-    "File-based logging must be enabled to access logs from the Web UI." : "İnternet kullanıcı arayüzünden günlüklere erişebilmek için dosya tabanlı günlük kaydı kullanıma alınmalıdır.",
+    "File-based logging must be enabled to access logs from the Web UI." : "İnternet kullanıcı arayüzünden günlüklere erişebilmek için dosya tabanlı günlük kaydı etkinleştirilmelidir.",
     "Log entry successfully copied" : "Günlük kaydı kopyalandı",
     "Level" : "Düzey",
     "App" : "Uygulama",
