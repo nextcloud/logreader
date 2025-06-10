@@ -39,7 +39,7 @@ OC.L10N.register(
     "Download/Upload logs" : "Protokolle herunter-/hochladen",
     "Ctrl" : "Strg",
     "Could not parse local log file" : "Lokale Protokolldatei konnte nicht verarbeitet werden",
-    "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Es können auch Protokolleinträge angezeigt werden, aus der Zwischenablage kopiert wurden, indem du sie in der Protokollansicht einfügst mit: {keyboardShortcut}",
+    "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Es können auch Protokolleinträge angezeigt werden, die aus der Zwischenablage kopiert wurden, indem du sie in der Protokollansicht einfügst mit: {keyboardShortcut}",
     "Download logs" : "Protokolldatei herunterladen",
     "Show local log file" : "Lokale Protokolldatei anzeigen",
     "Upload local log file to be displayed" : "Lokale Protokolldatei zum Anzeigen hochladen",
