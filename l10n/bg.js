@@ -1,7 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
-    "Logging" : "Регистриране",
+    "Logging" : "Регистри",
     "Log Reader" : "Четец на журнал",
     "A log reader for Nextcloud" : "Четец на журнал за Nextcloud",
     "Log reader for Nextcloud" : "Четец на журнал за Nextcloud",
