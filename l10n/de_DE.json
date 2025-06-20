@@ -37,7 +37,7 @@
     "Download/Upload logs" : "Protokolle herunter-/hochladen",
     "Ctrl" : "Strg",
     "Could not parse local log file" : "Lokale Protokolldatei konnte nicht verarbeitet werden",
-    "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Sie können auch Protokolleinträge anzeigen, die von Ihrer Zwischenablage kopiert wurden, indem Sie sie in der Protokollansicht einfügen mit: {keyboardShortcut}",
+    "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Es können auch Protokolleinträge angezeigt werden, die von Ihrer Zwischenablage kopiert wurden, indem Sie sie in der Protokollansicht einfügen mit: {keyboardShortcut}",
     "Download logs" : "Protokolldatei herunterladen",
     "Show local log file" : "Lokale Protokolldatei anzeigen",
     "Upload local log file to be displayed" : "Lokale Protokolldatei zur Anzeige hochladen",
