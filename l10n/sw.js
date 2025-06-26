@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "App" : "App",
     "Time" : "Muda",
     "Ctrl" : "Dhibiti",
     "Application" : "Maombi",
