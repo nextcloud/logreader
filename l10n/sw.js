@@ -6,6 +6,7 @@ OC.L10N.register(
     "Ctrl" : "Dhibiti",
     "Application" : "Maombi",
     "Show details" : "Onesha maelezo",
+    "Warning" : "Onyo",
     "Error" : "Hitilafu"
 },
 "nplurals=2; plural=(n != 1);");
