@@ -1,8 +1,13 @@
 { "translations": {
     "Logging" : "Евидентирање",
+    "Errors in the log" : "Грешки во записникот",
+    "No errors in the logs since %s" : "Не постојат грешки во записникот од %s",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n грешка во записникот од %s","%n грешки во записникот од %s"],
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n предупредување во записникот од %s","%n предупредувања во записникот од %s"],
     "Log Reader" : "Читач на записи",
     "A log reader for Nextcloud" : "Читач на записи со евиденција за Nextcloud",
     "Log reader for Nextcloud" : "Читач на записи со евиденција за Nextcloud",
+    "Log reader" : "Читач на записи",
     "Level" : "Ниво",
     "App" : "Апликација",
     "Time" : "Време",
