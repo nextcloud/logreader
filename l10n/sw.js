@@ -6,6 +6,7 @@ OC.L10N.register(
     "Ctrl" : "Dhibiti",
     "Application" : "Maombi",
     "Show details" : "Onesha maelezo",
+    "Info" : "Info",
     "Warning" : "Onyo",
     "Error" : "Hitilafu"
 },
