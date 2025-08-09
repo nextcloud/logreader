@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "App" : "App",
     "Time" : "Muda",
+    "Line {line}" : "Line {line}",
     "Ctrl" : "Dhibiti",
     "Application" : "Maombi",
     "Show details" : "Onesha maelezo",
