@@ -1,6 +1,8 @@
 OC.L10N.register(
     "logreader",
     {
+    "Time" : "Час",
+    "Message" : "Паведамленне",
     "Show details" : "Паказаць падрабязнасці",
     "Info" : "Інфармацыя",
     "Warning" : "Папярэджанне",
