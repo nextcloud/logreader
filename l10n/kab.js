@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "Ctrl" : "Ctrl",
     "Message" : "Izen",
     "Show details" : "Sken talqayt",
     "Warning" : "Alɣu",
