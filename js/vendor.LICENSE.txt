@@ -57,7 +57,7 @@ version: 8.30.0
 license: AGPL-3.0-or-later
 
 @nextcloud/vue-select
-version: 3.25.1
+version: 3.26.0
 license: MIT
 
 @vue/devtools-api
