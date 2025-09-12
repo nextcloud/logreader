@@ -6,7 +6,8 @@
 <template>
 	<th :aria-sort="ariaSort">
 		<div class="log-table-header__wrapper">
-			<NcButton v-if="sortable"
+			<NcButton
+				v-if="sortable"
 				:type="props.sorted ? 'secondary' : 'tertiary-no-background'"
 				:aria-label="name"
 				:aria-pressed="!!props.sorted"

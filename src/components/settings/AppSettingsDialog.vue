@@ -4,7 +4,8 @@
 -->
 
 <template>
-	<NcAppSettingsDialog :open="props.open"
+	<NcAppSettingsDialog
+		:open="props.open"
 		:show-navigation="true"
 		:name="t('logreader', 'Log reader settings')"
 		@update:open="onUpdateOpen">

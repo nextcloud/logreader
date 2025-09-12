@@ -4,7 +4,8 @@
 -->
 
 <template>
-	<NcModal :show="open"
+	<NcModal
+		:show="open"
 		size="large"
 		:has-previous="index > 0"
 		:has-next="index < logEntries.length - 1"
@@ -36,7 +37,8 @@
 						</template>
 						{{ t('logreader', 'Copy formatted entry') }}
 					</NcButton>
-					<NcButton v-if="currentEntry.exception"
+					<NcButton
+						v-if="currentEntry.exception"
 						class="log-details__btn"
 						@click="isExceptionExpanded = !isExceptionExpanded">
 						{{ isExceptionExpanded ? t('logreader', 'Hide exception details') : t('logreader', 'View exception details') }}

@@ -5,21 +5,25 @@
 
 <template>
 	<div class="log-table">
-		<LogDetailsModal v-if="currentRow"
+		<LogDetailsModal
+			v-if="currentRow"
 			:open.sync="isModalOpen"
 			:current-entry.sync="currentRow"
 			:log-entries="sortedRows" />
 		<table ref="tableRoot" class="log-table__table">
 			<thead role="rowgroup" class="log-table__header">
 				<tr>
-					<LogTableHeader :name="t('logreader', 'Level')"
+					<LogTableHeader
+						:name="t('logreader', 'Level')"
 						:sorted.sync="sortedByLevel" />
-					<LogTableHeader :name="t('logreader', 'Application')"
+					<LogTableHeader
+						:name="t('logreader', 'Application')"
 						:sorted.sync="sortedByApp" />
 					<LogTableHeader :name="t('logreader', 'Message')" :sortable="false">
 						<LogSearch />
 					</LogTableHeader>
-					<LogTableHeader :name="t('logreader', 'Time')"
+					<LogTableHeader
+						:name="t('logreader', 'Time')"
 						:sorted.sync="sortedByTime" />
 					<th><span class="hidden-visually">{{ t('logreader', 'Log entry actions') }}</span></th>
 				</tr>
@@ -36,7 +40,8 @@
 					</td>
 				</tr>
 
-				<LogTableRow v-for="row in renderedItems"
+				<LogTableRow
+					v-for="row in renderedItems"
 					:key="row.id"
 					:row="row"
 					class="log-table__row"

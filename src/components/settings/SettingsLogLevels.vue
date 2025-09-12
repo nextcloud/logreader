@@ -7,7 +7,8 @@
 	<div>
 		<fieldset>
 			<legend>{{ t('logreader', 'Filter logging levels') }}</legend>
-			<NcCheckboxRadioSwitch v-for="levelName, levelId in LOGGING_LEVEL_NAMES"
+			<NcCheckboxRadioSwitch
+				v-for="levelName, levelId in LOGGING_LEVEL_NAMES"
 				:key="levelId"
 				:checked="shownLevels"
 				:value="`${levelId}`"
