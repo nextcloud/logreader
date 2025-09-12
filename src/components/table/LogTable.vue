@@ -92,7 +92,7 @@ const sortedByTime = ref<ISortingOptions>('descending')
  * Filtered rows by configured levels
  */
 const filteredRows = computed(() => {
-	return props.rows.filter(row => (settingsStore.shownLevels as number[]).includes(row.level))
+	return props.rows.filter((row) => (settingsStore.shownLevels as number[]).includes(row.level))
 })
 
 /**

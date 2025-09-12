@@ -35,10 +35,10 @@ const settingsStore = useSettingsStore()
 /**
  * Get shown logging levels (to allow filter levels)
  */
-const shownLevels = computed(() => settingsStore.shownLevels.map(l => `${l}`))
+const shownLevels = computed(() => settingsStore.shownLevels.map((l) => `${l}`))
 
 const setShowLevels = debounce((levels: string[]) => {
-	const numericLevels = levels.map(level => parseInt(level)) as IAppSettings['shownLevels']
+	const numericLevels = levels.map((level) => parseInt(level)) as IAppSettings['shownLevels']
 
 	settingsStore.setSetting('shownLevels', numericLevels)
 		.catch(() => showError(t('logreader', 'Could not set logging levels to show')))
