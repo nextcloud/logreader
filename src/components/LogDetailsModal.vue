@@ -25,13 +25,13 @@
 					<dd>{{ timeString }}</dd>
 				</dl>
 				<div class="log-details__actions">
-					<NcButton :aria-label="t('logreader', 'Copy raw entry')" type="tertiary" @click="copyRaw">
+					<NcButton :aria-label="t('logreader', 'Copy raw entry')" variant="tertiary" @click="copyRaw">
 						<template #icon>
 							<IconContentCopy />
 						</template>
 						{{ t('logreader', 'Copy raw entry') }}
 					</NcButton>
-					<NcButton :aria-label="t('logreader', 'Copy formatted entry')" type="tertiary" @click="copyFormatted">
+					<NcButton :aria-label="t('logreader', 'Copy formatted entry')" variant="tertiary" @click="copyFormatted">
 						<template #icon>
 							<IconContentCopy />
 						</template>
@@ -63,11 +63,11 @@ import type { ILogEntry } from '../interfaces'
 
 import { showSuccess } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
 import { computed, ref, watchEffect } from 'vue'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcModal from '@nextcloud/vue/components/NcModal'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import LogException from './exception/LogException.vue'
 import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'

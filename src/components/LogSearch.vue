@@ -30,9 +30,9 @@
 
 <script setup lang="ts">
 import { translate as t } from '@nextcloud/l10n'
-import NcActionInput from '@nextcloud/vue/dist/Components/NcActionInput.js'
-import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
+import NcActionInput from '@nextcloud/vue/components/NcActionInput'
+import NcActions from '@nextcloud/vue/components/NcActions'
 import IconMagnify from 'vue-material-design-icons/Magnify.vue'
 import IconTextSearch from 'vue-material-design-icons/TextSearch.vue'
 import { useLogStore } from '../store/logging'

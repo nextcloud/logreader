@@ -29,8 +29,8 @@
 
 <script setup lang="ts">
 import { translate as t } from '@nextcloud/l10n'
-import NcAppSettingsDialog from '@nextcloud/vue/dist/Components/NcAppSettingsDialog.js'
-import NcAppSettingsSection from '@nextcloud/vue/dist/Components/NcAppSettingsSection.js'
+import NcAppSettingsDialog from '@nextcloud/vue/components/NcAppSettingsDialog'
+import NcAppSettingsSection from '@nextcloud/vue/components/NcAppSettingsSection'
 import SettingsActions from './SettingsActions.vue'
 import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
 import SettingsLiveView from './SettingsLiveView.vue'

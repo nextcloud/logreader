@@ -10,8 +10,6 @@ export default [
 	{
 		name: 'logreader/disabled-during-migration',
 		rules: {
-			'@nextcloud/vue/no-deprecated-exports': 'off',
-			'@nextcloud/vue/no-deprecated-props': 'off',
 			'@typescript-eslint/no-unsafe-function-type': 'off',
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',
