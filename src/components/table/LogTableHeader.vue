@@ -8,7 +8,7 @@
 		<div class="log-table-header__wrapper">
 			<NcButton
 				v-if="sortable"
-				:type="props.sorted ? 'secondary' : 'tertiary-no-background'"
+				:variant="props.sorted ? 'secondary' : 'tertiary-no-background'"
 				:aria-label="name"
 				:aria-pressed="!!props.sorted"
 				:wide="true"
@@ -30,8 +30,8 @@
 <script setup lang="ts">
 import type { ISortingOptions } from '../../interfaces'
 
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import { computed } from 'vue'
+import NcButton from '@nextcloud/vue/components/NcButton'
 import IconSort from 'vue-material-design-icons/Sort.vue'
 import IconSortAscending from 'vue-material-design-icons/SortAscending.vue'
 import IconSortDescending from 'vue-material-design-icons/SortDescending.vue'

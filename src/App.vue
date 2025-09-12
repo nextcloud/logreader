@@ -11,7 +11,7 @@
 			<NcButton
 				:aria-label="t('logreader', 'Open log reader settings')"
 				class="settings-toggle"
-				type="tertiary"
+				variant="tertiary"
 				@click="areSettingsShown = true">
 				<template #icon>
 					<IconCog :size="20" />
@@ -23,7 +23,7 @@
 		<NcNoteCard v-if="settingsStore.localFile" type="info" class="info-note">
 			<div class="info-note__content">
 				<p>{{ t('logreader', 'Currently the log file {file} is shown', { file: settingsStore.localFileName }) }}</p>
-				<NcButton type="secondary" @click="onShowServerLog">
+				<NcButton variant="secondary" @click="onShowServerLog">
 					{{ t('logreader', 'Show server log') }}
 				</NcButton>
 			</div>
@@ -51,10 +51,10 @@
 
 <script lang="ts" setup>
 import { translate as t } from '@nextcloud/l10n'
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
-import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
 import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcEmptyContent from '@nextcloud/vue/components/NcEmptyContent'
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
 import IconCog from 'vue-material-design-icons/CogOutline.vue'
 import IconFormatList from 'vue-material-design-icons/FormatListBulletedSquare.vue'
 import AppSettingsDialog from './components/settings/AppSettingsDialog.vue'

@@ -21,7 +21,7 @@
 				</div>
 				<div class="row-message__action">
 					<NcButton
-						type="tertiary-no-background"
+						variant="tertiary-no-background"
 						:aria-label="
 							isExpanded
 								? t('logreader', 'Collapse row')
@@ -75,11 +75,11 @@ import type { ILogEntry } from '../../interfaces'
 
 import { showSuccess } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import NcActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
-import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcDateTime from '@nextcloud/vue/dist/Components/NcDateTime.js'
 import { computed, nextTick, onUpdated, ref, watch } from 'vue'
+import NcActionButton from '@nextcloud/vue/components/NcActionButton'
+import NcActions from '@nextcloud/vue/components/NcActions'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcDateTime from '@nextcloud/vue/components/NcDateTime'
 import IconChevronDown from 'vue-material-design-icons/ChevronDown.vue'
 import IconChevronUp from 'vue-material-design-icons/ChevronUp.vue'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
