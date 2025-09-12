@@ -23,7 +23,6 @@ export default [
 			'@typescript-eslint/no-unsafe-function-type': 'off',
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',
-			'antfu/top-level-function': 'off',
 			'curly': 'off',
 			'jsdoc/tag-lines': 'off',
 			'import-extensions/extensions': 'off',

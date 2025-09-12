@@ -64,7 +64,7 @@ const fileinput = ref<HTMLInputElement>()
 /**
  * Called when an user selected a local file
  */
-const onFileSelected = async () => {
+async function onFileSelected() {
 	const file = fileinput.value?.files?.item?.(0)
 	if (file) {
 		try {

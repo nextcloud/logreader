@@ -17,7 +17,7 @@ const mocks = vi.hoisted(() => {
 	}
 })
 
-const mockInitialState = (state: IAppSettings) => {
+function mockInitialState(state: IAppSettings) {
 	const input = document.createElement('input')
 	input.setAttribute('type', 'hidden')
 	input.setAttribute('id', 'initial-state-logreader-settings')

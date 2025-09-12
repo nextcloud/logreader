@@ -110,7 +110,7 @@ const currentRow = ref<ILogEntry>(props.rows[0])
  *
  * @param row The log entry to display
  */
-const showDetailsForRow = (row: ILogEntry) => {
+function showDetailsForRow(row: ILogEntry) {
 	currentRow.value = row
 	isModalOpen.value = true
 }
@@ -124,7 +124,7 @@ const tableBody = ref<HTMLElement>()
 /**
  * Load older log entries and ensure that the view sticks at the previous top element
  */
-const loadMore = async () => {
+async function loadMore() {
 	const sizeBefore = logStore.entries.length
 	await logStore.loadMore()
 	// Ensure that the view sticks at the previous top element

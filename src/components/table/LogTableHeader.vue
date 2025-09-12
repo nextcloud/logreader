@@ -84,7 +84,7 @@ const sortIcon = computed(() => {
 /**
  * Switch through the sort modes
  */
-const changeSortMode = () => {
+function changeSortMode() {
 	switch (props.sorted) {
 	case 'ascending': emit('update:sorted', 'descending'); break
 	case 'descending': emit('update:sorted', ''); break
