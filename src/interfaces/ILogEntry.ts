@@ -40,8 +40,8 @@ export interface IException {
 	Code: number
 	CustomMessage: string
 	Exception: string
-	File: string,
-	Line: number,
+	File: string
+	Line: number
 	Message: string
 	Trace: readonly ITraceLine[]
 	Previous?: this

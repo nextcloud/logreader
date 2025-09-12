@@ -12,7 +12,6 @@ export default [
 		rules: {
 			'@nextcloud/vue/no-deprecated-exports': 'off',
 			'@nextcloud/vue/no-deprecated-props': 'off',
-			'@stylistic/member-delimiter-style': 'off',
 			'@typescript-eslint/no-unsafe-function-type': 'off',
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',
