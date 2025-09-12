@@ -104,8 +104,7 @@ const index = computed(() => props.logEntries.findIndex((entry) => entry === pro
 /**
  * Formatted data of the entry
  */
-const code = computed(() => hljs.highlight(JSON.stringify(props.currentEntry, null, 2), { language: 'json' })
-			.value)
+const code = computed(() => hljs.highlight(JSON.stringify(props.currentEntry, null, 2), { language: 'json' }).value)
 
 /**
  * Level as translated human readable string

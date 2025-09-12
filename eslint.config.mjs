@@ -12,10 +12,7 @@ export default [
 		rules: {
 			'@nextcloud/vue/no-deprecated-exports': 'off',
 			'@nextcloud/vue/no-deprecated-props': 'off',
-			'@stylistic/indent': 'off',
-			'@stylistic/indent-binary-ops': 'off',
 			'@stylistic/member-delimiter-style': 'off',
-			'@stylistic/object-curly-spacing': 'off',
 			'@typescript-eslint/no-unsafe-function-type': 'off',
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',

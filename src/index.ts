@@ -5,9 +5,10 @@
 
 import { translate, translatePlural } from '@nextcloud/l10n'
 import {
- type Pinia,
+	type Pinia,
 
-createPinia, PiniaVuePlugin,
+	createPinia,
+	PiniaVuePlugin,
 } from 'pinia'
 import Vue from 'vue'
 import App from './App.vue'
@@ -22,7 +23,7 @@ const pinia = createPinia()
 // ComponentOptions is declared in types/options.d.ts
 declare module 'vue/types/options.d.ts' {
 	interface ComponentOptions<V extends Vue> {
-	  pinia?: Pinia
+		pinia?: Pinia
 	}
 }
 
