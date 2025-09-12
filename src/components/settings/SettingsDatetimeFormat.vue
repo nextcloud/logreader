@@ -79,7 +79,7 @@ const dateTimeFormat = computed(() => settingsStore.dateTimeFormat)
  * @param v - How the log time should be displayed ('local' | 'raw' | 'utc' | 'relative')
  */
 function setDateTimeFormat(v: IAppSettings['dateTimeFormat']) {
-  return settingsStore
+	return settingsStore
 		.setSetting('dateTimeFormat', v)
 		.catch((e) => {
 			logger.debug(e)

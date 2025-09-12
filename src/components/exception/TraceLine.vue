@@ -34,14 +34,14 @@ const functionText = computed(() => `${props.line.class}${props.line.type}${prop
  * The arguments of the function
  */
 const argumentText = computed(() => (props.line.args || []).length === 0
-		? '()'
-		: (
+	? '()'
+	: (
 			'(\n'
 			+ (props.line.args || [])
 				// stringify the arguments and add indention
 				.map((argument) => JSON.stringify(argument, undefined, 2).split('\n').map((code) => `  ${code}`).join('\n'))
 				.join(',\n')
-			+ '\n)'
+				+ '\n)'
 		))
 </script>
 

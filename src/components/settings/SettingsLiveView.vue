@@ -29,10 +29,10 @@ const settingsStore = useSettingsStore()
 const liveLog = computed({
 	get: () => settingsStore.enabled ? settingsStore.liveLog : false,
 	set: (v: boolean) => settingsStore
-			.setSetting('liveLog', v)
-			.catch((e) => {
-				logger.debug(e)
-				showError(t('logreader', 'Could not change live view setting.'))
-			}),
+		.setSetting('liveLog', v)
+		.catch((e) => {
+			logger.debug(e)
+			showError(t('logreader', 'Could not change live view setting.'))
+		}),
 })
 </script>
