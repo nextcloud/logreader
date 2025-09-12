@@ -74,13 +74,18 @@ const isLocalLogfile = computed(() => settingsStore.localFile !== undefined)
  */
 const dateTimeFormat = computed(() => settingsStore.dateTimeFormat)
 
-const setDateTimeFormat = (v: IAppSettings['dateTimeFormat']) =>
-	settingsStore
+/**
+ *
+ * @param v
+ */
+function setDateTimeFormat(v: IAppSettings['dateTimeFormat']) {
+  return settingsStore
 		.setSetting('dateTimeFormat', v)
 		.catch((e) => {
 			logger.debug(e)
 			showError(t('logreader', 'Could not change date time format.'))
 		})
+}
 </script>
 
 <style scoped>

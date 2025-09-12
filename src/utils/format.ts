@@ -10,7 +10,11 @@ import { getCanonicalLocale, translate as t } from '@nextcloud/l10n'
 import { LOGGING_LEVEL_NAMES } from '../constants'
 import { useSettingsStore } from '../store/settings'
 
-export const useLogFormatting = (pinia?: Pinia) => {
+/**
+ *
+ * @param pinia
+ */
+export function useLogFormatting(pinia?: Pinia) {
 	const settingsStore = useSettingsStore(pinia)
 
 	const formatTime = (time: string) => {

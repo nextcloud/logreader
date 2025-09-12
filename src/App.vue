@@ -74,7 +74,10 @@ const loggingStore = useLogStore()
 
 const entries = computed(() => loggingStore.entries)
 
-const onShowServerLog = () => {
+/**
+ *
+ */
+function onShowServerLog() {
 	settingsStore.localFile = undefined
 	// remove local entries
 	loggingStore.allEntries = []
@@ -85,7 +88,7 @@ const onShowServerLog = () => {
  * Handle paste events with log entries
  * @param event The keyboard event
  */
-const onHandlePaste = (event: ClipboardEvent) => {
+function onHandlePaste(event: ClipboardEvent) {
 	event.preventDefault()
 
 	if (event.clipboardData) {

@@ -12,7 +12,7 @@ import { translate as t } from '@nextcloud/l10n'
  * @param text The text to copy
  * @return true if automatic copy suceeded, false if prompt was used
  */
-export const copyToCipboard = async (text: string) => {
+export async function copyToCipboard(text: string) {
 	try {
 		await window.navigator.clipboard.writeText(text)
 		return true

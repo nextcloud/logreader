@@ -64,7 +64,7 @@ const currentQuery = computed(() => logStore.query)
  * @param param0 The InputEvent
  * @param param0.target The input element
  */
-const onSearchInput = ({ target }: InputEvent) => {
+function onSearchInput({ target }: InputEvent) {
 	logStore.searchLogs((target as HTMLInputElement).value)
 }
 
@@ -73,7 +73,7 @@ const onSearchInput = ({ target }: InputEvent) => {
  *
  * @param event The keydown event
  */
-const keyboardListener = (event: KeyboardEvent) => {
+function keyboardListener(event: KeyboardEvent) {
 	if (event.ctrlKey && event.key === 'f') {
 		isOpen.value = true
 		event.preventDefault()

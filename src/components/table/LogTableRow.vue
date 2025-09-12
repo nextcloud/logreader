@@ -144,7 +144,7 @@ const tableRowElement = ref<HTMLTableRowElement>()
 /**
  * Copy the raw log entry as json
  */
-const copyRaw = async () => {
+async function copyRaw() {
 	if (await copyToCipboard(JSON.stringify(props.row))) {
 		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
@@ -153,7 +153,7 @@ const copyRaw = async () => {
 /**
  * Copy the log entry formatted to be human readable
  */
-const copyFormatted = async () => {
+async function copyFormatted() {
 	if (await copyToCipboard(formatLogEntry(props.row))) {
 		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
@@ -163,7 +163,7 @@ const copyFormatted = async () => {
  * If expanded set a fixed height to show the full log message,
  * if not remove the height style to reset the height to one text line with hidden overflow
  */
-const resizeTabeRow = () => {
+function resizeTabeRow() {
 	if (isExpanded.value) {
 		nextTick(() => {
 			const height = tableRowElement.value?.scrollHeight || 0
