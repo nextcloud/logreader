@@ -2,8 +2,10 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
-	<NcActions :force-menu="true"
+	<NcActions
+		:force-menu="true"
 		:open.sync="isOpen"
 		:aria-label="t('logreader', 'Search log entries')"
 		:type="buttonType">
@@ -11,7 +13,8 @@
 			<IconTextSearch :size="20" />
 		</template>
 		<template #default>
-			<NcActionInput :value="currentQuery"
+			<NcActionInput
+				:value="currentQuery"
 				:label="t('logreader', 'Search log entries')"
 				:show-trailing-button="false"
 				@submit="isOpen = false"
@@ -26,14 +29,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-import { useLogStore } from '../store/logging'
-
-import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
-import NcActionInput from '@nextcloud/vue/dist/Components/NcActionInput.js'
-import IconTextSearch from 'vue-material-design-icons/TextSearch.vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import NcActionInput from '@nextcloud/vue/components/NcActionInput'
+import NcActions from '@nextcloud/vue/components/NcActions'
 import IconMagnify from 'vue-material-design-icons/Magnify.vue'
+import IconTextSearch from 'vue-material-design-icons/TextSearch.vue'
+import { useLogStore } from '../store/logging'
 
 declare global {
 	interface Window {
@@ -64,7 +66,7 @@ const currentQuery = computed(() => logStore.query)
  * @param param0 The InputEvent
  * @param param0.target The input element
  */
-const onSearchInput = ({ target }: InputEvent) => {
+function onSearchInput({ target }: InputEvent) {
 	logStore.searchLogs((target as HTMLInputElement).value)
 }
 
@@ -73,7 +75,7 @@ const onSearchInput = ({ target }: InputEvent) => {
  *
  * @param event The keydown event
  */
-const keyboardListener = (event: KeyboardEvent) => {
+function keyboardListener(event: KeyboardEvent) {
 	if (event.ctrlKey && event.key === 'f') {
 		isOpen.value = true
 		event.preventDefault()

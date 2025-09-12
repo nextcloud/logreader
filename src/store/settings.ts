@@ -5,16 +5,16 @@
 
 import type { IAppSettings } from '../interfaces'
 
-import { getAppSettings, setAppSetting } from '../api'
 import { loadState } from '@nextcloud/initial-state'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import { getAppSettings, setAppSetting } from '../api'
 
 interface SettingsState extends IAppSettings {
 	/**
 	 * Local logging file if loaded
 	 */
-	localFile?: File,
+	localFile?: File
 }
 
 /**

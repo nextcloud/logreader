@@ -9,11 +9,12 @@
  * @param func The function to debounce
  * @param timeout Amount of time (ms) to wait
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
 export function debounce(func: Function, timeout = 300) {
 	let timer: number
 	return (...args: unknown[]) => {
 		clearTimeout(timer)
-		timer = window.setTimeout(() => { func.apply(this, args) }, timeout)
+		timer = window.setTimeout(() => {
+			func.apply(this, args)
+		}, timeout)
 	}
 }

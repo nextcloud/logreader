@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<div>
 		<NcNoteCard v-if="!settingsStore.enabled" type="info">
@@ -16,24 +17,22 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import { logger } from '../../utils/logger'
+import { computed } from 'vue'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
 import { useSettingsStore } from '../../store/settings.js'
-
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
+import { logger } from '../../utils/logger'
 
 const settingsStore = useSettingsStore()
 const liveLog = computed({
 	get: () => settingsStore.enabled ? settingsStore.liveLog : false,
-	set: (v: boolean) =>
-		settingsStore
-			.setSetting('liveLog', v)
-			.catch((e) => {
-				logger.debug(e)
-				showError(t('logreader', 'Could not change live view setting.'))
-			}),
+	set: (v: boolean) => settingsStore
+		.setSetting('liveLog', v)
+		.catch((e) => {
+			logger.debug(e)
+			showError(t('logreader', 'Could not change live view setting.'))
+		}),
 })
 </script>

@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<span class="exception_wrapper">
 		<div class="exception">
@@ -14,17 +15,17 @@
 		<LogException v-if="props.isExpanded && props.exception.Previous" :is-previous="true" :exception="props.exception.Previous" />
 	</span>
 </template>
+
 <script setup lang="ts">
 import type { IException } from '../../interfaces'
 
-import { computed } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-
+import { computed } from 'vue'
 import StackTrace from './StackTrace.vue'
 
 const props = withDefaults(defineProps<{
-	isPrevious: boolean,
-	isExpanded: boolean,
+	isPrevious: boolean
+	isExpanded: boolean
 	exception: IException
 }>(), {
 	isExpanded: false,

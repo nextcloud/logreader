@@ -4,6 +4,7 @@
  */
 
 import type { UserConfig } from 'vitest/config'
+
 import { createAppConfig } from '@nextcloud/vite-config'
 
 const config = createAppConfig({

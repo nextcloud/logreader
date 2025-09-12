@@ -2,10 +2,12 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<fieldset>
 		<legend>{{ t('logreader', 'Set backend loglevel') }}</legend>
-		<NcCheckboxRadioSwitch v-for="levelName, levelId in LOGGING_LEVEL_NAMES"
+		<NcCheckboxRadioSwitch
+			v-for="levelName, levelId in LOGGING_LEVEL_NAMES"
 			:key="levelId"
 			:checked="logLevel"
 			:value="`${levelId}`"
@@ -20,14 +22,13 @@
 <script setup lang="ts">
 import type { IAppSettings } from '../../interfaces'
 
-import { computed } from 'vue'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
+import { computed } from 'vue'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import { LOGGING_LEVEL_NAMES } from '../../constants'
 import { useSettingsStore } from '../../store/settings'
 import { logger } from '../../utils/logger'
-import { LOGGING_LEVEL_NAMES } from '../../constants'
-
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
 
 const settingsStore = useSettingsStore()
 
@@ -36,10 +37,14 @@ const settingsStore = useSettingsStore()
  */
 const logLevel = computed(() => `${settingsStore.logLevel}`)
 
-const setLogLevel = (level: string) => {
+/**
+ *
+ * @param level - The loglevel which is currently set on the server (0 | 1 | 2 | 3 | 4)
+ */
+function setLogLevel(level: string) {
 	const numericLevel = parseInt(level) as IAppSettings['logLevel']
 	settingsStore.setSetting('logLevel', numericLevel)
-		.catch(e => {
+		.catch((e) => {
 			showError(t('logreader', 'Could not set logging level'))
 			logger.error(e as Error)
 		})

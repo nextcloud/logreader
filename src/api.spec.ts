@@ -2,7 +2,8 @@
  * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-import { expect, describe, it, vi, afterEach } from 'vitest'
+
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { getAppSettings, getLog, pollLog, setAppSetting } from './api'
 
 const mocks = vi.hoisted(() => {
@@ -76,7 +77,6 @@ describe('api', () => {
 	})
 
 	it('getAppSettings with config', async () => {
-
 		const config = { headers: { Accept: 'application/json' } }
 
 		await getAppSettings(undefined, config)
@@ -95,7 +95,6 @@ describe('api', () => {
 	})
 
 	it('setAppSetting with config', async () => {
-
 		const data = { settingsKey: 'liveLog' as const, settingsValue: true }
 		const config = { headers: { Accept: 'application/json' } }
 

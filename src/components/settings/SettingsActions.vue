@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<div>
 		<NcNoteCard type="info" class="info-note">
@@ -22,7 +23,8 @@
 		</NcButton>
 		<label class="hidden-visually">
 			{{ t('logreader', 'Upload local log file to be displayed') }}
-			<input ref="fileinput"
+			<input
+				ref="fileinput"
 				type="file"
 				name="logfile"
 				accept=".log,.json,.txt,application/json,text/plain"
@@ -32,18 +34,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
 import { generateUrl } from '@nextcloud/router'
-import { useLogStore } from '../../store/logging'
-import { useSettingsStore } from '../../store/settings.js'
-
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
+import { ref } from 'vue'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
 import IconDownload from 'vue-material-design-icons/TrayArrowDown.vue'
 import IconUpload from 'vue-material-design-icons/TrayArrowUp.vue'
+import { useLogStore } from '../../store/logging'
+import { useSettingsStore } from '../../store/settings.js'
 import { logger } from '../../utils/logger'
-import { showError } from '@nextcloud/dialogs'
 
 const settingsStore = useSettingsStore()
 const logStore = useLogStore()
@@ -64,7 +65,7 @@ const fileinput = ref<HTMLInputElement>()
 /**
  * Called when an user selected a local file
  */
-const onFileSelected = async () => {
+async function onFileSelected() {
 	const file = fileinput.value?.files?.item?.(0)
 	if (file) {
 		try {

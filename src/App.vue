@@ -2,14 +2,16 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<div class="logreader-container">
 		<div class="logreader-container__header">
 			<h2>{{ t('logreader', 'Log reader') }}</h2>
 			<!-- Setting toggle -->
-			<NcButton :aria-label="t('logreader', 'Open log reader settings')"
+			<NcButton
+				:aria-label="t('logreader', 'Open log reader settings')"
 				class="settings-toggle"
-				type="tertiary"
+				variant="tertiary"
 				@click="areSettingsShown = true">
 				<template #icon>
 					<IconCog :size="20" />
@@ -21,7 +23,7 @@
 		<NcNoteCard v-if="settingsStore.localFile" type="info" class="info-note">
 			<div class="info-note__content">
 				<p>{{ t('logreader', 'Currently the log file {file} is shown', { file: settingsStore.localFileName }) }}</p>
-				<NcButton type="secondary" @click="onShowServerLog">
+				<NcButton variant="secondary" @click="onShowServerLog">
 					{{ t('logreader', 'Show server log') }}
 				</NcButton>
 			</div>
@@ -48,18 +50,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-import { useLogStore } from './store/logging'
-import { useSettingsStore } from './store/settings.js'
-
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
-import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
+import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcEmptyContent from '@nextcloud/vue/components/NcEmptyContent'
+import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
 import IconCog from 'vue-material-design-icons/CogOutline.vue'
 import IconFormatList from 'vue-material-design-icons/FormatListBulletedSquare.vue'
 import AppSettingsDialog from './components/settings/AppSettingsDialog.vue'
 import LogTable from './components/table/LogTable.vue'
+import { useLogStore } from './store/logging'
+import { useSettingsStore } from './store/settings.js'
 
 import '@nextcloud/dialogs/style.css'
 
@@ -74,7 +75,10 @@ const loggingStore = useLogStore()
 
 const entries = computed(() => loggingStore.entries)
 
-const onShowServerLog = () => {
+/**
+ *
+ */
+function onShowServerLog() {
 	settingsStore.localFile = undefined
 	// remove local entries
 	loggingStore.allEntries = []
@@ -83,16 +87,16 @@ const onShowServerLog = () => {
 
 /**
  * Handle paste events with log entries
+ *
  * @param event The keyboard event
  */
-const onHandlePaste = (event: ClipboardEvent) => {
+function onHandlePaste(event: ClipboardEvent) {
 	event.preventDefault()
 
 	if (event.clipboardData) {
 		const paste = event.clipboardData.getData('text')
 		loggingStore.loadText(paste)
 	}
-
 }
 // Add / remove event listeners
 onMounted(() => window.addEventListener('paste', onHandlePaste))

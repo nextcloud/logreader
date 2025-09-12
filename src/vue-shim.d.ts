@@ -8,10 +8,10 @@ declare module 'vue-material-design-icons/*.vue' {
 
 	const IconVue: DefineComponent<{
 		/** @default 24 */
-		size?: number;
+		size?: number
 		/** @default 'currentColor' */
-		fillColor?: string;
-		title?: string;
+		fillColor?: string
+		title?: string
 	}>
 
 	export default IconVue
