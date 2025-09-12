@@ -61,18 +61,22 @@
 <script setup lang="ts">
 import type { ILogEntry, ISortingOptions } from '../../interfaces'
 
-import { computed, nextTick, onMounted, onBeforeUnmount, ref } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-import { useSettingsStore } from '../../store/settings'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import IntersectionObserver from '../IntersectionObserver.vue'
+import LogDetailsModal from '../LogDetailsModal.vue'
+import LogSearch from '../LogSearch.vue'
+import LogTableHeader from './LogTableHeader.vue'
+import LogTableRow from './LogTableRow.vue'
 import { useLogStore } from '../../store/logging'
+import { useSettingsStore } from '../../store/settings'
 import { debounce } from '../../utils/debounce'
 import { logger } from '../../utils/logger'
 
-import IntersectionObserver from '../IntersectionObserver.vue'
-import LogDetailsModal from '../LogDetailsModal.vue'
-import LogTableHeader from './LogTableHeader.vue'
-import LogTableRow from './LogTableRow.vue'
-import LogSearch from '../LogSearch.vue'
+const props = defineProps<{
+	/** Log entries to display */
+	rows: ILogEntry[]
+}>()
 
 // Items to render before and after the visible area
 const bufferItems = 3
@@ -83,11 +87,6 @@ const logStore = useLogStore()
 const sortedByLevel = ref<ISortingOptions>('')
 const sortedByApp = ref<ISortingOptions>('')
 const sortedByTime = ref<ISortingOptions>('descending')
-
-const props = defineProps<{
-	/** Log entries to display */
-	rows: ILogEntry[]
-}>()
 
 /**
  * Filtered rows by configured levels

@@ -59,29 +59,28 @@
 <script setup lang="ts">
 import type { ILogEntry } from '../interfaces'
 
-import { translate as t } from '@nextcloud/l10n'
 import { showSuccess } from '@nextcloud/dialogs'
-import { computed, ref, watchEffect } from 'vue'
-import { copyToCipboard } from '../utils/clipboard'
-import { useLogFormatting } from '../utils/format'
-import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'
-
+import { translate as t } from '@nextcloud/l10n'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
-import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
+import { computed, ref, watchEffect } from 'vue'
+import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
+import LogException from './exception/LogException.vue'
+import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'
+import { copyToCipboard } from '../utils/clipboard'
+import { useLogFormatting } from '../utils/format'
 
 import 'highlight.js/styles/base16/material-darker.css'
-import LogException from './exception/LogException.vue'
-
-hljs.registerLanguage('json', json)
 
 const props = defineProps<{
 	open: boolean
 	currentEntry: ILogEntry
 	logEntries: readonly ILogEntry[]
 }>()
+
+hljs.registerLanguage('json', json)
 
 const { formatTime, formatLogEntry } = useLogFormatting()
 

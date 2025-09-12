@@ -3,11 +3,14 @@
 * SPDX-License-Identifier: AGPL-3.0-or-later
 */
 
+import { translate, translatePlural } from '@nextcloud/l10n'
+import {
+ type Pinia,
+
+createPinia, PiniaVuePlugin,
+} from 'pinia'
 import Vue from 'vue'
 import App from './App.vue'
-
-import { translate, translatePlural } from '@nextcloud/l10n'
-import { createPinia, PiniaVuePlugin, type Pinia } from 'pinia'
 
 Vue.use(PiniaVuePlugin)
 Vue.mixin({ methods: { t: translate, n: translatePlural } })

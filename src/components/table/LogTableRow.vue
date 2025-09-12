@@ -73,21 +73,20 @@ import type { ILogEntry } from '../../interfaces'
 
 import { showSuccess } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import { computed, ref, nextTick, watch, onUpdated } from 'vue'
-import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../../constants'
-import { copyToCipboard } from '../../utils/clipboard'
-import { useLogFormatting } from '../../utils/format'
-
-import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
 import NcActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
+import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcDateTime from '@nextcloud/vue/dist/Components/NcDateTime.js'
+import { computed, nextTick, onUpdated, ref, watch } from 'vue'
 import IconChevronDown from 'vue-material-design-icons/ChevronDown.vue'
 import IconChevronUp from 'vue-material-design-icons/ChevronUp.vue'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import IconViewList from 'vue-material-design-icons/ViewList.vue'
 import LogException from '../exception/LogException.vue'
+import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../../constants'
 import { useSettingsStore } from '../../store/settings'
+import { copyToCipboard } from '../../utils/clipboard'
+import { useLogFormatting } from '../../utils/format'
 
 const props = withDefaults(
 	defineProps<{

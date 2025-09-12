@@ -28,14 +28,13 @@
 
 <script setup lang="ts">
 import { translate as t } from '@nextcloud/l10n'
+import NcAppSettingsDialog from '@nextcloud/vue/dist/Components/NcAppSettingsDialog.js'
+import NcAppSettingsSection from '@nextcloud/vue/dist/Components/NcAppSettingsSection.js'
 import SettingsActions from './SettingsActions.vue'
+import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
 import SettingsLiveView from './SettingsLiveView.vue'
 import SettingsLogLevels from './SettingsLogLevels.vue'
 import SettingsSetLogLevel from './SettingsSetLogLevel.vue'
-import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
-
-import NcAppSettingsDialog from '@nextcloud/vue/dist/Components/NcAppSettingsDialog.js'
-import NcAppSettingsSection from '@nextcloud/vue/dist/Components/NcAppSettingsSection.js'
 
 const props = defineProps<{
 	open: boolean

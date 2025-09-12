@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { createTestingPinia } from '@pinia/testing'
-import { expect, describe, it, vi, beforeAll } from 'vitest'
-
 import type { ILogEntry } from '../interfaces'
+
+import { createTestingPinia } from '@pinia/testing'
+import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { useLogFormatting } from './format'
 
 describe('utils:format', () => {

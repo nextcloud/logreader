@@ -6,15 +6,15 @@
 import type { AxiosError } from '@nextcloud/axios'
 import type { ILogEntry } from '../interfaces'
 
+import { showError } from '@nextcloud/dialogs'
+import { translate as t } from '@nextcloud/l10n'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { getLog, pollLog } from '../api'
 import { POLLING_INTERVAL } from '../constants'
-import { showError } from '@nextcloud/dialogs'
-import { translate as t } from '@nextcloud/l10n'
-import { useSettingsStore } from './settings'
 import { parseLogFile, parseLogString, parseRawLogEntry } from '../utils/logfile'
 import { logger } from '../utils/logger'
+import { useSettingsStore } from './settings'
 
 /**
  * Store for handling log entries

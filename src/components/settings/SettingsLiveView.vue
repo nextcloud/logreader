@@ -17,14 +17,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import { logger } from '../../utils/logger'
-import { useSettingsStore } from '../../store/settings.js'
-
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
 import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
+import { computed } from 'vue'
+import { useSettingsStore } from '../../store/settings.js'
+import { logger } from '../../utils/logger'
 
 const settingsStore = useSettingsStore()
 const liveLog = computed({
