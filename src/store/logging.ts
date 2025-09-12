@@ -65,10 +65,14 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	 */
 	async function loadMore(older = true) {
 		// Nothing to do if server logging is disabled
-		if (!_settings.isEnabled) return
+		if (!_settings.isEnabled) {
+			return
+		}
 
 		// Only load any entries if there is no previous unfinished request
-		if (!(_loading.value = !_loading.value)) return
+		if (!(_loading.value = !_loading.value)) {
+			return
+		}
 
 		try {
 			if (older) {

@@ -284,7 +284,9 @@ describe('store:logging', () => {
 		})
 
 		// throw an error
-		mocks.parseLogString.mockImplementationOnce(() => { throw new Error() })
+		mocks.parseLogString.mockImplementationOnce(() => {
+			throw new Error()
+		})
 
 		const store = useLogStore()
 		const settings = useSettingsStore()
@@ -621,7 +623,9 @@ describe('store:logging', () => {
 				logger: mocks.logger,
 			}
 		})
-		vi.mocked(mocks.pollLog).mockImplementationOnce(() => { throw Error() })
+		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
+			throw Error()
+		})
 
 		// clean pinia
 		createTestingPinia({
@@ -650,7 +654,9 @@ describe('store:logging', () => {
 				logger: mocks.logger,
 			}
 		})
-		vi.mocked(mocks.pollLog).mockImplementationOnce(() => { throw new ServerError() })
+		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
+			throw new ServerError()
+		})
 
 		// clean pinia
 		createTestingPinia({

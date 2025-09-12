@@ -167,7 +167,9 @@ function resizeTabeRow() {
 	if (isExpanded.value) {
 		nextTick(() => {
 			const height = tableRowElement.value?.scrollHeight || 0
-			if (tableRowElement.value) tableRowElement.value.style.height = `${height}px`
+			if (tableRowElement.value) {
+				tableRowElement.value.style.height = `${height}px`
+			}
 		})
 	} else if (tableRowElement.value !== undefined) {
 		tableRowElement.value.style.height = ''
