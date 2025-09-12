@@ -20,7 +20,8 @@
 					</div>
 				</div>
 				<div class="row-message__action">
-					<NcButton type="tertiary-no-background"
+					<NcButton
+						type="tertiary-no-background"
 						:aria-label="
 							isExpanded
 								? t('logreader', 'Collapse row')
@@ -37,7 +38,8 @@
 		</td>
 		<td>
 			<span v-if="isRawDate">{{ row.time }}</span>
-			<NcDateTime v-else
+			<NcDateTime
+				v-else
 				:key="settingsStore.dateTimeFormat"
 				:timestamp="timestamp"
 				:relative-time="isRelativeDate && 'long'"

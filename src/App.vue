@@ -8,7 +8,8 @@
 		<div class="logreader-container__header">
 			<h2>{{ t('logreader', 'Log reader') }}</h2>
 			<!-- Setting toggle -->
-			<NcButton :aria-label="t('logreader', 'Open log reader settings')"
+			<NcButton
+				:aria-label="t('logreader', 'Open log reader settings')"
 				class="settings-toggle"
 				type="tertiary"
 				@click="areSettingsShown = true">

@@ -4,7 +4,8 @@
 -->
 
 <template>
-	<NcActions :force-menu="true"
+	<NcActions
+		:force-menu="true"
 		:open.sync="isOpen"
 		:aria-label="t('logreader', 'Search log entries')"
 		:type="buttonType">
@@ -12,7 +13,8 @@
 			<IconTextSearch :size="20" />
 		</template>
 		<template #default>
-			<NcActionInput :value="currentQuery"
+			<NcActionInput
+				:value="currentQuery"
 				:label="t('logreader', 'Search log entries')"
 				:show-trailing-button="false"
 				@submit="isOpen = false"

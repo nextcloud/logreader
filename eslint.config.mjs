@@ -16,7 +16,6 @@ export default [
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',
 			'import-extensions/extensions': 'off',
-			'vue/first-attribute-linebreak': 'off',
 			'vue/no-boolean-default': 'off',
 			'vue/no-required-prop-with-default': 'off',
 			'vue/no-unused-properties': 'off',

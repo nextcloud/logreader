@@ -23,7 +23,8 @@
 		</NcButton>
 		<label class="hidden-visually">
 			{{ t('logreader', 'Upload local log file to be displayed') }}
-			<input ref="fileinput"
+			<input
+				ref="fileinput"
 				type="file"
 				name="logfile"
 				accept=".log,.json,.txt,application/json,text/plain"
