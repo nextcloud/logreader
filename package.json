@@ -45,47 +45,6 @@
     "vue": "^2.7.15",
     "vue-material-design-icons": "^5.3.1"
   },
-  "eslintConfig": {
-    "ignorePatterns": [
-      "node_modules/",
-      "js/",
-      "lib/"
-    ],
-    "extends": [
-      "@nextcloud/eslint-config/typescript"
-    ],
-    "plugins": [
-      "chai-friendly"
-    ],
-    "rules": {
-      "func-call-spacing": "off",
-      "@typescript-eslint/func-call-spacing": "error",
-      "no-unused-expressions": 0,
-      "chai-friendly/no-unused-expressions": 2
-    },
-    "overrides": [
-      {
-        "files": [
-          "./*.config.*",
-          "**/*.spec.*",
-          "**/*.test.*"
-        ],
-        "rules": {
-          "n/no-unpublished-import": [
-            "off"
-          ]
-        }
-      },
-      {
-        "files": [
-          "**/*.vue"
-        ],
-        "rules": {
-          "n/no-missing-import": "off"
-        }
-      }
-    ]
-  },
   "browserslist": [
     "extends @nextcloud/browserslist-config"
   ],
