@@ -43,7 +43,7 @@ const logLevel = computed(() => `${settingsStore.logLevel}`)
 function setLogLevel(level: string) {
 	const numericLevel = parseInt(level) as IAppSettings['logLevel']
 	settingsStore.setSetting('logLevel', numericLevel)
-		.catch(e => {
+		.catch((e) => {
 			showError(t('logreader', 'Could not set logging level'))
 			logger.error(e as Error)
 		})

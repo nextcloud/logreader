@@ -12,7 +12,6 @@ export default [
 		rules: {
 			'@nextcloud/vue/no-deprecated-exports': 'off',
 			'@nextcloud/vue/no-deprecated-props': 'off',
-			'@stylistic/arrow-parens': 'off',
 			'@stylistic/indent': 'off',
 			'@stylistic/indent-binary-ops': 'off',
 			'@stylistic/member-delimiter-style': 'off',

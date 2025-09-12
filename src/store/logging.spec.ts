@@ -107,7 +107,7 @@ describe('store:logging', () => {
 			}
 		})
 		vi.mocked(mocks.getLog).mockImplementation(async ({ query }: { query: string}) => {
-			await (new Promise(resolve => setTimeout(resolve, 50)))
+			await (new Promise((resolve) => setTimeout(resolve, 50)))
 			// Fake an axios response
 			return {
 				data: {
