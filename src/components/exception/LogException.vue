@@ -24,8 +24,8 @@ import { computed } from 'vue'
 import StackTrace from './StackTrace.vue'
 
 const props = withDefaults(defineProps<{
-	isPrevious: boolean,
-	isExpanded: boolean,
+	isPrevious: boolean
+	isExpanded: boolean
 	exception: IException
 }>(), {
 	isExpanded: false,

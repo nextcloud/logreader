@@ -14,7 +14,7 @@ interface SettingsState extends IAppSettings {
 	/**
 	 * Local logging file if loaded
 	 */
-	localFile?: File,
+	localFile?: File
 }
 
 /**
