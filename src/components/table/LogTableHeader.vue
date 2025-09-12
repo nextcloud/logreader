@@ -29,9 +29,8 @@
 <script setup lang="ts">
 import type { ISortingOptions } from '../../interfaces'
 
-import { computed } from 'vue'
-
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import { computed } from 'vue'
 import IconSort from 'vue-material-design-icons/Sort.vue'
 import IconSortAscending from 'vue-material-design-icons/SortAscending.vue'
 import IconSortDescending from 'vue-material-design-icons/SortDescending.vue'

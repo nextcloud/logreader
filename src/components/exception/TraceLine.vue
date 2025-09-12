@@ -18,8 +18,8 @@
 <script setup lang="ts">
 import type { ITraceLine } from '../../interfaces'
 
-import { computed } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
+import { computed } from 'vue'
 
 const props = defineProps<{
 	line: ITraceLine

@@ -21,14 +21,13 @@
 <script setup lang="ts">
 import type { IAppSettings } from '../../interfaces'
 
-import { computed } from 'vue'
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import { computed } from 'vue'
+import { LOGGING_LEVEL_NAMES } from '../../constants'
 import { useSettingsStore } from '../../store/settings'
 import { logger } from '../../utils/logger'
-import { LOGGING_LEVEL_NAMES } from '../../constants'
-
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
 
 const settingsStore = useSettingsStore()
 

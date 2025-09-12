@@ -19,9 +19,8 @@
 <script setup lang="ts">
 import type { IException } from '../../interfaces'
 
-import { computed } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-
+import { computed } from 'vue'
 import StackTrace from './StackTrace.vue'
 
 const props = withDefaults(defineProps<{

@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import type { ITraceLine } from '../../interfaces'
+
 import TraceLine from './TraceLine.vue'
 
 const props = defineProps<{

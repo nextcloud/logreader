@@ -4,6 +4,7 @@
  */
 
 import type { ILogEntry, IRawLogEntry } from '../interfaces'
+
 import { parseException } from './exception'
 import { logger } from './logger'
 

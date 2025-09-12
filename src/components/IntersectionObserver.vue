@@ -13,6 +13,13 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 
+const props = defineProps<{
+	/**
+	 * Optional options used to initialize the IntersectionObserver
+	 */
+	options?: IntersectionObserverInit
+}>()
+
 const emit = defineEmits<{
 	/**
 	 * Emitted when an intersection is observed
@@ -20,12 +27,6 @@ const emit = defineEmits<{
 	(event: 'intersection'): void
 }>()
 
-const props = defineProps<{
-	/**
-	 * Optional options used to initialize the IntersectionObserver
-	 */
-	options?: IntersectionObserverInit
-}>()
 /**
  * The observed element
  */

@@ -27,14 +27,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-import { useLogStore } from '../store/logging'
-
-import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
 import NcActionInput from '@nextcloud/vue/dist/Components/NcActionInput.js'
-import IconTextSearch from 'vue-material-design-icons/TextSearch.vue'
+import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import IconMagnify from 'vue-material-design-icons/Magnify.vue'
+import IconTextSearch from 'vue-material-design-icons/TextSearch.vue'
+import { useLogStore } from '../store/logging'
 
 declare global {
 	interface Window {

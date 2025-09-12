@@ -49,18 +49,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-import { useLogStore } from './store/logging'
-import { useSettingsStore } from './store/settings.js'
-
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 import NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
+import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import IconCog from 'vue-material-design-icons/CogOutline.vue'
 import IconFormatList from 'vue-material-design-icons/FormatListBulletedSquare.vue'
 import AppSettingsDialog from './components/settings/AppSettingsDialog.vue'
 import LogTable from './components/table/LogTable.vue'
+import { useLogStore } from './store/logging'
+import { useSettingsStore } from './store/settings.js'
 
 import '@nextcloud/dialogs/style.css'
 

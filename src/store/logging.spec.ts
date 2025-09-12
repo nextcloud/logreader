@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { createTestingPinia } from '@pinia/testing'
-import { expect, describe, it, vi, beforeAll, afterEach, afterAll } from 'vitest'
-
 import type { IAppSettings, ILogEntry } from '../interfaces'
+
+import { createTestingPinia } from '@pinia/testing'
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
+import { POLLING_INTERVAL } from '../constants'
 import { useSettingsStore } from '../store/settings'
 import { useLogStore } from './logging'
-import { POLLING_INTERVAL } from '../constants'
 
 // We need to declare the mocks here to access the mocked functions from the tests as mocks are hoisted -> moved to the top of the file
 const mocks = vi.hoisted(() => {
