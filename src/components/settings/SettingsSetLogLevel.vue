@@ -38,7 +38,7 @@ const logLevel = computed(() => `${settingsStore.logLevel}`)
 
 /**
  *
- * @param level
+ * @param level - The loglevel which is currently set on the server (0 | 1 | 2 | 3 | 4)
  */
 function setLogLevel(level: string) {
 	const numericLevel = parseInt(level) as IAppSettings['logLevel']

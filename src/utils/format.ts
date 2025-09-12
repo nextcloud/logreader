@@ -12,7 +12,7 @@ import { useSettingsStore } from '../store/settings'
 
 /**
  *
- * @param pinia
+ * @param pinia Pinia instance
  */
 export function useLogFormatting(pinia?: Pinia) {
 	const settingsStore = useSettingsStore(pinia)

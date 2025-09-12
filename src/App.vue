@@ -86,6 +86,7 @@ function onShowServerLog() {
 
 /**
  * Handle paste events with log entries
+ *
  * @param event The keyboard event
  */
 function onHandlePaste(event: ClipboardEvent) {

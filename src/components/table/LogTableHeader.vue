@@ -38,11 +38,13 @@ import IconSortDescending from 'vue-material-design-icons/SortDescending.vue'
 interface Props {
 	/**
 	 * Whether the column is sortable
+	 *
 	 * @default true
 	 */
 	sortable?: boolean
 	/**
 	 * Current sorting
+	 *
 	 * @default ''
 	 */
 	sorted?: ISortingOptions
