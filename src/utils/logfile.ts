@@ -40,6 +40,7 @@ export async function parseLogString(raw: string): Promise<ILogEntry[]> {
 
 /**
  * Parse a raw (unknown type of) log entry into a modern log entry
+ *
  * @param entry The raw log entry
  */
 export function parseRawLogEntry(entry: IRawLogEntry): ILogEntry {

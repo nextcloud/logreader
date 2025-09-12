@@ -103,6 +103,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 
 	/**
 	 * Load entries from string
+	 *
 	 * @param text clipboard text content
 	 */
 	async function loadText(text: string) {

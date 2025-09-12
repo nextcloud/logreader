@@ -24,7 +24,6 @@ export default [
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',
 			'curly': 'off',
-			'jsdoc/tag-lines': 'off',
 			'import-extensions/extensions': 'off',
 			'vue/first-attribute-linebreak': 'off',
 			'vue/no-boolean-default': 'off',
