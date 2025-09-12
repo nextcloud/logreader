@@ -20,7 +20,6 @@ export default [
 			'@stylistic/max-statements-per-line': 'off',
 			'@stylistic/member-delimiter-style': 'off',
 			'@stylistic/object-curly-spacing': 'off',
-			'@stylistic/padded-blocks': 'off',
 			'@typescript-eslint/no-unsafe-function-type': 'off',
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',
@@ -36,7 +35,6 @@ export default [
 			'vue/no-boolean-default': 'off',
 			'vue/no-required-prop-with-default': 'off',
 			'vue/no-unused-properties': 'off',
-			'vue/padding-line-between-blocks': 'off',
 		},
 	},
 ]

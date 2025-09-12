@@ -2,6 +2,7 @@
  * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
+
 import { createTestingPinia } from '@pinia/testing'
 import { expect, describe, it, vi, beforeAll, afterAll, afterEach, beforeEach } from 'vitest'
 

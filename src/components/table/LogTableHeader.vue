@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<th :aria-sort="ariaSort">
 		<div class="log-table-header__wrapper">

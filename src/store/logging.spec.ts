@@ -2,6 +2,7 @@
  * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
+
 import { createTestingPinia } from '@pinia/testing'
 import { expect, describe, it, vi, beforeAll, afterEach, afterAll } from 'vitest'
 
@@ -39,9 +40,7 @@ vi.mock('../utils/logfile.ts', () => {
 })
 
 class ServerError extends Error {
-
 	public status = 500
-
 }
 
 const mockInitialState = (state: IAppSettings) => {

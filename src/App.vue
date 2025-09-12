@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<div class="logreader-container">
 		<div class="logreader-container__header">
@@ -92,7 +93,6 @@ const onHandlePaste = (event: ClipboardEvent) => {
 		const paste = event.clipboardData.getData('text')
 		loggingStore.loadText(paste)
 	}
-
 }
 // Add / remove event listeners
 onMounted(() => window.addEventListener('paste', onHandlePaste))
