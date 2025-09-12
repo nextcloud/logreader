@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "App" : "Праграма",
     "Time" : "Час",
+    "Application" : "Праграма",
     "Message" : "Паведамленне",
     "Show details" : "Паказаць падрабязнасці",
     "Info" : "Інфармацыя",
