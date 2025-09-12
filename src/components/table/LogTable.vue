@@ -132,7 +132,9 @@ async function loadMore() {
 		if (sortedByTime.value === 'ascending') {
 			const positionOfPreviousElement = logStore.entries.length - sizeBefore + 1 // ensure the loading row is not inside view
 			const previousTopElement = tableBody.value?.querySelector(`tr:nth-of-type(${positionOfPreviousElement})`)
-			if (previousTopElement) previousTopElement.scrollIntoView({ block: 'start' })
+			if (previousTopElement) {
+				previousTopElement.scrollIntoView({ block: 'start' })
+			}
 		}
 	})
 }

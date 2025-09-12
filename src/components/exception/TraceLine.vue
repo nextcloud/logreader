@@ -28,15 +28,12 @@ const props = defineProps<{
 /**
  * The fully qualified function name (including the class name)
  */
-const functionText = computed(
-	() => `${props.line.class}${props.line.type}${props.line.function}`,
-)
+const functionText = computed(() => `${props.line.class}${props.line.type}${props.line.function}`)
 
 /**
  * The arguments of the function
  */
-const argumentText = computed(
-	() => (props.line.args || []).length === 0
+const argumentText = computed(() => (props.line.args || []).length === 0
 		? '()'
 		: (
 			'(\n'
@@ -45,8 +42,7 @@ const argumentText = computed(
 				.map((argument) => JSON.stringify(argument, undefined, 2).split('\n').map((code) => `  ${code}`).join('\n'))
 				.join(',\n')
 			+ '\n)'
-		),
-)
+		))
 </script>
 
 <style lang="scss" scoped>

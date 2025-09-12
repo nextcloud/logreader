@@ -36,14 +36,18 @@ const observable = ref<HTMLDivElement>()
  * The intersection observer
  */
 const observer = new IntersectionObserver((entries) => {
-	if (entries[0].isIntersecting) emit('intersection')
+	if (entries[0].isIntersecting) {
+		emit('intersection')
+	}
 }, props.options)
 
 /**
  * Start observing when mounted
  */
 onMounted(() => {
-	if (observable.value) observer.observe(observable.value)
+	if (observable.value) {
+		observer.observe(observable.value)
+	}
 })
 
 /**

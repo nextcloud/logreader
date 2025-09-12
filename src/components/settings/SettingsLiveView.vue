@@ -28,8 +28,7 @@ import { logger } from '../../utils/logger'
 const settingsStore = useSettingsStore()
 const liveLog = computed({
 	get: () => settingsStore.enabled ? settingsStore.liveLog : false,
-	set: (v: boolean) =>
-		settingsStore
+	set: (v: boolean) => settingsStore
 			.setSetting('liveLog', v)
 			.catch((e) => {
 				logger.debug(e)

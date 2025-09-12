@@ -16,7 +16,9 @@ describe('utils:clipboard', () => {
 	})
 
 	it('opens promp if not supported clipboard', () => {
-		window.navigator.clipboard.writeText = vi.fn(() => { throw Error('no secure context') })
+		window.navigator.clipboard.writeText = vi.fn(() => {
+			throw Error('no secure context')
+		})
 		const prompt = vi.spyOn(window, 'prompt').mockImplementation(() => '')
 		copyToCipboard('foo bar')
 		expect(window.navigator.clipboard.writeText).toBeCalledWith('foo bar')
