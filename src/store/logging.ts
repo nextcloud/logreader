@@ -6,15 +6,15 @@
 import type { AxiosError } from '@nextcloud/axios'
 import type { ILogEntry } from '../interfaces'
 
+import { showError } from '@nextcloud/dialogs'
+import { translate as t } from '@nextcloud/l10n'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { getLog, pollLog } from '../api'
 import { POLLING_INTERVAL } from '../constants'
-import { showError } from '@nextcloud/dialogs'
-import { translate as t } from '@nextcloud/l10n'
-import { useSettingsStore } from './settings'
 import { parseLogFile, parseLogString, parseRawLogEntry } from '../utils/logfile'
 import { logger } from '../utils/logger'
+import { useSettingsStore } from './settings'
 
 /**
  * Store for handling log entries
@@ -65,10 +65,14 @@ export const useLogStore = defineStore('logreader-logs', () => {
 	 */
 	async function loadMore(older = true) {
 		// Nothing to do if server logging is disabled
-		if (!_settings.isEnabled) return
+		if (!_settings.isEnabled) {
+			return
+		}
 
 		// Only load any entries if there is no previous unfinished request
-		if (!(_loading.value = !_loading.value)) return
+		if (!(_loading.value = !_loading.value)) {
+			return
+		}
 
 		try {
 			if (older) {
@@ -103,6 +107,7 @@ export const useLogStore = defineStore('logreader-logs', () => {
 
 	/**
 	 * Load entries from string
+	 *
 	 * @param text clipboard text content
 	 */
 	async function loadText(text: string) {

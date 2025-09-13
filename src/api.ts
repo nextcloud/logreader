@@ -6,8 +6,8 @@
 import type { AxiosRequestConfig, AxiosResponse } from '@nextcloud/axios'
 import type { IAppSettings, INextcloud22LogEntry } from './interfaces'
 
-import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
+import { generateUrl } from '@nextcloud/router'
 
 interface ApiGetLog {
 	offset?: number

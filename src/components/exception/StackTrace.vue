@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<ol class="stack-trace">
 		<TraceLine v-for="line, idx in props.trace" :key="idx" :line="line" />
@@ -10,6 +11,7 @@
 
 <script setup lang="ts">
 import type { ITraceLine } from '../../interfaces'
+
 import TraceLine from './TraceLine.vue'
 
 const props = defineProps<{

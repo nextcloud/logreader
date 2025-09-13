@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<tr ref="tableRowElement" :class="{ expanded: isExpanded }">
 		<td :class="cssLevelClass">
@@ -19,7 +20,8 @@
 					</div>
 				</div>
 				<div class="row-message__action">
-					<NcButton type="tertiary-no-background"
+					<NcButton
+						variant="tertiary-no-background"
 						:aria-label="
 							isExpanded
 								? t('logreader', 'Collapse row')
@@ -36,7 +38,8 @@
 		</td>
 		<td>
 			<span v-if="isRawDate">{{ row.time }}</span>
-			<NcDateTime v-else
+			<NcDateTime
+				v-else
 				:key="settingsStore.dateTimeFormat"
 				:timestamp="timestamp"
 				:relative-time="isRelativeDate && 'long'"
@@ -72,21 +75,20 @@ import type { ILogEntry } from '../../interfaces'
 
 import { showSuccess } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import { computed, ref, nextTick, watch, onUpdated } from 'vue'
-import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../../constants'
-import { copyToCipboard } from '../../utils/clipboard'
-import { useLogFormatting } from '../../utils/format'
-
-import NcActions from '@nextcloud/vue/dist/Components/NcActions.js'
-import NcActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcDateTime from '@nextcloud/vue/dist/Components/NcDateTime.js'
+import { computed, nextTick, onUpdated, ref, watch } from 'vue'
+import NcActionButton from '@nextcloud/vue/components/NcActionButton'
+import NcActions from '@nextcloud/vue/components/NcActions'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcDateTime from '@nextcloud/vue/components/NcDateTime'
 import IconChevronDown from 'vue-material-design-icons/ChevronDown.vue'
 import IconChevronUp from 'vue-material-design-icons/ChevronUp.vue'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import IconViewList from 'vue-material-design-icons/ViewList.vue'
 import LogException from '../exception/LogException.vue'
+import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../../constants'
 import { useSettingsStore } from '../../store/settings'
+import { copyToCipboard } from '../../utils/clipboard'
+import { useLogFormatting } from '../../utils/format'
 
 const props = withDefaults(
 	defineProps<{
@@ -144,7 +146,7 @@ const tableRowElement = ref<HTMLTableRowElement>()
 /**
  * Copy the raw log entry as json
  */
-const copyRaw = async () => {
+async function copyRaw() {
 	if (await copyToCipboard(JSON.stringify(props.row))) {
 		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
@@ -153,7 +155,7 @@ const copyRaw = async () => {
 /**
  * Copy the log entry formatted to be human readable
  */
-const copyFormatted = async () => {
+async function copyFormatted() {
 	if (await copyToCipboard(formatLogEntry(props.row))) {
 		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
@@ -163,11 +165,13 @@ const copyFormatted = async () => {
  * If expanded set a fixed height to show the full log message,
  * if not remove the height style to reset the height to one text line with hidden overflow
  */
-const resizeTabeRow = () => {
+function resizeTabeRow() {
 	if (isExpanded.value) {
 		nextTick(() => {
 			const height = tableRowElement.value?.scrollHeight || 0
-			if (tableRowElement.value) tableRowElement.value.style.height = `${height}px`
+			if (tableRowElement.value) {
+				tableRowElement.value.style.height = `${height}px`
+			}
 		})
 	} else if (tableRowElement.value !== undefined) {
 		tableRowElement.value.style.height = ''

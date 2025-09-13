@@ -2,7 +2,9 @@
  * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
+
 import type { ILogEntry, IRawLogEntry } from '../interfaces'
+
 import { parseException } from './exception'
 import { logger } from './logger'
 
@@ -38,6 +40,7 @@ export async function parseLogString(raw: string): Promise<ILogEntry[]> {
 
 /**
  * Parse a raw (unknown type of) log entry into a modern log entry
+ *
  * @param entry The raw log entry
  */
 export function parseRawLogEntry(entry: IRawLogEntry): ILogEntry {

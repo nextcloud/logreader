@@ -2,8 +2,10 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
-	<NcModal :show="open"
+	<NcModal
+		:show="open"
 		size="large"
 		:has-previous="index > 0"
 		:has-next="index < logEntries.length - 1"
@@ -23,19 +25,20 @@
 					<dd>{{ timeString }}</dd>
 				</dl>
 				<div class="log-details__actions">
-					<NcButton :aria-label="t('logreader', 'Copy raw entry')" type="tertiary" @click="copyRaw">
+					<NcButton :aria-label="t('logreader', 'Copy raw entry')" variant="tertiary" @click="copyRaw">
 						<template #icon>
 							<IconContentCopy />
 						</template>
 						{{ t('logreader', 'Copy raw entry') }}
 					</NcButton>
-					<NcButton :aria-label="t('logreader', 'Copy formatted entry')" type="tertiary" @click="copyFormatted">
+					<NcButton :aria-label="t('logreader', 'Copy formatted entry')" variant="tertiary" @click="copyFormatted">
 						<template #icon>
 							<IconContentCopy />
 						</template>
 						{{ t('logreader', 'Copy formatted entry') }}
 					</NcButton>
-					<NcButton v-if="currentEntry.exception"
+					<NcButton
+						v-if="currentEntry.exception"
 						class="log-details__btn"
 						@click="isExceptionExpanded = !isExceptionExpanded">
 						{{ isExceptionExpanded ? t('logreader', 'Hide exception details') : t('logreader', 'View exception details') }}
@@ -58,29 +61,28 @@
 <script setup lang="ts">
 import type { ILogEntry } from '../interfaces'
 
-import { translate as t } from '@nextcloud/l10n'
 import { showSuccess } from '@nextcloud/dialogs'
-import { computed, ref, watchEffect } from 'vue'
-import { copyToCipboard } from '../utils/clipboard'
-import { useLogFormatting } from '../utils/format'
-import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'
-
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
-import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
+import { translate as t } from '@nextcloud/l10n'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
+import { computed, ref, watchEffect } from 'vue'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcModal from '@nextcloud/vue/components/NcModal'
+import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
+import LogException from './exception/LogException.vue'
+import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'
+import { copyToCipboard } from '../utils/clipboard'
+import { useLogFormatting } from '../utils/format'
 
 import 'highlight.js/styles/base16/material-darker.css'
-import LogException from './exception/LogException.vue'
-
-hljs.registerLanguage('json', json)
 
 const props = defineProps<{
 	open: boolean
 	currentEntry: ILogEntry
 	logEntries: readonly ILogEntry[]
 }>()
+
+hljs.registerLanguage('json', json)
 
 const { formatTime, formatLogEntry } = useLogFormatting()
 
@@ -99,18 +101,12 @@ watchEffect(() => {
 /**
  * Index of the current entry within all entries
  */
-const index = computed(() =>
-	props.logEntries.findIndex((entry) => entry === props.currentEntry),
-)
+const index = computed(() => props.logEntries.findIndex((entry) => entry === props.currentEntry))
 
 /**
  * Formatted data of the entry
  */
-const code = computed(
-	() =>
-		hljs.highlight(JSON.stringify(props.currentEntry, null, 2), { language: 'json' })
-			.value,
-)
+const code = computed(() => hljs.highlight(JSON.stringify(props.currentEntry, null, 2), { language: 'json' }).value)
 
 /**
  * Level as translated human readable string
@@ -133,7 +129,7 @@ const cssLevelClass = computed(() => [
 /**
  * Copy the raw log entry as json
  */
-const copyRaw = async () => {
+async function copyRaw() {
 	if (await copyToCipboard(JSON.stringify(props.currentEntry))) {
 		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}
@@ -142,7 +138,7 @@ const copyRaw = async () => {
 /**
  * Copy the log entry formatted to be human readable
  */
-const copyFormatted = async () => {
+async function copyFormatted() {
 	if (await copyToCipboard(formatLogEntry(props.currentEntry))) {
 		showSuccess(t('logreader', 'Log entry successfully copied'))
 	}

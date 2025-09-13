@@ -2,11 +2,13 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<th :aria-sort="ariaSort">
 		<div class="log-table-header__wrapper">
-			<NcButton v-if="sortable"
-				:type="props.sorted ? 'secondary' : 'tertiary-no-background'"
+			<NcButton
+				v-if="sortable"
+				:variant="props.sorted ? 'secondary' : 'tertiary-no-background'"
 				:aria-label="name"
 				:aria-pressed="!!props.sorted"
 				:wide="true"
@@ -29,8 +31,7 @@
 import type { ISortingOptions } from '../../interfaces'
 
 import { computed } from 'vue'
-
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
 import IconSort from 'vue-material-design-icons/Sort.vue'
 import IconSortAscending from 'vue-material-design-icons/SortAscending.vue'
 import IconSortDescending from 'vue-material-design-icons/SortDescending.vue'
@@ -38,11 +39,13 @@ import IconSortDescending from 'vue-material-design-icons/SortDescending.vue'
 interface Props {
 	/**
 	 * Whether the column is sortable
+	 *
 	 * @default true
 	 */
 	sortable?: boolean
 	/**
 	 * Current sorting
+	 *
 	 * @default ''
 	 */
 	sorted?: ISortingOptions
@@ -84,11 +87,20 @@ const sortIcon = computed(() => {
 /**
  * Switch through the sort modes
  */
-const changeSortMode = () => {
+function changeSortMode() {
 	switch (props.sorted) {
-	case 'ascending': emit('update:sorted', 'descending'); break
-	case 'descending': emit('update:sorted', ''); break
-	case '': emit('update:sorted', 'ascending'); break
+		case 'ascending': {
+			emit('update:sorted', 'descending')
+			break
+		}
+		case 'descending': {
+			emit('update:sorted', '')
+			break
+		}
+		case '': {
+			emit('update:sorted', 'ascending')
+			break
+		}
 	}
 }
 

@@ -2,10 +2,11 @@
  * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-import { createTestingPinia } from '@pinia/testing'
-import { expect, describe, it, vi, beforeAll, afterAll, afterEach, beforeEach } from 'vitest'
 
 import type { IAppSettings } from '../interfaces'
+
+import { createTestingPinia } from '@pinia/testing'
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useSettingsStore } from '../store/settings'
 
 const mocks = vi.hoisted(() => {
@@ -16,7 +17,7 @@ const mocks = vi.hoisted(() => {
 	}
 })
 
-const mockInitialState = (state: IAppSettings) => {
+function mockInitialState(state: IAppSettings) {
 	const input = document.createElement('input')
 	input.setAttribute('type', 'hidden')
 	input.setAttribute('id', 'initial-state-logreader-settings')

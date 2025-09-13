@@ -2,6 +2,7 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<li>
 		<div class="trace__position">
@@ -17,8 +18,8 @@
 <script setup lang="ts">
 import type { ITraceLine } from '../../interfaces'
 
-import { computed } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
+import { computed } from 'vue'
 
 const props = defineProps<{
 	line: ITraceLine
@@ -27,25 +28,21 @@ const props = defineProps<{
 /**
  * The fully qualified function name (including the class name)
  */
-const functionText = computed(
-	() => `${props.line.class}${props.line.type}${props.line.function}`,
-)
+const functionText = computed(() => `${props.line.class}${props.line.type}${props.line.function}`)
 
 /**
  * The arguments of the function
  */
-const argumentText = computed(
-	() => (props.line.args || []).length === 0
-		? '()'
-		: (
+const argumentText = computed(() => (props.line.args || []).length === 0
+	? '()'
+	: (
 			'(\n'
 			+ (props.line.args || [])
 				// stringify the arguments and add indention
 				.map((argument) => JSON.stringify(argument, undefined, 2).split('\n').map((code) => `  ${code}`).join('\n'))
 				.join(',\n')
-			+ '\n)'
-		),
-)
+				+ '\n)'
+		))
 </script>
 
 <style lang="scss" scoped>

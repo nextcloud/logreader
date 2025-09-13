@@ -2,23 +2,28 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
 	<div class="log-table">
-		<LogDetailsModal v-if="currentRow"
+		<LogDetailsModal
+			v-if="currentRow"
 			:open.sync="isModalOpen"
 			:current-entry.sync="currentRow"
 			:log-entries="sortedRows" />
 		<table ref="tableRoot" class="log-table__table">
 			<thead role="rowgroup" class="log-table__header">
 				<tr>
-					<LogTableHeader :name="t('logreader', 'Level')"
+					<LogTableHeader
+						:name="t('logreader', 'Level')"
 						:sorted.sync="sortedByLevel" />
-					<LogTableHeader :name="t('logreader', 'Application')"
+					<LogTableHeader
+						:name="t('logreader', 'Application')"
 						:sorted.sync="sortedByApp" />
 					<LogTableHeader :name="t('logreader', 'Message')" :sortable="false">
 						<LogSearch />
 					</LogTableHeader>
-					<LogTableHeader :name="t('logreader', 'Time')"
+					<LogTableHeader
+						:name="t('logreader', 'Time')"
 						:sorted.sync="sortedByTime" />
 					<th><span class="hidden-visually">{{ t('logreader', 'Log entry actions') }}</span></th>
 				</tr>
@@ -35,7 +40,8 @@
 					</td>
 				</tr>
 
-				<LogTableRow v-for="row in renderedItems"
+				<LogTableRow
+					v-for="row in renderedItems"
 					:key="row.id"
 					:row="row"
 					class="log-table__row"
@@ -60,18 +66,22 @@
 <script setup lang="ts">
 import type { ILogEntry, ISortingOptions } from '../../interfaces'
 
-import { computed, nextTick, onMounted, onBeforeUnmount, ref } from 'vue'
 import { translate as t } from '@nextcloud/l10n'
-import { useSettingsStore } from '../../store/settings'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import IntersectionObserver from '../IntersectionObserver.vue'
+import LogDetailsModal from '../LogDetailsModal.vue'
+import LogSearch from '../LogSearch.vue'
+import LogTableHeader from './LogTableHeader.vue'
+import LogTableRow from './LogTableRow.vue'
 import { useLogStore } from '../../store/logging'
+import { useSettingsStore } from '../../store/settings'
 import { debounce } from '../../utils/debounce'
 import { logger } from '../../utils/logger'
 
-import IntersectionObserver from '../IntersectionObserver.vue'
-import LogDetailsModal from '../LogDetailsModal.vue'
-import LogTableHeader from './LogTableHeader.vue'
-import LogTableRow from './LogTableRow.vue'
-import LogSearch from '../LogSearch.vue'
+const props = defineProps<{
+	/** Log entries to display */
+	rows: ILogEntry[]
+}>()
 
 // Items to render before and after the visible area
 const bufferItems = 3
@@ -83,16 +93,11 @@ const sortedByLevel = ref<ISortingOptions>('')
 const sortedByApp = ref<ISortingOptions>('')
 const sortedByTime = ref<ISortingOptions>('descending')
 
-const props = defineProps<{
-	/** Log entries to display */
-	rows: ILogEntry[]
-}>()
-
 /**
  * Filtered rows by configured levels
  */
 const filteredRows = computed(() => {
-	return props.rows.filter(row => (settingsStore.shownLevels as number[]).includes(row.level))
+	return props.rows.filter((row) => (settingsStore.shownLevels as number[]).includes(row.level))
 })
 
 /**
@@ -110,7 +115,7 @@ const currentRow = ref<ILogEntry>(props.rows[0])
  *
  * @param row The log entry to display
  */
-const showDetailsForRow = (row: ILogEntry) => {
+function showDetailsForRow(row: ILogEntry) {
 	currentRow.value = row
 	isModalOpen.value = true
 }
@@ -124,7 +129,7 @@ const tableBody = ref<HTMLElement>()
 /**
  * Load older log entries and ensure that the view sticks at the previous top element
  */
-const loadMore = async () => {
+async function loadMore() {
 	const sizeBefore = logStore.entries.length
 	await logStore.loadMore()
 	// Ensure that the view sticks at the previous top element
@@ -132,7 +137,9 @@ const loadMore = async () => {
 		if (sortedByTime.value === 'ascending') {
 			const positionOfPreviousElement = logStore.entries.length - sizeBefore + 1 // ensure the loading row is not inside view
 			const previousTopElement = tableBody.value?.querySelector(`tr:nth-of-type(${positionOfPreviousElement})`)
-			if (previousTopElement) previousTopElement.scrollIntoView({ block: 'start' })
+			if (previousTopElement) {
+				previousTopElement.scrollIntoView({ block: 'start' })
+			}
 		}
 	})
 }

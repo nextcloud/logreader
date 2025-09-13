@@ -2,7 +2,8 @@
  * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-import { expect, describe, it, vi, afterEach } from 'vitest'
+
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { logger } from './logger'
 
 describe('utils:logger', () => {

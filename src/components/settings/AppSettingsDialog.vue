@@ -2,8 +2,10 @@
 	SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
 	SPDX-License-Identifier: AGPL-3.0-or-later
 -->
+
 <template>
-	<NcAppSettingsDialog :open="props.open"
+	<NcAppSettingsDialog
+		:open="props.open"
 		:show-navigation="true"
 		:name="t('logreader', 'Log reader settings')"
 		@update:open="onUpdateOpen">
@@ -27,14 +29,13 @@
 
 <script setup lang="ts">
 import { translate as t } from '@nextcloud/l10n'
+import NcAppSettingsDialog from '@nextcloud/vue/components/NcAppSettingsDialog'
+import NcAppSettingsSection from '@nextcloud/vue/components/NcAppSettingsSection'
 import SettingsActions from './SettingsActions.vue'
+import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
 import SettingsLiveView from './SettingsLiveView.vue'
 import SettingsLogLevels from './SettingsLogLevels.vue'
 import SettingsSetLogLevel from './SettingsSetLogLevel.vue'
-import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
-
-import NcAppSettingsDialog from '@nextcloud/vue/dist/Components/NcAppSettingsDialog.js'
-import NcAppSettingsSection from '@nextcloud/vue/dist/Components/NcAppSettingsSection.js'
 
 const props = defineProps<{
 	open: boolean

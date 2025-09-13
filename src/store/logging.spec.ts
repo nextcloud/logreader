@@ -2,13 +2,14 @@
  * SPDX-FileCopyrightText: 2023 Nextcloud Gmbh and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-import { createTestingPinia } from '@pinia/testing'
-import { expect, describe, it, vi, beforeAll, afterEach, afterAll } from 'vitest'
 
 import type { IAppSettings, ILogEntry } from '../interfaces'
+
+import { createTestingPinia } from '@pinia/testing'
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
+import { POLLING_INTERVAL } from '../constants'
 import { useSettingsStore } from '../store/settings'
 import { useLogStore } from './logging'
-import { POLLING_INTERVAL } from '../constants'
 
 // We need to declare the mocks here to access the mocked functions from the tests as mocks are hoisted -> moved to the top of the file
 const mocks = vi.hoisted(() => {
@@ -39,12 +40,10 @@ vi.mock('../utils/logfile.ts', () => {
 })
 
 class ServerError extends Error {
-
 	public status = 500
-
 }
 
-const mockInitialState = (state: IAppSettings) => {
+function mockInitialState(state: IAppSettings) {
 	const input = document.createElement('input')
 	input.setAttribute('type', 'hidden')
 	input.setAttribute('id', 'initial-state-logreader-settings')
@@ -107,8 +106,8 @@ describe('store:logging', () => {
 				pollLog: mocks.pollLog,
 			}
 		})
-		vi.mocked(mocks.getLog).mockImplementation(async ({ query }: { query: string}) => {
-			await (new Promise(resolve => setTimeout(resolve, 50)))
+		vi.mocked(mocks.getLog).mockImplementation(async ({ query }: { query: string }) => {
+			await (new Promise((resolve) => setTimeout(resolve, 50)))
 			// Fake an axios response
 			return {
 				data: {
@@ -285,7 +284,9 @@ describe('store:logging', () => {
 		})
 
 		// throw an error
-		mocks.parseLogString.mockImplementationOnce(() => { throw new Error() })
+		mocks.parseLogString.mockImplementationOnce(() => {
+			throw new Error()
+		})
 
 		const store = useLogStore()
 		const settings = useSettingsStore()
@@ -622,7 +623,9 @@ describe('store:logging', () => {
 				logger: mocks.logger,
 			}
 		})
-		vi.mocked(mocks.pollLog).mockImplementationOnce(() => { throw Error() })
+		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
+			throw Error()
+		})
 
 		// clean pinia
 		createTestingPinia({
@@ -651,7 +654,9 @@ describe('store:logging', () => {
 				logger: mocks.logger,
 			}
 		})
-		vi.mocked(mocks.pollLog).mockImplementationOnce(() => { throw new ServerError() })
+		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
+			throw new ServerError()
+		})
 
 		// clean pinia
 		createTestingPinia({
