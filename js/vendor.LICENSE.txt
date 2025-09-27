@@ -17,7 +17,7 @@ version: 2.5.2
 license: GPL-3.0-or-later
 
 @nextcloud/axios
-version: 2.5.1
+version: 2.5.2
 license: GPL-3.0-or-later
 
 @nextcloud/browser-storage
@@ -81,7 +81,7 @@ version: 11.0.3
 license: MIT
 
 axios
-version: 1.12.1
+version: 1.12.2
 license: MIT
 
 charenc
