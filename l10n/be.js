@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "Level" : "Узровень",
     "App" : "Праграма",
     "Time" : "Час",
     "Application" : "Праграма",
