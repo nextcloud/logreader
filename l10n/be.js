@@ -4,6 +4,7 @@ OC.L10N.register(
     "Level" : "Узровень",
     "App" : "Праграма",
     "Time" : "Час",
+    "Ctrl" : "Ctrl",
     "Application" : "Праграма",
     "Message" : "Паведамленне",
     "Show details" : "Паказаць падрабязнасці",
