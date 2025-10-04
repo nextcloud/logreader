@@ -21,7 +21,7 @@
     "@vue/tsconfig": "^0.5.1",
     "happy-dom": "^19.0.2",
     "typescript": "^5.9.3",
-    "vite": "^7.1.5",
+    "vite": "^7.1.9",
     "vitest": "^3.0.2"
   },
   "engines": {
