@@ -12,7 +12,7 @@
     "test:coverage": "TZ='Etc/GMT+1' vitest run --coverage"
   },
   "devDependencies": {
-    "@nextcloud/browserslist-config": "^3.0.1",
+    "@nextcloud/browserslist-config": "^3.1.0",
     "@nextcloud/eslint-config": "^9.0.0-rc.5",
     "@nextcloud/vite-config": "^1.5.6",
     "@pinia/testing": "^0.1.7",
