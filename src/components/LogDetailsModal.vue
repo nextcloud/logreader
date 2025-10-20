@@ -176,13 +176,13 @@ async function copyFormatted() {
 			border-block-end-color: var(--color-border-maxcontrast);
 		}
 		&--info {
-			border-block-end-color: var(--color-info);
+			border-block-end-color: var(--color-element-info, var(--color-info));
 		}
 		&--warning {
-			border-block-end-color: var(--color-warning);
+			border-block-end-color: var(--color-element-warning, var(--color-warning));
 		}
 		&--error, &--fatal {
-			border-block-end-color: var(--color-error);
+			border-block-end-color: var(--color-element-error, var(--color-error));
 		}
 	}
 
