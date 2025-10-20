@@ -200,7 +200,6 @@ async function copyFormatted() {
 	}
 }
 .hljs {
-	background-color: var(--color-background-dark);
 	border-radius: var(--border-radius-large);
 }
 
