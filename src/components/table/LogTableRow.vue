@@ -242,13 +242,13 @@ tr {
 		border-inline-start-color: var(--color-border-maxcontrast);
 	}
 	&--info {
-		border-inline-start-color: var(--color-info);
+		border-inline-start-color: var(--color-element-info, var(--color-info));
 	}
 	&--warning {
-		border-inline-start-color: var(--color-warning);
+		border-inline-start-color: var(--color-element-warning, var(--color-warning));
 	}
 	&--error, &--fatal {
-		border-inline-start-color: var(--color-error);
+		border-inline-start-color: var(--color-element-error, var(--color-error));
 	}
 }
 </style>
