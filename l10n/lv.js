@@ -2,6 +2,8 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Žurnalēšana",
+    "No errors in the logs since %s" : "Kopš %s žurnālos nav kļūdu",
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["Kopš %s žurnālos ir %n kļūdu","Kopš %s žurnālos ir %n kļūda","Kopš %s žurnālos ir %n kļūdas"],
     "Log Reader" : "Žurnālu lasītājs",
     "A log reader for Nextcloud" : "Nextcloud žurnālu lasītājs",
     "Log reader for Nextcloud" : "Nextcloud žurnālu lasītājs",
@@ -22,7 +24,7 @@ OC.L10N.register(
     "Collapse row" : "Sakļaut rindu",
     "Expand row" : "Izvērst rindu",
     "Show details" : "Rādīt informāciju",
-    "Info" : "Info",
+    "Info" : "Informācija",
     "Warning" : "Brīdinājums",
     "Error" : "Kļūda",
     "Could not load log entries" : "Nevarēja ielādēt žurnāla ierakstus",
