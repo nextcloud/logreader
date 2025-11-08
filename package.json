@@ -39,7 +39,7 @@
     "@nextcloud/logger": "^3.0.2",
     "@nextcloud/router": "^3.0.0",
     "@nextcloud/typings": "^1.10.0",
-    "@nextcloud/vue": "^8.31.0",
+    "@nextcloud/vue": "^8.34.0",
     "highlight.js": "^11.11.1",
     "json-string-splitter": "^1.0.0",
     "pinia": "^2.3.1",
