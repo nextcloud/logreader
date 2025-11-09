@@ -57,7 +57,7 @@ version: 0.2.0
 license: AGPL-3.0-or-later
 
 @nextcloud/vue
-version: 8.33.0
+version: 8.34.0
 license: AGPL-3.0-or-later
 
 @nextcloud/vue-select
@@ -145,7 +145,7 @@ version: 1.0.0-beta.19
 license: MIT
 
 focus-trap
-version: 7.6.5
+version: 7.6.6
 license: MIT
 
 highlight.js
@@ -193,7 +193,7 @@ version: 3.2.0
 license: MIT
 
 tabbable
-version: 6.2.0
+version: 6.3.0
 license: MIT
 
 toastify-js
