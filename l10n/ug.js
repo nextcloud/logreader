@@ -31,7 +31,7 @@ OC.L10N.register(
     "Raw log entry" : "خام ماتېرىيال كىرگۈزۈش",
     "Search log entries" : "ئىزدەش خاتىرىسى",
     "Caused by {exception}" : "{exception} سىرتىدا",
-    "Line {line}" : "Line {line}",
+    "Line {line}" : "{line}-قۇر ",
     "Filter log levels" : "سۈزگۈچ خاتىرىسى",
     "Set log level" : "خاتىرە دەرىجىسىنى بەلگىلەڭ",
     "Time format" : "ۋاقىت فورماتى",
