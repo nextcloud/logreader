@@ -54,6 +54,7 @@ function mockInitialState(state: IAppSettings) {
 describe('store:logging', () => {
 	afterEach(() => {
 		vi.restoreAllMocks()
+		vi.clearAllMocks()
 		vi.clearAllTimers()
 	})
 
