@@ -5,8 +5,8 @@
 
 <template>
 	<NcActions
+		v-model:open="isOpen"
 		:force-menu="true"
-		:open.sync="isOpen"
 		:aria-label="t('logreader', 'Search log entries')"
 		:type="buttonType">
 		<template #icon>

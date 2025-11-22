@@ -7,24 +7,24 @@
 	<div class="log-table">
 		<LogDetailsModal
 			v-if="currentRow"
-			:open.sync="isModalOpen"
-			:current-entry.sync="currentRow"
+			v-model:open="isModalOpen"
+			v-model:current-entry="currentRow"
 			:log-entries="sortedRows" />
 		<table ref="tableRoot" class="log-table__table">
 			<thead role="rowgroup" class="log-table__header">
 				<tr>
 					<LogTableHeader
-						:name="t('logreader', 'Level')"
-						:sorted.sync="sortedByLevel" />
+						v-model:sorted="sortedByLevel"
+						:name="t('logreader', 'Level')" />
 					<LogTableHeader
-						:name="t('logreader', 'Application')"
-						:sorted.sync="sortedByApp" />
+						v-model:sorted="sortedByApp"
+						:name="t('logreader', 'Application')" />
 					<LogTableHeader :name="t('logreader', 'Message')" :sortable="false">
 						<LogSearch />
 					</LogTableHeader>
 					<LogTableHeader
-						:name="t('logreader', 'Time')"
-						:sorted.sync="sortedByTime" />
+						v-model:sorted="sortedByTime"
+						:name="t('logreader', 'Time')" />
 					<th><span class="hidden-visually">{{ t('logreader', 'Log entry actions') }}</span></th>
 				</tr>
 			</thead>
