@@ -13,7 +13,4 @@
 		"noImplicitAny": true,
 		"allowSyntheticDefaultImports": true,
 	},
-	"vueCompilerOptions": {
-		"target": 2.7,
-	},
 }
