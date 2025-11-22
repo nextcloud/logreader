@@ -9,9 +9,9 @@
 		size="large"
 		:has-previous="index > 0"
 		:has-next="index < logEntries.length - 1"
-		@next="$emit('update:currentEntry', logEntries[index + 1])"
-		@previous="$emit('update:currentEntry', logEntries[index - 1])"
-		@update:show="$emit('update:open', false)">
+		@next="emit('update:currentEntry', logEntries[index + 1])"
+		@previous="emit('update:currentEntry', logEntries[index - 1])"
+		@update:show="emit('update:open', false)">
 		<template #default>
 			<div class="log-details">
 				<dl :class="cssLevelClass">
@@ -80,6 +80,11 @@ const props = defineProps<{
 	open: boolean
 	currentEntry: ILogEntry
 	logEntries: readonly ILogEntry[]
+}>()
+
+const emit = defineEmits<{
+	(event: 'update:currentEntry', value: ILogEntry): void
+	(event: 'update:open', value: false): void
 }>()
 
 hljs.registerLanguage('json', json)
