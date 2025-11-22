@@ -22,7 +22,6 @@ const config = createAppConfig({
 				reporter: ['lcov', 'text'],
 			},
 			environment: 'happy-dom',
-			alias: [{ find: /^vue$/, replacement: 'vue/dist/vue.runtime.common.js' }],
 		},
 	} as UserConfig,
 })
