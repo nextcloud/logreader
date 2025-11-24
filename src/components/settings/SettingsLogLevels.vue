@@ -8,12 +8,10 @@
 		<fieldset>
 			<legend>{{ t('logreader', 'Filter logging levels') }}</legend>
 			<NcCheckboxRadioSwitch
-				v-for="levelName, levelId in LOGGING_LEVEL_NAMES"
+				v-for="(levelName, levelId) in LOGGING_LEVEL_NAMES"
 				:key="levelId"
-				:checked="shownLevels"
-				:value="`${levelId}`"
-				name="logging_level"
-				@update:checked="setShowLevels">
+				:model-value="shownLevels[levelId]"
+				@update:model-value="setShowLevels(levelId)">
 				{{ levelName }}
 			</NcCheckboxRadioSwitch>
 		</fieldset>
@@ -36,10 +34,21 @@ const settingsStore = useSettingsStore()
 /**
  * Get shown logging levels (to allow filter levels)
  */
-const shownLevels = computed(() => settingsStore.shownLevels.map((l) => `${l}`))
+const shownLevels = computed(() => {
+	return Object.fromEntries(Object.keys(LOGGING_LEVEL_NAMES).map((level) => {
+		return [level, settingsStore.shownLevels.includes(parseInt(level))]
+	}))
+})
 
-const setShowLevels = debounce((levels: string[]) => {
-	const numericLevels = levels.map((level) => parseInt(level)) as IAppSettings['shownLevels']
+const setShowLevels = debounce((level: number) => {
+	const newShownLevels = {
+		...shownLevels.value,
+		[level]: !shownLevels.value[level],
+	}
+
+	const numericLevels = Object.keys(newShownLevels)
+		.filter((level) => newShownLevels[level])
+		.map((level) => parseInt(level)) as IAppSettings['shownLevels']
 
 	settingsStore.setSetting('shownLevels', numericLevels)
 		.catch(() => showError(t('logreader', 'Could not set logging levels to show')))

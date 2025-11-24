@@ -7,38 +7,38 @@
 	<fieldset>
 		<legend>{{ fieldsetLegend }}</legend>
 		<NcCheckboxRadioSwitch
-			:checked="dateTimeFormat"
+			:model-value="dateTimeFormat"
 			value="raw"
 			name="timestamp_format"
 			type="radio"
-			@update:checked="setDateTimeFormat">
+			@update:model-value="setDateTimeFormat">
 			{{ t('logreader', 'Raw data') }}
 		</NcCheckboxRadioSwitch>
 		<NcCheckboxRadioSwitch
-			:checked="dateTimeFormat"
+			:model-value="dateTimeFormat"
 			:disabled="isLocalLogfile"
 			value="local"
 			name="timestamp_format"
 			type="radio"
-			@update:checked="setDateTimeFormat">
+			@update:model-value="setDateTimeFormat">
 			{{ t('logreader', 'Local time') }}
 		</NcCheckboxRadioSwitch>
 		<NcCheckboxRadioSwitch
-			:checked="dateTimeFormat"
+			:model-value="dateTimeFormat"
 			:disabled="isLocalLogfile"
 			value="utc"
 			name="timestamp_format"
 			type="radio"
-			@update:checked="setDateTimeFormat">
+			@update:model-value="setDateTimeFormat">
 			{{ t('logreader', 'UTC time') }}
 		</NcCheckboxRadioSwitch>
 		<NcCheckboxRadioSwitch
-			:checked="dateTimeFormat"
+			:model-value="dateTimeFormat"
 			:disabled="isLocalLogfile"
 			value="relative"
 			name="timestamp_format"
 			type="radio"
-			@update:checked="setDateTimeFormat">
+			@update:model-value="setDateTimeFormat">
 			{{ t('logreader', 'Relative') }}
 		</NcCheckboxRadioSwitch>
 	</fieldset>
