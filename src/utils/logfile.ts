@@ -7,6 +7,7 @@ import type { ILogEntry, IRawLogEntry } from '../interfaces'
 
 import { parseException } from './exception'
 import { logger } from './logger'
+import { splitter } from './splitter'
 
 /**
  * Parse a given log file
@@ -30,7 +31,6 @@ export async function parseLogString(raw: string): Promise<ILogEntry[]> {
 	} catch (e) {
 		logger.debug('falling back to json splitter')
 
-		const splitter = (await import('json-string-splitter')).default
 		// the input might have had its data reformatted, breaking the original newline separated json
 		const lines = splitter(raw).jsons
 		entries = lines.map(tryParseJSON)
