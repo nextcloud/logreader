@@ -27,7 +27,6 @@
     "@nextcloud/typings": "^1.10.0",
     "@nextcloud/vue": "^9.3.0",
     "highlight.js": "^11.11.1",
-    "json-string-splitter": "^1.0.0",
     "pinia": "^3.0.4",
     "vue": "^3.5.24",
     "vue-material-design-icons": "^5.3.1"
