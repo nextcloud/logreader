@@ -2,6 +2,7 @@ OC.L10N.register(
     "logreader",
     {
     "Logging" : "Registos",
+    "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n aviso nos registos desde %s","%n avisos nos registos desde %s","%n avisos nos registos desde %s"],
     "Level" : "Nível",
     "App" : "Aplicação",
     "Time" : "Tempo",
