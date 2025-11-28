@@ -7,13 +7,13 @@
 	<fieldset>
 		<legend>{{ t('logreader', 'Set backend loglevel') }}</legend>
 		<NcCheckboxRadioSwitch
-			v-for="levelName, levelId in LOGGING_LEVEL_NAMES"
+			v-for="(levelName, levelId) in LOGGING_LEVEL_NAMES"
 			:key="levelId"
-			:checked="logLevel"
+			:model-value="logLevel"
 			:value="`${levelId}`"
 			type="radio"
 			name="loglevel"
-			@update:checked="setLogLevel">
+			@update:model-value="setLogLevel">
 			{{ levelName }}
 		</NcCheckboxRadioSwitch>
 	</fieldset>

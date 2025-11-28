@@ -6,7 +6,7 @@ SPDX-PackageSupplier = "Nextcloud <info@nextcloud.com>"
 SPDX-PackageDownloadLocation = "https://github.com/nextcloud/logreader"
 
 [[annotations]]
-path = [".github/issue_template.md", ".github/CODEOWNERS", "package-lock.json", "package.json", "composer.json", "composer.lock", "**/composer.json", "**/composer.lock", ".jshintrc", ".l10nignore", ".tx/config", "tsconfig.json", "js/vendor.LICENSE.txt", "krankerl.toml", ".nextcloudignore", ".devcontainer/devcontainer.json", ".scrutinizer.yml", ".tx/backport"]
+path = [".github/issue_template.md", ".github/CODEOWNERS", "package-lock.json", "package.json", "**/package.json", "**/package-lock.json", "composer.json", "composer.lock", "**/composer.json", "**/composer.lock", ".jshintrc", ".l10nignore", ".tx/config", "tsconfig.json", "js/vendor.LICENSE.txt", "krankerl.toml", ".nextcloudignore", ".devcontainer/devcontainer.json", ".scrutinizer.yml", ".tx/backport"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "none"
 SPDX-License-Identifier = "CC0-1.0"

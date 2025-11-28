@@ -47,7 +47,7 @@
 		</td>
 		<td>
 			<NcActions placement="left-start">
-				<NcActionButton close-after-click @click="$emit('show-details', row)">
+				<NcActionButton close-after-click @click="emit('showDetails', row)">
 					<template #icon>
 						<IconViewList />
 					</template>
@@ -99,6 +99,10 @@ const props = withDefaults(
 		timeFormat: 'local',
 	},
 )
+
+const emit = defineEmits<{
+	(event: 'showDetails', value: ILogEntry): void
+}>()
 
 const settingsStore = useSettingsStore()
 const isRawDate = computed(() => settingsStore.dateTimeFormat === 'raw')

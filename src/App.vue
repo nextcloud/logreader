@@ -45,7 +45,7 @@
 			</template>
 		</NcEmptyContent>
 		<!-- App settings dialog will be mounted on page body -->
-		<AppSettingsDialog :open.sync="areSettingsShown" />
+		<AppSettingsDialog v-model:open="areSettingsShown" />
 	</div>
 </template>
 

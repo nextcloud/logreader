@@ -8,7 +8,7 @@
 		<NcNoteCard v-if="!settingsStore.enabled" type="info">
 			{{ t('logreader', 'Polling is disabled because server is not configured to log to file') }}
 		</NcNoteCard>
-		<NcCheckboxRadioSwitch :checked.sync="liveLog" :disabled="!settingsStore.enabled">
+		<NcCheckboxRadioSwitch v-model="liveLog" :disabled="!settingsStore.enabled">
 			{{
 				t('logreader', 'Polling (live view)')
 			}}
