@@ -78,7 +78,7 @@ function isOldStyleException(logMessage: unknown) {
  * Try to parse JSON, sanitized possible unescaped parts.
  *
  * @param json The json string
- * @throws Error when json could not be parsed
+ * @throws {Error} when json could not be parsed
  */
 function tryParseJSON(json: string) {
 	try {

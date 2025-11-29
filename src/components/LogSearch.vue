@@ -14,7 +14,7 @@
 		</template>
 		<template #default>
 			<NcActionInput
-				:value="currentQuery"
+				:model-value="currentQuery"
 				:label="t('logreader', 'Search log entries')"
 				:show-trailing-button="false"
 				@submit="isOpen = false"
