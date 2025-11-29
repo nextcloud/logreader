@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import type { AxiosRequestConfig, AxiosResponse } from '@nextcloud/axios'
+import type { AxiosError, AxiosRequestConfig, AxiosResponse } from '@nextcloud/axios'
 import type { IAppSettings, INextcloud22LogEntry } from './interfaces'
 
 import axios from '@nextcloud/axios'
@@ -43,7 +43,7 @@ type ApiGetAppSettings = never
  * @param data Parameters for request
  * @param config Axios config for setting data
  * @return Array of fetched log entries
- * @throws AxiosError with HTTP status 424 if log type is not set to `file`
+ * @throws {AxiosError} with HTTP status 424 if log type is not set to `file`
  */
 export const getLog = (data: ApiGetLog, config: AxiosRequestConfig<ApiGetLog> = {}) => axios.get<ApiLogResult, AxiosResponse<ApiLogResult, ApiGetLog>>(generateUrl('apps/logreader/api/log'), { ...config, params: data }) as Promise<AxiosResponse<ApiLogResult>>
 
@@ -53,7 +53,7 @@ export const getLog = (data: ApiGetLog, config: AxiosRequestConfig<ApiGetLog> = 
  * @param data Parameters for request
  * @param config Axios config for setting data
  * @return Array of fetched log entries
- * @throws AxiosError with HTTP status 424 if log type is not set to `file`
+ * @throws {AxiosError} with HTTP status 424 if log type is not set to `file`
  */
 export const pollLog = (data: ApiPollLog, config: AxiosRequestConfig<ApiPollLog> = {}) => axios.get<ApiPollLogResult, AxiosResponse<ApiPollLogResult, ApiPollLog>>(generateUrl('apps/logreader/api/poll'), { ...config, params: data }) as Promise<AxiosResponse<ApiPollLogResult>>
 
