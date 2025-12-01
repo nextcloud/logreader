@@ -56,7 +56,7 @@ OC.L10N.register(
     "Could not set logging levels to show" : "كۆرسىتىش خاتىرىسىنى كۆرسىتىپ بېرەلمىدى",
     "Filter logging levels" : "سۈزۈش خاتىرىلەش دەرىجىسى",
     "Could not set logging level" : "خاتىرىلەش دەرىجىسىنى تەڭشىگىلى بولمىدى",
-    "Set backend loglevel" : "ئارقا بەت loglevel نى تەڭشەڭ",
+    "Set backend loglevel" : "ئارقا سۇپا خاتىرە دەرىجىسىنى تەڭشەڭ",
     "Application" : "ئىلتىماس",
     "Message" : "ئۇچۇر",
     "Log entry actions" : "كىرىش ھەرىكىتىنى خاتىرىلەش",
