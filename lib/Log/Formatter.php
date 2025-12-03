@@ -51,7 +51,7 @@ class Formatter {
 
 		$argumentsString = implode(', ', $arguments);
 		$argumentWhiteSpace = str_repeat(' ', $largestIndexWidth + 2);
-		if ($argumentsString && strlen($argumentsString) < $argumentWidth) {
+		if (($argumentsString && strlen($argumentsString) < $argumentWidth) || (strlen(trim($argumentsString)) == 0)) {
 			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n" .
 				$argumentWhiteSpace . $method . '(' .
 				$argumentsString . ')';
