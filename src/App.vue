@@ -60,7 +60,7 @@ import IconFormatList from 'vue-material-design-icons/FormatListBulletedSquare.v
 import AppSettingsDialog from './components/settings/AppSettingsDialog.vue'
 import LogTable from './components/table/LogTable.vue'
 import { useLogStore } from './store/logging'
-import { useSettingsStore } from './store/settings.js'
+import { useSettingsStore } from './store/settings'
 
 import '@nextcloud/dialogs/style.css'
 
