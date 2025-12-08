@@ -43,7 +43,7 @@ import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
 import IconDownload from 'vue-material-design-icons/TrayArrowDown.vue'
 import IconUpload from 'vue-material-design-icons/TrayArrowUp.vue'
 import { useLogStore } from '../../store/logging'
-import { useSettingsStore } from '../../store/settings.js'
+import { useSettingsStore } from '../../store/settings'
 import { logger } from '../../utils/logger'
 
 const settingsStore = useSettingsStore()
