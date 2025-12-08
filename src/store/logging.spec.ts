@@ -6,7 +6,7 @@
 import type { IAppSettings, ILogEntry } from '../interfaces'
 
 import { createTestingPinia } from '@pinia/testing'
-import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { POLLING_INTERVAL } from '../constants'
 import { useSettingsStore } from '../store/settings'
 import { useLogStore } from './logging'
@@ -52,6 +52,22 @@ function mockInitialState(state: IAppSettings) {
 }
 
 describe('store:logging', () => {
+	beforeEach(() => {
+		vi.mock('../api.ts', () => {
+			return {
+				getLog: mocks.getLog,
+				pollLog: mocks.pollLog,
+			}
+		})
+
+		// clean pinia
+		createTestingPinia({
+			fakeApp: true,
+			createSpy: vi.fn,
+			stubActions: false,
+		})
+	})
+
 	afterEach(() => {
 		vi.restoreAllMocks()
 		vi.clearAllMocks()
@@ -70,11 +86,6 @@ describe('store:logging', () => {
 			enabled: true,
 			liveLog: true,
 			shownLevels: [2, 4],
-		})
-
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
 		})
 	})
 
@@ -101,12 +112,6 @@ describe('store:logging', () => {
 	})
 
 	it('searches on server with query', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.getLog).mockImplementation(async ({ query }: { query: string }) => {
 			await (new Promise((resolve) => setTimeout(resolve, 50)))
 			// Fake an axios response
@@ -116,13 +121,6 @@ describe('store:logging', () => {
 					remain: false,
 				},
 			}
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
 		})
 
 		const store = useLogStore()
@@ -149,20 +147,6 @@ describe('store:logging', () => {
 	})
 
 	it('not searches on server when local file is loaded', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
 		const store = useLogStore()
 		const entries = [{ message: 'hello 123' }] as ILogEntry[]
 		store.allEntries = entries
@@ -178,13 +162,6 @@ describe('store:logging', () => {
 	it('loads entries from file', async () => {
 		vi.mocked(mocks.parseLogFile).mockImplementation(async () => {
 			return [{ message: 'hello' }]
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
 		})
 
 		const store = useLogStore()
@@ -210,13 +187,6 @@ describe('store:logging', () => {
 			}
 		})
 
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
 		const store = useLogStore()
 		const settings = useSettingsStore()
 		settings.localFile = undefined
@@ -229,13 +199,6 @@ describe('store:logging', () => {
 
 	it('loads entries from clipboard', async () => {
 		mocks.parseLogString.mockImplementationOnce(() => [{ message: 'hello' }])
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const clipboard = '{message: "hello"}'
 
@@ -255,13 +218,6 @@ describe('store:logging', () => {
 	})
 
 	it('handles empty clipboard paste', async () => {
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
 		const store = useLogStore()
 		const settings = useSettingsStore()
 
@@ -277,13 +233,6 @@ describe('store:logging', () => {
 	})
 
 	it('handles invalid clipboard paste', async () => {
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
 		// throw an error
 		mocks.parseLogString.mockImplementationOnce(() => {
 			throw new Error()
@@ -305,25 +254,12 @@ describe('store:logging', () => {
 	})
 
 	it('loads more from server', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.getLog).mockImplementationOnce(() => ({
 			data: {
 				data: [{ message: 'hello' }],
 				remain: false,
 			},
 		}))
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const store = useLogStore()
 		store.allEntries = []
@@ -335,22 +271,9 @@ describe('store:logging', () => {
 	})
 
 	it('loads more newer entries from server', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
 			data: [{ message: 'hello' }],
 		}))
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const store = useLogStore()
 		store.allEntries = []
@@ -362,22 +285,9 @@ describe('store:logging', () => {
 	})
 
 	it('loads more newer entries from server with last request ID', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
 			data: [{ message: 'hello' }],
 		}))
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const store = useLogStore()
 		store.allEntries = [{ reqId: '1234' }, { reqId: '5678' }] as ILogEntry[]
@@ -388,20 +298,6 @@ describe('store:logging', () => {
 	})
 
 	it('does not loads more from server when local file is used', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
 		const store = useLogStore()
 		const settings = useSettingsStore()
 		settings.localFile = new File([], 'log')
@@ -411,12 +307,6 @@ describe('store:logging', () => {
 	})
 
 	it('does not load more with pending request', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.getLog).mockImplementationOnce(async () => {
 			await new Promise((resolve) => window.setTimeout(resolve, 100))
 
@@ -426,13 +316,6 @@ describe('store:logging', () => {
 					remain: false,
 				},
 			}
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
 		})
 
 		const store = useLogStore()
@@ -447,22 +330,9 @@ describe('store:logging', () => {
 	})
 
 	it('can poll for new entries', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
 			data: [],
 		}))
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const store = useLogStore()
 		store.allEntries = []
@@ -474,22 +344,9 @@ describe('store:logging', () => {
 	})
 
 	it('can poll for new entries with old available', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
 			data: [],
 		}))
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const store = useLogStore()
 		store.allEntries = [{ reqId: '123' }, { reqId: '456' }] as ILogEntry[]
@@ -503,22 +360,9 @@ describe('store:logging', () => {
 	})
 
 	it('can stop polling for new entries', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
 			data: [{ reqId: '123' }],
 		}))
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const store = useLogStore()
 		store.allEntries = []
@@ -531,22 +375,9 @@ describe('store:logging', () => {
 	})
 
 	it('only starts one polling timer', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
 			data: [{ reqId: '123' }],
 		}))
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
 
 		const store = useLogStore()
 		store.allEntries = []
@@ -562,20 +393,6 @@ describe('store:logging', () => {
 	})
 
 	it('does not poll when searching', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
 		const store = useLogStore()
 		store.startPolling()
 		await vi.advanceTimersByTimeAsync(POLLING_INTERVAL / 2)
@@ -587,20 +404,6 @@ describe('store:logging', () => {
 	})
 
 	it('does not poll when local file is loaded', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
-		})
-
 		const store = useLogStore()
 		const settings = useSettingsStore()
 		store.startPolling()
@@ -613,12 +416,6 @@ describe('store:logging', () => {
 	})
 
 	it('handles errors while polling', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mock('../utils/logger.ts', () => {
 			return {
 				logger: mocks.logger,
@@ -626,13 +423,6 @@ describe('store:logging', () => {
 		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
 			throw Error()
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
 		})
 
 		const store = useLogStore()
@@ -644,12 +434,6 @@ describe('store:logging', () => {
 	})
 
 	it('handles server errors while polling', async () => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
 		vi.mock('../utils/logger.ts', () => {
 			return {
 				logger: mocks.logger,
@@ -657,13 +441,6 @@ describe('store:logging', () => {
 		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
 			throw new ServerError()
-		})
-
-		// clean pinia
-		createTestingPinia({
-			fakeApp: true,
-			createSpy: vi.fn,
-			stubActions: false,
 		})
 
 		const store = useLogStore()
