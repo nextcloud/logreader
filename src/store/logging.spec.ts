@@ -270,9 +270,25 @@ describe('store:logging', () => {
 		expect(store.entries).toEqual([{ message: 'hello' }])
 	})
 
-	it('loads more newer entries from server', async () => {
+	it('loads more newer entries from server (with pollLog)', async () => {
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
-			data: [{ message: 'hello' }],
+			data: [{ reqId: '456', message: 'hello' }],
+		}))
+
+		const store = useLogStore()
+		store.allEntries = [{ reqId: '123', message: 'hello' }]
+
+		await store.loadMore(false)
+		expect(mocks.pollLog).toBeCalledWith({ lastReqId: '123' })
+		expect(store.entries).toEqual([{ reqId: '456', message: 'hello' }, { reqId: '123', message: 'hello' }])
+	})
+
+	it('loads more newer entries from server (with getLog)', async () => {
+		vi.mocked(mocks.getLog).mockImplementationOnce(() => ({
+			data: {
+				data: [{ message: 'hello' }],
+				remain: false,
+			},
 		}))
 
 		const store = useLogStore()
@@ -280,7 +296,8 @@ describe('store:logging', () => {
 		expect(store.entries).toEqual([])
 
 		await store.loadMore(false)
-		expect(mocks.pollLog).toBeCalledWith({ lastReqId: '' })
+		expect(mocks.pollLog).not.toBeCalled()
+		expect(mocks.getLog).toBeCalledWith({ offset: 0, query: '' })
 		expect(store.entries).toEqual([{ message: 'hello' }])
 	})
 
@@ -335,12 +352,12 @@ describe('store:logging', () => {
 		}))
 
 		const store = useLogStore()
-		store.allEntries = []
+		store.allEntries = [{ reqId: '123' }]
 		store.startPolling()
 		expect(mocks.pollLog).not.toBeCalled()
 		vi.advanceTimersByTime(POLLING_INTERVAL)
 		expect(mocks.pollLog).toBeCalledTimes(1)
-		expect(mocks.pollLog).toBeCalledWith({ lastReqId: '' })
+		expect(mocks.pollLog).toBeCalledWith({ lastReqId: '123' })
 	})
 
 	it('can poll for new entries with old available', async () => {
@@ -361,26 +378,27 @@ describe('store:logging', () => {
 
 	it('can stop polling for new entries', async () => {
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
-			data: [{ reqId: '123' }],
+			data: [{ reqId: '456' }],
 		}))
 
 		const store = useLogStore()
-		store.allEntries = []
+		store.allEntries = [{ reqId: '123' }]
 		store.startPolling()
 		expect(mocks.pollLog).not.toBeCalled()
 		vi.advanceTimersByTime(POLLING_INTERVAL)
 		store.stopPolling()
 		vi.advanceTimersByTime(POLLING_INTERVAL)
 		expect(mocks.pollLog).toBeCalledTimes(1)
+		expect(mocks.pollLog).toBeCalledWith({ lastReqId: '123' })
 	})
 
 	it('only starts one polling timer', async () => {
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => ({
-			data: [{ reqId: '123' }],
+			data: [{ reqId: '456' }],
 		}))
 
 		const store = useLogStore()
-		store.allEntries = []
+		store.allEntries = [{ reqId: '123' }]
 		store.startPolling()
 		expect(mocks.pollLog).not.toBeCalled()
 		await vi.advanceTimersByTimeAsync(POLLING_INTERVAL / 2)
@@ -426,6 +444,7 @@ describe('store:logging', () => {
 		})
 
 		const store = useLogStore()
+		store.allEntries = [{ reqId: '123' }]
 		store.startPolling()
 		await vi.advanceTimersByTimeAsync(POLLING_INTERVAL)
 		expect(mocks.pollLog).toBeCalled()
@@ -444,6 +463,7 @@ describe('store:logging', () => {
 		})
 
 		const store = useLogStore()
+		store.allEntries = [{ reqId: '123' }]
 		store.startPolling()
 		await vi.advanceTimersByTimeAsync(POLLING_INTERVAL)
 		expect(mocks.pollLog).toBeCalled()

@@ -75,12 +75,12 @@ export const useLogStore = defineStore('logreader-logs', () => {
 		}
 
 		try {
-			if (older) {
+			if (older || !allEntries.value.length) {
 				const { data } = await getLog({ offset: allEntries.value.length, query: query.value })
 				allEntries.value.push(...data.data.map(parseRawLogEntry))
 				hasRemainingEntries.value = data.remain
 			} else {
-				const { data } = await pollLog({ lastReqId: allEntries.value[0]?.reqId || '' })
+				const { data } = await pollLog({ lastReqId: allEntries.value[0]!.reqId })
 				allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 			}
 		} catch (e) {
@@ -147,9 +147,9 @@ export const useLogStore = defineStore('logreader-logs', () => {
 
 		const doPolling = async () => {
 			try {
-				// Only poll if not using a local file
-				if (_settings.isEnabled && query.value === '') {
-					const { data } = await pollLog({ lastReqId: allEntries.value[0]?.reqId || '' })
+				// Only poll if not using a local file and store already has some known entries
+				if (_settings.isEnabled && query.value === '' && allEntries.value.length) {
+					const { data } = await pollLog({ lastReqId: allEntries.value[0]!.reqId })
 					allEntries.value.splice(0, 0, ...data.map(parseRawLogEntry))
 				}
 			} catch (e) {
