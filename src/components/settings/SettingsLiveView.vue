@@ -22,7 +22,7 @@ import { translate as t } from '@nextcloud/l10n'
 import { computed } from 'vue'
 import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
 import NcNoteCard from '@nextcloud/vue/components/NcNoteCard'
-import { useSettingsStore } from '../../store/settings.js'
+import { useSettingsStore } from '../../store/settings'
 import { logger } from '../../utils/logger'
 
 const settingsStore = useSettingsStore()
