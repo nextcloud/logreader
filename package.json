@@ -38,7 +38,7 @@
     "@nextcloud/eslint-config": "^9.0.0-rc.6",
     "@nextcloud/vite-config": "^2.5.2",
     "@pinia/testing": "^1.0.3",
-    "@vitest/coverage-istanbul": "^4.0.15",
+    "@vitest/coverage-istanbul": "^4.0.16",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
     "browserslist": "^4.28.1",
