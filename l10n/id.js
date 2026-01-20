@@ -1,6 +1,7 @@
 OC.L10N.register(
     "logreader",
     {
+    "Level" : "Level",
     "App" : "Apl",
     "Time" : "Waktu",
     "Line {line}" : "Baris {line}",
