@@ -110,7 +110,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 11.11.1
 	- license: BSD-3-Clause
 - logreader
-	- version: 6.0.0-dev.0
+	- version: 6.0.0
 	- license: AGPL-3.0-or-later
 - pinia
 	- version: 3.0.4
