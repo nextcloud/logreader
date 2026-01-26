@@ -7,8 +7,8 @@
 	<NcModal
 		:show="open"
 		size="large"
-		:has-previous="index > 0"
-		:has-next="index < logEntries.length - 1"
+		:hasPrevious="index > 0"
+		:hasNext="index < logEntries.length - 1"
 		@next="emit('update:currentEntry', logEntries[index + 1])"
 		@previous="emit('update:currentEntry', logEntries[index - 1])"
 		@update:show="emit('update:open', false)">
@@ -45,7 +45,7 @@
 					</NcButton>
 				</div>
 				<template v-if="currentEntry.exception">
-					<LogException :exception="currentEntry.exception" class="log-details__exception" :is-expanded="isExceptionExpanded" />
+					<LogException :exception="currentEntry.exception" class="log-details__exception" :isExpanded="isExceptionExpanded" />
 					<hr>
 				</template>
 				<figure class="log-details__raw">

@@ -42,24 +42,24 @@
 				v-else
 				:key="settingsStore.dateTimeFormat"
 				:timestamp="timestamp"
-				:relative-time="isRelativeDate && 'long'"
+				:relativeTime="isRelativeDate && 'long'"
 				:format="dateTimeFormat" />
 		</td>
 		<td>
 			<NcActions placement="left-start">
-				<NcActionButton close-after-click @click="emit('showDetails', row)">
+				<NcActionButton closeAfterClick @click="emit('showDetails', row)">
 					<template #icon>
 						<IconViewList />
 					</template>
 					{{ t('logreader', 'Show details') }}
 				</NcActionButton>
-				<NcActionButton close-after-click @click="copyRaw">
+				<NcActionButton closeAfterClick @click="copyRaw">
 					<template #icon>
 						<IconContentCopy />
 					</template>
 					{{ t('logreader', 'Copy raw entry') }}
 				</NcActionButton>
-				<NcActionButton close-after-click @click="copyFormatted">
+				<NcActionButton closeAfterClick @click="copyFormatted">
 					<template #icon>
 						<IconContentCopy />
 					</template>
