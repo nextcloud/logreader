@@ -6,7 +6,7 @@
 <template>
 	<NcActions
 		v-model:open="isOpen"
-		:force-menu="true"
+		forceMenu
 		:aria-label="t('logreader', 'Search log entries')"
 		:type="buttonType">
 		<template #icon>
@@ -14,9 +14,9 @@
 		</template>
 		<template #default>
 			<NcActionInput
-				:model-value="currentQuery"
+				:modelValue="currentQuery"
 				:label="t('logreader', 'Search log entries')"
-				:show-trailing-button="false"
+				:showTrailingButton="false"
 				@submit="isOpen = false"
 				@input="onSearchInput">
 				{{ t('logreader', 'Search log entries') }}

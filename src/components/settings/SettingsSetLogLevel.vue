@@ -9,11 +9,11 @@
 		<NcCheckboxRadioSwitch
 			v-for="(levelName, levelId) in LOGGING_LEVEL_NAMES"
 			:key="levelId"
-			:model-value="logLevel"
+			:modelValue="logLevel"
 			:value="`${levelId}`"
 			type="radio"
 			name="loglevel"
-			@update:model-value="setLogLevel">
+			@update:modelValue="setLogLevel">
 			{{ levelName }}
 		</NcCheckboxRadioSwitch>
 	</fieldset>

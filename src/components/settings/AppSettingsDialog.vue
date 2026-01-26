@@ -6,7 +6,7 @@
 <template>
 	<NcAppSettingsDialog
 		:open="props.open"
-		:show-navigation="true"
+		showNavigation
 		:name="t('logreader', 'Log reader settings')"
 		@update:open="onUpdateOpen">
 		<NcAppSettingsSection id="logreader-settings-levels" :name="t('logreader', 'Filter log levels')">

@@ -8,8 +8,8 @@
 		<LogDetailsModal
 			v-if="currentRow"
 			v-model:open="isModalOpen"
-			v-model:current-entry="currentRow"
-			:log-entries="sortedRows" />
+			v-model:currentEntry="currentRow"
+			:logEntries="sortedRows" />
 		<table ref="tableRoot" class="log-table__table">
 			<thead role="rowgroup" class="log-table__header">
 				<tr>
@@ -45,7 +45,7 @@
 					:key="row.id"
 					:row="row"
 					class="log-table__row"
-					@show-details="showDetailsForRow" />
+					@showDetails="showDetailsForRow" />
 			</tbody>
 			<tfoot role="rowgroup" class="log-table__footer">
 				<tr v-if="sortedByTime !== 'ascending'" class="log-table__load-more">
