@@ -26,7 +26,7 @@ SPDX-FileCopyrightText: escape-html developers
 
 This file is generated from multiple sources. Included packages:
 - @floating-ui/core
-	- version: 1.7.3
+	- version: 1.7.4
 	- license: MIT
 - @floating-ui/dom
 	- version: 1.1.1
@@ -47,7 +47,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 1.2.1
 	- license: GPL-3.0-or-later
 - @nextcloud/dialogs
-	- version: 7.2.0
+	- version: 7.3.0
 	- license: AGPL-3.0-or-later
 - @nextcloud/event-bus
 	- version: 3.3.3
@@ -65,28 +65,28 @@ This file is generated from multiple sources. Included packages:
 	- version: 3.1.0
 	- license: GPL-3.0-or-later
 - @nextcloud/vue
-	- version: 9.4.0
+	- version: 9.5.0
 	- license: AGPL-3.0-or-later
 - @vitejs/plugin-vue
 	- version: 6.0.2
 	- license: MIT
 - @vue/reactivity
-	- version: 3.5.26
+	- version: 3.5.28
 	- license: MIT
 - @vue/runtime-core
-	- version: 3.5.26
+	- version: 3.5.28
 	- license: MIT
 - @vue/runtime-dom
-	- version: 3.5.26
+	- version: 3.5.28
 	- license: MIT
 - @vue/shared
-	- version: 3.5.26
+	- version: 3.5.28
 	- license: MIT
 - @vueuse/core
-	- version: 14.1.0
+	- version: 14.2.1
 	- license: MIT
 - @vueuse/shared
-	- version: 14.1.0
+	- version: 14.2.1
 	- license: MIT
 - axios
 	- version: 1.13.5
@@ -104,7 +104,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 5.2.2
 	- license: MIT
 - focus-trap
-	- version: 7.8.0
+	- version: 8.0.0
 	- license: MIT
 - highlight.js
 	- version: 11.11.1
@@ -134,5 +134,5 @@ This file is generated from multiple sources. Included packages:
 	- version: 5.3.1
 	- license: MIT
 - vue-router
-	- version: 4.6.4
+	- version: 5.0.2
 	- license: MIT
