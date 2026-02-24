@@ -10,6 +10,7 @@ OC.L10N.register(
     "Log Reader" : "Лог уншигч",
     "A log reader for Nextcloud" : "Nextcloud-н лог уншигч",
     "Log reader for Nextcloud" : "Nextcloud-н лог уншигч",
+    "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "Хэрэв энэ нь алдаа гэж үзэж байвал {config} доторх {setting}-г шалгаж, Nextcloud Удирдлагын Гарын авлагыг үзнэ үү.",
     "Log reader" : "Лог уншигч",
     "Open log reader settings" : "Лог уншигчийн тохиргоо нээх",
     "Log reader settings" : "Лог уншигчийн тохиргоо",
@@ -38,6 +39,7 @@ OC.L10N.register(
     "Download/Upload logs" : "Лог татах/Байршуулах",
     "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Локал лог файлыг задлан шинжилж чадсангүй",
+    "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Та мөн санах ойноос хуулсан лог бичилтүүдийг {keyboardShortcut} товчлуураар лог харагдац дээр буулгаж харуулах боломжтой.",
     "Download logs" : "Лог татах",
     "Show local log file" : "Локал лог файл харуулах",
     "Upload local log file to be displayed" : "Харуулах локал лог файл байршуулах",
@@ -73,6 +75,7 @@ OC.L10N.register(
     "Could not parse clipboard content" : "Санах ойн агуулгыг задлан шинжилж чадсангүй",
     "Could not fetch new log entries (server unavailable)" : "Шинэ лог оруулгуудыг татаж чадсангүй (сервер боломжгүй)",
     "Could not fetch new entries" : "Шинэ оруулгуудыг татаж чадсангүй",
-    "Could not copy to clipboard, please copy manually:" : "Санах ойд хуулж чадсангүй, гараар хуулна уу:"
+    "Could not copy to clipboard, please copy manually:" : "Санах ойд хуулж чадсангүй, гараар хуулна уу:",
+    "\tfrom {address} by {user} at {time}\n" : "\t{address} хаягаас {user} хэрэглэгч {time} цагт\n"
 },
 "nplurals=2; plural=(n != 1);");
