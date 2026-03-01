@@ -89,7 +89,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 14.1.0
 	- license: MIT
 - axios
-	- version: 1.12.2
+	- version: 1.13.6
 	- license: MIT
 - debounce
 	- version: 3.0.0
