@@ -50,8 +50,7 @@
 				</template>
 				<figure class="log-details__raw">
 					<figcaption>{{ t('logreader', 'Raw log entry') }}</figcaption>
-					<!-- eslint-disable-next-line vue/no-v-html -->
-					<pre><code class="hljs language-json" v-html="code" /></pre>
+					<NcRichText class="log-details__raw-text" :text useExtendedMarkdown />
 				</figure>
 			</div>
 		</template>
@@ -63,18 +62,15 @@ import type { ILogEntry } from '../interfaces'
 
 import { showSuccess } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import hljs from 'highlight.js/lib/core'
-import json from 'highlight.js/lib/languages/json'
 import { computed, ref, watchEffect } from 'vue'
 import NcButton from '@nextcloud/vue/components/NcButton'
 import NcModal from '@nextcloud/vue/components/NcModal'
+import NcRichText from '@nextcloud/vue/components/NcRichText'
 import IconContentCopy from 'vue-material-design-icons/ContentCopy.vue'
 import LogException from './exception/LogException.vue'
 import { LOGGING_LEVEL, LOGGING_LEVEL_NAMES } from '../constants'
 import { copyToCipboard } from '../utils/clipboard'
 import { useLogFormatting } from '../utils/format'
-
-import 'highlight.js/styles/base16/material-darker.css'
 
 const props = defineProps<{
 	open: boolean
@@ -86,8 +82,6 @@ const emit = defineEmits<{
 	(event: 'update:currentEntry', value: ILogEntry): void
 	(event: 'update:open', value: false): void
 }>()
-
-hljs.registerLanguage('json', json)
 
 const { formatTime, formatLogEntry } = useLogFormatting()
 
@@ -111,7 +105,7 @@ const index = computed(() => props.logEntries.findIndex((entry) => entry === pro
 /**
  * Formatted data of the entry
  */
-const code = computed(() => hljs.highlight(JSON.stringify(props.currentEntry, null, 2), { language: 'json' }).value)
+const text = computed(() => '```json\n' + JSON.stringify(props.currentEntry, null, 2) + '\n```')
 
 /**
  * Level as translated human readable string
@@ -203,9 +197,113 @@ async function copyFormatted() {
 	hr {
 		color: var(--color-border-dark);
 	}
-}
-.hljs {
-	border-radius: var(--border-radius-large);
+
+	&__raw-text {
+		:deep(code.hljs.language-json) {
+			// Overriding NcRichText styles with different theme colors
+			// Source: 'highlight.js/styles/base16/material-darker.css'
+			display: block;
+			overflow-x: auto;
+			padding: 1em;
+			color: #EEFFFF;
+			background: #212121;
+			border-radius: var(--border-radius-large);
+
+			&::selection,
+			& ::selection {
+				background-color: #353535;
+				color: #EEFFFF;
+			}
+			.hljs-comment {
+				color: #4A4A4A;
+			}
+			.hljs-tag {
+				color: #B2CCD6;
+			}
+			.hljs-subst,
+			.hljs-punctuation,
+			.hljs-operator {
+				color: #EEFFFF;
+			}
+			.hljs-operator {
+				opacity: 0.7
+			}
+			.hljs-bullet,
+			.hljs-variable,
+			.hljs-template-variable,
+			.hljs-selector-tag,
+			.hljs-name,
+			.hljs-deletion {
+				color: #F07178;
+			}
+			.hljs-symbol,
+			.hljs-number,
+			.hljs-link,
+			.hljs-attr,
+			.hljs-variable.constant_,
+			.hljs-literal {
+				color: #F78C6C;
+			}
+			.hljs-title,
+			.hljs-class .hljs-title,
+			.hljs-title.class_ {
+				color: #FFCB6B;
+			}
+			.hljs-strong {
+				font-weight: bold;
+				color: #FFCB6B;
+			}
+			.hljs-code,
+			.hljs-addition,
+			.hljs-title.class_.inherited__,
+			.hljs-string {
+				color: #C3E88D;
+			}
+			.hljs-built_in,
+			.hljs-doctag,
+			.hljs-quote,
+			.hljs-keyword.hljs-atrule,
+			.hljs-regexp {
+				color: #89DDFF;
+			}
+			.hljs-function .hljs-title,
+			.hljs-attribute,
+			.ruby .hljs-property,
+			.hljs-title.function_,
+			.hljs-section {
+				color: #82AAFF;
+			}
+			.hljs-type,
+			.hljs-template-tag,
+			.diff .hljs-meta,
+			.hljs-keyword {
+				color: #C792EA;
+			}
+			.hljs-emphasis {
+				color: #C792EA;
+				font-style: italic;
+			}
+			.hljs-meta,
+			.hljs-meta .hljs-keyword,
+			.hljs-meta .hljs-string {
+				color: #FF5370;
+			}
+			.hljs-meta .hljs-keyword,
+			.hljs-meta-keyword {
+				font-weight: bold;
+			}
+		}
+
+		// Overriding NcRichText styles to hide 'Copy to clipboard' button
+		// Feature is implemented locally.
+		:deep(.rich-text__code-block) {
+			padding: 0 !important;
+
+			.rich-text__code-block-button {
+				display: none;
+			}
+		}
+	}
 }
 
 // For mobile we need to show the details as a vertical list
