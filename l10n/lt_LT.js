@@ -11,6 +11,7 @@ OC.L10N.register(
     "Ctrl" : "Vald",
     "Download logs" : "Atsisiųsti žurnalus",
     "Relative" : "Santykinis laikas",
+    "Application" : "Programėlė",
     "Message" : "Žinutė",
     "Show details" : "Rodyti išsamiau",
     "Debug" : "Derinimas",
