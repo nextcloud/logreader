@@ -1,6 +1,7 @@
 { "translations": {
     "Logging" : "AtvikaskráningAtvikaskráning",
     "Errors in the log" : "Villur í atvikaskránni",
+    "Failed to get an iterator for log entries: %s" : "Mistókst að fá talningu á atriðaskráningum: %s",
     "No errors in the logs since %s" : "Engar villur í atvikaskrám síðan %s",
     "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n villa í atvikaskrám síðan %s","%n villur í atvikaskrám síðan %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n aðvörun í atvikaskrám síðan %s","%n aðvaranir í atvikaskrám síðan %s"],
@@ -36,6 +37,7 @@
     "Download/Upload logs" : "Atvikaskráning fyrir Sækja / Senda inn",
     "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Mistókst að túlka staðværa atvikaskrá (log)",
+    "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Þú getur líka birt færslur atvikaskráningar sem afriðaðar eru úr klippispjaldinu þínu með því að líma þær inn í atvikaskoðarann með: {keyboardShortcut}",
     "Download logs" : "Sækja atvikaskrár",
     "Show local log file" : "Birta staðværa atvikaskrá",
     "Upload local log file to be displayed" : "Sendu inn staðværa atvikaskrá sem á að birta",
