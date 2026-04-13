@@ -7,7 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { copyToCipboard } from './clipboard'
 
 describe('utils:clipboard', () => {
-	let originalWindowPrompt: window.prompt
+	const originalWindowPrompt = window.prompt
 
 	beforeEach(() => {
 		window.prompt = vi.fn(() => '')
