@@ -62,7 +62,7 @@ OC.L10N.register(
     "Log entry actions" : "Veiksmai su žurnalo įrašais",
     "Loading older log entries" : "Įkeliami senesni žurnalo įrašai",
     "No older log entries available" : "Senesnių įrašų nėra",
-    "Collapse row" : "Sutraukti eilutę",
+    "Collapse row" : "Suskleisti eilutę",
     "Expand row" : "Išskleisti eilutę",
     "Show details" : "Rodyti išsamiau",
     "Debug" : "Derinimas",
