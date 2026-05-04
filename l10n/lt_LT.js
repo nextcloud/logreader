@@ -37,7 +37,7 @@ OC.L10N.register(
     "Time format" : "Laiko formatas",
     "Live view" : "Tiesioginis vaizdas",
     "Download/Upload logs" : "Atsisiųsti / įkelti žurnalus",
-    "Ctrl" : "Vald",
+    "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Nepavyko išanalizuoti vietinio žurnalo failo",
     "You can also show log entries copied from your clipboard by pasting them on the log view using: {keyboardShortcut}" : "Taip pat galite rodyti iš iškarpinės nukopijuotus žurnalo įrašus, įklijuodami juos į žurnalo peržiūros langą: {keyboardShortcut}",
     "Download logs" : "Atsisiųsti žurnalus",
