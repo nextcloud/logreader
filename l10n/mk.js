@@ -17,6 +17,7 @@ OC.L10N.register(
     "Download logs" : "Преземи записи",
     "Relative" : "Релативно",
     "Message" : "Порака",
+    "No older log entries available" : "Нема достапни постари записи во дневникот",
     "Show details" : "Прикажи детали",
     "Debug" : "Дебаг",
     "Info" : "Инфо",
