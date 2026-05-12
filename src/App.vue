@@ -137,6 +137,13 @@ const noLogDescription = t(
 )
 </script>
 
+<style>
+main#app-content-vue > div,
+div#logreader-root {
+	display: contents;
+}
+</style>
+
 <style lang="scss" scoped>
 legend {
 	font-weight: bold;

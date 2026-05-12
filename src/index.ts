@@ -11,4 +11,4 @@ const pinia = createPinia()
 
 createApp(App)
 	.use(pinia)
-	.mount('#app-content')
+	.mount('#logreader-root')
