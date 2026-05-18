@@ -163,7 +163,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 4.1.0
 	- license: MIT
 - logreader
-	- version: 7.0.0-dev.0
+	- version: 8.0.0-dev.0
 	- license: AGPL-3.0-or-later
 - mdast-squeeze-paragraphs
 	- version: 6.0.0
