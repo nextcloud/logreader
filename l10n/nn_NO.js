@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "App" : "Applikasjon",
     "Time" : "Tid",
+    "Show details" : "Vis detaljar",
     "Info" : "Info",
     "Warning" : "Åtvaring",
     "Error" : "Feil"
