@@ -33,16 +33,16 @@ SPDX-FileCopyrightText: rhysd <lin90162@yahoo.co.jp>
 
 This file is generated from multiple sources. Included packages:
 - @floating-ui/core
-	- version: 1.7.4
+	- version: 1.7.5
 	- license: MIT
 - @floating-ui/dom
 	- version: 1.1.1
 	- license: MIT
 - @floating-ui/dom
-	- version: 1.7.5
+	- version: 1.7.6
 	- license: MIT
 - @floating-ui/utils
-	- version: 0.2.10
+	- version: 0.2.11
 	- license: MIT
 - @nextcloud/auth
 	- version: 2.6.0
@@ -57,7 +57,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 1.2.1
 	- license: GPL-3.0-or-later
 - @nextcloud/dialogs
-	- version: 7.3.0
+	- version: 7.4.0
 	- license: AGPL-3.0-or-later
 - @nextcloud/event-bus
 	- version: 3.3.3
@@ -75,11 +75,14 @@ This file is generated from multiple sources. Included packages:
 	- version: 3.1.0
 	- license: GPL-3.0-or-later
 - @nextcloud/sharing
-	- version: 0.3.0
+	- version: 0.4.0
 	- license: GPL-3.0-or-later
 - @nextcloud/vue
-	- version: 9.5.0
+	- version: 9.8.2
 	- license: AGPL-3.0-or-later
+- @nextcloud/vue-select
+	- version: 4.1.0
+	- license: MIT
 - @ungap/structured-clone
 	- version: 1.2.0
 	- license: ISC
@@ -87,22 +90,22 @@ This file is generated from multiple sources. Included packages:
 	- version: 6.0.2
 	- license: MIT
 - @vue/reactivity
-	- version: 3.5.28
+	- version: 3.5.35
 	- license: MIT
 - @vue/runtime-core
-	- version: 3.5.28
+	- version: 3.5.35
 	- license: MIT
 - @vue/runtime-dom
-	- version: 3.5.28
+	- version: 3.5.35
 	- license: MIT
 - @vue/shared
-	- version: 3.5.28
+	- version: 3.5.35
 	- license: MIT
 - @vueuse/core
-	- version: 14.2.1
+	- version: 14.3.0
 	- license: MIT
 - @vueuse/shared
-	- version: 14.2.1
+	- version: 14.3.0
 	- license: MIT
 - axios
 	- version: 1.16.0
@@ -123,7 +126,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 1.1.0
 	- license: MIT
 - dompurify
-	- version: 3.4.0
+	- version: 3.4.8
 	- license: (MPL-2.0 OR Apache-2.0)
 - escape-html
 	- version: 1.0.3
@@ -141,7 +144,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 5.2.2
 	- license: MIT
 - focus-trap
-	- version: 8.0.0
+	- version: 8.2.1
 	- license: MIT
 - hast-util-is-element
 	- version: 3.0.0
@@ -303,7 +306,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 5.1.0
 	- license: MIT
 - unist-util-visit-parents
-	- version: 6.0.1
+	- version: 6.0.2
 	- license: MIT
 - vfile
 	- version: 6.0.3
@@ -321,8 +324,5 @@ This file is generated from multiple sources. Included packages:
 	- version: 5.3.1
 	- license: MIT
 - vue-router
-	- version: 5.0.2
-	- license: MIT
-- vue-select
-	- version: 4.0.0-beta.6
+	- version: 5.1.0
 	- license: MIT
