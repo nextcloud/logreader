@@ -1,7 +1,11 @@
 { "translations": {
+    "Level" : "Aswir",
+    "App" : "Asnas",
+    "Time" : "Akud",
     "Ctrl" : "Ctrl",
     "Message" : "Izen",
     "Show details" : "Sken talqayt",
+    "Info" : "Talɣut",
     "Warning" : "Alɣu",
     "Error" : "Erreur"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
