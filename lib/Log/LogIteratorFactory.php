@@ -36,7 +36,7 @@ class LogIteratorFactory {
 		if ($log instanceof IFileBased) {
 			$handle = fopen($log->getLogFilePath(), 'rb');
 			if ($handle) {
-				$iterator = new LogIterator($handle, $dateFormat, $timezone);
+				$iterator = new LogIterator($handle, $dateFormat, $timezone, $levels);
 				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
 					return $logItem && in_array($logItem['level'], $levels);
 				});

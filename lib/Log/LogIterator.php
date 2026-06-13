@@ -17,6 +17,10 @@ class LogIterator implements \Iterator {
 	private $handle;
 	private string $dateFormat;
 	private \DateTimeZone $timezone;
+	/**
+	 * @var int[]|null
+	 */
+	private ?array $levels;
 
 	private string $buffer = '';
 	private string $lastLine = '';
@@ -29,11 +33,13 @@ class LogIterator implements \Iterator {
 	 * @param resource $handle
 	 * @param string $dateFormat
 	 * @param string $timezone
+	 * @param int[]|null $levels Array of log levels to include, null to include all
 	 */
-	public function __construct($handle, string $dateFormat, string $timezone) {
+	public function __construct($handle, string $dateFormat, string $timezone, ?array $levels = null) {
 		$this->handle = $handle;
 		$this->dateFormat = $dateFormat;
 		$this->timezone = new \DateTimeZone($timezone);
+		$this->levels = $levels;
 		$this->rewind();
 	}
 
@@ -87,17 +93,46 @@ class LogIterator implements \Iterator {
 				}
 				$this->lastLine = substr($this->buffer, $newlinePos + 1);
 				$this->buffer = substr($this->buffer, 0, $newlinePos);
+
+				// Skip lines that don't match the log level
+				if ($this->levels !== null && !$this->matchesLevelFilter($this->lastLine)) {
+					continue;
+				}
+
 				$this->currentKey++;
 				return;
 			} elseif ($this->position === 0) {
 				$this->lastLine = $this->buffer;
 				$this->buffer = '';
+
+				if ($this->levels !== null && !$this->matchesLevelFilter($this->lastLine)) {
+					return;
+				}
+
 				$this->currentKey++;
 				return;
 			} else {
 				$this->fillBuffer();
 			}
 		}
+	}
+
+	/**
+	 * Check if a log line matches the allowed levels.
+	 * Inaccurate check before full JSON decoding,
+	 * CallbackFilterIterator still required to validate the entry.
+	 */
+	private function matchesLevelFilter(string $line): bool {
+		$levelPos = strpos($line, '"level":');
+		if ($levelPos === false) {
+			return false;
+		}
+		$digit = substr($line, $levelPos + 8, 1);
+		if (!ctype_digit($digit)) {
+			return false;
+		}
+		$level = (int)$digit;
+		return in_array($level, $this->levels, true);
 	}
 
 	public function valid(): bool {
