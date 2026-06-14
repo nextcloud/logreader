@@ -85,7 +85,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 1.2.0
 	- license: ISC
 - @vitejs/plugin-vue
-	- version: 6.0.2
+	- version: 6.0.7
 	- license: MIT
 - @vue/reactivity
 	- version: 3.5.28
@@ -313,7 +313,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 4.0.3
 	- license: MIT
 - vite
-	- version: 7.3.2
+	- version: 7.3.5
 	- license: MIT
 - vite-plugin-node-polyfills
 	- version: 0.24.0
