@@ -16,7 +16,6 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\Log\BeforeMessageLoggedEvent;
-use Psr\Container\ContainerInterface;
 
 /**
  * @psalm-api
