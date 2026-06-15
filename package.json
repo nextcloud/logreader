@@ -36,14 +36,14 @@
     "@nextcloud/eslint-config": "^9.0.0-rc.9",
     "@nextcloud/vite-config": "^2.5.2",
     "@pinia/testing": "^1.0.3",
-    "@vitest/coverage-istanbul": "^4.1.7",
+    "@vitest/coverage-istanbul": "^4.1.8",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.9.1",
     "browserslist": "^4.28.2",
     "happy-dom": "^20.9.0",
     "typescript": "^6.0.3",
     "vite": "^7.3.3",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.8"
   },
   "engines": {
     "node": "^24.0.0",
