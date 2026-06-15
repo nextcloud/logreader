@@ -11,6 +11,9 @@ use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\Settings\IIconSection;
 
+/**
+ * @psalm-api
+ */
 class Section implements IIconSection {
 
 	public function __construct(
@@ -27,6 +30,7 @@ class Section implements IIconSection {
 	 *
 	 * @returns string
 	 */
+	#[\Override]
 	public function getID() {
 		return 'logging';
 	}
@@ -37,6 +41,7 @@ class Section implements IIconSection {
 	 *
 	 * @return string
 	 */
+	#[\Override]
 	public function getName() {
 		return $this->l->t('Logging');
 	}
@@ -48,6 +53,7 @@ class Section implements IIconSection {
 	 *
 	 * E.g.: 70
 	 */
+	#[\Override]
 	public function getPriority() {
 		return 90;
 	}
@@ -55,6 +61,7 @@ class Section implements IIconSection {
 	/**
 	 * {@inheritdoc}
 	 */
+	#[\Override]
 	public function getIcon() {
 		return $this->url->imagePath('logreader', 'app-dark.svg');
 	}

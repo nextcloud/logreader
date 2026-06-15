@@ -18,6 +18,7 @@ use OCP\Util;
  * Class PageController
  *
  * @package OCA\LogReader\Controller
+ * @psalm-api
  */
 class PageController extends Controller {
 

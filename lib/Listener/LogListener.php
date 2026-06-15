@@ -18,6 +18,7 @@ use Symfony\Component\Console\Terminal;
 
 /**
  * @template-implements IEventListener<BeforeMessageLoggedEvent>
+ * @psalm-api
  */
 class LogListener implements IEventListener {
 	private ?Console $console;
@@ -32,6 +33,7 @@ class LogListener implements IEventListener {
 		}
 	}
 
+	#[\Override]
 	public function handle(Event $event): void {
 		if (!$event instanceof BeforeMessageLoggedEvent) {
 			return;

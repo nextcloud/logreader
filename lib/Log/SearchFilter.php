@@ -33,6 +33,7 @@ class SearchFilter extends \FilterIterator {
 		return isset($this->levels[$level]) ? $this->levels[$level] : 'Unknown';
 	}
 
+	#[\Override]
 	public function accept(): bool {
 		if (!$this->query) {
 			return true;

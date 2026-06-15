@@ -38,6 +38,7 @@ class LogIterator implements \Iterator {
 		$this->rewind();
 	}
 
+	#[\Override]
 	public function rewind(): void {
 		fseek($this->handle, 0, SEEK_END);
 		$this->position = ftell($this->handle);
@@ -50,6 +51,7 @@ class LogIterator implements \Iterator {
 	/**
 	 * @return array
 	 */
+	#[\Override]
 	#[\ReturnTypeWillChange]
 	public function current() {
 		$entry = json_decode($this->lastLine, true);
@@ -64,6 +66,7 @@ class LogIterator implements \Iterator {
 		return $entry;
 	}
 
+	#[\Override]
 	public function key(): int {
 		return $this->currentKey;
 	}
@@ -76,6 +79,7 @@ class LogIterator implements \Iterator {
 		$this->buffer = $chunk . $this->buffer;
 	}
 
+	#[\Override]
 	public function next(): void {
 		// Loop through each character of the file looking for new lines
 		while ($this->position >= 0) {
@@ -101,6 +105,7 @@ class LogIterator implements \Iterator {
 		}
 	}
 
+	#[\Override]
 	public function valid(): bool {
 		if (!is_resource($this->handle)) {
 			return false;

@@ -19,6 +19,9 @@ use OCP\IConfig;
 use OCP\IRequest;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @psalm-api
+ */
 class SettingsController extends ApiController {
 
 	public function __construct(

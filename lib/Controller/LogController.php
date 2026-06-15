@@ -23,6 +23,7 @@ use Psr\Log\LoggerInterface;
  * Class LogController
  *
  * @package OCA\LogReader\Controller
+ * @psalm-api
  */
 class LogController extends Controller {
 
