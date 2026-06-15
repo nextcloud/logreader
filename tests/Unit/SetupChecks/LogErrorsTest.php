@@ -10,14 +10,13 @@ namespace OCA\LogReader\Tests\Unit\SetupChecks;
 
 use OCA\LogReader\Log\LogIteratorFactory;
 use OCA\LogReader\SetupChecks\LogErrors;
-use OCP\IConfig;
 use OCP\IDateTimeFormatter;
 use OCP\IL10N;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Test\TestCase;
 
 class LogErrorsTest extends TestCase {
 	private IL10N $l10n;
-	private IConfig $config;
 	private IDateTimeFormatter $dateFormatter;
 	private LogIteratorFactory $logIteratorFactory;
 	private LogErrors $logErrorsCheck;
@@ -26,18 +25,16 @@ class LogErrorsTest extends TestCase {
 		parent::setUp();
 
 		$this->l10n = $this->createMock(IL10N::class);
-		$this->config = $this->createMock(IConfig::class);
 		$this->dateFormatter = $this->createMock(IDateTimeFormatter::class);
 		$this->logIteratorFactory = $this->createMock(LogIteratorFactory::class);
 		$this->logErrorsCheck = new LogErrors(
 			$this->l10n,
-			$this->config,
 			$this->dateFormatter,
 			$this->logIteratorFactory,
 		);
 	}
 
-	public function logProvider(): array {
+	public static function logProvider(): array {
 		$now = (new \DateTime())->format(\DateTime::ATOM);
 		$tooOld = (new \DateTime('1 month ago'))->format(\DateTime::ATOM);
 		return [
@@ -50,9 +47,7 @@ class LogErrorsTest extends TestCase {
 		];
 	}
 
-	/**
-	 * @dataProvider logProvider
-	 */
+	#[DataProvider(methodName: 'logProvider')]
 	public function testSetupCheck(array $logContent, string $severity): void {
 		$logIterator = new \ArrayIterator($logContent);
 		$this->logIteratorFactory

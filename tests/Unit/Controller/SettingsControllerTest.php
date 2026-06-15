@@ -15,6 +15,7 @@ use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IConfig;
 use OCP\IRequest;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 use Test\TestCase;
@@ -76,7 +77,7 @@ class SettingsControllerTest extends TestCase {
 		]), $this->settingsController->getAppConfig());
 	}
 
-	public function dataUpdateAppConfig() {
+	public static function dataUpdateAppConfig(): array {
 		return [
 			'booleanConfig' => [
 				'configKey' => Constants::CONFIG_KEY_LIVELOG,
@@ -90,13 +91,8 @@ class SettingsControllerTest extends TestCase {
 			]
 		];
 	}
-	/**
-	 * @dataProvider dataUpdateAppConfig
-	 *
-	 * @param string $configKey
-	 * @param mixed $configValue
-	 * @param string $strConfig The configValue as json-string
-	 */
+
+	#[DataProvider(methodName: 'dataUpdateAppConfig')]
 	public function testUpdateAppConfig(string $configKey, $configValue, string $strConfig) {
 		$this->logger->expects($this->once())
 			->method('debug');
