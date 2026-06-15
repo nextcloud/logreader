@@ -32,7 +32,6 @@ class LogListener implements IEventListener {
 		}
 	}
 
-
 	public function handle(Event $event): void {
 		if (!$event instanceof BeforeMessageLoggedEvent) {
 			return;

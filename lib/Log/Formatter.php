@@ -52,16 +52,16 @@ class Formatter {
 		$argumentsString = implode(', ', $arguments);
 		$argumentWhiteSpace = str_repeat(' ', $largestIndexWidth + 2);
 		if ($argumentsString === '' || strlen($argumentsString) < $argumentWidth) {
-			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n" .
-				$argumentWhiteSpace . $method . '(' .
-				$argumentsString . ')';
+			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n"
+				. $argumentWhiteSpace . $method . '('
+				. $argumentsString . ')';
 		} else {
-			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n" .
-				$argumentWhiteSpace . $method . "(\n" .
-				implode(",\n", array_map(function ($argumentLine) use ($argumentWhiteSpace) {
+			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n"
+				. $argumentWhiteSpace . $method . "(\n"
+				. implode(",\n", array_map(function ($argumentLine) use ($argumentWhiteSpace) {
 					return $argumentWhiteSpace . '  ' . trim($argumentLine);
-				}, $arguments)) . "\n" .
-				$argumentWhiteSpace . ')';
+				}, $arguments)) . "\n"
+				. $argumentWhiteSpace . ')';
 		}
 	}
 
@@ -79,13 +79,13 @@ class Formatter {
 			$isObject = $forceObject || array_keys($argument) !== range(0, count($argument) - 1);
 			if ($isObject) {
 				$keyWhitespace = str_repeat(' ', $whiteSpace * ($depth + 1));
-				return $leadingSpace . "{\n" .
-					implode($glue, array_map(function ($key, $value) use ($whiteSpace, $depth, $keyWhitespace) {
+				return $leadingSpace . "{\n"
+					. implode($glue, array_map(function ($key, $value) use ($whiteSpace, $depth, $keyWhitespace) {
 						return $keyWhitespace . $key . ':' . trim($this->formatArgument($value, $whiteSpace, $depth + 1));
 					}, array_keys($argument), array_values($argument))) . ($whiteSpace ? "\n" : '') . $leadingSpace . '}';
 			} else {
-				return $leadingSpace . "[\n" .
-					implode($glue, array_map(function ($value) use ($whiteSpace, $depth) {
+				return $leadingSpace . "[\n"
+					. implode($glue, array_map(function ($value) use ($whiteSpace, $depth) {
 						return $this->formatArgument($value, $whiteSpace, $depth + 1);
 					}, $argument)) . ($whiteSpace ? "\n" : '') . $leadingSpace . ']';
 			}
