@@ -11,6 +11,7 @@ namespace OCA\LogReader\Tests\Unit\Service;
 use OCA\LogReader\Constants;
 use OCA\LogReader\Service\SettingsService;
 use OCP\IConfig;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use Test\TestCase;
 
@@ -29,7 +30,7 @@ class SettingsServiceTest extends TestCase {
 		$this->settingsService = new SettingsService($this->config);
 	}
 
-	public function dataTestGetters() {
+	public static function dataTestGetters(): array {
 		return [
 			'shown_levels' => [
 				'fn' => 'getShownLevels',
@@ -90,9 +91,7 @@ class SettingsServiceTest extends TestCase {
 		];
 	}
 
-	/**
-	 * @dataProvider dataTestGetters
-	 */
+	#[DataProvider(methodName: 'dataTestGetters')]
 	public function testGetters(string $fn, bool $default, string $configKey, ?string $configValue, mixed $expected) {
 		$this->config->expects($this->once())
 			->method('getAppValue')

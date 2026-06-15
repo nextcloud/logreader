@@ -6,16 +6,19 @@ declare(strict_types=1);
  * SPDX-FileCopyrightText: 2023 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
+
 namespace OCA\LogReader\SetupChecks;
 
 use OCA\LogReader\Exception\UnsupportedLogTypeException;
 use OCA\LogReader\Log\LogIteratorFactory;
-use OCP\IConfig;
 use OCP\IDateTimeFormatter;
 use OCP\IL10N;
 use OCP\SetupCheck\ISetupCheck;
 use OCP\SetupCheck\SetupResult;
 
+/**
+ * @psalm-api
+ */
 class LogErrors implements ISetupCheck {
 	private const LEVEL_WARNING = 2;
 	private const LEVEL_ERROR = 3;
@@ -23,20 +26,22 @@ class LogErrors implements ISetupCheck {
 
 	public function __construct(
 		private IL10N $l10n,
-		private IConfig $config,
 		private IDateTimeFormatter $dateFormatter,
 		private LogIteratorFactory $logIteratorFactory,
 	) {
 	}
 
+	#[\Override]
 	public function getName(): string {
 		return $this->l10n->t('Errors in the log');
 	}
 
+	#[\Override]
 	public function getCategory(): string {
 		return 'system';
 	}
 
+	#[\Override]
 	public function run(): SetupResult {
 		try {
 			$logIterator = $this->logIteratorFactory->getLogIterator([self::LEVEL_WARNING,self::LEVEL_ERROR,self::LEVEL_FATAL]);
@@ -65,7 +70,7 @@ class LogErrors implements ISetupCheck {
 				break;
 			}
 			$count[$logItem['level']]++;
-			if (microtime(true) > $startTime + 5) {
+			if (microtime(true) > ($startTime + 5.0)) {
 				$limit = $time;
 				break;
 			}

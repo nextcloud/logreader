@@ -15,10 +15,9 @@ use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IConfig;
 use OCP\IRequest;
-
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
-
 use Test\TestCase;
 
 class SettingsControllerTest extends TestCase {
@@ -67,7 +66,7 @@ class SettingsControllerTest extends TestCase {
 				Constants::CONFIG_KEY_LIVELOG => true,
 				'enabled' => true,
 			]);
-		
+
 		$this->assertEquals(new JSONResponse([
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
 			Constants::CONFIG_KEY_LOGLEVEL => 4,
@@ -78,7 +77,7 @@ class SettingsControllerTest extends TestCase {
 		]), $this->settingsController->getAppConfig());
 	}
 
-	public function dataUpdateAppConfig() {
+	public static function dataUpdateAppConfig(): array {
 		return [
 			'booleanConfig' => [
 				'configKey' => Constants::CONFIG_KEY_LIVELOG,
@@ -92,17 +91,12 @@ class SettingsControllerTest extends TestCase {
 			]
 		];
 	}
-	/**
-	 * @dataProvider dataUpdateAppConfig
-	 *
-	 * @param string $configKey
-	 * @param mixed $configValue
-	 * @param string $strConfig The configValue as json-string
-	 */
+
+	#[DataProvider(methodName: 'dataUpdateAppConfig')]
 	public function testUpdateAppConfig(string $configKey, $configValue, string $strConfig) {
 		$this->logger->expects($this->once())
 			->method('debug');
-		
+
 		$this->config->expects($this->once())
 			->method('setAppValue')
 			->with('logreader', $configKey, $strConfig);
@@ -124,7 +118,7 @@ class SettingsControllerTest extends TestCase {
 	public function testUpdateAppConfig_logLevel() {
 		$this->logger->expects($this->once())
 			->method('debug');
-		
+
 		$this->config->expects($this->once())
 			->method('setSystemValue')
 			->with('loglevel', 4);
@@ -146,7 +140,7 @@ class SettingsControllerTest extends TestCase {
 	public function testUpdateAppConfig_unknownKey() {
 		$this->logger->expects($this->any())
 			->method('debug');
-		
+
 		$this->config->expects($this->never())
 			->method('setAppValue');
 
@@ -173,7 +167,7 @@ class SettingsControllerTest extends TestCase {
 	public function testUpdateAppConfig_invalidLevel() {
 		$this->logger->expects($this->any())
 			->method('debug');
-		
+
 		$this->config->expects($this->never())
 			->method('setAppValue');
 		$this->settingsService->expects($this->once())

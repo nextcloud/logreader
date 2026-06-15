@@ -18,6 +18,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Terminal;
 
+/**
+ * @psalm-api
+ */
 class Tail extends Base {
 	public const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 
@@ -30,6 +33,7 @@ class Tail extends Base {
 		$this->logIteratorFactory = $logIteratorFactory;
 	}
 
+	#[\Override]
 	protected function configure() {
 		$this
 			->setName('log:tail')
@@ -40,6 +44,7 @@ class Tail extends Base {
 		parent::configure();
 	}
 
+	#[\Override]
 	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$raw = $input->getOption('raw');
 		$count = (int)$input->getArgument('lines');

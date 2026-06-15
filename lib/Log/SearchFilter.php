@@ -5,6 +5,7 @@
  * SPDX-FileCopyrightText: 2015 ownCloud, Inc.
  * SPDX-License-Identifier: AGPL-3.0-only
  */
+
 namespace OCA\LogReader\Log;
 
 /**
@@ -32,6 +33,7 @@ class SearchFilter extends \FilterIterator {
 		return isset($this->levels[$level]) ? $this->levels[$level] : 'Unknown';
 	}
 
+	#[\Override]
 	public function accept(): bool {
 		if (!$this->query) {
 			return true;

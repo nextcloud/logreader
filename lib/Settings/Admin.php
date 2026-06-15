@@ -13,6 +13,9 @@ use OCP\AppFramework\Services\IInitialState;
 use OCP\Settings\IDelegatedSettings;
 use OCP\Util;
 
+/**
+ * @psalm-api
+ */
 class Admin implements IDelegatedSettings {
 
 	public function __construct(
@@ -25,6 +28,7 @@ class Admin implements IDelegatedSettings {
 	/**
 	 * @return TemplateResponse
 	 */
+	#[\Override]
 	public function getForm() {
 		Util::addScript($this->appName, 'logreader-main');
 		Util::addStyle($this->appName, 'logreader-main');
@@ -37,6 +41,7 @@ class Admin implements IDelegatedSettings {
 	/**
 	 * @return string the section ID, e.g. 'sharing'
 	 */
+	#[\Override]
 	public function getSection() {
 		return 'logging';
 	}
@@ -48,14 +53,17 @@ class Admin implements IDelegatedSettings {
 	 *
 	 * E.g.: 70
 	 */
+	#[\Override]
 	public function getPriority() {
 		return 90;
 	}
 
+	#[\Override]
 	public function getName(): ?string {
 		return null;
 	}
 
+	#[\Override]
 	public function getAuthorizedAppConfig(): array {
 		return [];
 	}

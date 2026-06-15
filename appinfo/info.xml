@@ -15,7 +15,6 @@
 	<author>Robin Appelman</author>
 	<author>Ferdinand Thiessen</author>
 	<namespace>LogReader</namespace>
-	<default_enable/>
 
 	<types>
 		<logging/>

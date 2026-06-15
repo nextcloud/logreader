@@ -10,11 +10,13 @@ namespace OCA\LogReader\Service;
 use OCA\LogReader\Constants;
 use OCP\IConfig;
 
+/**
+ * @psalm-api
+ */
 class SettingsService {
 	public function __construct(
-		private IConfig $config,
+		private readonly IConfig $config,
 	) {
-		$this->config = $config;
 	}
 
 	/**

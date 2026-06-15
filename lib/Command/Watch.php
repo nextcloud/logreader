@@ -17,6 +17,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Terminal;
 
+/**
+ * @psalm-api
+ */
 class Watch extends Base {
 	public const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 	public const ALL_LEVELS = [0, 1, 2, 3, 4];
@@ -30,6 +33,7 @@ class Watch extends Base {
 		$this->logIteratorFactory = $logIteratorFactory;
 	}
 
+	#[\Override]
 	protected function configure() {
 		$this
 			->setName('log:watch')
@@ -46,6 +50,7 @@ class Watch extends Base {
 		}
 	}
 
+	#[\Override]
 	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$raw = $input->getOption('raw');
 		return $this->watch($raw, $output);
@@ -86,7 +91,7 @@ class Watch extends Base {
 					$iterator->next();
 				}
 
-				array_reverse($lines);
+				$lines = array_reverse($lines);
 
 				foreach ($lines as $line) {
 					if ($raw) {

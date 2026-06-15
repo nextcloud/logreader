@@ -16,24 +16,28 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\Log\BeforeMessageLoggedEvent;
-use Psr\Container\ContainerInterface;
 
+/**
+ * @psalm-api
+ */
 class Application extends App implements IBootstrap {
 	public function __construct(array $urlParams = []) {
 		parent::__construct('logreader', $urlParams);
 	}
 
+	#[\Override]
 	public function register(IRegistrationContext $context): void {
 		if (defined('OC_CONSOLE') && \OC_CONSOLE) {
 			$context->registerEventListener(BeforeMessageLoggedEvent::class, LogListener::class);
 		}
-		$context->registerService(Formatter::class, function (ContainerInterface $c) {
+		$context->registerService(Formatter::class, function () {
 			return new Formatter(\OC::$SERVERROOT);
 		});
 
 		$context->registerSetupCheck(LogErrors::class);
 	}
 
+	#[\Override]
 	public function boot(IBootContext $context): void {
 	}
 }

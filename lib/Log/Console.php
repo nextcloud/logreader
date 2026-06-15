@@ -34,9 +34,9 @@ class Console extends LogDetails {
 			$entry = $this->logDetails($app, $entry, $level);
 
 			$lines = explode("\n", $this->formatter->formatMessage($entry, $messageWidth));
-			$lines[0] = str_pad(Tail::LEVELS[$level], 8) . ' ' .
-				str_pad(wordwrap($app, 18), 18) . ' ' .
-				str_pad($lines[0], $messageWidth);
+			$lines[0] = str_pad(Tail::LEVELS[$level], 8) . ' '
+				. str_pad(wordwrap($app, 18), 18) . ' '
+				. str_pad($lines[0], $messageWidth);
 
 			for ($i = 1; $i < count($lines); $i++) {
 				$lines[$i] = str_repeat(' ', 8 + 18 + 2) . $lines[$i];

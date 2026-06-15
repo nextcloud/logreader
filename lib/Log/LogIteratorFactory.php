@@ -13,6 +13,9 @@ use OCP\IConfig;
 use OCP\Log\IFileBased;
 use OCP\Log\ILogFactory;
 
+/**
+ * @psalm-api
+ */
 class LogIteratorFactory {
 	public function __construct(
 		private IConfig $config,
