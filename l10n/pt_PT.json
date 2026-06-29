@@ -1,8 +1,10 @@
 { "translations": {
     "Logging" : "Registos",
     "Errors in the log" : "Erros no log",
+    "No errors in the logs since %s" : "Sem erros nos logs desde %s",
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n aviso nos registos desde %s","%n avisos nos registos desde %s","%n avisos nos registos desde %s"],
     "A log reader for Nextcloud" : "Um leitor de logs para Nextcloud",
+    "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "Se você achar que isso é um erro, verifique {setting} em seu {config} e consulte o Manual de Administração do Nextcloud.",
     "Level" : "Nível",
     "App" : "Aplicação",
     "Time" : "Tempo",
@@ -11,11 +13,14 @@
     "Download logs" : "Transferir registos",
     "(Local log files only support the \"raw\" time format)" : "(Os arquivos de log locais suportam apenas o formato de tempo \"bruto\")",
     "Relative" : "Relativo",
+    "Application" : "Aplicativo",
     "Message" : "Mensagem",
     "Show details" : "Mostrar detalhes",
     "Info" : "Informação",
     "Warning" : "Aviso",
     "Error" : "Erro",
+    "Fatal" : "Fatal",
+    "Could not fetch new entries" : "Não foi possível obter novas entradas",
     "\tfrom {address} by {user} at {time}\n" : "\tde {address} por {user} às {time}\n"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
