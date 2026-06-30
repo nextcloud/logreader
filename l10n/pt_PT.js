@@ -5,6 +5,7 @@ OC.L10N.register(
     "Errors in the log" : "Erros no log",
     "No errors in the logs since %s" : "Sem erros nos logs desde %s",
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["%n aviso nos registos desde %s","%n avisos nos registos desde %s","%n avisos nos registos desde %s"],
+    "Log Reader" : "Leitor de Registro",
     "A log reader for Nextcloud" : "Um leitor de logs para Nextcloud",
     "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "Se você achar que isso é um erro, verifique {setting} em seu {config} e consulte o Manual de Administração do Nextcloud.",
     "Level" : "Nível",
@@ -12,6 +13,7 @@ OC.L10N.register(
     "Time" : "Tempo",
     "Download/Upload logs" : "Registos de Transferir/Enviar",
     "Ctrl" : "Ctrl",
+    "Could not parse local log file" : "Não foi possível analisar o arquivo de log local",
     "Download logs" : "Transferir registos",
     "(Local log files only support the \"raw\" time format)" : "(Os arquivos de log locais suportam apenas o formato de tempo \"bruto\")",
     "Relative" : "Relativo",
@@ -22,6 +24,7 @@ OC.L10N.register(
     "Warning" : "Aviso",
     "Error" : "Erro",
     "Fatal" : "Fatal",
+    "Could not load log entries" : "Não foi possível carregar entradas de log",
     "Could not fetch new entries" : "Não foi possível obter novas entradas",
     "\tfrom {address} by {user} at {time}\n" : "\tde {address} por {user} às {time}\n"
 },
