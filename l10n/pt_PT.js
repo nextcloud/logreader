@@ -11,6 +11,7 @@ OC.L10N.register(
     "Level" : "Nível",
     "App" : "Aplicação",
     "Time" : "Tempo",
+    "Line {line}" : "Linha {line}",
     "Download/Upload logs" : "Registos de Transferir/Enviar",
     "Ctrl" : "Ctrl",
     "Could not parse local log file" : "Não foi possível analisar o arquivo de log local",
