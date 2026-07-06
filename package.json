@@ -41,7 +41,7 @@
     "@vitest/coverage-istanbul": "^4.0.17",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
-    "browserslist": "^4.28.1",
+    "browserslist": "^4.28.4",
     "happy-dom": "^20.3.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
