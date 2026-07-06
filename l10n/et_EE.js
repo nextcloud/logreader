@@ -66,7 +66,7 @@ OC.L10N.register(
     "Expand row" : "Laienda rida",
     "Show details" : "Näita üksikasju",
     "Debug" : "Veaotsing (debug)",
-    "Info" : "Info",
+    "Info" : "Teave",
     "Warning" : "Hoiatus (warning)",
     "Error" : "Viga (error)",
     "Fatal" : "Fataalne",
