@@ -3,10 +3,10 @@
 * SPDX-License-Identifier: AGPL-3.0-or-later
 */
 
+import type { Pinia } from 'pinia'
+
 import { translate, translatePlural } from '@nextcloud/l10n'
 import {
-	type Pinia,
-
 	createPinia,
 	PiniaVuePlugin,
 } from 'pinia'
