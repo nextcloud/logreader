@@ -15,3 +15,13 @@ vendor/
 
 build/
 *.cache
+
+# VScode settings
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs settings
+.idea/
+
+# JetBrains Fleet settings
+.fleet/
