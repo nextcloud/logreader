@@ -17,7 +17,7 @@ version: 2.6.0
 license: GPL-3.0-or-later
 
 @nextcloud/axios
-version: 2.5.2
+version: 2.6.0
 license: GPL-3.0-or-later
 
 @nextcloud/browser-storage
@@ -53,7 +53,7 @@ version: 3.1.0
 license: GPL-3.0-or-later
 
 @nextcloud/vue
-version: 8.39.0
+version: 8.40.0
 license: AGPL-3.0-or-later
 
 @nextcloud/vue-select
@@ -141,7 +141,7 @@ version: 3.2.0
 license: MIT
 
 tabbable
-version: 6.4.0
+version: 6.5.0
 license: MIT
 
 toastify-js
