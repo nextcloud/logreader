@@ -168,7 +168,7 @@ legend {
 	}
 
 	&__header {
-		padding-inline-start: 1rem; // Align with info note
+		padding-inline-start: calc(var(--default-clickable-area) + 2 * var(--app-navigation-padding)); // Reserve space for navigation toggle
 		display: flex;
 		flex-direction: row;
 		align-items: center;
