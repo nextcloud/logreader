@@ -10,6 +10,9 @@ import { createAppConfig } from '@nextcloud/vite-config'
 const config = createAppConfig({
 	main: 'src/index.ts',
 }, {
+	emptyOutputDirectory: {
+		additionalDirectories: ['css'],
+	},
 	// Build the css/logreader-style.css instead of inlineing the styles in the js bundle
 	inlineCSS: false,
 	assetFileNames: (info) => info.name === 'index.css' ? 'css/logreader-main.css' : undefined,
