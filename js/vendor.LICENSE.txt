@@ -113,7 +113,7 @@ version: 7.8.0
 license: MIT
 
 highlight.js
-version: 11.11.1
+version: 11.11.2
 license: BSD-3-Clause
 
 is-buffer
