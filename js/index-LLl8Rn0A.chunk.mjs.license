@@ -12,5 +12,5 @@ This file is generated from multiple sources. Included packages:
 	- version: 3.6.1
 	- license: MIT
 - @nextcloud/vue
-	- version: 9.8.2
+	- version: 9.9.0
 	- license: AGPL-3.0-or-later
