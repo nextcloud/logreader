@@ -3,8 +3,11 @@ OC.L10N.register(
     {
     "Time" : "Zäit",
     "Relative" : "Relativ",
+    "Application" : "Applikatioun",
+    "Debug" : "Debuggen",
     "Info" : "Info",
     "Warning" : "Warnung",
-    "Error" : "Fehler"
+    "Error" : "Feeler",
+    "Fatal" : "Fatal"
 },
 "nplurals=2; plural=(n != 1);");
