@@ -1,8 +1,11 @@
 { "translations": {
     "Time" : "Zäit",
     "Relative" : "Relativ",
+    "Application" : "Applikatioun",
+    "Debug" : "Debuggen",
     "Info" : "Info",
     "Warning" : "Warnung",
-    "Error" : "Fehler"
+    "Error" : "Feeler",
+    "Fatal" : "Fatal"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
