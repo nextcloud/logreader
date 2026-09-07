@@ -1,11 +1,13 @@
 SPDX-License-Identifier: (MPL-2.0 OR Apache-2.0)
 SPDX-License-Identifier: AGPL-3.0-or-later
+SPDX-License-Identifier: Apache-2.0
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-License-Identifier: ISC
 SPDX-License-Identifier: MIT
 SPDX-FileCopyrightText: @nextcloud/dialogs developers
 SPDX-FileCopyrightText: Andrea Giammarchi
 SPDX-FileCopyrightText: Anthony Fu <https://github.com/antfu>
+SPDX-FileCopyrightText: Austin Andrews
 SPDX-FileCopyrightText: David Clark
 SPDX-FileCopyrightText: David Myers <hello@davidmyers.dev>
 SPDX-FileCopyrightText: Dr.-Ing. Mario Heiderich, Cure53 <mario@cure53.de> (https://cure53.de/)
@@ -24,7 +26,6 @@ SPDX-FileCopyrightText: Robin Appelman <robin@icewind.nl>
 SPDX-FileCopyrightText: Sindre Sorhus
 SPDX-FileCopyrightText: Stefan Thomas <justmoon@members.fsf.org> (http://www.justmoon.net)
 SPDX-FileCopyrightText: Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)
-SPDX-FileCopyrightText: Varun A P
 SPDX-FileCopyrightText: atomiks
 SPDX-FileCopyrightText: debounce developers
 SPDX-FileCopyrightText: escape-html developers
@@ -44,6 +45,9 @@ This file is generated from multiple sources. Included packages:
 - @floating-ui/utils
 	- version: 0.2.12
 	- license: MIT
+- @mdi/js
+	- version: 7.4.47
+	- license: Apache-2.0
 - @nextcloud/auth
 	- version: 2.6.0
 	- license: GPL-3.0-or-later
@@ -57,7 +61,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 1.2.1
 	- license: GPL-3.0-or-later
 - @nextcloud/dialogs
-	- version: 7.4.1
+	- version: 7.5.0
 	- license: AGPL-3.0-or-later
 - @nextcloud/event-bus
 	- version: 3.3.3
@@ -277,9 +281,6 @@ This file is generated from multiple sources. Included packages:
 	- license: MIT
 - tabbable
 	- version: 6.5.0
-	- license: MIT
-- toastify-js
-	- version: 1.12.0
 	- license: MIT
 - trim-lines
 	- version: 3.0.1
