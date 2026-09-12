@@ -6,7 +6,7 @@ SPDX-FileCopyrightText: date-fns developers
 
 This file is generated from multiple sources. Included packages:
 - @nextcloud/vue
-	- version: 9.10.0
+	- version: 9.11.0
 	- license: AGPL-3.0-or-later
 - @vuepic/vue-datepicker
 	- version: 11.0.3
