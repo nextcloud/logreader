@@ -10,6 +10,7 @@ OC.L10N.register(
     "Log Reader" : "Naplóolvasó",
     "A log reader for Nextcloud" : "Egy naplóolvasó a Nextcloudhoz",
     "Log reader for Nextcloud" : "Naplóolvasó a Nextcloudhoz",
+    "If you feel this is an error, please verify {setting} in your {config} and check the Nextcloud Administration Manual." : "Ha azt gondolja, hogy ez hiba, ellenőrizze a {setting} beállítást a {config} fájlban, és nézze meg a Nextcloud rendszergazdai kézikönyvét.",
     "Log reader" : "Naplóolvasó",
     "Open log reader settings" : "Naplóolvasó beállításainak megnyitása",
     "Log reader settings" : "Naplóolvasó beállításai",
@@ -74,7 +75,7 @@ OC.L10N.register(
     "Could not parse clipboard content" : "Nem sikerült a vágólap tartalmának feldolgozása",
     "Could not fetch new log entries (server unavailable)" : "Nem sikerült lekérni az új naplóbejegyzéseket (a kiszolgáló nem érhető el)",
     "Could not fetch new entries" : "Nem sikerült lekérni az új bejegyzéseket",
-    "Could not copy to clipboard, please copy manually:" : "Nem lehet a vágólapra másolni. Másolja át kézileg.",
+    "Could not copy to clipboard, please copy manually:" : "Nem lehet a vágólapra másolni. Másolja át kézileg:",
     "\tfrom {address} by {user} at {time}\n" : "\tinnen: {address} , {user} által, ekkor: {time}\n"
 },
 "nplurals=2; plural=(n != 1);");
