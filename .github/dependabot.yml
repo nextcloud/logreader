@@ -12,8 +12,14 @@ updates:
     timezone: Europe/Paris
   cooldown:
     default-days: 10
+  groups:
+    vitest:
+      patterns:
+        - "vitest"
+        - "@vitest/coverage-*"
   open-pull-requests-limit: 10
   versioning-strategy: increase
+
 - package-ecosystem: npm
   directory: "/"
   schedule:
@@ -23,6 +29,11 @@ updates:
     timezone: Europe/Paris
   cooldown:
     default-days: 10
+  groups:
+    vitest:
+      patterns:
+        - "vitest"
+        - "@vitest/coverage-*"
   target-branch: stable35
   open-pull-requests-limit: 10
   versioning-strategy: increase
@@ -30,6 +41,7 @@ updates:
     # do not do breaking changes on stable branches
     - dependency-name: "*"
       update-types: ["version-update:semver-major", "version-update:semver-minor"]
+
 - package-ecosystem: npm
   directory: "/"
   schedule:
@@ -39,6 +51,11 @@ updates:
     timezone: Europe/Paris
   cooldown:
     default-days: 10
+  groups:
+    vitest:
+      patterns:
+        - "vitest"
+        - "@vitest/coverage-*"
   target-branch: stable34
   open-pull-requests-limit: 10
   versioning-strategy: increase
@@ -46,6 +63,7 @@ updates:
     # do not do breaking changes on stable branches
     - dependency-name: "*"
       update-types: ["version-update:semver-major", "version-update:semver-minor"]
+
 - package-ecosystem: npm
   directory: "/"
   schedule:
@@ -55,6 +73,11 @@ updates:
     timezone: Europe/Paris
   cooldown:
     default-days: 10
+  groups:
+    vitest:
+      patterns:
+        - "vitest"
+        - "@vitest/coverage-*"
   target-branch: stable33
   open-pull-requests-limit: 10
   versioning-strategy: increase
@@ -62,6 +85,7 @@ updates:
     # do not do breaking changes on stable branches
     - dependency-name: "*"
       update-types: ["version-update:semver-major", "version-update:semver-minor"]
+
 - package-ecosystem: npm
   directory: "/"
   schedule:
@@ -71,6 +95,11 @@ updates:
     timezone: Europe/Paris
   cooldown:
     default-days: 10
+  groups:
+    vitest:
+      patterns:
+        - "vitest"
+        - "@vitest/coverage-*"
   target-branch: stable32
   open-pull-requests-limit: 10
   versioning-strategy: increase
