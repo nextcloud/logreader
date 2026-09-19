@@ -39,6 +39,19 @@ vi.mock('../utils/logfile.ts', () => {
 	}
 })
 
+vi.mock('../api.ts', () => {
+	return {
+		getLog: mocks.getLog,
+		pollLog: mocks.pollLog,
+	}
+})
+
+vi.mock('../utils/logger.ts', () => {
+	return {
+		logger: mocks.logger,
+	}
+})
+
 class ServerError extends Error {
 	public status = 500
 }
@@ -53,13 +66,6 @@ function mockInitialState(state: IAppSettings) {
 
 describe('store:logging', () => {
 	beforeEach(() => {
-		vi.mock('../api.ts', () => {
-			return {
-				getLog: mocks.getLog,
-				pollLog: mocks.pollLog,
-			}
-		})
-
 		// clean pinia
 		createTestingPinia({
 			fakeApp: true,
@@ -181,12 +187,6 @@ describe('store:logging', () => {
 	})
 
 	it('does not load file if no file was selected', async () => {
-		vi.mock('../utils/logger.ts', () => {
-			return {
-				logger: mocks.logger,
-			}
-		})
-
 		const store = useLogStore()
 		const settings = useSettingsStore()
 		settings.localFile = undefined
@@ -434,11 +434,6 @@ describe('store:logging', () => {
 	})
 
 	it('handles errors while polling', async () => {
-		vi.mock('../utils/logger.ts', () => {
-			return {
-				logger: mocks.logger,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
 			throw Error()
 		})
@@ -453,11 +448,6 @@ describe('store:logging', () => {
 	})
 
 	it('handles server errors while polling', async () => {
-		vi.mock('../utils/logger.ts', () => {
-			return {
-				logger: mocks.logger,
-			}
-		})
 		vi.mocked(mocks.pollLog).mockImplementationOnce(() => {
 			throw new ServerError()
 		})
