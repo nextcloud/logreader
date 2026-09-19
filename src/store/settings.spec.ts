@@ -17,6 +17,14 @@ const mocks = vi.hoisted(() => {
 	}
 })
 
+// Mock the API
+vi.mock('../api.ts', () => {
+	return {
+		setAppSetting: mocks.setAppSetting,
+		getAppSettings: mocks.getAppSettings,
+	}
+})
+
 function mockInitialState(state: IAppSettings) {
 	const input = document.createElement('input')
 	input.setAttribute('type', 'hidden')
@@ -87,14 +95,6 @@ describe('store:settings', () => {
 	})
 
 	it('sets the state when settings are changed', async () => {
-		// Mock the API
-		vi.mock('../api.ts', () => {
-			return {
-				setAppSetting: mocks.setAppSetting,
-				getAppSettings: mocks.getAppSettings,
-			}
-		})
-
 		// clean pinia
 		createTestingPinia({
 			fakeApp: true,
@@ -110,14 +110,6 @@ describe('store:settings', () => {
 	})
 
 	it('sets the state when settings are loaded', async () => {
-		// Mock the API
-		vi.mock('../api.ts', () => {
-			return {
-				setAppSetting: mocks.setAppSetting,
-				getAppSettings: mocks.getAppSettings,
-			}
-		})
-
 		// clean pinia
 		createTestingPinia({
 			fakeApp: true,
