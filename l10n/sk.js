@@ -75,7 +75,7 @@ OC.L10N.register(
     "Could not parse clipboard content" : "Nepodarilo sa prečítať obsah schránky",
     "Could not fetch new log entries (server unavailable)" : "Nepodarilo sa načítať nové záznamy protokolu (server nedostupný)",
     "Could not fetch new entries" : "Nepodarilo sa načítať nové záznamy",
-    "Could not copy to clipboard, please copy manually:" : "Nepodarilo sa skopírovať zo schránky, prosím skopírujte manuálne:",
+    "Could not copy to clipboard, please copy manually:" : "Nepodarilo sa skopírovať do schránky, prosím skopírujte manuálne:",
     "\tfrom {address} by {user} at {time}\n" : "\tod {address} užívateľom {user} o {time}\n"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");
