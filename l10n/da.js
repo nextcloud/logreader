@@ -75,7 +75,7 @@ OC.L10N.register(
     "Could not parse clipboard content" : "Kunne ikke fortolke klippebordsindhold",
     "Could not fetch new log entries (server unavailable)" : "Kunne ikke hente nye logposter (server ikke tilgængelig)",
     "Could not fetch new entries" : "Kunne ikke hente nye poster",
-    "Could not copy to clipboard, please copy manually:" : "Kunne ikke kopiere til udklipsholderen, kopier venligst manuelt:",
+    "Could not copy to clipboard, please copy manually:" : "Kunne ikke kopiere til udklipsholderen. Kopiér manuelt:",
     "\tfrom {address} by {user} at {time}\n" : "\tfra {address} af {user} kl. {time}\n"
 },
 "nplurals=2; plural=(n != 1);");
