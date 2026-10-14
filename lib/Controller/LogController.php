@@ -69,6 +69,7 @@ class LogController extends Controller {
 	 */
 	private function getLastItem() {
 		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
+		$iterator->rewind();
 		return $iterator->current();
 	}
 
@@ -100,7 +101,7 @@ class LogController extends Controller {
 		}
 
 		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
-		$iterator->next();
+		$iterator->rewind();
 
 		$data = [];
 

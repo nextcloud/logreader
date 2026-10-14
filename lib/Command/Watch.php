@@ -40,7 +40,6 @@ class Watch extends Base {
 
 	private function getLastLogId() {
 		$logIterator = $this->logIteratorFactory->getLogIterator(self::ALL_LEVELS);
-		$logIterator->next();
 		if ($logIterator->current() !== null) {
 			return $logIterator->current()['reqId'];
 		}
@@ -69,7 +68,6 @@ class Watch extends Base {
 			$id = $this->getLastLogId();
 			if ($id !== $lastId) {
 				$iterator = $this->logIteratorFactory->getLogIterator(self::ALL_LEVELS);
-				$iterator->next();
 
 				$lines = [];
 
