@@ -40,7 +40,7 @@ updates:
   ignore:
     # do not do breaking changes on stable branches
     - dependency-name: "*"
-      update-types: ["version-update:semver-major", "version-update:semver-minor"]
+      update-types: ["version-update:semver-major"]
 
 - package-ecosystem: npm
   directory: "/"
@@ -62,7 +62,7 @@ updates:
   ignore:
     # do not do breaking changes on stable branches
     - dependency-name: "*"
-      update-types: ["version-update:semver-major", "version-update:semver-minor"]
+      update-types: ["version-update:semver-major"]
 
 - package-ecosystem: npm
   directory: "/"
@@ -84,26 +84,4 @@ updates:
   ignore:
     # do not do breaking changes on stable branches
     - dependency-name: "*"
-      update-types: ["version-update:semver-major", "version-update:semver-minor"]
-
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: weekly
-    day: saturday
-    time: "03:00"
-    timezone: Europe/Paris
-  cooldown:
-    default-days: 10
-  groups:
-    vitest:
-      patterns:
-        - "vitest"
-        - "@vitest/coverage-*"
-  target-branch: stable32
-  open-pull-requests-limit: 10
-  versioning-strategy: increase
-  ignore:
-    # do not do breaking changes on stable branches
-    - dependency-name: "*"
-      update-types: ["version-update:semver-major", "version-update:semver-minor"]
+      update-types: ["version-update:semver-major"]
