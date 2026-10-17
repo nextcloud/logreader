@@ -4,56 +4,37 @@
 -->
 
 <template>
-	<NcActions
-		v-model:open="isOpen"
-		:forceMenu="true"
+	<NcTextField
+		ref="searchField"
+		class="log-search__input"
+		:modelValue="currentQuery"
+		labelOutside
 		:aria-label="t('logreader', 'Search log entries')"
-		:type="buttonType">
+		:placeholder="t('logreader', 'Search log entries')"
+		:showTrailingButton="!!currentQuery"
+		trailingButtonIcon="close"
+		@update:modelValue="onSearchInput"
+		@trailingButtonClick="onSearchInput('')">
 		<template #icon>
-			<IconTextSearch :size="20" />
+			<IconMagnify :size="20" />
 		</template>
-		<template #default>
-			<NcActionInput
-				:modelValue="currentQuery"
-				:label="t('logreader', 'Search log entries')"
-				:showTrailingButton="false"
-				@submit="isOpen = false"
-				@input="onSearchInput">
-				{{ t('logreader', 'Search log entries') }}
-				<template #icon>
-					<IconMagnify :size="20" />
-				</template>
-			</NcActionInput>
-		</template>
-	</NcActions>
+	</NcTextField>
 </template>
 
 <script setup lang="ts">
 import { translate as t } from '@nextcloud/l10n'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
-import NcActionInput from '@nextcloud/vue/components/NcActionInput'
-import NcActions from '@nextcloud/vue/components/NcActions'
+import { useHotKey } from '@nextcloud/vue/composables/useHotKey'
+import { computed, ref } from 'vue'
+import NcTextField from '@nextcloud/vue/components/NcTextField'
 import IconMagnify from 'vue-material-design-icons/Magnify.vue'
-import IconTextSearch from 'vue-material-design-icons/TextSearch.vue'
 import { useLogStore } from '../store/logging'
-
-declare global {
-	interface Window {
-		OCP: Nextcloud.v27.OCP
-	}
-}
 
 const logStore = useLogStore()
 
 /**
- * State of the search input popover
+ * Reference to the search input, used for focusing it on the search shortcut
  */
-const isOpen = ref(false)
-
-/**
- * The button type, forced to `primary` when filter is active
- */
-const buttonType = computed(() => logStore.query ? 'primary' : 'tertiary-no-background')
+const searchField = ref<InstanceType<typeof NcTextField>>()
 
 /**
  * Current active search query
@@ -63,38 +44,25 @@ const currentQuery = computed(() => logStore.query)
 /**
  * Handle changes of the search query
  *
- * @param param0 The InputEvent
- * @param param0.target The input element
+ * @param value The new search query
  */
-function onSearchInput({ target }: InputEvent) {
-	logStore.searchLogs((target as HTMLInputElement).value)
+function onSearchInput(value: string | number) {
+	logStore.searchLogs(String(value))
 }
 
 /**
- * Listen for common search shortcut, open menu if requested and stop the event to prevent unified search from opening
- *
- * @param event The keydown event
+ * Focus and select the search input on the common search shortcut
  */
-function keyboardListener(event: KeyboardEvent) {
-	if (event.ctrlKey && event.key === 'f') {
-		isOpen.value = true
-		event.preventDefault()
-		event.stopPropagation()
-	}
-}
-
-/**
- * Intercept search requestes to filter log entries
- *
- * Notice the `true` so we intercept keydown on the bubble in -> intercept before unified search can handle it.
- */
-onMounted(() => {
-	if (!window.OCP.Accessibility.disableKeyboardShortcuts()) {
-		document.addEventListener('keydown', keyboardListener, true)
-	}
-})
-
-onUnmounted(() => {
-	document.removeEventListener('keydown', keyboardListener, true)
-})
+useHotKey('f', () => {
+	searchField.value?.focus()
+	searchField.value?.select()
+}, { ctrl: true, prevent: true })
 </script>
+
+<style lang="scss" scoped>
+.log-search__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	max-width: 300px;
+}
+</style>

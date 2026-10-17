@@ -24,6 +24,11 @@
 		<NcAppSettingsSection id="logreader-settings-actions" :name="t('logreader', 'Download/Upload logs')">
 			<SettingsActions />
 		</NcAppSettingsSection>
+		<NcAppSettingsShortcutsSection v-if="!disableKeyboardShortcuts">
+			<NcHotkeyList>
+				<NcHotkey :label="t('logreader', 'Search log entries')" hotkey="Control F" />
+			</NcHotkeyList>
+		</NcAppSettingsShortcutsSection>
 	</NcAppSettingsDialog>
 </template>
 
@@ -31,11 +36,20 @@
 import { translate as t } from '@nextcloud/l10n'
 import NcAppSettingsDialog from '@nextcloud/vue/components/NcAppSettingsDialog'
 import NcAppSettingsSection from '@nextcloud/vue/components/NcAppSettingsSection'
+import NcAppSettingsShortcutsSection from '@nextcloud/vue/components/NcAppSettingsShortcutsSection'
+import NcHotkey from '@nextcloud/vue/components/NcHotkey'
+import NcHotkeyList from '@nextcloud/vue/components/NcHotkeyList'
 import SettingsActions from './SettingsActions.vue'
 import SettingsDatetimeFormat from './SettingsDatetimeFormat.vue'
 import SettingsLiveView from './SettingsLiveView.vue'
 import SettingsLogLevels from './SettingsLogLevels.vue'
 import SettingsSetLogLevel from './SettingsSetLogLevel.vue'
+
+declare global {
+	interface Window {
+		OCP: Nextcloud.v27.OCP
+	}
+}
 
 const props = defineProps<{
 	open: boolean
@@ -46,5 +60,7 @@ const emit = defineEmits<{
 }>()
 
 const onUpdateOpen = (open: boolean) => emit('update:open', open)
+
+const disableKeyboardShortcuts = window.OCP.Accessibility.disableKeyboardShortcuts()
 
 </script>

@@ -112,11 +112,13 @@ function changeSortMode() {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: var(--default-grid-baseline);
 	}
 
 	&__text {
 		// Fake a button icon style
 		padding-inline-start: 12px;
+		flex-shrink: 0;
 	}
 }
 
