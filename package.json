@@ -37,7 +37,7 @@
     "@nextcloud/vite-config": "^2.5.2",
     "@pinia/testing": "^2.0.1",
     "@vitest/coverage-istanbul": "^4.1.11",
-    "@vue/test-utils": "^2.4.11",
+    "@vue/test-utils": "^2.5.1",
     "@vue/tsconfig": "^0.9.1",
     "browserslist": "^4.28.9",
     "happy-dom": "^20.14.5",
