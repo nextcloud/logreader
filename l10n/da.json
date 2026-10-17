@@ -3,7 +3,7 @@
     "Errors in the log" : "Fejl i loggen",
     "Failed to get an iterator for log entries: %s" : "Kunne ikke hente en gengiver for logposter: %s",
     "No errors in the logs since %s" : "Ingen fejl i logfilerne siden %s",
-    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["% n fejl i logfiler siden% s","%n fejl i logfilerne siden %s"],
+    "_%n error in the logs since %s_::_%n errors in the logs since %s_" : ["%n fejl i logfiler siden %s","%n fejl i logfilerne siden %s"],
     "_%n warning in the logs since %s_::_%n warnings in the logs since %s_" : ["% n advarsel i logfiler siden% s","%n advarsler i logfilerne siden %s"],
     "Log Reader" : "Log aflæser",
     "A log reader for Nextcloud" : "En loglæser til Nextcloud",
