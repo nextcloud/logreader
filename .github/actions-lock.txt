@@ -4,7 +4,7 @@
 acad44f3e99b665897766ce90374dd03 block-merge-freeze.yml
 19ab9c47c8d96de93f37fab242c398cc block-unconventional-commits.yml
 83fc862cd4312894dfd2be81fb88c0b5 command-compile.yml
-c1476a553c3223e70e49de980f22315e dependabot-approve-merge.yml
+e6351c608939c31ae1e32923aa82aa10 dependabot-approve-merge.yml
 2581a67c5bcdcd570427e6d51db767d7 fixup.yml
 92d7708f80f4e09d3aeb7d1d93168988 lint-eslint.yml
 230493ed3855e3f7d9209cc63e9dbe13 lint-php-cs.yml
@@ -19,3 +19,4 @@ d1e7dba2e25a3921ba09a8357bcd47c5 psalm-matrix.yml
 abcb8206c3f6c5a9dc86cccf57846bfc update-nextcloud-ocp-approve-merge.yml
 5165b2cbba7d5b36735419524e2fe4e9 update-nextcloud-ocp.yml
 22604c31b526de270a080eb19967a638 update-stable-titles.yml
+e93653cbfe2a909ca78415e656dbfa01 npm-build.yml
