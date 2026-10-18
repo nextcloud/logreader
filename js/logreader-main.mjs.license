@@ -265,7 +265,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 1.0.0
 	- license: MIT
 - semver
-	- version: 7.7.3
+	- version: 7.7.4
 	- license: ISC
 - space-separated-tokens
 	- version: 2.0.2
