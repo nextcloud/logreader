@@ -8,6 +8,7 @@
 namespace OCA\LogReader\Tests\Unit\Log;
 
 use OCA\LogReader\Log\LogIterator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Test\TestCase;
 
 class LogIteratorTest extends TestCase {
@@ -21,6 +22,38 @@ class LogIteratorTest extends TestCase {
 	private function getLogIterator(string $log) {
 		$handle = $this->getLogHandle($log);
 		return new LogIterator($handle, \DateTime::ATOM, 'UTC');
+	}
+
+	private function getLogLine(string $reqId, int $length): string {
+		$emptyLine = json_encode(['reqId' => $reqId, 'level' => 3, 'message' => '']);
+		$line = json_encode(['reqId' => $reqId, 'level' => 3, 'message' => str_repeat('a', $length - strlen($emptyLine))]);
+		$this->assertSame($length, strlen($line));
+		return $line;
+	}
+
+	public static function trailingNewlineProvider(): array {
+		return [
+			'without trailing newline' => [''],
+			'with trailing newline' => ["\n"],
+		];
+	}
+
+	#[DataProvider(methodName: 'trailingNewlineProvider')]
+	public function testGetLinesSpanningMultipleChunks(string $trailingNewline): void {
+		// The first line starts at the beginning of the file. The last line and the trailing newline fill
+		// exactly two chunks, so the newline in front of the last line is the last byte of the next chunk.
+		$first = $this->getLogLine('1', 3 * LogIterator::CHUNK_SIZE + 17);
+		$middle = $this->getLogLine('2', 100);
+		$last = $this->getLogLine('3', 2 * LogIterator::CHUNK_SIZE - strlen($trailingNewline));
+		$log = $this->getLogIterator($first . "\n" . $middle . "\n" . $last . $trailingNewline);
+
+		$entries = iterator_to_array($log);
+
+		$this->assertSame([
+			json_decode($last, true),
+			json_decode($middle, true),
+			json_decode($first, true),
+		], $entries);
 	}
 
 	public function testGetLines() {
