@@ -16,6 +16,7 @@ use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Attribute\AuthorizedAdminSetting;
 use OCP\AppFramework\Http\JSONResponse;
+use OCP\AppFramework\Http\StreamTraversableResponse;
 use OCP\IRequest;
 use Psr\Log\LoggerInterface;
 
@@ -26,6 +27,8 @@ use Psr\Log\LoggerInterface;
  * @psalm-api
  */
 class LogController extends Controller {
+	/** Maximum number of entries of the shown levels a search or a poll goes through, hidden ones are not counted */
+	private const MAX_SCANNED_ENTRIES = 100000;
 
 	public function __construct(
 		$appName,
@@ -41,10 +44,9 @@ class LogController extends Controller {
 	 * @param string $query
 	 * @param int $count
 	 * @param int $offset
-	 * @return JSONResponse
 	 */
 	#[AuthorizedAdminSetting(settings: Admin::class)]
-	public function get($query = '', $count = 50, $offset = 0): JSONResponse {
+	public function get($query = '', $count = 50, $offset = 0): JSONResponse|StreamTraversableResponse {
 		$logType = $this->settingsService->getLoggingType();
 		// we only support web access when `log_type` is set to `file` (the default)
 		if ($logType !== 'file') {
@@ -55,7 +57,7 @@ class LogController extends Controller {
 		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 
 		if ($query !== '') {
-			$iterator = new \LimitIterator($iterator, 0, 100000); // limit the number of message we search to avoid huge search times
+			$iterator = new \LimitIterator($iterator, 0, self::MAX_SCANNED_ENTRIES);
 			$iterator->rewind();
 			$iterator = new SearchFilter($iterator, $query);
 			$iterator->rewind();
@@ -89,7 +91,7 @@ class LogController extends Controller {
 	 *  request.
 	 */
 	#[AuthorizedAdminSetting(settings: Admin::class)]
-	public function poll(string $lastReqId): JSONResponse {
+	public function poll(string $lastReqId): JSONResponse|StreamTraversableResponse {
 		$logType = $this->settingsService->getLoggingType();
 		// we only support web access when `log_type` is set to `file` (the default)
 		if ($logType !== 'file') {
@@ -98,49 +100,95 @@ class LogController extends Controller {
 		}
 
 		$lastItem = $this->getLastItem();
-		if ($lastItem === null || $lastItem['reqId'] === $lastReqId) {
+		if ($lastItem === null || ($lastItem['reqId'] ?? null) === $lastReqId) {
 			return new JSONResponse([]);
 		}
 
 		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 		$iterator->rewind();
 
-		$data = [];
-
-		while ($iterator->valid()) {
-			$line = $iterator->current();
-
-			if ($line['reqId'] === $lastReqId) {
-				break;
-			}
-
-			if (!is_null($line)) {
-				$line['id'] = uniqid();
-				$data[] = $line;
-			}
-			$iterator->next();
-		}
-
-		return new JSONResponse($data);
+		return $this->streamJson($this->encodeEntriesNewerThan($iterator, $lastReqId));
 	}
 
-	protected function responseFromIterator(\Iterator $iterator, $count, $offset): JSONResponse {
+	protected function responseFromIterator(\Iterator $iterator, int $count, int $offset): StreamTraversableResponse {
 		$iterator->rewind();
 		for ($i = 0; $i < $offset; $i++) {
 			$iterator->next();
 		}
-		$data = [];
+		return $this->streamJson($this->encodePage($iterator, $count));
+	}
+
+	/**
+	 * @return \Generator<string>
+	 */
+	private function encodeEntriesNewerThan(\Iterator $iterator, string $lastReqId): \Generator {
+		yield '[';
+		yield from $this->encodeEntries($this->takeEntriesNewerThan($iterator, $lastReqId));
+		yield ']';
+	}
+
+	/**
+	 * @return \Generator<string>
+	 */
+	private function encodePage(\Iterator $iterator, int $count): \Generator {
+		yield '{"data":[';
+		yield from $this->encodeEntries($this->takeEntries($iterator, $count));
+		yield '],"remain":' . ($iterator->valid() ? 'true' : 'false') . '}';
+	}
+
+	/**
+	 * One part per entry, so only a single entry is held in memory at a time
+	 *
+	 * @param iterable<array> $entries
+	 * @return \Generator<string>
+	 */
+	private function encodeEntries(iterable $entries): \Generator {
+		$separator = '';
+		foreach ($entries as $entry) {
+			$entry['id'] = uniqid();
+			yield $separator . $this->encodeJson($entry);
+			$separator = ',';
+		}
+	}
+
+	/**
+	 * Leaves the iterator behind the last taken entry, so its valid() tells whether entries remain
+	 *
+	 * @return \Generator<array>
+	 */
+	private function takeEntries(\Iterator $iterator, int $count): \Generator {
 		for ($i = 0; $i < $count && $iterator->valid(); $i++) {
-			$line = $iterator->current();
-			if (!is_null($line)) {
-				$line['id'] = uniqid();
-				$data[] = $line;
-			}
+			yield $iterator->current();
 			$iterator->next();
 		}
-		return new JSONResponse([
-			'data' => $data,
-			'remain' => $iterator->valid()
-		]);
+	}
+
+	/**
+	 * @return \Generator<array>
+	 */
+	private function takeEntriesNewerThan(\Iterator $iterator, string $lastReqId): \Generator {
+		foreach ($this->takeEntries($iterator, self::MAX_SCANNED_ENTRIES) as $entry) {
+			if (($entry['reqId'] ?? null) === $lastReqId) {
+				return;
+			}
+			yield $entry;
+		}
+	}
+
+	/**
+	 * @param \Generator<string> $json
+	 */
+	private function streamJson(\Generator $json): StreamTraversableResponse {
+		return new StreamTraversableResponse($json, Http::STATUS_OK, ['Content-Type' => 'application/json; charset=utf-8']);
+	}
+
+	/**
+	 * Like JSONResponse::render(), but never fails and replaces values JSON cannot represent (e.g. INF), as the
+	 * response is already being sent and skipping the entry would shift the offsets of the next pages
+	 *
+	 * @psalm-suppress FalsableReturnStatement, InvalidFalsableReturnType
+	 */
+	private function encodeJson(mixed $data): string {
+		return json_encode($data, JSON_HEX_TAG | JSON_PARTIAL_OUTPUT_ON_ERROR, 2048);
 	}
 }

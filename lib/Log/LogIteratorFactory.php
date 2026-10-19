@@ -41,7 +41,8 @@ class LogIteratorFactory {
 			if ($handle) {
 				$iterator = new LogIterator($handle, $dateFormat, $timezone);
 				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
-					return $logItem && in_array($logItem['level'], $levels);
+					// isset() also rules out lines that decode to a scalar
+					return isset($logItem['level']) && in_array($logItem['level'], $levels);
 				});
 			} else {
 				throw new \Exception('Error while opening ' . $log->getLogFilePath());
