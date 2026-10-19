@@ -57,24 +57,10 @@ class LogController extends Controller {
 		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 
 		if ($query !== '') {
-			$iterator = new \LimitIterator($iterator, 0, self::MAX_SCANNED_ENTRIES);
-			$iterator->rewind();
-			$iterator = new SearchFilter($iterator, $query);
-			$iterator->rewind();
-			return $this->responseFromIterator($iterator, $count, $offset);
+			$iterator = new SearchFilter(new \LimitIterator($iterator, 0, self::MAX_SCANNED_ENTRIES), $query);
 		}
 
 		return $this->responseFromIterator($iterator, $count, $offset);
-	}
-
-	/**
-	 * @brief Gets the last item in the log, bypassing any cache.
-	 * @return mixed
-	 */
-	private function getLastItem() {
-		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
-		$iterator->rewind();
-		return $iterator->current();
 	}
 
 	/**
@@ -99,11 +85,6 @@ class LogController extends Controller {
 			return new JSONResponse([], Http::STATUS_FAILED_DEPENDENCY);
 		}
 
-		$lastItem = $this->getLastItem();
-		if ($lastItem === null || ($lastItem['reqId'] ?? null) === $lastReqId) {
-			return new JSONResponse([]);
-		}
-
 		$iterator = $this->logIteratorFactory->getLogIterator($this->settingsService->getShownLevels());
 		$iterator->rewind();
 
@@ -112,7 +93,7 @@ class LogController extends Controller {
 
 	protected function responseFromIterator(\Iterator $iterator, int $count, int $offset): StreamTraversableResponse {
 		$iterator->rewind();
-		for ($i = 0; $i < $offset; $i++) {
+		for ($i = 0; $i < $offset && $iterator->valid(); $i++) {
 			$iterator->next();
 		}
 		return $this->streamJson($this->encodePage($iterator, $count));

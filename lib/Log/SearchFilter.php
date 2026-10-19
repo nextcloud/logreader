@@ -24,7 +24,6 @@ class SearchFilter extends \FilterIterator {
 
 	public function __construct(\Iterator $iterator, string $query) {
 		parent::__construct($iterator);
-		$this->rewind();
 		$this->query = strtolower($query);
 		$this->levels = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 	}

@@ -17,6 +17,7 @@ use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Http\StreamTraversableResponse;
 use OCP\IRequest;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 use Test\TestCase;
@@ -244,5 +245,87 @@ class LogControllerTest extends TestCase {
 		$this->assertCount(100000, $data);
 		$this->assertSame('100001', $data[0]['reqId']);
 		$this->assertSame('2', $data[99999]['reqId']);
+	}
+
+	public static function pollProvider(): array {
+		return [
+			'new entries' => ['lastReqId' => '1', 'expectedReqIds' => ['3', '2']],
+			'no new entry' => ['lastReqId' => '3', 'expectedReqIds' => []],
+		];
+	}
+
+	#[DataProvider(methodName: 'pollProvider')]
+	public function testPollOpensTheLogOnce(string $lastReqId, array $expectedReqIds): void {
+		$log = $this->getLogWithEntries(3);
+		$opened = 0;
+		$this->logIteratorFactory->method('getLogIterator')
+			->willReturnCallback(function () use ($log, &$opened) {
+				$opened++;
+				// Like the factory's filter, this needs a rewind before the first entry can be read
+				return new \CallbackFilterIterator($this->getLogIterator($log), fn () => true);
+			});
+
+		$data = $this->getResponseData($this->logController->poll($lastReqId));
+
+		$this->assertSame($expectedReqIds, array_column($data, 'reqId'));
+		$this->assertSame(1, $opened);
+	}
+
+	public function testSearchReadsThroughTheLogOnce(): void {
+		$iterator = new class($this->getLogIterator($this->getLogWithEntries(20))) extends \IteratorIterator {
+			public int $steps = 0;
+
+			#[\Override]
+			public function next(): void {
+				$this->steps++;
+				parent::next();
+			}
+		};
+		$this->logIteratorFactory->method('getLogIterator')
+			->willReturn($iterator);
+
+		$data = $this->getResponseData($this->logController->get('no entry contains this'));
+
+		$this->assertSame(['data' => [], 'remain' => false], $data);
+		$this->assertSame(20, $iterator->steps);
+	}
+
+	public function testGetStopsSkippingToTheOffsetAtTheEndOfTheLog(): void {
+		$iterator = new class($this->getLogIterator($this->getLogWithEntries(20))) extends \IteratorIterator {
+			public int $steps = 0;
+
+			#[\Override]
+			public function next(): void {
+				$this->steps++;
+				parent::next();
+			}
+		};
+		$this->logIteratorFactory->method('getLogIterator')
+			->willReturn($iterator);
+
+		$data = $this->getResponseData($this->logController->get('', 50, 1000));
+
+		$this->assertSame(['data' => [], 'remain' => false], $data);
+		$this->assertSame(20, $iterator->steps);
+	}
+
+	public function testSearchReadsThroughTheLogOnceWhenNoEntryHasAShownLevel(): void {
+		$iterator = new class($this->getLogIterator($this->getLogWithEntries(20))) extends \IteratorIterator {
+			public int $steps = 0;
+
+			#[\Override]
+			public function next(): void {
+				$this->steps++;
+				parent::next();
+			}
+		};
+		// Like the factory's level filter, here with none of the entries' levels shown
+		$this->logIteratorFactory->method('getLogIterator')
+			->willReturn(new \CallbackFilterIterator($iterator, fn () => false));
+
+		$data = $this->getResponseData($this->logController->get('Entry'));
+
+		$this->assertSame(['data' => [], 'remain' => false], $data);
+		$this->assertSame(20, $iterator->steps);
 	}
 }
