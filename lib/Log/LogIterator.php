@@ -76,28 +76,43 @@ class LogIterator implements \Iterator {
 	}
 
 	public function next(): void {
+		// End offset of a line spanning multiple chunks. Its chunks are dropped once searched
+		// and the whole line is read again at once when its start is found.
+		$lineEnd = null;
 		// Loop through each character of the file looking for new lines
 		while ($this->position >= 0) {
 			$newlinePos = strrpos($this->buffer, "\n");
 			if ($newlinePos !== false) {
-				if ($newlinePos + 1 === strlen($this->buffer)) {
+				if ($lineEnd === null && $newlinePos + 1 === strlen($this->buffer)) {
 					// try again with truncated buffer if it ends with newline, i.e. on first call
 					$this->buffer = substr($this->buffer, 0, $newlinePos);
 					continue;
 				}
-				$this->lastLine = substr($this->buffer, $newlinePos + 1);
+				$this->lastLine = $lineEnd === null
+					? substr($this->buffer, $newlinePos + 1)
+					: $this->readRange($this->position + $newlinePos + 1, $lineEnd);
 				$this->buffer = substr($this->buffer, 0, $newlinePos);
 				$this->currentKey++;
 				return;
 			} elseif ($this->position === 0) {
-				$this->lastLine = $this->buffer;
+				$this->lastLine = $lineEnd === null ? $this->buffer : $this->readRange(0, $lineEnd);
 				$this->buffer = '';
 				$this->currentKey++;
 				return;
 			} else {
+				// $lineEnd must stay null until the line has content, the trailing newline check relies on it
+				if ($this->buffer !== '') {
+					$lineEnd ??= $this->position + strlen($this->buffer);
+					$this->buffer = '';
+				}
 				$this->fillBuffer();
 			}
 		}
+	}
+
+	private function readRange(int $start, int $end): string {
+		fseek($this->handle, $start);
+		return (string)stream_get_contents($this->handle, $end - $start);
 	}
 
 	public function valid(): bool {
