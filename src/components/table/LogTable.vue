@@ -31,7 +31,10 @@
 			<tbody ref="tableBody" :style="tbodyStyle" class="log-table__body">
 				<tr v-if="sortedByTime === 'ascending'" class="log-table__load-more">
 					<td>
-						<IntersectionObserver v-if="logStore.hasRemainingEntries" @intersection="loadMore">
+						<IntersectionObserver
+							v-if="logStore.hasRemainingEntries"
+							:key="logStore.allEntries.length"
+							@intersection="loadMore">
 							{{ t('logreader', 'Loading older log entries') }}
 						</IntersectionObserver>
 						<span v-else>
@@ -50,7 +53,10 @@
 			<tfoot role="rowgroup" class="log-table__footer">
 				<tr v-if="sortedByTime !== 'ascending'" class="log-table__load-more">
 					<td>
-						<IntersectionObserver v-if="logStore.hasRemainingEntries" @intersection="loadMore">
+						<IntersectionObserver
+							v-if="logStore.hasRemainingEntries"
+							:key="logStore.allEntries.length"
+							@intersection="loadMore">
 							{{ t('logreader', 'Loading older log entries') }}
 						</IntersectionObserver>
 						<span v-else>
