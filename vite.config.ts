@@ -28,6 +28,13 @@ const config = createAppConfig({
 				reporter: ['lcov', 'text'],
 			},
 			environment: 'happy-dom',
+			unstubGlobals: true,
+			server: {
+				deps: {
+					// Allow importing CSS from dependencies
+					inline: ['@nextcloud/dialogs', '@nextcloud/vue'],
+				},
+			},
 		},
 	} as UserConfig,
 })
