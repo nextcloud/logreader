@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace OCA\LogReader\Controller;
 
+use OCA\LogReader\AuditLog\AuditEventFactory;
+use OCA\LogReader\AuditLog\Operation;
 use OCA\LogReader\Constants;
 use OCA\LogReader\Service\SettingsService;
 use OCA\LogReader\Settings\Admin;
@@ -15,6 +17,7 @@ use OCP\AppFramework\ApiController;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Attribute\AuthorizedAdminSetting;
 use OCP\AppFramework\Http\JSONResponse;
+use OCP\EventDispatcher\IEventDispatcher;
 use OCP\IConfig;
 use OCP\IRequest;
 use Psr\Log\LoggerInterface;
@@ -30,6 +33,7 @@ class SettingsController extends ApiController {
 		private SettingsService $settingsService,
 		private IConfig $config,
 		private LoggerInterface $logger,
+		private IEventDispatcher $eventDispatcher,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -62,8 +66,9 @@ class SettingsController extends ApiController {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
+		$currentSettings = $this->settingsService->getAppSettings();
 		// Check type of value
-		if (gettype($settingsValue) !== gettype($this->settingsService->getAppSettings()[$settingsKey])) {
+		if (gettype($settingsValue) !== gettype($currentSettings[$settingsKey])) {
 			// Invalid type
 			$this->logger->debug('Incorrect value type for appConfig key', ['settingsKey' => $settingsKey, 'valueType' => gettype($settingsValue)]);
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
@@ -86,6 +91,13 @@ class SettingsController extends ApiController {
 			}
 			// Set backend loglevel directly via system value
 			$this->config->setSystemValue('loglevel', $settingsValue);
+			if ($settingsValue !== $currentSettings[$settingsKey]) {
+				$this->eventDispatcher->dispatchTyped(AuditEventFactory::create(
+					Operation::LogLevelUpdated,
+					'Log level changed from %s to %s',
+					['previousLogLevel' => $currentSettings[$settingsKey], 'logLevel' => $settingsValue],
+				));
+			}
 		} else {
 			// Set on DB
 			$this->config->setAppValue($this->appName, $settingsKey, json_encode($settingsValue));
