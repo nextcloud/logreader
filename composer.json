@@ -28,7 +28,9 @@
 		"cs:check": "php-cs-fixer fix --dry-run --diff",
 		"cs:fix": "php-cs-fixer fix",
 		"test:unit": "phpunit -c tests/phpunit.xml",
-		"psalm": "psalm --no-cache --threads=$(nproc)"
+		"psalm": "psalm --no-cache --threads=$(nproc)",
+		"rector:check": "rector --dry-run --clear-cache",
+		"rector:fix": "rector && php-cs-fixer fix"
 	},
 	"autoload-dev": {
 		"psr-4": {
