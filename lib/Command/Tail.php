@@ -24,13 +24,11 @@ use Symfony\Component\Console\Terminal;
 class Tail extends Base {
 	public const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 
-	private $formatter;
-	private $logIteratorFactory;
-
-	public function __construct(Formatter $formatter, LogIteratorFactory $logIteratorFactory) {
+	public function __construct(
+		private readonly Formatter $formatter,
+		private readonly LogIteratorFactory $logIteratorFactory,
+	) {
 		parent::__construct();
-		$this->formatter = $formatter;
-		$this->logIteratorFactory = $logIteratorFactory;
 	}
 
 	#[\Override]
@@ -64,14 +62,12 @@ class Tail extends Base {
 			// 8 level, 18 for app, 26 for time, 6 for formatting
 			$messageWidth = $totalWidth - 8 - 18 - 26 - 6;
 
-			$tableItems = array_map(function (array $logItem) use ($messageWidth) {
-				return [
-					self::LEVELS[$logItem['level']],
-					wordwrap($logItem['app'], 18),
-					$this->formatter->formatMessage($logItem, $messageWidth) . "\n",
-					$logItem['time'],
-				];
-			}, $logItems);
+			$tableItems = array_map(fn (array $logItem) => [
+				self::LEVELS[$logItem['level']],
+				wordwrap($logItem['app'], 18),
+				$this->formatter->formatMessage($logItem, $messageWidth) . "\n",
+				$logItem['time'],
+			], $logItems);
 			$io->table([
 				'Level',
 				'App',

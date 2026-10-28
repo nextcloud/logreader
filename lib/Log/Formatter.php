@@ -9,10 +9,9 @@ declare(strict_types=1);
 namespace OCA\LogReader\Log;
 
 class Formatter {
-	private $root;
-
-	public function __construct(string $root) {
-		$this->root = $root;
+	public function __construct(
+		private readonly string $root,
+	) {
 	}
 
 	public function formatMessage($logItem, int $width) {
@@ -29,9 +28,7 @@ class Formatter {
 		$largestIndex = count($e['Trace']) - 1;
 		$largestIndexWidth = strlen((string)$largestIndex);
 		$message = wordwrap($e['Exception'] . ': ' . $e['Message'] . ' at ' . $this->getFileAndLine($e), $width) . "\n\n";
-		$message .= implode("\n", array_map(function ($index, $trace) use ($largestIndexWidth, $width) {
-			return $this->formatTraceLine($index, $trace, $largestIndexWidth, $width);
-		}, array_keys($e['Trace']), array_values($e['Trace'])));
+		$message .= implode("\n", array_map(fn ($index, $trace) => $this->formatTraceLine($index, $trace, $largestIndexWidth, $width), array_keys($e['Trace']), array_values($e['Trace'])));
 
 		if (isset($e['Previous'])) {
 			$message .= "\n\n" . 'Caused by ' . $this->formatException($e['Previous'], $width);
@@ -58,9 +55,7 @@ class Formatter {
 		} else {
 			return $whiteSpace . $index . '. ' . $this->getFileAndLine($trace, $argumentWidth) . "\n"
 				. $argumentWhiteSpace . $method . "(\n"
-				. implode(",\n", array_map(function ($argumentLine) use ($argumentWhiteSpace) {
-					return $argumentWhiteSpace . '  ' . trim($argumentLine);
-				}, $arguments)) . "\n"
+				. implode(",\n", array_map(fn ($argumentLine) => $argumentWhiteSpace . '  ' . trim($argumentLine), $arguments)) . "\n"
 				. $argumentWhiteSpace . ')';
 		}
 	}
@@ -80,14 +75,10 @@ class Formatter {
 			if ($isObject) {
 				$keyWhitespace = str_repeat(' ', $whiteSpace * ($depth + 1));
 				return $leadingSpace . "{\n"
-					. implode($glue, array_map(function ($key, $value) use ($whiteSpace, $depth, $keyWhitespace) {
-						return $keyWhitespace . $key . ':' . trim($this->formatArgument($value, $whiteSpace, $depth + 1));
-					}, array_keys($argument), array_values($argument))) . ($whiteSpace ? "\n" : '') . $leadingSpace . '}';
+					. implode($glue, array_map(fn ($key, $value) => $keyWhitespace . $key . ':' . trim($this->formatArgument($value, $whiteSpace, $depth + 1)), array_keys($argument), array_values($argument))) . ($whiteSpace ? "\n" : '') . $leadingSpace . '}';
 			} else {
 				return $leadingSpace . "[\n"
-					. implode($glue, array_map(function ($value) use ($whiteSpace, $depth) {
-						return $this->formatArgument($value, $whiteSpace, $depth + 1);
-					}, $argument)) . ($whiteSpace ? "\n" : '') . $leadingSpace . ']';
+					. implode($glue, array_map(fn ($value) => $this->formatArgument($value, $whiteSpace, $depth + 1), $argument)) . ($whiteSpace ? "\n" : '') . $leadingSpace . ']';
 			}
 		} else {
 			$value = json_encode($argument, $whiteSpace ? JSON_PRETTY_PRINT : 0);
@@ -106,7 +97,7 @@ class Formatter {
 			$fileWidth = $width - strlen($postFix) - 4;
 			$prefix = '';
 			$count = 0;
-			while (strlen($file) > $fileWidth && strpos($file, '/') !== false && $count < 20) {
+			while (strlen($file) > $fileWidth && str_contains($file, '/') && $count < 20) {
 				$file = substr($file, strpos($file, '/') + 1);
 				$prefix = '.../';
 				$count++;

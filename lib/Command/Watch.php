@@ -24,13 +24,11 @@ class Watch extends Base {
 	public const LEVELS = ['Debug', 'Info', 'Warning', 'Error', 'Fatal'];
 	public const ALL_LEVELS = [0, 1, 2, 3, 4];
 
-	private $formatter;
-	private $logIteratorFactory;
-
-	public function __construct(Formatter $formatter, LogIteratorFactory $logIteratorFactory) {
+	public function __construct(
+		private readonly Formatter $formatter,
+		private readonly LogIteratorFactory $logIteratorFactory,
+	) {
 		parent::__construct();
-		$this->formatter = $formatter;
-		$this->logIteratorFactory = $logIteratorFactory;
 	}
 
 	#[\Override]
@@ -66,7 +64,7 @@ class Watch extends Base {
 			usleep(100 * 1000);
 			try {
 				$this->abortIfInterrupted();
-			} catch (InterruptedException $e) {
+			} catch (InterruptedException) {
 				break;
 			}
 
@@ -116,24 +114,12 @@ class Watch extends Base {
 			$logItem['time'],
 		];
 
-		$partLines = array_map(function ($part) {
-			return explode("\n", $part);
-		}, $parts);
-		$lineCount = array_reduce($partLines, function (int $count, array $lines) {
-			return max($count, count($lines));
-		}, 0);
-		$partLines = array_map(function (array $lines) use ($lineCount) {
-			return array_pad($lines, $lineCount, '');
-		}, $partLines);
-		$partLines = array_map(function (array $lines, int $width) {
-			return array_map(function (string $line) use ($width) {
-				return str_pad($line, $width);
-			}, $lines);
-		}, $partLines, $widths);
+		$partLines = array_map(fn ($part) => explode("\n", $part), $parts);
+		$lineCount = array_reduce($partLines, fn (int $count, array $lines) => max($count, count($lines)), 0);
+		$partLines = array_map(fn (array $lines) => array_pad($lines, $lineCount, ''), $partLines);
+		$partLines = array_map(fn (array $lines, int $width) => array_map(fn (string $line) => str_pad($line, $width), $lines), $partLines, $widths);
 		$lines = array_map(function (int $lineNumber) use ($partLines) {
-			$partsForLine = array_map(function (array $lines) use ($lineNumber) {
-				return $lines[$lineNumber];
-			}, $partLines);
+			$partsForLine = array_map(fn (array $lines) => $lines[$lineNumber], $partLines);
 			return implode(' ', $partsForLine);
 		}, range(0, $lineCount - 1));
 

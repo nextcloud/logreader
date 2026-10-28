@@ -30,9 +30,9 @@ class LogController extends Controller {
 	public function __construct(
 		$appName,
 		IRequest $request,
-		private LogIteratorFactory $logIteratorFactory,
-		private SettingsService $settingsService,
-		private LoggerInterface $logger,
+		private readonly LogIteratorFactory $logIteratorFactory,
+		private readonly SettingsService $settingsService,
+		private readonly LoggerInterface $logger,
 	) {
 		parent::__construct($appName, $request);
 	}

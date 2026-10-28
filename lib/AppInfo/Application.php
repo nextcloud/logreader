@@ -30,9 +30,7 @@ class Application extends App implements IBootstrap {
 		if (defined('OC_CONSOLE') && \OC_CONSOLE) {
 			$context->registerEventListener(BeforeMessageLoggedEvent::class, LogListener::class);
 		}
-		$context->registerService(Formatter::class, function () {
-			return new Formatter(\OC::$SERVERROOT);
-		});
+		$context->registerService(Formatter::class, fn () => new Formatter(\OC::$SERVERROOT));
 
 		$context->registerSetupCheck(LogErrors::class);
 	}

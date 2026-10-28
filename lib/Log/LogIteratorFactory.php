@@ -18,8 +18,8 @@ use OCP\Log\ILogFactory;
  */
 class LogIteratorFactory {
 	public function __construct(
-		private IConfig $config,
-		private ILogFactory $logFactory,
+		private readonly IConfig $config,
+		private readonly ILogFactory $logFactory,
 	) {
 	}
 
@@ -40,9 +40,7 @@ class LogIteratorFactory {
 			$handle = fopen($log->getLogFilePath(), 'rb');
 			if ($handle) {
 				$iterator = new LogIterator($handle, $dateFormat, $timezone);
-				return new \CallbackFilterIterator($iterator, function ($logItem) use ($levels) {
-					return $logItem && in_array($logItem['level'], $levels);
-				});
+				return new \CallbackFilterIterator($iterator, fn ($logItem) => $logItem && in_array($logItem['level'], $levels));
 			} else {
 				throw new \Exception('Error while opening ' . $log->getLogFilePath());
 			}
