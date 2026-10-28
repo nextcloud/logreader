@@ -17,10 +17,12 @@ namespace OCA\LogReader\AuditLog;
  */
 enum Operation: string {
 	case LogLevelUpdated = 'logreader.loglevel.updated';
+	case ViewerOpened = 'logreader.viewer.opened';
 
 	public function description(): string {
 		return match ($this) {
 			self::LogLevelUpdated => 'An admin changed the server log level in the Log reader settings.',
+			self::ViewerOpened => 'An admin or delegated admin opened the Log reader in the admin settings; searching, loading more entries and polling are not logged.',
 		};
 	}
 }
