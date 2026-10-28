@@ -10,8 +10,9 @@ cypress/screenshots/
 cypress/videos/
 
 # Locally installed packages
-node_modules/
-vendor/
+/node_modules
+/vendor
+/vendor-bin/*/vendor
 
 build/
 *.cache

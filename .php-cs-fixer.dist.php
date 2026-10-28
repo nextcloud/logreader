@@ -6,7 +6,7 @@ declare(strict_types=1);
  * SPDX-License-Identifier: CC0-1.0
  */
 
-require_once './vendor/autoload.php';
+require_once './vendor-bin/csfixer/vendor/autoload.php';
 
 use Nextcloud\CodingStandard\Config;
 
