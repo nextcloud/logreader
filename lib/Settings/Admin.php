@@ -7,9 +7,12 @@
 
 namespace OCA\LogReader\Settings;
 
+use OCA\LogReader\AuditLog\AuditEventFactory;
+use OCA\LogReader\AuditLog\Operation;
 use OCA\LogReader\Service\SettingsService;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
+use OCP\EventDispatcher\IEventDispatcher;
 use OCP\Settings\IDelegatedSettings;
 use OCP\Util;
 
@@ -22,6 +25,7 @@ class Admin implements IDelegatedSettings {
 		private string $appName,
 		private IInitialState $initialState,
 		private SettingsService $settingsService,
+		private IEventDispatcher $eventDispatcher,
 	) {
 	}
 
@@ -34,6 +38,9 @@ class Admin implements IDelegatedSettings {
 		Util::addStyle($this->appName, 'logreader-main');
 
 		$this->initialState->provideInitialState('settings', $this->settingsService->getAppSettings());
+
+		// Logged once per page load; searching and loading entries happen too often to log each request
+		$this->eventDispatcher->dispatchTyped(AuditEventFactory::create(Operation::ViewerOpened, 'Log reader opened'));
 
 		return new TemplateResponse($this->appName, 'index');
 	}

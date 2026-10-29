@@ -11,10 +11,13 @@ namespace OCA\LogReader\Tests\Unit\Controler;
 use OCA\LogReader\Constants;
 use OCA\LogReader\Controller\SettingsController;
 use OCA\LogReader\Service\SettingsService;
+use OCA\LogReader\Tests\AuditLog\AuditEventAssert;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
+use OCP\EventDispatcher\IEventDispatcher;
 use OCP\IConfig;
 use OCP\IRequest;
+use OCP\Log\Audit\CriticalActionPerformedEvent;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
@@ -37,6 +40,9 @@ class SettingsControllerTest extends TestCase {
 	/** @var IRequest|MockObject */
 	private $request;
 
+	/** @var IEventDispatcher|MockObject */
+	private $eventDispatcher;
+
 	public function setUp(): void {
 		parent::setUp();
 
@@ -45,6 +51,7 @@ class SettingsControllerTest extends TestCase {
 		/** @var LoggerInterface */
 		$this->logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
 		$this->request = $this->createMock(IRequest::class);
+		$this->eventDispatcher = $this->createMock(IEventDispatcher::class);
 
 		$this->settingsController = new SettingsController(
 			'logreader',
@@ -52,6 +59,7 @@ class SettingsControllerTest extends TestCase {
 			$this->settingsService,
 			$this->config,
 			$this->logger,
+			$this->eventDispatcher,
 		);
 	}
 
@@ -100,6 +108,8 @@ class SettingsControllerTest extends TestCase {
 		$this->config->expects($this->once())
 			->method('setAppValue')
 			->with('logreader', $configKey, $strConfig);
+		$this->eventDispatcher->expects($this->never())
+			->method('dispatchTyped');
 
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
@@ -122,6 +132,11 @@ class SettingsControllerTest extends TestCase {
 		$this->config->expects($this->once())
 			->method('setSystemValue')
 			->with('loglevel', 4);
+		$this->eventDispatcher->expects($this->once())
+			->method('dispatchTyped')
+			->with($this->callback(fn (CriticalActionPerformedEvent $event) => $event->getLogMessage() === 'Log level changed from %s to %s'
+				&& $event->getParameters() === ['previousLogLevel' => 3, 'logLevel' => 4]
+				&& AuditEventAssert::hasOperation($event, 'logreader.loglevel.updated')));
 
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
@@ -143,6 +158,8 @@ class SettingsControllerTest extends TestCase {
 
 		$this->config->expects($this->never())
 			->method('setAppValue');
+		$this->eventDispatcher->expects($this->never())
+			->method('dispatchTyped');
 
 		$this->assertEquals(new JSONResponse([], Http::STATUS_BAD_REQUEST), $this->settingsController->updateAppConfig('someUnknownKey', 'storeThisValue!'));
 	}
@@ -152,6 +169,8 @@ class SettingsControllerTest extends TestCase {
 			->method('debug');
 		$this->config->expects($this->never())
 			->method('setAppValue');
+		$this->eventDispatcher->expects($this->never())
+			->method('dispatchTyped');
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
 			->willReturn([
@@ -170,6 +189,8 @@ class SettingsControllerTest extends TestCase {
 
 		$this->config->expects($this->never())
 			->method('setAppValue');
+		$this->eventDispatcher->expects($this->never())
+			->method('dispatchTyped');
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
 			->willReturn([
@@ -181,5 +202,37 @@ class SettingsControllerTest extends TestCase {
 			]);
 
 		$this->assertEquals(new JSONResponse([], Http::STATUS_BAD_REQUEST), $this->settingsController->updateAppConfig(Constants::CONFIG_KEY_SHOWNLEVELS, ['debug']));
+	}
+
+	public function testUpdateAppConfig_logLevelUnchanged() {
+		$this->config->expects($this->once())
+			->method('setSystemValue')
+			->with('loglevel', 3);
+		$this->eventDispatcher->expects($this->never())
+			->method('dispatchTyped');
+		$this->settingsService->method('getAppSettings')
+			->willReturn([
+				Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
+				Constants::CONFIG_KEY_LOGLEVEL => 3,
+				Constants::CONFIG_KEY_DATETIMEFORMAT => 'local',
+				Constants::CONFIG_KEY_RELATIVEDATES => false,
+				Constants::CONFIG_KEY_LIVELOG => true,
+				'enabled' => true,
+			]);
+
+		$this->assertEquals(new JSONResponse(), $this->settingsController->updateAppConfig(Constants::CONFIG_KEY_LOGLEVEL, 3));
+	}
+
+	public function testUpdateAppConfig_invalidLogLevel() {
+		$this->config->expects($this->never())
+			->method('setSystemValue');
+		$this->eventDispatcher->expects($this->never())
+			->method('dispatchTyped');
+		$this->settingsService->method('getAppSettings')
+			->willReturn([
+				Constants::CONFIG_KEY_LOGLEVEL => 3,
+			]);
+
+		$this->assertEquals(new JSONResponse([], Http::STATUS_BAD_REQUEST), $this->settingsController->updateAppConfig(Constants::CONFIG_KEY_LOGLEVEL, 7));
 	}
 }
