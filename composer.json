@@ -3,10 +3,8 @@
 	"type": "project",
 	"license": "AGPLv3",
 	"require-dev": {
-		"nextcloud/coding-standard": "^v1.5.0",
-		"nextcloud/ocp": "dev-master",
-		"phpunit/phpunit": "^12.5",
-		"vimeo/psalm": "^6.16.1"
+		"bamarni/composer-bin-plugin": "^1.9.1",
+		"nextcloud/ocp": "dev-master"
 	},
 	"config": {
 		"optimize-autoloader": true,
@@ -14,10 +12,19 @@
 		"platform": {
 			"php": "8.3.16"
 		},
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"bamarni/composer-bin-plugin": true
+		}
 	},
 	"scripts": {
-		"lint": "find . -name \\*.php -not -path './vendor/*' -not -path './build/*' -not -path './tests/integration/vendor/*' -print0 | xargs -0 -n200 php -l",
+		"post-install-cmd": [
+			"@composer bin all install --ansi"
+		],
+		"post-update-cmd": [
+			"@composer bin all install --ansi"
+		],
+		"lint": "find . -name \\*.php -not -path './vendor/*' -not -path './vendor-bin/*' -not -path './build/*' -not -path './tests/integration/vendor/*' -print0 | xargs -0 -n200 php -l",
 		"cs:check": "php-cs-fixer fix --dry-run --diff",
 		"cs:fix": "php-cs-fixer fix",
 		"test:unit": "phpunit -c tests/phpunit.xml",
