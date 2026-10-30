@@ -16,15 +16,16 @@ use OCA\LogReader\Command\Tail;
  * Utility to write log messages to the console as they are emitted
  */
 class Console extends LogDetails {
-	private int $level;
-	private int $terminalWidth;
-	private Formatter $formatter;
+	private readonly int $level;
 
-	public function __construct(Formatter $formatter, SystemConfig $config, string $level, int $terminalWidth) {
+	public function __construct(
+		private readonly Formatter $formatter,
+		SystemConfig $config,
+		string $level,
+		private readonly int $terminalWidth,
+	) {
 		parent::__construct($config);
-		$this->formatter = $formatter;
 		$this->level = self::parseLogLevel($level);
-		$this->terminalWidth = $terminalWidth;
 	}
 
 	public function log(int $level, string $app, array $entry) {
@@ -54,19 +55,13 @@ class Console extends LogDetails {
 			return (int)$level;
 		}
 
-		switch (strtoupper($level)) {
-			case 'DEBUG':
-				return 0;
-			case 'INFO':
-				return 1;
-			case 'WARN':
-				return 2;
-			case 'ERROR':
-				return 3;
-			case 'FATAL':
-				return 4;
-			default:
-				throw new \Exception("Unknown log level $level");
-		}
+		return match (strtoupper($level)) {
+			'DEBUG' => 0,
+			'INFO' => 1,
+			'WARN' => 2,
+			'ERROR' => 3,
+			'FATAL' => 4,
+			default => throw new \Exception("Unknown log level $level"),
+		};
 	}
 }

@@ -23,16 +23,15 @@ use OCP\Util;
 class PageController extends Controller {
 
 	public function __construct(
-		private IInitialState $initialState,
-		private SettingsService $settingsService,
+		private readonly IInitialState $initialState,
+		private readonly SettingsService $settingsService,
 	) {
 	}
 
 	/**
-	 * @NoCSRFRequired
-	 *
 	 * @return TemplateResponse
 	 */
+	#[\OCP\AppFramework\Http\Attribute\NoCSRFRequired]
 	public function index() {
 		Util::addScript($this->appName, 'logreader-main');
 		Util::addStyle($this->appName, 'logreader-main');

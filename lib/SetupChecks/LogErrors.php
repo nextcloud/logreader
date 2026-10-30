@@ -20,14 +20,14 @@ use OCP\SetupCheck\SetupResult;
  * @psalm-api
  */
 class LogErrors implements ISetupCheck {
-	private const LEVEL_WARNING = 2;
-	private const LEVEL_ERROR = 3;
-	private const LEVEL_FATAL = 4;
+	private const int LEVEL_WARNING = 2;
+	private const int LEVEL_ERROR = 3;
+	private const int LEVEL_FATAL = 4;
 
 	public function __construct(
-		private IL10N $l10n,
-		private IDateTimeFormatter $dateFormatter,
-		private LogIteratorFactory $logIteratorFactory,
+		private readonly IL10N $l10n,
+		private readonly IDateTimeFormatter $dateFormatter,
+		private readonly LogIteratorFactory $logIteratorFactory,
 	) {
 	}
 

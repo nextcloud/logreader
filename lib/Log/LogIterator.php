@@ -12,12 +12,7 @@ namespace OCA\LogReader\Log;
  * @template-implements \Iterator<int,array>
  */
 class LogIterator implements \Iterator {
-	/**
-	 * @var resource
-	 */
-	private $handle;
-	private string $dateFormat;
-	private \DateTimeZone $timezone;
+	private readonly \DateTimeZone $timezone;
 
 	private string $buffer = '';
 	private string $lastLine = '';
@@ -31,9 +26,11 @@ class LogIterator implements \Iterator {
 	 * @param string $dateFormat
 	 * @param string $timezone
 	 */
-	public function __construct($handle, string $dateFormat, string $timezone) {
-		$this->handle = $handle;
-		$this->dateFormat = $dateFormat;
+	public function __construct(
+		private $handle,
+		private readonly string $dateFormat,
+		string $timezone,
+	) {
 		$this->timezone = new \DateTimeZone($timezone);
 		$this->rewind();
 	}

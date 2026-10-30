@@ -27,9 +27,9 @@ class SettingsController extends ApiController {
 	public function __construct(
 		string $appName,
 		IRequest $request,
-		private SettingsService $settingsService,
-		private IConfig $config,
-		private LoggerInterface $logger,
+		private readonly SettingsService $settingsService,
+		private readonly IConfig $config,
+		private readonly LoggerInterface $logger,
 	) {
 		parent::__construct($appName, $request);
 	}

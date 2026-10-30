@@ -19,9 +19,9 @@ use OCP\Util;
 class Admin implements IDelegatedSettings {
 
 	public function __construct(
-		private string $appName,
-		private IInitialState $initialState,
-		private SettingsService $settingsService,
+		private readonly string $appName,
+		private readonly IInitialState $initialState,
+		private readonly SettingsService $settingsService,
 	) {
 	}
 

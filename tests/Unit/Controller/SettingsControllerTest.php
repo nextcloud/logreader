@@ -43,7 +43,7 @@ class SettingsControllerTest extends TestCase {
 		$this->settingsService = $this->createMock(SettingsService::class);
 		$this->config = $this->createMock(IConfig::class);
 		/** @var LoggerInterface */
-		$this->logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
+		$this->logger = $this->getMockBuilder(\Psr\Log\LoggerInterface::class)->getMock();
 		$this->request = $this->createMock(IRequest::class);
 
 		$this->settingsController = new SettingsController(

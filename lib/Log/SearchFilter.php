@@ -30,7 +30,7 @@ class SearchFilter extends \FilterIterator {
 	}
 
 	private function formatLevel(int $level): string {
-		return isset($this->levels[$level]) ? $this->levels[$level] : 'Unknown';
+		return $this->levels[$level] ?? 'Unknown';
 	}
 
 	#[\Override]

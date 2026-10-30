@@ -96,9 +96,7 @@ class SettingsServiceTest extends TestCase {
 		$this->config->expects($this->once())
 			->method('getAppValue')
 			->with($this->equalTo('logreader'), $this->equalTo($configKey), $this->anything())
-			->willReturnCallback(function ($app, $key, $fallback) use ($default, $configValue) {
-				return $default ? $fallback : $configValue;
-			});
+			->willReturnCallback(fn ($app, $key, $fallback) => $default ? $fallback : $configValue);
 
 		$this->assertEquals($this->settingsService->{$fn}(), $expected);
 	}
@@ -123,9 +121,7 @@ class SettingsServiceTest extends TestCase {
 			->willReturn(4);
 		$this->config->expects($this->any())
 			->method('getAppValue')
-			->willReturnCallback(function ($app, $key, $fallback) {
-				return $fallback;
-			});
+			->willReturnCallback(fn ($app, $key, $fallback) => $fallback);
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
@@ -148,9 +144,7 @@ class SettingsServiceTest extends TestCase {
 			->willReturn(2);
 		$this->config->expects($this->any())
 			->method('getAppValue')
-			->willReturnCallback(function ($app, $key, $fallback) {
-				return $fallback;
-			});
+			->willReturnCallback(fn ($app, $key, $fallback) => $fallback);
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
