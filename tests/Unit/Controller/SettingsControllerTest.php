@@ -88,24 +88,32 @@ class SettingsControllerTest extends TestCase {
 			'booleanConfig' => [
 				'configKey' => Constants::CONFIG_KEY_LIVELOG,
 				'configValue' => true,
-				'strConfig' => 'true'
+				'method' => 'setValueBool',
+				'storedValue' => true,
 			],
 			'arrayConfig' => [
 				'configKey' => Constants::CONFIG_KEY_SHOWNLEVELS,
 				'configValue' => [3, 4],
-				'strConfig' => '[3,4]'
-			]
+				'method' => 'setValueArray',
+				'storedValue' => [3, 4],
+			],
+			'stringConfig' => [
+				'configKey' => Constants::CONFIG_KEY_DATETIMEFORMAT,
+				'configValue' => 'utc',
+				'method' => 'setValueString',
+				'storedValue' => '"utc"',
+			],
 		];
 	}
 
 	#[DataProvider(methodName: 'dataUpdateAppConfig')]
-	public function testUpdateAppConfig(string $configKey, $configValue, string $strConfig) {
+	public function testUpdateAppConfig(string $configKey, $configValue, string $method, $storedValue) {
 		$this->logger->expects($this->once())
 			->method('debug');
 
 		$this->appConfig->expects($this->once())
-			->method('setValueString')
-			->with('logreader', $configKey, $strConfig);
+			->method($method)
+			->with('logreader', $configKey, $storedValue);
 
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
@@ -148,7 +156,7 @@ class SettingsControllerTest extends TestCase {
 			->method('debug');
 
 		$this->appConfig->expects($this->never())
-			->method('setValueString');
+			->method($this->anything());
 
 		$this->assertEquals(new JSONResponse([], Http::STATUS_BAD_REQUEST), $this->settingsController->updateAppConfig('someUnknownKey', 'storeThisValue!'));
 	}
@@ -157,7 +165,7 @@ class SettingsControllerTest extends TestCase {
 		$this->logger->expects($this->any())
 			->method('debug');
 		$this->appConfig->expects($this->never())
-			->method('setValueString');
+			->method($this->anything());
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
 			->willReturn([
@@ -175,7 +183,7 @@ class SettingsControllerTest extends TestCase {
 			->method('debug');
 
 		$this->appConfig->expects($this->never())
-			->method('setValueString');
+			->method($this->anything());
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
 			->willReturn([

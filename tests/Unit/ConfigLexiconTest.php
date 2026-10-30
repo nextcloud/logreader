@@ -11,7 +11,6 @@ namespace OCA\LogReader\Tests\Unit;
 use OCA\LogReader\ConfigLexicon;
 use OCA\LogReader\Constants;
 use OCP\Config\Lexicon\Entry;
-use OCP\Config\Lexicon\Preset;
 use OCP\Config\ValueType;
 use Test\TestCase;
 
@@ -24,10 +23,17 @@ class ConfigLexiconTest extends TestCase {
 		$this->assertEqualsCanonicalizing($expected, $keys);
 	}
 
-	public function testAppConfigsAreJsonStrings(): void {
+	public function testAppConfigTypes(): void {
+		$types = [];
 		foreach ((new ConfigLexicon())->getAppConfigs() as $entry) {
-			$this->assertSame(ValueType::STRING, $entry->getValueType(), $entry->getKey());
-			$this->assertTrue(json_validate($entry->getDefault(Preset::NONE)), $entry->getKey());
+			$types[$entry->getKey()] = $entry->getValueType();
 		}
+
+		$this->assertSame([
+			Constants::CONFIG_KEY_SHOWNLEVELS => ValueType::ARRAY,
+			Constants::CONFIG_KEY_DATETIMEFORMAT => ValueType::STRING,
+			Constants::CONFIG_KEY_RELATIVEDATES => ValueType::BOOL,
+			Constants::CONFIG_KEY_LIVELOG => ValueType::BOOL,
+		], $types);
 	}
 }

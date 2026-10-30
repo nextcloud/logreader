@@ -25,7 +25,7 @@ class SettingsService {
 	 * Load shown levels from app config
 	 */
 	public function getShownLevels(): array {
-		return json_decode($this->appConfig->getValueString('logreader', Constants::CONFIG_KEY_SHOWNLEVELS, '[0,1,2,3,4]'), flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueArray('logreader', Constants::CONFIG_KEY_SHOWNLEVELS);
 	}
 
 	/**
@@ -39,14 +39,14 @@ class SettingsService {
 	 * Load app config if dates should be displayed as relative dates
 	 */
 	public function getRelativeDates(): bool {
-		return json_decode($this->appConfig->getValueString('logreader', Constants::CONFIG_KEY_RELATIVEDATES, 'false') ?: 'false', flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueBool('logreader', Constants::CONFIG_KEY_RELATIVEDATES);
 	}
 
 	/**
 	 * Load app config if log should be updated automatically
 	 */
 	public function getLiveLog(): bool {
-		return json_decode($this->appConfig->getValueString('logreader', Constants::CONFIG_KEY_LIVELOG, 'true'), flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueBool('logreader', Constants::CONFIG_KEY_LIVELOG);
 	}
 
 	/**

@@ -16,8 +16,6 @@ use OCP\Config\ValueType;
 /**
  * Config Lexicon for logreader.
  *
- * Values are stored as JSON strings.
- *
  * {@see ILexicon}
  */
 class ConfigLexicon implements ILexicon {
@@ -31,8 +29,8 @@ class ConfigLexicon implements ILexicon {
 		return [
 			new Entry(
 				Constants::CONFIG_KEY_SHOWNLEVELS,
-				ValueType::STRING,
-				defaultRaw: '[0,1,2,3,4]',
+				ValueType::ARRAY,
+				defaultRaw: Constants::LOGGING_LEVELS,
 				definition: 'Logging levels to show, used for filtering',
 			),
 			new Entry(
@@ -43,14 +41,14 @@ class ConfigLexicon implements ILexicon {
 			),
 			new Entry(
 				Constants::CONFIG_KEY_RELATIVEDATES,
-				ValueType::STRING,
-				defaultRaw: 'false',
+				ValueType::BOOL,
+				defaultRaw: false,
 				definition: 'If relative dates should be shown for the timestamp',
 			),
 			new Entry(
 				Constants::CONFIG_KEY_LIVELOG,
-				ValueType::STRING,
-				defaultRaw: 'true',
+				ValueType::BOOL,
+				defaultRaw: true,
 				definition: 'If automatic updates of the UI are enabled',
 			),
 		];

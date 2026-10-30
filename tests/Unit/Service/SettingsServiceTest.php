@@ -37,73 +37,39 @@ class SettingsServiceTest extends TestCase {
 
 	public static function dataTestGetters(): array {
 		return [
-			'shown_levels' => [
-				'fn' => 'getShownLevels',
-				'default' => false,
-				'configKey' => Constants::CONFIG_KEY_SHOWNLEVELS,
-				'configValue' => '[3,4]',
-				'expected' => [3, 4],
-			],
-			'shown_levels_unset' => [
-				'fn' => 'getShownLevels',
-				'default' => true,
-				'configKey' => Constants::CONFIG_KEY_SHOWNLEVELS,
-				'configValue' => null,
-				'expected' => Constants::LOGGING_LEVELS,
-			],
-			'datetime_format' => [
-				'fn' => 'getDateTimeFormat',
-				'default' => false,
-				'configKey' => Constants::CONFIG_KEY_DATETIMEFORMAT,
-				'configValue' => '"utc"',
-				'expected' => 'utc',
-			],
-			'datetime_format_unset' => [
-				'fn' => 'getDateTimeFormat',
-				'default' => true,
-				'configKey' => Constants::CONFIG_KEY_DATETIMEFORMAT,
-				'configValue' => null,
-				'expected' => 'local',
-			],
-			'live_log' => [
-				'fn' => 'getLiveLog',
-				'default' => false,
-				'configKey' => Constants::CONFIG_KEY_LIVELOG,
-				'configValue' => 'false',
-				'expected' => false,
-			],
-			'live_log_unset' => [
-				'fn' => 'getLiveLog',
-				'default' => true,
-				'configKey' => Constants::CONFIG_KEY_LIVELOG,
-				'configValue' => null,
-				'expected' => true,
-			],
-			'relative_dates' => [
-				'fn' => 'getRelativeDates',
-				'default' => false,
-				'configKey' => Constants::CONFIG_KEY_RELATIVEDATES,
-				'configValue' => 'true',
-				'expected' => true,
-			],
-			'relative_dates_unset' => [
-				'fn' => 'getRelativeDates',
-				'default' => true,
-				'configKey' => Constants::CONFIG_KEY_RELATIVEDATES,
-				'configValue' => null,
-				'expected' => false,
-			],
+			'shown_levels' => ['getShownLevels', 'getValueArray', Constants::CONFIG_KEY_SHOWNLEVELS, [3, 4]],
+			'datetime_format' => ['getDateTimeFormat', 'getValueString', Constants::CONFIG_KEY_DATETIMEFORMAT, '"utc"', 'utc'],
+			'live_log' => ['getLiveLog', 'getValueBool', Constants::CONFIG_KEY_LIVELOG, false],
+			'relative_dates' => ['getRelativeDates', 'getValueBool', Constants::CONFIG_KEY_RELATIVEDATES, true],
 		];
 	}
 
 	#[DataProvider(methodName: 'dataTestGetters')]
-	public function testGetters(string $fn, bool $default, string $configKey, ?string $configValue, mixed $expected) {
+	public function testGetters(string $fn, string $method, string $configKey, mixed $configValue, mixed $expected = null) {
 		$this->appConfig->expects($this->once())
-			->method('getValueString')
-			->with($this->equalTo('logreader'), $this->equalTo($configKey), $this->anything())
-			->willReturnCallback(fn ($app, $key, $fallback) => $default ? $fallback : $configValue);
+			->method($method)
+			->with('logreader', $configKey)
+			->willReturn($configValue);
 
-		$this->assertEquals($this->settingsService->{$fn}(), $expected);
+		$this->assertEquals($expected ?? $configValue, $this->settingsService->{$fn}());
+	}
+
+	public static function dataTestGettersDefault(): array {
+		return [
+			'shown_levels' => ['getShownLevels', 'getValueArray', Constants::LOGGING_LEVELS],
+			'datetime_format' => ['getDateTimeFormat', 'getValueString', 'local'],
+			'live_log' => ['getLiveLog', 'getValueBool', true],
+			'relative_dates' => ['getRelativeDates', 'getValueBool', false],
+		];
+	}
+
+	#[DataProvider(methodName: 'dataTestGettersDefault')]
+	public function testGettersDefault(string $fn, string $method, mixed $expected) {
+		$this->appConfig->expects($this->once())
+			->method($method)
+			->willReturnCallback(fn ($app, $key, $default = false) => $default);
+
+		$this->assertEquals($expected, $this->settingsService->{$fn}());
 	}
 
 	public function testGetLoggingType() {
@@ -124,9 +90,7 @@ class SettingsServiceTest extends TestCase {
 			->method('getSystemValueInt')
 			->with($this->equalTo('loglevel'), 2)
 			->willReturn(4);
-		$this->appConfig->expects($this->any())
-			->method('getValueString')
-			->willReturnCallback(fn ($app, $key, $fallback) => $fallback);
+		$this->mockAppConfigDefaults();
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
@@ -147,9 +111,7 @@ class SettingsServiceTest extends TestCase {
 			->method('getSystemValueInt')
 			->with($this->equalTo('loglevel'), 2)
 			->willReturn(2);
-		$this->appConfig->expects($this->any())
-			->method('getValueString')
-			->willReturnCallback(fn ($app, $key, $fallback) => $fallback);
+		$this->mockAppConfigDefaults();
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [
 			Constants::CONFIG_KEY_SHOWNLEVELS => Constants::LOGGING_LEVELS,
@@ -159,5 +121,12 @@ class SettingsServiceTest extends TestCase {
 			Constants::CONFIG_KEY_LIVELOG => true,
 			'enabled' => false,
 		]);
+	}
+
+	private function mockAppConfigDefaults(): void {
+		foreach (['getValueString', 'getValueBool', 'getValueArray'] as $method) {
+			$this->appConfig->method($method)
+				->willReturnCallback(fn ($app, $key, $default = false) => $default);
+		}
 	}
 }
