@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace OCA\LogReader\AppInfo;
 
+use OCA\LogReader\ConfigLexicon;
 use OCA\LogReader\Listener\LogListener;
 use OCA\LogReader\Log\Formatter;
 use OCA\LogReader\SetupChecks\LogErrors;
@@ -33,6 +34,7 @@ class Application extends App implements IBootstrap {
 		$context->registerService(Formatter::class, fn () => new Formatter(\OC::$SERVERROOT));
 
 		$context->registerSetupCheck(LogErrors::class);
+		$context->registerConfigLexicon(ConfigLexicon::class);
 	}
 
 	#[\Override]

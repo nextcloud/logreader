@@ -13,6 +13,7 @@ use OCA\LogReader\Controller\SettingsController;
 use OCA\LogReader\Service\SettingsService;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
+use OCP\IAppConfig;
 use OCP\IConfig;
 use OCP\IRequest;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -37,6 +38,9 @@ class SettingsControllerTest extends TestCase {
 	/** @var IRequest|MockObject */
 	private $request;
 
+	/** @var IAppConfig|MockObject */
+	private $appConfig;
+
 	public function setUp(): void {
 		parent::setUp();
 
@@ -45,6 +49,7 @@ class SettingsControllerTest extends TestCase {
 		/** @var LoggerInterface */
 		$this->logger = $this->getMockBuilder(\Psr\Log\LoggerInterface::class)->getMock();
 		$this->request = $this->createMock(IRequest::class);
+		$this->appConfig = $this->createMock(IAppConfig::class);
 
 		$this->settingsController = new SettingsController(
 			'logreader',
@@ -52,6 +57,7 @@ class SettingsControllerTest extends TestCase {
 			$this->settingsService,
 			$this->config,
 			$this->logger,
+			$this->appConfig,
 		);
 	}
 
@@ -82,24 +88,32 @@ class SettingsControllerTest extends TestCase {
 			'booleanConfig' => [
 				'configKey' => Constants::CONFIG_KEY_LIVELOG,
 				'configValue' => true,
-				'strConfig' => 'true'
+				'method' => 'setValueBool',
+				'storedValue' => true,
 			],
 			'arrayConfig' => [
 				'configKey' => Constants::CONFIG_KEY_SHOWNLEVELS,
 				'configValue' => [3, 4],
-				'strConfig' => '[3,4]'
-			]
+				'method' => 'setValueArray',
+				'storedValue' => [3, 4],
+			],
+			'stringConfig' => [
+				'configKey' => Constants::CONFIG_KEY_DATETIMEFORMAT,
+				'configValue' => 'utc',
+				'method' => 'setValueString',
+				'storedValue' => 'utc',
+			],
 		];
 	}
 
 	#[DataProvider(methodName: 'dataUpdateAppConfig')]
-	public function testUpdateAppConfig(string $configKey, $configValue, string $strConfig) {
+	public function testUpdateAppConfig(string $configKey, $configValue, string $method, $storedValue) {
 		$this->logger->expects($this->once())
 			->method('debug');
 
-		$this->config->expects($this->once())
-			->method('setAppValue')
-			->with('logreader', $configKey, $strConfig);
+		$this->appConfig->expects($this->once())
+			->method($method)
+			->with('logreader', $configKey, $storedValue);
 
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
@@ -141,8 +155,8 @@ class SettingsControllerTest extends TestCase {
 		$this->logger->expects($this->any())
 			->method('debug');
 
-		$this->config->expects($this->never())
-			->method('setAppValue');
+		$this->appConfig->expects($this->never())
+			->method($this->anything());
 
 		$this->assertEquals(new JSONResponse([], Http::STATUS_BAD_REQUEST), $this->settingsController->updateAppConfig('someUnknownKey', 'storeThisValue!'));
 	}
@@ -150,8 +164,8 @@ class SettingsControllerTest extends TestCase {
 	public function testUpdateAppConfig_invalidType() {
 		$this->logger->expects($this->any())
 			->method('debug');
-		$this->config->expects($this->never())
-			->method('setAppValue');
+		$this->appConfig->expects($this->never())
+			->method($this->anything());
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
 			->willReturn([
@@ -168,8 +182,8 @@ class SettingsControllerTest extends TestCase {
 		$this->logger->expects($this->any())
 			->method('debug');
 
-		$this->config->expects($this->never())
-			->method('setAppValue');
+		$this->appConfig->expects($this->never())
+			->method($this->anything());
 		$this->settingsService->expects($this->once())
 			->method('getAppSettings')
 			->willReturn([

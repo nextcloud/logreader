@@ -8,6 +8,7 @@
 namespace OCA\LogReader\Service;
 
 use OCA\LogReader\Constants;
+use OCP\IAppConfig;
 use OCP\IConfig;
 
 /**
@@ -16,6 +17,7 @@ use OCP\IConfig;
 class SettingsService {
 	public function __construct(
 		private readonly IConfig $config,
+		private readonly IAppConfig $appConfig,
 	) {
 	}
 
@@ -23,28 +25,28 @@ class SettingsService {
 	 * Load shown levels from app config
 	 */
 	public function getShownLevels(): array {
-		return json_decode($this->config->getAppValue('logreader', Constants::CONFIG_KEY_SHOWNLEVELS, '[0,1,2,3,4]'), flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueArray('logreader', Constants::CONFIG_KEY_SHOWNLEVELS);
 	}
 
 	/**
 	 * Load date time format to use for user from app config
 	 */
 	public function getDateTimeFormat(): string {
-		return json_decode($this->config->getAppValue('logreader', Constants::CONFIG_KEY_DATETIMEFORMAT, '"local"'), flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueString('logreader', Constants::CONFIG_KEY_DATETIMEFORMAT);
 	}
 
 	/**
 	 * Load app config if dates should be displayed as relative dates
 	 */
 	public function getRelativeDates(): bool {
-		return json_decode($this->config->getAppValue('logreader', Constants::CONFIG_KEY_RELATIVEDATES, 'false') ?: 'false', flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueBool('logreader', Constants::CONFIG_KEY_RELATIVEDATES);
 	}
 
 	/**
 	 * Load app config if log should be updated automatically
 	 */
 	public function getLiveLog(): bool {
-		return json_decode($this->config->getAppValue('logreader', Constants::CONFIG_KEY_LIVELOG, 'true'), flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueBool('logreader', Constants::CONFIG_KEY_LIVELOG);
 	}
 
 	/**
