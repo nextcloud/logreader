@@ -17,6 +17,8 @@ use OCP\Migration\SimpleMigrationStep;
 
 /**
  * Store the date time format as plain string instead of a JSON encoded string
+ *
+ * @psalm-api
  */
 class Version9000Date20261030000000 extends SimpleMigrationStep {
 	public function __construct(
