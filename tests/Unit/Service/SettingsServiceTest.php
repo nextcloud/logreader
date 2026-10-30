@@ -10,6 +10,7 @@ namespace OCA\LogReader\Tests\Unit\Service;
 
 use OCA\LogReader\Constants;
 use OCA\LogReader\Service\SettingsService;
+use OCP\IAppConfig;
 use OCP\IConfig;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -23,11 +24,15 @@ class SettingsServiceTest extends TestCase {
 	/** @var IConfig|MockObject */
 	private $config;
 
+	/** @var IAppConfig|MockObject */
+	private $appConfig;
+
 	public function setUp(): void {
 		parent::setUp();
 
 		$this->config = $this->createMock(IConfig::class);
-		$this->settingsService = new SettingsService($this->config);
+		$this->appConfig = $this->createMock(IAppConfig::class);
+		$this->settingsService = new SettingsService($this->config, $this->appConfig);
 	}
 
 	public static function dataTestGetters(): array {
@@ -93,8 +98,8 @@ class SettingsServiceTest extends TestCase {
 
 	#[DataProvider(methodName: 'dataTestGetters')]
 	public function testGetters(string $fn, bool $default, string $configKey, ?string $configValue, mixed $expected) {
-		$this->config->expects($this->once())
-			->method('getAppValue')
+		$this->appConfig->expects($this->once())
+			->method('getValueString')
 			->with($this->equalTo('logreader'), $this->equalTo($configKey), $this->anything())
 			->willReturnCallback(fn ($app, $key, $fallback) => $default ? $fallback : $configValue);
 
@@ -119,8 +124,8 @@ class SettingsServiceTest extends TestCase {
 			->method('getSystemValueInt')
 			->with($this->equalTo('loglevel'), 2)
 			->willReturn(4);
-		$this->config->expects($this->any())
-			->method('getAppValue')
+		$this->appConfig->expects($this->any())
+			->method('getValueString')
 			->willReturnCallback(fn ($app, $key, $fallback) => $fallback);
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [
@@ -142,8 +147,8 @@ class SettingsServiceTest extends TestCase {
 			->method('getSystemValueInt')
 			->with($this->equalTo('loglevel'), 2)
 			->willReturn(2);
-		$this->config->expects($this->any())
-			->method('getAppValue')
+		$this->appConfig->expects($this->any())
+			->method('getValueString')
 			->willReturnCallback(fn ($app, $key, $fallback) => $fallback);
 
 		$this->assertEquals($this->settingsService->getAppSettings(), [

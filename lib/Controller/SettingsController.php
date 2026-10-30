@@ -15,6 +15,7 @@ use OCP\AppFramework\ApiController;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Attribute\AuthorizedAdminSetting;
 use OCP\AppFramework\Http\JSONResponse;
+use OCP\IAppConfig;
 use OCP\IConfig;
 use OCP\IRequest;
 use Psr\Log\LoggerInterface;
@@ -30,6 +31,7 @@ class SettingsController extends ApiController {
 		private readonly SettingsService $settingsService,
 		private readonly IConfig $config,
 		private readonly LoggerInterface $logger,
+		private readonly IAppConfig $appConfig,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -88,7 +90,7 @@ class SettingsController extends ApiController {
 			$this->config->setSystemValue('loglevel', $settingsValue);
 		} else {
 			// Set on DB
-			$this->config->setAppValue($this->appName, $settingsKey, json_encode($settingsValue));
+			$this->appConfig->setValueString($this->appName, $settingsKey, json_encode($settingsValue, flags: JSON_THROW_ON_ERROR));
 		}
 
 		return new JSONResponse();
