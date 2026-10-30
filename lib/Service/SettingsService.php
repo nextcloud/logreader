@@ -32,7 +32,7 @@ class SettingsService {
 	 * Load date time format to use for user from app config
 	 */
 	public function getDateTimeFormat(): string {
-		return json_decode($this->appConfig->getValueString('logreader', Constants::CONFIG_KEY_DATETIMEFORMAT, '"local"'), flags: JSON_THROW_ON_ERROR);
+		return $this->appConfig->getValueString('logreader', Constants::CONFIG_KEY_DATETIMEFORMAT);
 	}
 
 	/**

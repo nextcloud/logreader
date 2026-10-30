@@ -38,38 +38,20 @@ class SettingsServiceTest extends TestCase {
 	public static function dataTestGetters(): array {
 		return [
 			'shown_levels' => ['getShownLevels', 'getValueArray', Constants::CONFIG_KEY_SHOWNLEVELS, [3, 4]],
-			'datetime_format' => ['getDateTimeFormat', 'getValueString', Constants::CONFIG_KEY_DATETIMEFORMAT, '"utc"', 'utc'],
+			'datetime_format' => ['getDateTimeFormat', 'getValueString', Constants::CONFIG_KEY_DATETIMEFORMAT, 'utc'],
 			'live_log' => ['getLiveLog', 'getValueBool', Constants::CONFIG_KEY_LIVELOG, false],
 			'relative_dates' => ['getRelativeDates', 'getValueBool', Constants::CONFIG_KEY_RELATIVEDATES, true],
 		];
 	}
 
 	#[DataProvider(methodName: 'dataTestGetters')]
-	public function testGetters(string $fn, string $method, string $configKey, mixed $configValue, mixed $expected = null) {
+	public function testGetters(string $fn, string $method, string $configKey, mixed $configValue) {
 		$this->appConfig->expects($this->once())
 			->method($method)
 			->with('logreader', $configKey)
 			->willReturn($configValue);
 
-		$this->assertEquals($expected ?? $configValue, $this->settingsService->{$fn}());
-	}
-
-	public static function dataTestGettersDefault(): array {
-		return [
-			'shown_levels' => ['getShownLevels', 'getValueArray', Constants::LOGGING_LEVELS],
-			'datetime_format' => ['getDateTimeFormat', 'getValueString', 'local'],
-			'live_log' => ['getLiveLog', 'getValueBool', true],
-			'relative_dates' => ['getRelativeDates', 'getValueBool', false],
-		];
-	}
-
-	#[DataProvider(methodName: 'dataTestGettersDefault')]
-	public function testGettersDefault(string $fn, string $method, mixed $expected) {
-		$this->appConfig->expects($this->once())
-			->method($method)
-			->willReturnCallback(fn ($app, $key, $default = false) => $default);
-
-		$this->assertEquals($expected, $this->settingsService->{$fn}());
+		$this->assertEquals($configValue, $this->settingsService->{$fn}());
 	}
 
 	public function testGetLoggingType() {
@@ -124,9 +106,11 @@ class SettingsServiceTest extends TestCase {
 	}
 
 	private function mockAppConfigDefaults(): void {
-		foreach (['getValueString', 'getValueBool', 'getValueArray'] as $method) {
-			$this->appConfig->method($method)
-				->willReturnCallback(fn ($app, $key, $default = false) => $default);
-		}
+		$this->appConfig->method('getValueArray')->willReturn(Constants::LOGGING_LEVELS);
+		$this->appConfig->method('getValueString')->willReturn('local');
+		$this->appConfig->method('getValueBool')->willReturnMap([
+			['logreader', Constants::CONFIG_KEY_RELATIVEDATES, false, false, false],
+			['logreader', Constants::CONFIG_KEY_LIVELOG, false, false, true],
+		]);
 	}
 }

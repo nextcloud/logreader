@@ -36,7 +36,7 @@ class ConfigLexicon implements ILexicon {
 			new Entry(
 				Constants::CONFIG_KEY_DATETIMEFORMAT,
 				ValueType::STRING,
-				defaultRaw: '"local"',
+				defaultRaw: 'local',
 				definition: 'Display format of the timestamp',
 			),
 			new Entry(

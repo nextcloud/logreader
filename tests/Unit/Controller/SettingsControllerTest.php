@@ -101,7 +101,7 @@ class SettingsControllerTest extends TestCase {
 				'configKey' => Constants::CONFIG_KEY_DATETIMEFORMAT,
 				'configValue' => 'utc',
 				'method' => 'setValueString',
-				'storedValue' => '"utc"',
+				'storedValue' => 'utc',
 			],
 		];
 	}

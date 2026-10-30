@@ -93,7 +93,7 @@ class SettingsController extends ApiController {
 		} elseif (is_array($settingsValue)) {
 			$this->appConfig->setValueArray($this->appName, $settingsKey, $settingsValue);
 		} else {
-			$this->appConfig->setValueString($this->appName, $settingsKey, json_encode($settingsValue, flags: JSON_THROW_ON_ERROR));
+			$this->appConfig->setValueString($this->appName, $settingsKey, $settingsValue);
 		}
 
 		return new JSONResponse();
