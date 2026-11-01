@@ -51,7 +51,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 0.5.0
 	- license: GPL-3.0-or-later
 - @nextcloud/dialogs
-	- version: 7.4.1
+	- version: 7.6.0
 	- license: AGPL-3.0-or-later
 - @nextcloud/event-bus
 	- version: 3.3.3
@@ -72,7 +72,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 0.4.0
 	- license: GPL-3.0-or-later
 - @nextcloud/vue
-	- version: 9.13.1
+	- version: 9.14.1
 	- license: AGPL-3.0-or-later
 - @nextcloud/vue-select
 	- version: 4.1.0
@@ -96,10 +96,10 @@ This file is generated from multiple sources. Included packages:
 	- version: 3.5.44
 	- license: MIT
 - @vueuse/core
-	- version: 14.4.0
+	- version: 15.0.0
 	- license: MIT
 - @vueuse/shared
-	- version: 14.4.0
+	- version: 15.0.0
 	- license: MIT
 - axios
 	- version: 1.20.0
@@ -138,7 +138,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 5.2.2
 	- license: MIT
 - focus-trap
-	- version: 8.2.2
+	- version: 8.2.4
 	- license: MIT
 - hast-util-is-element
 	- version: 3.0.0
@@ -270,7 +270,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 1.0.14
 	- license: MIT
 - tabbable
-	- version: 6.5.0
+	- version: 6.5.1
 	- license: MIT
 - toastify-js
 	- version: 1.12.0
@@ -300,7 +300,7 @@ This file is generated from multiple sources. Included packages:
 	- version: 5.1.0
 	- license: MIT
 - unist-util-visit-parents
-	- version: 6.0.2
+	- version: 6.1.0
 	- license: MIT
 - vfile
 	- version: 6.0.3
