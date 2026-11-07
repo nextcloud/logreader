@@ -62,8 +62,6 @@ import LogTable from './components/table/LogTable.vue'
 import { useLogStore } from './store/logging'
 import { useSettingsStore } from './store/settings'
 
-import '@nextcloud/dialogs/style.css'
-
 /** If currently showing the settings modal */
 const areSettingsShown = ref(false)
 
