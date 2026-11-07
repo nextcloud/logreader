@@ -60,7 +60,7 @@
 <script setup lang="ts">
 import type { ILogEntry } from '../interfaces'
 
-import { showSuccess } from '@nextcloud/dialogs'
+import { showSuccess } from '@nextcloud/dialogs/toast'
 import { translate as t } from '@nextcloud/l10n'
 import { computed, ref, watchEffect } from 'vue'
 import NcButton from '@nextcloud/vue/components/NcButton'

@@ -27,7 +27,7 @@ const mocks = vi.hoisted(() => {
 	}
 })
 
-vi.mock('@nextcloud/dialogs', () => ({
+vi.mock('@nextcloud/dialogs/toast', () => ({
 	showError: mocks.showError,
 }))
 

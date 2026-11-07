@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { showError } from '@nextcloud/dialogs'
+import { showError } from '@nextcloud/dialogs/toast'
 import { translate as t } from '@nextcloud/l10n'
 import { generateUrl } from '@nextcloud/router'
 import { ref } from 'vue'

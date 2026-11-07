@@ -6,7 +6,7 @@
 import type { AxiosError } from '@nextcloud/axios'
 import type { ILogEntry } from '../interfaces'
 
-import { showError } from '@nextcloud/dialogs'
+import { showError } from '@nextcloud/dialogs/toast'
 import { translate as t } from '@nextcloud/l10n'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'

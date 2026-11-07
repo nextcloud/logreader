@@ -73,7 +73,7 @@
 <script setup lang="ts">
 import type { ILogEntry } from '../../interfaces'
 
-import { showSuccess } from '@nextcloud/dialogs'
+import { showSuccess } from '@nextcloud/dialogs/toast'
 import { translate as t } from '@nextcloud/l10n'
 import { computed, nextTick, onUpdated, ref, watch } from 'vue'
 import NcActionButton from '@nextcloud/vue/components/NcActionButton'
