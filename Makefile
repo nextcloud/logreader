@@ -9,29 +9,29 @@ package_name=$(app_name)
 cert_dir=$(HOME)/.nextcloud/certificates
 webpack=node_modules/.bin/webpack
 
-jssources=$(wildcard js/*) $(wildcard js/*/*) $(wildcard css/*/*)  $(wildcard css/*)
 othersources=$(wildcard appinfo/*) $(wildcard css/*/*) $(wildcard controller/*/*) $(wildcard templates/*/*) $(wildcard log/*/*)
 
-all: build/main.js
+.PHONY: all build-js-production
+all: build-js-production
 
 clean:
 	rm -rf $(build_dir)
 	rm -rf node_modules
 
-node_modules: package.json
-	npm install --deps
+node_modules: package.json package-lock.json
+	npm ci
 
-build/main.js: node_modules $(jssources)
+build-js-production: node_modules
 	npm run build
 
 .PHONY: watch
 watch: node_modules
-	node node_modules/.bin/webpack-dev-server --public localcloud.icewind.me:444 --inline --hot --port 3000 --config webpack/dev.config.js
+	npm run dev:watch
 
-appstore: clean build/main.js package
+appstore: clean build-js-production package
 
 package: build/appstore/$(package_name).tar.gz
-build/appstore/$(package_name).tar.gz: build/main.js $(othersources)
+build/appstore/$(package_name).tar.gz: build-js-production $(othersources)
 	mkdir -p $(appstore_dir)
 	tar --exclude-vcs \
 	--exclude=$(appstore_dir) \
