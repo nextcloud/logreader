@@ -34,7 +34,7 @@ package: build/appstore/$(package_name).tar.gz
 build/appstore/$(package_name).tar.gz: build-js-production $(othersources)
 	mkdir -p $(appstore_dir)
 	tar --exclude-vcs \
-	--exclude=$(appstore_dir) \
+	--exclude=$(build_dir) \
 	--exclude=$(project_dir)/node_modules \
 	--exclude=$(project_dir)/.gitattributes \
 	--exclude=$(project_dir)/.github \
