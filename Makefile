@@ -36,15 +36,28 @@ build/appstore/$(package_name).tar.gz: build-js-production $(othersources)
 	tar --exclude-vcs \
 	--exclude=$(appstore_dir) \
 	--exclude=$(project_dir)/node_modules \
-	--exclude=$(project_dir)/webpack \
 	--exclude=$(project_dir)/.gitattributes \
+	--exclude=$(project_dir)/.github \
 	--exclude=$(project_dir)/.gitignore \
-	--exclude=$(project_dir)/.travis.yml \
+	--exclude=$(project_dir)/.l10nignore \
+	--exclude=$(project_dir)/.php-cs-fixer.dist.php \
 	--exclude=$(project_dir)/.tx \
-	--exclude=$(project_dir)/.scrutinizer.yml \
-	--exclude=$(project_dir)/CONTRIBUTING.md \
+	--exclude=$(project_dir)/codecov.yml \
+	--exclude=$(project_dir)/composer.json \
+	--exclude=$(project_dir)/composer.lock \
+	--exclude=$(project_dir)/eslint.config.mjs \
+	--exclude=$(project_dir)/package-lock.json \
 	--exclude=$(project_dir)/package.json \
+	--exclude=$(project_dir)/psalm.xml \
+	--exclude=$(project_dir)/rector.php \
+	--exclude=$(project_dir)/README.md \
+	--exclude=$(project_dir)/REUSE.toml \
 	--exclude=$(project_dir)/screenshots \
+	--exclude=$(project_dir)/src \
+	--exclude=$(project_dir)/tests \
+	--exclude=$(project_dir)/tsconfig.json \
+	--exclude=$(project_dir)/vendor-bin \
+	--exclude=$(project_dir)/vite.config.ts \
 	--exclude=$(project_dir)/Makefile \
 	-cvzf $(appstore_dir)/$(package_name).tar.gz $(project_dir)
 	openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(appstore_dir)/$(app_name).tar.gz | openssl base64
