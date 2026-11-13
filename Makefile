@@ -9,42 +9,55 @@ package_name=$(app_name)
 cert_dir=$(HOME)/.nextcloud/certificates
 webpack=node_modules/.bin/webpack
 
-jssources=$(wildcard js/*) $(wildcard js/*/*) $(wildcard css/*/*)  $(wildcard css/*)
 othersources=$(wildcard appinfo/*) $(wildcard css/*/*) $(wildcard controller/*/*) $(wildcard templates/*/*) $(wildcard log/*/*)
 
-all: build/main.js
+.PHONY: all build-js-production
+all: build-js-production
 
 clean:
 	rm -rf $(build_dir)
 	rm -rf node_modules
 
-node_modules: package.json
-	npm install --deps
+node_modules: package.json package-lock.json
+	npm ci
 
-build/main.js: node_modules $(jssources)
+build-js-production: node_modules
 	npm run build
 
 .PHONY: watch
 watch: node_modules
-	node node_modules/.bin/webpack-dev-server --public localcloud.icewind.me:444 --inline --hot --port 3000 --config webpack/dev.config.js
+	npm run dev:watch
 
-appstore: clean build/main.js package
+appstore: clean build-js-production package
 
 package: build/appstore/$(package_name).tar.gz
-build/appstore/$(package_name).tar.gz: build/main.js $(othersources)
+build/appstore/$(package_name).tar.gz: build-js-production $(othersources)
 	mkdir -p $(appstore_dir)
 	tar --exclude-vcs \
-	--exclude=$(appstore_dir) \
+	--exclude=$(build_dir) \
 	--exclude=$(project_dir)/node_modules \
-	--exclude=$(project_dir)/webpack \
 	--exclude=$(project_dir)/.gitattributes \
+	--exclude=$(project_dir)/.github \
 	--exclude=$(project_dir)/.gitignore \
-	--exclude=$(project_dir)/.travis.yml \
+	--exclude=$(project_dir)/.l10nignore \
+	--exclude=$(project_dir)/.php-cs-fixer.dist.php \
 	--exclude=$(project_dir)/.tx \
-	--exclude=$(project_dir)/.scrutinizer.yml \
-	--exclude=$(project_dir)/CONTRIBUTING.md \
+	--exclude=$(project_dir)/codecov.yml \
+	--exclude=$(project_dir)/composer.json \
+	--exclude=$(project_dir)/composer.lock \
+	--exclude=$(project_dir)/eslint.config.mjs \
+	--exclude=$(project_dir)/package-lock.json \
 	--exclude=$(project_dir)/package.json \
+	--exclude=$(project_dir)/psalm.xml \
+	--exclude=$(project_dir)/rector.php \
+	--exclude=$(project_dir)/README.md \
+	--exclude=$(project_dir)/REUSE.toml \
 	--exclude=$(project_dir)/screenshots \
+	--exclude=$(project_dir)/src \
+	--exclude=$(project_dir)/tests \
+	--exclude=$(project_dir)/tsconfig.json \
+	--exclude=$(project_dir)/vendor-bin \
+	--exclude=$(project_dir)/vite.config.ts \
 	--exclude=$(project_dir)/Makefile \
 	-cvzf $(appstore_dir)/$(package_name).tar.gz $(project_dir)
 	openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(appstore_dir)/$(app_name).tar.gz | openssl base64
