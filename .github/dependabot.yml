@@ -36,7 +36,7 @@ updates:
         - "@vitest/coverage-*"
   target-branch: stable35
   commit-message:
-    prefix: "[stable35] chore"
+    prefix: "chore"
     include: scope
   open-pull-requests-limit: 10
   versioning-strategy: increase
@@ -61,7 +61,7 @@ updates:
         - "@vitest/coverage-*"
   target-branch: stable34
   commit-message:
-    prefix: "[stable34] chore"
+    prefix: "chore"
     include: scope
   open-pull-requests-limit: 10
   versioning-strategy: increase
@@ -86,7 +86,7 @@ updates:
         - "@vitest/coverage-*"
   target-branch: stable33
   commit-message:
-    prefix: "[stable33] chore"
+    prefix: "chore"
     include: scope
   open-pull-requests-limit: 10
   versioning-strategy: increase
