@@ -42,7 +42,7 @@
     "browserslist": "^4.29.5",
     "happy-dom": "^21.0.4",
     "typescript": "^6.0.3",
-    "vite": "^7.3.7",
+    "vite": "^7.3.8",
     "vitest": "^5.0.1"
   },
   "engines": {
